@@ -15,10 +15,10 @@ app.use(
         max: 100, //? limit each IP to 100 requests per windowMs
     })
 );
-app.use(express.json());
-app.use(cors());
-app.use(xss());
-app.use(helmet());
+app.use(express.json()); //* Allows server to accept JSON in the body of a request
+app.use(cors()); //* Cross-origin resource sharing allows ajax requests to skip the same origin policy and access resources from remote hosts
+app.use(xss()); //* Filters input from users to prevent XSS attacks
+app.use(helmet()); //* Helps secure Express apps by setting various HTTP headers
 
 app.get('/', (req, res) => {
     res.send('hello world');
