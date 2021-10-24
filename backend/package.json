@@ -16,6 +16,7 @@
     "express": "^4.17.1",
     "express-rate-limit": "^5.5.0",
     "helmet": "^4.6.0",
+    "http-status-codes": "^2.1.4",
     "mongoose": "^6.0.12",
     "xss-clean": "^0.1.1"
   }
