@@ -1,9 +1,7 @@
 import express from 'express';
 const router = express.Router();
+import { getAllProducts } from '../controllers/products.controller.js';
 
-router.route('/').get((req, res) => {
-    throw new Error('test');
-    res.send('hello world');
-});
+router.route('/').get(getAllProducts);
 
 export default router;
