@@ -1,12 +1,15 @@
-import express from 'express';
-import expressLimiter from 'express-rate-limit';
-import cors from 'cors';
-import xss from 'xss-clean';
-import helmet from 'helmet';
 import dotenv from 'dotenv';
-dotenv.config();
+import express from 'express';
+import 'express-async-errors'; //? Make Express catch errors coming from asynchronous functions without try-catch blocks
+import expressLimiter from 'express-rate-limit'; //? Limit repeated requests to public APIs and/or endpoints such as password reset
+import cors from 'cors'; //? Cross-origin resource sharing allows ajax requests to skip the same origin policy and access resources from remote hosts
+import xss from 'xss-clean'; //? Filters input from users to prevent XSS attacks
+import helmet from 'helmet'; //? Helps secure Express apps by setting various HTTP headers
 import connectDB from './db/connect.js';
 import productsRouter from './routes/products.route.js';
+import notFound from './middlewares/not-found.middleware.js';
+
+dotenv.config(); //? To use environment variables from .env file
 
 const app = express();
 const port = process.env.PORT || 5000;
@@ -19,13 +22,16 @@ app.use(
         max: 100, //? limit each IP to 100 requests per windowMs
     })
 );
-app.use(express.json()); //* Allows server to accept JSON in the body of a request
-app.use(cors()); //* Cross-origin resource sharing allows ajax requests to skip the same origin policy and access resources from remote hosts
-app.use(xss()); //* Filters input from users to prevent XSS attacks
-app.use(helmet()); //* Helps secure Express apps by setting various HTTP headers
+app.use(express.json()); //? Allows server to accept JSON in the body of a request
+app.use(cors());
+app.use(xss());
+app.use(helmet());
 
 //* Routes
 app.use('/api/v1/products', productsRouter);
+
+//* Error middlewares
+app.use(notFound);
 
 const start = async () => {
     try {
