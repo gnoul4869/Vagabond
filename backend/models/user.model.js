@@ -1,4 +1,8 @@
+import dotenv from 'dotenv';
+dotenv.config();
 import mongoose from 'mongoose';
+import bcrypt from 'bcryptjs';
+import jwt from 'jsonwebtoken';
 
 const userSchema = new mongoose.Schema(
     {
@@ -32,6 +36,17 @@ const userSchema = new mongoose.Schema(
         timestamps: true,
     }
 );
+
+userSchema.pre('save', async function () {
+    const salt = await bcrypt.genSalt(10);
+    this.password = await bcrypt.hash(this.password, salt);
+});
+
+userSchema.methods.createJWT = function () {
+    return jwt.sign({ id: this._id, name: this.name }, process.env.JWT_SECRET, {
+        expiresIn: process.env.JWT_LIFETIME,
+    });
+};
 
 const User = mongoose.model('User', userSchema);
 
