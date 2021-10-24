@@ -6,6 +6,7 @@ import helmet from 'helmet';
 import dotenv from 'dotenv';
 dotenv.config();
 import connectDB from './db/connect.js';
+import productsRouter from './routes/products.route.js';
 
 const app = express();
 const port = process.env.PORT || 5000;
@@ -23,9 +24,8 @@ app.use(cors()); //* Cross-origin resource sharing allows ajax requests to skip 
 app.use(xss()); //* Filters input from users to prevent XSS attacks
 app.use(helmet()); //* Helps secure Express apps by setting various HTTP headers
 
-app.get('/', (req, res) => {
-    res.send('hello world');
-});
+//* Routes
+app.use('/api/v1/products', productsRouter);
 
 const start = async () => {
     try {
