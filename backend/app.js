@@ -8,6 +8,7 @@ import helmet from 'helmet'; //? Helps secure Express apps by setting various HT
 import connectDB from './db/connect.js';
 import productsRouter from './routes/products.route.js';
 import notFound from './middlewares/not-found.middleware.js';
+import errorHandler from './middlewares/error-handler.middleware.js';
 
 dotenv.config(); //? To use environment variables from .env file
 
@@ -32,6 +33,7 @@ app.use('/api/v1/products', productsRouter);
 
 //* Error middlewares
 app.use(notFound);
+app.use(errorHandler);
 
 const start = async () => {
     try {
