@@ -6,6 +6,7 @@ import cors from 'cors'; //? Cross-origin resource sharing allows ajax requests 
 import xss from 'xss-clean'; //? Filters input from users to prevent XSS attacks
 import helmet from 'helmet'; //? Helps secure Express apps by setting various HTTP headers
 import connectDB from './db/connect.js';
+import authRouter from './routes/auth.route.js';
 import productsRouter from './routes/products.route.js';
 import notFound from './middlewares/not-found.middleware.js';
 import errorHandler from './middlewares/error-handler.middleware.js';
@@ -29,9 +30,10 @@ app.use(xss());
 app.use(helmet());
 
 //* Routes
+app.use('/api/v1/auth', authRouter);
 app.use('/api/v1/products', productsRouter);
 
-//* Error middlewares
+//* Error middlewares (Must be placed in the bottom)
 app.use(notFound);
 app.use(errorHandler);
 
