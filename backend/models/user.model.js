@@ -1,5 +1,4 @@
-import dotenv from 'dotenv';
-dotenv.config();
+import {} from 'dotenv/config.js';
 import mongoose from 'mongoose';
 import bcrypt from 'bcrypt';
 import jwt from 'jsonwebtoken';
@@ -47,9 +46,13 @@ userSchema.methods.comparePassword = async function (password) {
 };
 
 userSchema.methods.createJWT = function () {
-    return jwt.sign({ id: this._id, name: this.name }, process.env.JWT_SECRET, {
-        expiresIn: process.env.JWT_LIFETIME,
-    });
+    return jwt.sign(
+        { id: this._id, name: this.name, role: this.role },
+        process.env.JWT_SECRET,
+        {
+            expiresIn: process.env.JWT_LIFETIME,
+        }
+    );
 };
 
 const User = mongoose.model('User', userSchema);

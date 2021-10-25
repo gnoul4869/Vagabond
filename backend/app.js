@@ -1,4 +1,4 @@
-import dotenv from 'dotenv';
+import {} from 'dotenv/config.js'; //? To use environment variables from .env file
 import express from 'express';
 import 'express-async-errors'; //? Make Express catch errors coming from asynchronous functions without try-catch blocks
 import expressLimiter from 'express-rate-limit'; //? Limit repeated requests to public APIs and/or endpoints such as password reset
@@ -8,10 +8,9 @@ import helmet from 'helmet'; //? Helps secure Express apps by setting various HT
 import connectDB from './db/connect.js';
 import authRouter from './routes/auth.route.js';
 import productsRouter from './routes/products.route.js';
+import auth from './middlewares/auth.middleware.js';
 import notFound from './middlewares/not-found.middleware.js';
 import errorHandler from './middlewares/error-handler.middleware.js';
-
-dotenv.config(); //? To use environment variables from .env file
 
 const app = express();
 const port = process.env.PORT || 5000;
@@ -31,7 +30,7 @@ app.use(helmet());
 
 //* Routes
 app.use('/api/v1/auth', authRouter);
-app.use('/api/v1/products', productsRouter);
+app.use('/api/v1/products', auth, productsRouter);
 
 //* Error middlewares (Must be placed in the bottom)
 app.use(notFound);
