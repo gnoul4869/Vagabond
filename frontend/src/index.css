@@ -12,10 +12,10 @@ code {
         monospace;
 }
 
-.bg-inspiring-red {
-    background-color: #c73434;
-}
-
 .logo {
     height: 60px;
+}
+
+.bg-inspiring-red {
+    background-color: #c73434;
 }

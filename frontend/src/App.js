@@ -1,19 +1,20 @@
 import React from 'react';
 import { BrowserRouter as Router, Switch, Route } from 'react-router-dom';
-import { Container } from 'react-bootstrap';
 import Navbar from './components/Navbar';
 import Home from './pages/Home';
+import Error from './pages/Error';
 
 const App = () => {
     return (
         <Router>
             <Navbar />
             <Switch>
-                <Container>
-                    <Route exact path="/">
-                        <Home />
-                    </Route>
-                </Container>
+                <Route exact path="/">
+                    <Home />
+                </Route>
+                <Route path="*">
+                    <Error />
+                </Route>
             </Switch>
         </Router>
     );
