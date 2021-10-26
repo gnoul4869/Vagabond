@@ -16,5 +16,6 @@
   "bugs": {
     "url": "https://github.com/gnoul4869/Vagabond/issues"
   },
-  "homepage": "https://github.com/gnoul4869/Vagabond#readme"
+  "homepage": "https://github.com/gnoul4869/Vagabond#readme",
+  "dependencies": {}
 }

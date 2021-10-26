@@ -1,14 +1,28 @@
 import React from 'react';
 import brand from '../images/vagabond_brand.svg';
-import { Container, Navbar } from 'react-bootstrap';
+import { LinkContainer } from 'react-router-bootstrap';
+import { Container, Nav, Navbar } from 'react-bootstrap';
 
 const NavigationBar = () => {
     return (
         <Navbar bg="inspiring-red" variant="dark">
             <Container>
                 <Navbar.Brand>
-                    <img src={brand} alt="vagabond_logo" className="logo" />
+                    <LinkContainer to="/">
+                        <Nav.Link>
+                            <img
+                                src={brand}
+                                alt="vagabond_logo"
+                                className="logo"
+                            />
+                        </Nav.Link>
+                    </LinkContainer>
                 </Navbar.Brand>
+                <Nav>
+                    <LinkContainer to="/">
+                        <Nav.Link>Home</Nav.Link>
+                    </LinkContainer>
+                </Nav>
             </Container>
         </Navbar>
     );
