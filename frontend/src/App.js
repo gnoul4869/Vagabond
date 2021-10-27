@@ -5,7 +5,7 @@ import Home from './pages/Home';
 import Register from './pages/user/Register';
 import Login from './pages/user/Login';
 import Profile from './pages/user/Profile';
-import Error from './pages/Error';
+import NotFound from './pages/NotFound';
 
 const App = () => {
     return (
@@ -25,7 +25,7 @@ const App = () => {
                     <Profile />
                 </Route>
                 <Route path="*">
-                    <Error />
+                    <NotFound />
                 </Route>
             </Switch>
         </Router>

@@ -71,7 +71,7 @@ const NavigationBar = () => {
                             </Nav.Link>
                         </LinkContainer>
                         <div className=" col-md-8">
-                            <div className="d-flex form-inputs">
+                            <div className="d-flex navbar-form-inputs">
                                 <input
                                     className="form-control"
                                     type="text"
@@ -84,9 +84,9 @@ const NavigationBar = () => {
                         </div>
                         <div className="col-md-2">
                             <div className="d-flex d-none d-md-flex flex-row align-items-center">
-                                <BsCart2 className="cart-icon text-light" />
+                                <BsCart2 className="navbar-cart-icon text-light" />
                                 <div className="d-flex flex-column ms-2">
-                                    <span className="qty text-light">
+                                    <span className="navbar-qty text-light">
                                         1 Product
                                     </span>
                                 </div>

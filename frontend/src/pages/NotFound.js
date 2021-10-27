@@ -4,7 +4,7 @@ import { Link } from 'react-router-dom';
 import { ImHome } from 'react-icons/im';
 import { Container } from 'react-bootstrap';
 
-const Error = () => {
+const NotFound = () => {
     return (
         <Container className="text-center mt-10">
             <div className="col align-items-center mt-5">
@@ -22,4 +22,4 @@ const Error = () => {
     );
 };
 
-export default Error;
+export default NotFound;
