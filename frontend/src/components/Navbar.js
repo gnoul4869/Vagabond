@@ -20,7 +20,7 @@ const NavigationBar = () => {
                             const { id, url, icon } = socialLink;
                             return (
                                 <li key={id}>
-                                    <a href={url} className="link mx-1">
+                                    <a href={url} className="navbar-link mx-1">
                                         {icon}
                                     </a>
                                 </li>
@@ -38,7 +38,7 @@ const NavigationBar = () => {
                             <li className="nav-item">
                                 <LinkContainer to="/user/:id">
                                     <Nav.Link className="d-flex align-items-center">
-                                        <span className="link">
+                                        <span className="navbar-link">
                                             Username
                                         </span>
                                     </Nav.Link>
@@ -47,15 +47,17 @@ const NavigationBar = () => {
                         <li>
                             <LinkContainer to="/user/register">
                                 <Nav.Link>
-                                    <span className="link">Đăng ký</span>
+                                    <span className="navbar-link">Đăng ký</span>
                                 </Nav.Link>
                             </LinkContainer>
                         </li>
-                        <div className="link-separator "></div>
+                        <div className="navbar-link-separator "></div>
                         <li>
                             <LinkContainer to="/user/login">
                                 <Nav.Link>
-                                    <span className="link">Đăng nhập</span>
+                                    <span className="navbar-link">
+                                        Đăng nhập
+                                    </span>
                                 </Nav.Link>
                             </LinkContainer>
                         </li>

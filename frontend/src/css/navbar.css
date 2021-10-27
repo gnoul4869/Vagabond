@@ -7,9 +7,9 @@
 }
 
 /*? Disable dragging and selecting html elements */
-.link,
-.link::after,
-.link::before {
+.navbar-link,
+.navbar-link::after,
+.navbar-link::before {
     -webkit-user-select: none;
     -webkit-user-drag: none;
     -webkit-app-region: no-drag;
@@ -17,17 +17,18 @@
     cursor: default;
 }
 
-.link-separator {
+.navbar-link-separator {
     border-right: 1px solid hsla(0, 0%, 100%, 0.4);
     height: 0.8125rem;
     margin: 0 5px;
 }
 
-.link {
+.navbar-link {
     color: white;
+    font-weight: 500;
 }
 
-.link:hover {
+.navbar-link:hover {
     color: var(--white-hover);
     cursor: pointer;
 }
