@@ -1,9 +1,8 @@
 import React from 'react';
 import error404 from '../images/error404.svg';
 import { Link } from 'react-router-dom';
-import { LinkContainer } from 'react-router-bootstrap';
 import { ImHome } from 'react-icons/im';
-import { Container, Button } from 'react-bootstrap';
+import { Container } from 'react-bootstrap';
 
 const Error = () => {
     return (
