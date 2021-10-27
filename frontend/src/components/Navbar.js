@@ -1,5 +1,6 @@
 import React from 'react';
 import brand from '../images/vagabond_brand.svg';
+import userIcon from '../images/user_icon.png';
 import { LinkContainer } from 'react-router-bootstrap';
 import { Container, Button, Nav, Navbar } from 'react-bootstrap';
 import { socialLinks } from '../data/links.js';
@@ -10,51 +11,63 @@ const NavigationBar = () => {
     return (
         <header className="bg-inspiring-red">
             <Container>
-                <Navbar variant="dark" className="navbar navbar-expand p-0">
-                    <div className="container-fluid">
-                        <ul className="navbar-nav d-none d-md-flex mr-auto">
-                            {socialLinks.map((socialLink) => {
-                                const { id, url, icon } = socialLink;
-                                return (
-                                    <li key={id}>
-                                        <a
-                                            href={url}
-                                            className="text-light mx-1"
-                                        >
-                                            {icon}
-                                        </a>
-                                    </li>
-                                );
-                            })}
-                        </ul>
-                        <ul className="navbar-nav d-flex align-items-center">
-                            <li className="nav-item">
-                                <div className="d-flex flex-row">
-                                    <img
-                                        src="https://i.imgur.com/EYFtR83.jpg"
-                                        className="rounded-circle"
-                                        width="30"
-                                    />
-                                </div>
+                <Navbar
+                    variant="dark"
+                    className="navbar navbar-expand pt-0 pb-1"
+                >
+                    <ul className="navbar-nav d-none d-md-flex me-auto">
+                        {socialLinks.map((socialLink) => {
+                            const { id, url, icon } = socialLink;
+                            return (
+                                <li key={id}>
+                                    <a href={url} className="link mx-1">
+                                        {icon}
+                                    </a>
+                                </li>
+                            );
+                        })}
+                    </ul>
+                    <ul className="navbar-nav d-flex align-items-center ">
+                        {/* <li className="nav-item">
+                                <img
+                                    src={userIcon}
+                                    className="rounded-circle"
+                                    width="30"
+                                />
                             </li>
                             <li className="nav-item">
-                                <a
-                                    href="#"
-                                    className="nav-link d-flex align-items-center"
-                                    data-abc="true"
-                                >
-                                    <span>Nantano M</span>
-                                    <i className="bx bxs-chevron-down"></i>
-                                </a>
-                            </li>
-                        </ul>
-                    </div>
+                                <LinkContainer to="/user/:id">
+                                    <Nav.Link className="d-flex align-items-center">
+                                        <span className="link">
+                                            Username
+                                        </span>
+                                    </Nav.Link>
+                                </LinkContainer>
+                            </li> */}
+                        <li>
+                            <LinkContainer to="/user/register">
+                                <Nav.Link>
+                                    <span className="link">Đăng ký</span>
+                                </Nav.Link>
+                            </LinkContainer>
+                        </li>
+                        <div className="link-separator "></div>
+                        <li>
+                            <LinkContainer to="/user/login">
+                                <Nav.Link>
+                                    <span className="link">Đăng nhập</span>
+                                </Nav.Link>
+                            </LinkContainer>
+                        </li>
+                    </ul>
                 </Navbar>
                 <section>
                     <div className="row d-flex align-items-center pb-3">
-                        <div className="col-md-2">
-                            <img src={brand} alt="vagabond_brand" />
-                        </div>
+                        <LinkContainer to="/">
+                            <Nav.Link className="col-md-2">
+                                <img src={brand} alt="vagabond_brand" />
+                            </Nav.Link>
+                        </LinkContainer>
                         <div className=" col-md-8">
                             <div className="d-flex form-inputs">
                                 <input

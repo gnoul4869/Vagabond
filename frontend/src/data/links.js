@@ -22,3 +22,5 @@ export const socialLinks = [
         icon: <RiInstagramFill />,
     },
 ];
+
+export const profilePicture = './images/profile_picture.png';

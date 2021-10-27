@@ -3,7 +3,33 @@
 }
 
 .bg-inspiring-red {
-    background-color: #c73434;
+    background-color: var(--inspiring-red);
+}
+
+/*? Disable dragging and selecting html elements */
+.link,
+.link::after,
+.link::before {
+    -webkit-user-select: none;
+    -webkit-user-drag: none;
+    -webkit-app-region: no-drag;
+    user-select: none;
+    cursor: default;
+}
+
+.link-separator {
+    border-right: 1px solid hsla(0, 0%, 100%, 0.4);
+    height: 0.8125rem;
+    margin: 0 5px;
+}
+
+.link {
+    color: white;
+}
+
+.link:hover {
+    color: var(--white-hover);
+    cursor: pointer;
 }
 
 .form-inputs {
@@ -24,7 +50,7 @@
     display: inline-flex;
     align-items: center;
     color: white;
-    background-color: #c73434;
+    background-color: var(--inspiring-red);
     right: 5px;
     top: 5px;
     width: 60px;
@@ -34,7 +60,7 @@
 }
 
 .form-inputs .btn-search:hover {
-    background-color: #df4343;
+    background-color: var(--inspiring-red-hover);
 }
 
 .form-inputs .btn-search .search-icon {
@@ -42,7 +68,7 @@
 }
 
 .cart-icon {
-    color: #fff;
+    color: white;
     height: 50px;
     width: 50px;
     font-size: 25px;

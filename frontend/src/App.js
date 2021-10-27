@@ -4,6 +4,7 @@ import Navbar from './components/Navbar';
 import Home from './pages/Home';
 import Register from './pages/user/Register';
 import Login from './pages/user/Login';
+import Profile from './pages/user/Profile';
 import Error from './pages/Error';
 
 const App = () => {
@@ -19,6 +20,9 @@ const App = () => {
                 </Route>
                 <Route path="/user/login">
                     <Login />
+                </Route>
+                <Route path="/user/:id">
+                    <Profile />
                 </Route>
                 <Route path="*">
                     <Error />

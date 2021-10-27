@@ -1,11 +1,11 @@
 import React from 'react';
 
-const register = () => {
+const Profile = () => {
     return (
         <div className="text-center">
-            <h1>Register</h1>
+            <h1>Profile</h1>
         </div>
     );
 };
 
-export default register;
+export default Profile;
