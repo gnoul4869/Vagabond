@@ -11,10 +11,7 @@ const NavigationBar = () => {
     return (
         <header className="bg-inspiring-red sticky-top">
             <Container>
-                <Navbar
-                    variant="dark"
-                    className="navbar navbar-expand pt-0 pb-1"
-                >
+                <Navbar variant="dark" className="navbar navbar-expand pt-0 pb-1">
                     <ul className="navbar-nav d-none d-md-flex me-auto">
                         {socialLinks.map((socialLink) => {
                             const { id, url, icon } = socialLink;
@@ -55,9 +52,7 @@ const NavigationBar = () => {
                         <li>
                             <LinkContainer to="/user/login">
                                 <Nav.Link>
-                                    <span className="navbar-link">
-                                        Đăng nhập
-                                    </span>
+                                    <span className="navbar-link">Đăng nhập</span>
                                 </Nav.Link>
                             </LinkContainer>
                         </li>
@@ -86,9 +81,7 @@ const NavigationBar = () => {
                             <div className="d-flex d-none d-md-flex flex-row align-items-center">
                                 <BsCart2 className="navbar-cart-icon text-light" />
                                 <div className="d-flex flex-column ms-2">
-                                    <span className="navbar-qty text-light">
-                                        1 Product
-                                    </span>
+                                    <span className="navbar-qty text-light">1 Product</span>
                                 </div>
                             </div>
                         </div>
