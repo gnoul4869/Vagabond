@@ -25,6 +25,8 @@
     "xss-clean": "^0.1.1"
   },
   "devDependencies": {
-    "concurrently": "^6.3.0"
+    "concurrently": "^6.3.0",
+    "eslint": "^8.1.0",
+    "eslint-plugin-react": "^7.26.1"
   }
 }
