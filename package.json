@@ -1,21 +1,30 @@
 {
-  "name": "Vagabond",
+  "name": "backend",
   "version": "1.0.0",
-  "description": "Vagabond E-Commerce Website",
+  "description": "",
   "main": "index.js",
+  "type": "module",
   "scripts": {
-    "dev": "concurrently \"cd backend && npm run dev\" \"cd frontend && npm start\""
-  },
-  "repository": {
-    "type": "git",
-    "url": "git+https://github.com/gnoul4869/Vagabond.git"
+    "start": "node backend/server.js",
+    "dev": "concurrently \"nodemon backend/server.js\" \"cd frontend && npm start\" "
   },
   "keywords": [],
   "author": "",
   "license": "ISC",
-  "bugs": {
-    "url": "https://github.com/gnoul4869/Vagabond/issues"
+  "dependencies": {
+    "bcrypt": "^5.0.1",
+    "cors": "^2.8.5",
+    "dotenv": "^10.0.0",
+    "express": "^4.17.1",
+    "express-async-errors": "^3.1.1",
+    "express-rate-limit": "^5.5.0",
+    "helmet": "^4.6.0",
+    "http-status-codes": "^2.1.4",
+    "jsonwebtoken": "^8.5.1",
+    "mongoose": "^6.0.12",
+    "xss-clean": "^0.1.1"
   },
-  "homepage": "https://github.com/gnoul4869/Vagabond#readme",
-  "dependencies": {}
+  "devDependencies": {
+    "concurrently": "^6.3.0"
+  }
 }

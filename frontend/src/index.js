@@ -1,7 +1,7 @@
 import React from 'react';
 import ReactDOM from 'react-dom';
 import App from './App';
-import reportWebVitals from './reportWebVitals';
+// import reportWebVitals from './reportWebVitals';
 
 import './css/index.css';
 import './css/navbar.css';
@@ -15,4 +15,4 @@ ReactDOM.render(
     document.getElementById('root')
 );
 
-reportWebVitals(console.log);
+// reportWebVitals(console.log);
