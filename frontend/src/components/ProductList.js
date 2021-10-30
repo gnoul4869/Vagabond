@@ -16,7 +16,7 @@ const ProductList = () => {
 
     return (
         <div className="container-fluid bg-trasparent my-4 p-3">
-            <div className="row row-cols-sm-2 row-cols-md-2 row-cols-lg-5 row-cols-5 g-4">
+            <div className="row-cols-2 row row-cols-sm-2 row-cols-md-2 row-cols-lg-5 g-4">
                 {loading ? (
                     <Loading />
                 ) : error ? (
