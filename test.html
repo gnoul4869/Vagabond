@@ -12,8 +12,77 @@
             integrity="sha384-1BmE4kWBq78iYhFldvKuhfTAU6auU8tT94WrHftjDbrCEXSU1oBoqyl2QvZ6jIW3"
             crossorigin="anonymous"
         />
+        <style>
+            body {
+                background-color: rgb(155, 148, 148);
+            }
 
+            .card {
+                width: 400px;
+            }
+
+            .inner-card {
+                height: 20px;
+                background-color: #eee;
+            }
+
+            .card-1 {
+                height: 200px;
+                background-color: #eee;
+            }
+
+            .card-2 {
+                height: 130px;
+            }
+
+            .h-screen {
+                height: 100vh;
+            }
+
+            .animate-pulse {
+                animation: pulse 2s cubic-bezier(0.4, 0, 0.6, 1) infinite;
+            }
+
+            @keyframes pulse {
+                50% {
+                    opacity: 0.9;
+                }
+            }
+        </style>
         <title>Hello, world!</title>
     </head>
-    <body></body>
+    <body>
+        <div class="container h-screen d-flex justify-content-center align-items-center">
+            <div class="card">
+                <div class="card-1 animate-pulse"></div>
+                <div class="card-2 p-3">
+                    test
+                    <div class="row">
+                        <div class="col-4">
+                            <div class="inner-card animate-pulse"></div>
+                        </div>
+                        <div class="col-8">
+                            <div class="inner-card animate-pulse"></div>
+                        </div>
+                    </div>
+                    <div class="row mt-3">
+                        <div class="col-6">
+                            <div class="inner-card animate-pulse"></div>
+                        </div>
+                        <div class="col-6">
+                            <div class="inner-card animate-pulse"></div>
+                        </div>
+                    </div>
+                    <div class="row mt-3">
+                        <div class="col-2">
+                            <div class="inner-card animate-pulse"></div>
+                        </div>
+                        <div class="col">
+                            <div class="inner-card animate-pulse"></div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </body>
 </html>

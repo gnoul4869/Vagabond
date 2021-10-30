@@ -3,7 +3,7 @@ import { useDispatch, useSelector } from 'react-redux';
 import NumberFormat from 'react-number-format';
 import { listProducts } from '../actions/productActions';
 import Loading from './Loading';
-import RatingStars from './RatingStars';
+import RatingStars from './Rating';
 
 const ProductList = () => {
     const dispatch = useDispatch();
@@ -25,7 +25,7 @@ const ProductList = () => {
                     products.map((item) => {
                         return (
                             <div key={item._id} className="col">
-                                <div className="card h-100 w-10 shadow-sm">
+                                <div className="product-list-card card shadow-sm">
                                     <div className="ratio ratio-1x1">
                                         <img
                                             src={item.image}
@@ -34,7 +34,7 @@ const ProductList = () => {
                                         />
                                     </div>
                                     <div className="card-body d-flex flex-column text-start">
-                                        <div className="text-secondary fw-bold flex-fill ">
+                                        <div className="text-secondary fw-bold flex-fill">
                                             {item.name.length >= 48
                                                 ? `${item.name.substring(0, 45)}...`
                                                 : item.name}
