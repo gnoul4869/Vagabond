@@ -6,7 +6,7 @@
   "type": "module",
   "scripts": {
     "start": "node backend/server.js",
-    "dev": "concurrently \"nodemon backend/server.js\" \"cd frontend && npm start\" "
+    "dev": "concurrently \"nodemon --watch backend backend/server.js\" \"cd frontend && npm start\" "
   },
   "keywords": [],
   "author": "",
