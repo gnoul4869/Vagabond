@@ -16,7 +16,7 @@ const ProductList = () => {
 
     return (
         <div className="container-fluid bg-trasparent my-4 p-3">
-            <div className="row-cols-2 row row-cols-sm-2 row-cols-md-2 row-cols-lg-5 g-4">
+            <div className="row-cols-2 row row-cols-sm-2 row-cols-md-2 row-cols-lg-3 row-cols-xl-5 g-4">
                 {loading ? (
                     <Loading />
                 ) : error ? (
@@ -26,11 +26,13 @@ const ProductList = () => {
                         return (
                             <div key={item._id} className="col">
                                 <div className="card h-100 w-10 shadow-sm">
-                                    <img
-                                        src={item.image}
-                                        className="card-img-top"
-                                        alt={item.name}
-                                    />
+                                    <div className="ratio ratio-1x1">
+                                        <img
+                                            src={item.image}
+                                            className="product-list-image card-img-top"
+                                            alt={item.name}
+                                        />
+                                    </div>
                                     <div className="card-body d-flex flex-column text-start">
                                         <div className="text-secondary fw-bold flex-fill ">
                                             {item.name.length >= 48

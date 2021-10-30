@@ -1,12 +1,16 @@
-.product-list-price {
-    color: var(--inspiring-red);
-    font-weight: 600;
-}
-
 .product-review-star {
     color: #f0d121;
 }
 
 .product-num-reviews {
     font-size: 0.8rem;
+}
+/** Product List */
+.product-list-price {
+    color: var(--inspiring-red);
+    font-weight: 600;
+}
+
+.product-list-image {
+    object-fit: cover;
 }
