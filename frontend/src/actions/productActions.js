@@ -12,6 +12,12 @@ export const listProducts = () => async (dispatch) => {
         const { products } = data;
         dispatch({ type: PRODUCT_LIST_SUCCESS, payload: products });
     } catch (error) {
-        dispatch({ type: PRODUCT_LIST_FAIL, payload: error.response.data.msg });
+        dispatch({
+            type: PRODUCT_LIST_FAIL,
+            payload:
+                error.response && error.response.data.msg
+                    ? error.response.data.msg
+                    : 'Đã có lỗi xảy ra, hãy thử lại sau',
+        });
     }
 };
