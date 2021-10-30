@@ -7,13 +7,13 @@ const userSchema = new mongoose.Schema(
     {
         name: {
             type: String,
-            required: [true, 'Please provide a name'],
+            required: [true, 'Hãy nhập tên của bạn'],
             minlength: 5,
             maxlength: 50,
         },
         email: {
             type: String,
-            required: [true, 'Please provide an email'],
+            required: [true, 'Hãy nhập email của bạn'],
             match: [
                 /^(([^<>()[\]\\.,;:\s@"]+(\.[^<>()[\]\\.,;:\s@"]+)*)|(".+"))@((\[[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\])|(([a-zA-Z\-0-9]+\.)+[a-zA-Z]{2,}))$/,
                 'Please provide an valid email',
@@ -22,7 +22,7 @@ const userSchema = new mongoose.Schema(
         },
         password: {
             type: String,
-            required: [true, 'Please provide a password'],
+            required: [true, 'Hãy nhập mật khẩu của bạn'],
             minlength: 6,
         },
         role: {
@@ -46,13 +46,9 @@ userSchema.methods.comparePassword = async function (password) {
 };
 
 userSchema.methods.createJWT = function () {
-    return jwt.sign(
-        { id: this._id, name: this.name, role: this.role },
-        process.env.JWT_SECRET,
-        {
-            expiresIn: process.env.JWT_LIFETIME,
-        }
-    );
+    return jwt.sign({ id: this._id, name: this.name, role: this.role }, process.env.JWT_SECRET, {
+        expiresIn: process.env.JWT_LIFETIME,
+    });
 };
 
 const User = mongoose.model('User', userSchema);
