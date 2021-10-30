@@ -1,7 +1,17 @@
-import { GET_ALL_PRODUCTS_REQUEST } from '../constants/productConstants';
+import axios from 'axios';
+import {
+    PRODUCT_LIST_FAIL,
+    PRODUCT_LIST_REQUEST,
+    PRODUCT_LIST_SUCCESS,
+} from '../constants/productConstants';
 
-const getAllProducts = () => async (dispatch) => {
-    dispatch({ type: GET_ALL_PRODUCTS_REQUEST });
+export const listProducts = () => async (dispatch) => {
+    dispatch({ type: PRODUCT_LIST_REQUEST });
     try {
-    } catch (error) {}
+        const { data } = await axios.get('/api/v1/products');
+        const { products } = data;
+        dispatch({ type: PRODUCT_LIST_SUCCESS, payload: products });
+    } catch (error) {
+        dispatch({ type: PRODUCT_LIST_FAIL, payload: error.response.data.msg });
+    }
 };

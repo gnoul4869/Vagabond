@@ -32,7 +32,7 @@ app.use(helmet());
 
 //* Routes
 app.use('/api/v1/auth', authRouter);
-app.use('/api/v1/products', auth, productsRouter);
+app.use('/api/v1/products', productsRouter);
 
 //* Error middlewares (Must be placed in the bottom)
 app.use(notFound);

@@ -3,7 +3,7 @@ import brand from '../images/vagabond_brand.svg';
 import userIcon from '../images/user_icon.png';
 import { LinkContainer } from 'react-router-bootstrap';
 import { Container, Nav, Navbar } from 'react-bootstrap';
-import { socialLinks } from '../data/links.js';
+import { socialLinks } from '../data/links';
 import { FiSearch } from 'react-icons/fi';
 import { BsCart2 } from 'react-icons/bs';
 
