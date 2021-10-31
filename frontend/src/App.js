@@ -5,7 +5,7 @@ import Home from './pages/Home';
 import Register from './pages/user/Register';
 import Login from './pages/user/Login';
 import Profile from './pages/user/Profile';
-import NotFound from './pages/NotFound';
+import Error404 from './pages/Error404';
 import ProductDetails from './pages/ProductDetails';
 
 const App = () => {
@@ -29,7 +29,7 @@ const App = () => {
                     <ProductDetails />
                 </Route>
                 <Route path="*">
-                    <NotFound />
+                    <Error404 />
                 </Route>
             </Switch>
         </Router>

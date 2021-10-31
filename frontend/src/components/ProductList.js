@@ -3,7 +3,7 @@ import { useDispatch, useSelector } from 'react-redux';
 import { Link } from 'react-router-dom';
 import NumberFormat from 'react-number-format';
 import { listProducts } from '../actions/productActions';
-import Loading from './Loading';
+import ProductListLoading from './loading/ProductListLoading';
 import RatingStars from './Rating';
 
 const ProductList = () => {
@@ -19,14 +19,14 @@ const ProductList = () => {
         <section className="container-fluid bg-trasparent my-4 p-3">
             <div className="row-cols-2 row row-cols-sm-2 row-cols-md-2 row-cols-lg-3 row-cols-xl-5 g-4">
                 {loading ? (
-                    <Loading />
+                    <ProductListLoading />
                 ) : error ? (
                     <p>{error}</p>
                 ) : (
                     products.map((item) => {
                         return (
-                            <Link to={`/product/${item._id}`} className="link-tag">
-                                <div key={item._id} className="col">
+                            <Link to={`/product/${item._id}`} key={item._id} className="link-tag">
+                                <div className="col">
                                     <div className="product-list-card card shadow-sm">
                                         <div className="ratio ratio-1x1">
                                             <img

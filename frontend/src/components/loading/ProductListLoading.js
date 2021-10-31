@@ -1,6 +1,6 @@
 import React from 'react';
 
-const Loading = () => {
+const ProductListLoading = () => {
     return (
         <>
             {[...Array(10)].map((x, index) => {
@@ -43,4 +43,4 @@ const Loading = () => {
     );
 };
 
-export default Loading;
+export default ProductListLoading;

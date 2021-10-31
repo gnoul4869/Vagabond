@@ -1,9 +1,6 @@
 import User from '../models/user.model.js';
 import { StatusCodes } from 'http-status-codes';
-import {
-    BadRequestError,
-    AuthenticationError,
-} from '../errors/custom-api-error.js';
+import { BadRequestError, AuthenticationError } from '../errors/custom-api-error.js';
 
 const register = async (req, res) => {
     const user = await User.create(req.body);
@@ -38,7 +35,7 @@ const login = async (req, res) => {
 
 const logout = (req, res) => {
     res.clearCookie('token');
-    res.status(StatusCodes.OK).json({ msg: 'User logged out' });
+    res.status(StatusCodes.OK).json({ message: 'User logged out' });
 };
 
 export { register, login, logout };
