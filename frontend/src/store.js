@@ -5,7 +5,7 @@ import { productList, productDetails } from './reducers/productReducers';
 const initialState = {
     productList: {
         loading: false,
-        products: [],
+        products: null,
     },
     productDetails: {
         loading: false,

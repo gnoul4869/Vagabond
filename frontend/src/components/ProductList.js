@@ -21,8 +21,8 @@ const ProductList = () => {
     }
 
     return (
-        <section className="container-fluid bg-trasparent my-4 p-3">
-            <div className="row-cols-2 row row-cols-sm-2 row-cols-md-2 row-cols-lg-3 row-cols-xl-5 g-4">
+        <section className="container bg-trasparent my-4 p-3">
+            <div className="row row-cols-2 row-cols-sm-2 row-cols-md-3 row-cols-lg-4 row-cols-xl-5 g-4">
                 {loading ? (
                     <ProductListLoading />
                 ) : (

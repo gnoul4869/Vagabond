@@ -31,10 +31,15 @@ const ProductDetails = () => {
                 product && (
                     <div className="container mt-5">
                         {console.log(product)}
-                        <div className="row">
-                            <div className="col">
-                                <img src={product.image[0]} alt="" />
+                        <div className="row h-3">
+                            <div className="col-12 col-md-6">
+                                <img
+                                    src={product.image[0]}
+                                    alt={product.name}
+                                    className="img-fluid"
+                                />
                             </div>
+                            <div className="col-12 col-md-6 bg-primary">test</div>
                         </div>
                     </div>
                 )
