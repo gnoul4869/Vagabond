@@ -5,6 +5,7 @@ import NumberFormat from 'react-number-format';
 import { listProducts } from '../actions/productActions';
 import ProductListLoading from './loading/ProductListLoading';
 import RatingStars from './Rating';
+import ErrorPage from '../pages/ErrorPage';
 
 const ProductList = () => {
     const dispatch = useDispatch();
@@ -15,13 +16,15 @@ const ProductList = () => {
         dispatch(listProducts());
     }, [dispatch]);
 
+    if (error) {
+        return <ErrorPage error={error} />;
+    }
+
     return (
         <section className="container-fluid bg-trasparent my-4 p-3">
             <div className="row-cols-2 row row-cols-sm-2 row-cols-md-2 row-cols-lg-3 row-cols-xl-5 g-4">
                 {loading ? (
                     <ProductListLoading />
-                ) : error ? (
-                    <p>{error}</p>
                 ) : (
                     products.map((item) => {
                         return (

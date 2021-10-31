@@ -3,7 +3,7 @@ import { StatusCodes } from 'http-status-codes';
 const errorHandler = (err, req, res, next) => {
     let customError = {
         statusCode: err.statusCode || StatusCodes.INTERNAL_SERVER_ERROR,
-        message: err.message || 'Something went wrong, please try again later',
+        message: err.message || 'Đã có lỗi xảy ra, hãy thử lại sau',
     };
 
     if (err.code && err.code === 11000) {
@@ -18,7 +18,7 @@ const errorHandler = (err, req, res, next) => {
 
     if (err.name && err.name === 'CastError') {
         customError.statusCode = StatusCodes.NOT_FOUND;
-        customError.message = `No item found with id ${err.value}`;
+        customError.message = 'Sản phẩm này không tồn tại';
     }
 
     return res.status(customError.statusCode).json({ message: customError.message });

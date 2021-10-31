@@ -3,6 +3,7 @@ import { useDispatch, useSelector } from 'react-redux';
 import { useParams } from 'react-router-dom';
 import { detailsProduct } from '../actions/productActions';
 import ProductDetailsLoading from '../components/loading/ProductDetailLoading';
+import ErrorPage from './ErrorPage';
 
 const ProductDetails = () => {
     const dispatch = useDispatch();
@@ -16,17 +17,17 @@ const ProductDetails = () => {
     }, [dispatch, id]);
 
     return (
-        <>
+        <section>
             {loading ? (
                 <ProductDetailsLoading />
             ) : error ? (
-                <p>test</p>
+                <ErrorPage error={error} />
             ) : (
                 <section className="container my-5 pt-5">
                     <div className="row mt-5">dsa</div>
                 </section>
             )}
-        </>
+        </section>
     );
 };
 
