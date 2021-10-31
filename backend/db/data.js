@@ -17,7 +17,13 @@ const data = {
         {
             name: 'Regular Fit Suit Jacket', // Pierre Cardin Navy Twill Regular Fit Suit Jacket
             category: 'Suit Jacket',
-            image: '/images/pierre_cardin_navy_twill_regular_fit_suit_jacket.jpg',
+            image: [
+                '/images/pierre_cardin_navy_twill_regular_fit_suit_jacket.jpg',
+                '/images/default_product.jpg',
+                '/images/default_product.jpg',
+                '/images/default_product.jpg',
+                '/images/default_product.jpg',
+            ],
             price: 1000000,
             countInStock: 10,
             brand: 'Pierre Cardin',
@@ -29,7 +35,12 @@ const data = {
         {
             name: 'Double Face Shirt', // Karlskrona Double Face Shirt
             category: 'Casual Shirt',
-            image: '/images/melka_karlskrona_double_face_shirt.jpg',
+            image: [
+                '/images/melka_karlskrona_double_face_shirt.jpg',
+                '/images/default_product.jpg',
+                '/images/default_product.jpg',
+                '/images/default_product.jpg',
+            ],
             price: 500000,
             countInStock: 20,
             brand: 'Melka',
@@ -41,7 +52,11 @@ const data = {
         {
             name: 'Navy Blazer', // Scott By The Label Navy Blazer
             category: 'Blazer',
-            image: '/images/scott_by_the_label_navy_blazer.jpg',
+            image: [
+                '/images/scott_by_the_label_navy_blazer.jpg',
+                '/images/default_product.jpg',
+                '/images/default_product.jpg',
+            ],
             price: 2900000,
             countInStock: 0,
             brand: 'Scott By The Label',
@@ -53,7 +68,11 @@ const data = {
         {
             name: 'Charcoal Melton Overcoat', // Racing Green Charcoal Melton Overcoat
             category: 'Coat',
-            image: '/images/racing_green_charcoal_melton_overcoat.jpg',
+            image: [
+                '/images/racing_green_charcoal_melton_overcoat.jpg',
+                '/images/default_product.jpg',
+                '/images/default_product.jpg',
+            ],
             price: 1900000,
             countInStock: 12,
             brand: 'Racing Green',
@@ -65,7 +84,11 @@ const data = {
         {
             name: 'V Neck Jumper', // Jett Banks V Neck Jumper
             category: 'Suit Jacket',
-            image: '/images/jeff_banks_v_neck_jumper.jpg',
+            image: [
+                '/images/jeff_banks_v_neck_jumper.jpg',
+                '/images/default_product.jpg',
+                '/images/default_product.jpg',
+            ],
             price: 800000,
             countInStock: 30,
             brand: 'Jett Banks',
@@ -77,7 +100,10 @@ const data = {
         {
             name: 'Plain Blue Panama Slim Fit Suit', // Lemehaus Plain Blue Panama Slim Fit Suit
             category: 'Suit Jacket',
-            image: '/images/limehaus_plain_blue_panama_slim_fit_jacket.jpg',
+            image: [
+                '/images/limehaus_plain_blue_panama_slim_fit_jacket.jpg',
+                '/images/default_product.jpg',
+            ],
             price: 2500000,
             brand: 'Lemehaus',
             rating: 5,

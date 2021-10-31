@@ -1,4 +1,4 @@
-import React, { useEffect } from 'react';
+import React, { useEffect, useState } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
 import { useParams } from 'react-router-dom';
 import { detailsProduct } from '../actions/productActions';
@@ -8,7 +8,7 @@ import ErrorPage from './ErrorPage';
 const ProductDetails = () => {
     const dispatch = useDispatch();
     const { id } = useParams();
-
+    const [qty, setQty] = useState(1);
     const productDetails = useSelector((state) => state.productDetails);
     const { loading, product, error } = productDetails;
 
@@ -16,16 +16,28 @@ const ProductDetails = () => {
         dispatch(detailsProduct(id));
     }, [dispatch, id]);
 
+    if (error) {
+        console.log('ok');
+        return <ErrorPage error={error} />;
+    }
+
+    console.log(qty);
+
     return (
         <section>
             {loading ? (
                 <ProductDetailsLoading />
-            ) : error ? (
-                <ErrorPage error={error} />
             ) : (
-                <section className="container my-5 pt-5">
-                    <div className="row mt-5">dsa</div>
-                </section>
+                product && (
+                    <div className="container mt-5">
+                        {console.log(product)}
+                        <div className="row">
+                            <div className="col">
+                                <img src={product.image[0]} alt="" />
+                            </div>
+                        </div>
+                    </div>
+                )
             )}
         </section>
     );

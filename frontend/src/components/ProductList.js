@@ -26,6 +26,7 @@ const ProductList = () => {
                 {loading ? (
                     <ProductListLoading />
                 ) : (
+                    products &&
                     products.map((item) => {
                         return (
                             <Link to={`/product/${item._id}`} key={item._id} className="link-tag">
@@ -33,7 +34,7 @@ const ProductList = () => {
                                     <div className="product-list-card card shadow-sm">
                                         <div className="ratio ratio-1x1">
                                             <img
-                                                src={item.image}
+                                                src={item.image[0]}
                                                 className="product-list-image card-img-top"
                                                 alt={item.name}
                                             />

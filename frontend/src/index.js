@@ -9,6 +9,7 @@ import './css/index.css';
 import './css/navbar.css';
 import './css/error.css';
 import './css/product.css';
+import './css/productDetails.css';
 import 'bootstrap/dist/css/bootstrap.min.css';
 
 ReactDOM.render(

@@ -9,7 +9,7 @@ const initialState = {
     },
     productDetails: {
         loading: false,
-        product: {},
+        product: null,
     },
 };
 

@@ -15,8 +15,8 @@ const productSchema = new mongoose.Schema(
             default: 'No brand',
         },
         image: {
-            type: String,
-            default: '/images/default_product.jpg',
+            type: Array,
+            default: ['/images/default_product.jpg'],
         },
         price: {
             type: Number,
