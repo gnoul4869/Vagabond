@@ -6,6 +6,7 @@ import Register from './pages/user/Register';
 import Login from './pages/user/Login';
 import Profile from './pages/user/Profile';
 import NotFound from './pages/NotFound';
+import ProductDetails from './pages/ProductDetails';
 
 const App = () => {
     return (
@@ -23,6 +24,9 @@ const App = () => {
                 </Route>
                 <Route path="/user/profile/:id">
                     <Profile />
+                </Route>
+                <Route path="/product/:id">
+                    <ProductDetails />
                 </Route>
                 <Route path="*">
                     <NotFound />

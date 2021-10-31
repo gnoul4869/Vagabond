@@ -21,3 +21,7 @@ export const listProducts = () => async (dispatch) => {
         });
     }
 };
+
+// export const detailsProduct = () => async (dispatch) => {
+//     dispatch({type: loading:})
+// }

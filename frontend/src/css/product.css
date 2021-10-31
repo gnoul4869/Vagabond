@@ -18,7 +18,14 @@
 .product-list-card {
     width: 230px;
     height: 360px;
+    transition: transform 0.2s, box-shadow 0.2s;
 }
+
+.product-list-card:hover {
+    transform: translateY(-1px);
+    box-shadow: 0 0 5px 1px var(--inspiring-red) !important;
+}
+
 /** Skeleton Loading */
 .product-list-loading {
     height: 20px;
