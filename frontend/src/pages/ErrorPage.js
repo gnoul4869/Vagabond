@@ -25,7 +25,7 @@ const ErrorPage = ({ error }) => {
             <div className="row">
                 <div className="col">
                     <Link to="/" className="btn btn-primary mt-5 px-2 pt-2 fs-5">
-                        <ImHome className="btn-icon" /> Trở về trang chủ
+                        <ImHome className="icon" /> Trở về trang chủ
                     </Link>
                 </div>
             </div>

@@ -22,7 +22,7 @@ const NumberInput = ({ qty, max, setQty }) => {
                 className="border py-1 px-2 bg-white"
                 onClick={() => inputHandler(qty - 1)}
             >
-                <BiMinus className="btn-icon" />
+                <BiMinus className="icon" />
             </button>
 
             <input
@@ -41,7 +41,7 @@ const NumberInput = ({ qty, max, setQty }) => {
                 className="border py-1 px-2 bg-white"
                 onClick={() => inputHandler(qty + 1)}
             >
-                <BiPlus className="btn-icon" />
+                <BiPlus className="icon" />
             </button>
         </div>
     );

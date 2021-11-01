@@ -4,6 +4,7 @@ import { useParams } from 'react-router-dom';
 import { detailsProduct } from '../actions/productActions';
 import { FaCartPlus } from 'react-icons/fa';
 import { RiShoppingBag3Fill } from 'react-icons/ri';
+import { IoIosWarning } from 'react-icons/io';
 import ErrorPage from './ErrorPage';
 import NumberInput from '../components/NumberInput';
 import RatingStars from '../components/RatingStars';
@@ -50,7 +51,7 @@ const ProductDetails = () => {
                                             {product.name}
                                         </div>
                                     </div>
-                                    <div className="row my-3">
+                                    <div className="row my-4">
                                         <div className="container">
                                             <span className="product-details-value me-1">
                                                 {product.rating}
@@ -68,7 +69,7 @@ const ProductDetails = () => {
                                             </span>
                                         </div>
                                     </div>
-                                    <div className="row my-3">
+                                    <div className="row my-4">
                                         <div className="container product-details-price-container rounded">
                                             <span className="fs-3">Giá:</span>{' '}
                                             <span className="product-price fs-2 ms-2">
@@ -76,7 +77,7 @@ const ProductDetails = () => {
                                             </span>
                                         </div>
                                     </div>
-                                    <div className="row mt-5">
+                                    <div className="row mt-4">
                                         <div className="col-auto my-auto text-secondary product-details-label">
                                             Số lượng
                                         </div>
@@ -95,20 +96,29 @@ const ProductDetails = () => {
                                         </div>
                                     </div>
                                     <div className="row mt-5">
-                                        <div className="col-auto mb-2 mb-xl-0">
-                                            <button
-                                                type="button"
-                                                className="product-details-btn btn-cart"
-                                            >
-                                                <FaCartPlus className="btn-icon" /> Thêm vào giỏ
-                                                hàng
-                                            </button>
-                                        </div>
-                                        <div className="col-auto mb-2 mb-xl-0">
-                                            <button className="product-details-btn btn-buy">
-                                                <RiShoppingBag3Fill className="btn-icon" /> Mua ngay
-                                            </button>
-                                        </div>
+                                        {product.countInStock <= 0 ? (
+                                            <span className="fw-bold fs-4 text-danger">
+                                                <IoIosWarning className="icon" /> Sản phẩm tạm hết
+                                            </span>
+                                        ) : (
+                                            <>
+                                                <div className="col-auto mb-2 mb-xl-0">
+                                                    <button
+                                                        type="button"
+                                                        className="product-details-btn btn-cart"
+                                                    >
+                                                        <FaCartPlus className="icon" /> Thêm vào giỏ
+                                                        hàng
+                                                    </button>
+                                                </div>
+                                                <div className="col-auto mb-2 mb-xl-0">
+                                                    <button className="product-details-btn btn-buy">
+                                                        <RiShoppingBag3Fill className="icon" /> Mua
+                                                        ngay
+                                                    </button>
+                                                </div>
+                                            </>
+                                        )}
                                     </div>
                                 </div>
                             </div>
