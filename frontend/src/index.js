@@ -8,8 +8,11 @@ import store from './store.js';
 import './css/index.css';
 import './css/navbar.css';
 import './css/error.css';
-import './css/product.css';
-import './css/productDetails.css';
+
+import './css/product/product.css';
+import './css/product/productList.css';
+import './css/product/productDetails.css';
+
 import 'bootstrap/dist/css/bootstrap.min.css';
 
 ReactDOM.render(

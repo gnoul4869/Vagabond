@@ -2,9 +2,10 @@ import React, { useEffect, useState } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
 import { useParams } from 'react-router-dom';
 import { detailsProduct } from '../actions/productActions';
-import ProductDetailsLoading from '../components/loading/ProductDetailLoading';
-import RatingStars from '../components/RatingStars';
 import ErrorPage from './ErrorPage';
+import RatingStars from '../components/RatingStars';
+import ProductPrice from '../components/ProductPrice';
+import ProductDetailsLoading from '../components/loading/ProductDetailLoading';
 
 const ProductDetails = () => {
     const dispatch = useDispatch();
@@ -42,15 +43,35 @@ const ProductDetails = () => {
                                 </div>
                                 <div className="col-8 col-md-6 mx-auto">
                                     <div className="row">
-                                        <div className="product-details-product-name fs-3">
+                                        <div className="product-details-name fs-3">
                                             {product.name}
                                         </div>
                                     </div>
-                                    <div className="row">
-                                        <RatingStars
-                                            rating={product.rating}
-                                            numReviews={product.numReviews}
-                                        />
+                                    <div className="row my-2">
+                                        <div className="container">
+                                            <span className="product-details-rating me-1">
+                                                {product.rating}
+                                            </span>
+                                            <RatingStars
+                                                rating={product.rating}
+                                                numReviews={product.numReviews}
+                                            />
+                                            <span className="product-details-separator"></span>
+                                            <span className="product-details-reviews text-secondary">
+                                                <span className="product-details-rating">
+                                                    {product.numReviews}
+                                                </span>{' '}
+                                                lượt đánh giá
+                                            </span>
+                                        </div>
+                                    </div>
+                                    <div className="row my-2">
+                                        <div className="container product-details-price-container rounded">
+                                            <span className="fs-3">Giá:</span>{' '}
+                                            <span className="product-price fs-2">
+                                                <ProductPrice price={product.price} />
+                                            </span>
+                                        </div>
                                     </div>
                                 </div>
                             </div>

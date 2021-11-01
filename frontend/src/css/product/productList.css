@@ -1,14 +1,20 @@
-.product-review-star {
-    color: #f0d121;
+.product-list-name {
+    line-height: 1.5rem;
+    height: 3rem;
+    white-space: nowrap;
+    text-overflow: ellipsis;
+    overflow: hidden;
 }
 
-.product-num-reviews {
-    font-size: 0.8rem;
-}
-/** Product List */
-.product-list-price {
-    color: var(--inspiring-red);
-    font-weight: 600;
+@supports (-webkit-line-clamp: 2) {
+    .product-list-name {
+        overflow: hidden;
+        text-overflow: ellipsis;
+        white-space: initial;
+        display: -webkit-box;
+        -webkit-line-clamp: 2;
+        -webkit-box-orient: vertical;
+    }
 }
 
 .product-list-image {

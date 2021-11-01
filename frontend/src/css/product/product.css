@@ -1,0 +1,13 @@
+.product-price {
+    color: var(--inspiring-red);
+    font-weight: 600;
+}
+
+.product-review-star {
+    color: #f0d121;
+    vertical-align: 0.04rem;
+}
+
+.product-num-reviews {
+    font-size: 0.8rem;
+}

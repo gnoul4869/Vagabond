@@ -3,6 +3,7 @@ import { useDispatch, useSelector } from 'react-redux';
 import { Link } from 'react-router-dom';
 import NumberFormat from 'react-number-format';
 import { listProducts } from '../actions/productActions';
+import ProductPrice from './ProductPrice';
 import ProductListLoading from './loading/ProductListLoading';
 import RatingStars from './RatingStars';
 import ErrorPage from '../pages/ErrorPage';
@@ -40,19 +41,11 @@ const ProductList = () => {
                                             />
                                         </div>
                                         <div className="card-body d-flex flex-column text-start">
-                                            <div className="text-secondary fw-bold flex-fill">
-                                                {item.name.length >= 48
-                                                    ? `${item.name.substring(0, 45)}...`
-                                                    : item.name}
+                                            <div className="product-list-name text-secondary fw-bold flex-fill">
+                                                {item.name}
                                             </div>
-                                            <div className="product-list-price fs-5">
-                                                <NumberFormat
-                                                    value={item.price}
-                                                    displayType={'text'}
-                                                    thousandSeparator={'.'}
-                                                    decimalSeparator={','}
-                                                    prefix={'₫'}
-                                                ></NumberFormat>
+                                            <div className="product-price fs-5">
+                                                <ProductPrice price={item.price} />
                                             </div>
                                             <div>
                                                 <RatingStars

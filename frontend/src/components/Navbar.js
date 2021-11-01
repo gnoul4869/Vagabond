@@ -48,7 +48,7 @@ const NavigationBar = () => {
                                 </Nav.Link>
                             </LinkContainer>
                         </li>
-                        <div className="navbar-link-separator "></div>
+                        <div className="navbar-link-separator"></div>
                         <li>
                             <LinkContainer to="/user/login">
                                 <Nav.Link>
