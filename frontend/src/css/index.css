@@ -16,6 +16,10 @@ code {
     font-family: source-code-pro, Menlo, Monaco, Consolas, 'Courier New', monospace;
 }
 
+body {
+    background-color: whitesmoke !important;
+}
+
 .link-tag {
     text-decoration: inherit;
     color: inherit;

@@ -4,7 +4,7 @@ import { Link } from 'react-router-dom';
 import NumberFormat from 'react-number-format';
 import { listProducts } from '../actions/productActions';
 import ProductListLoading from './loading/ProductListLoading';
-import RatingStars from './Rating';
+import RatingStars from './RatingStars';
 import ErrorPage from '../pages/ErrorPage';
 
 const ProductList = () => {
@@ -54,10 +54,15 @@ const ProductList = () => {
                                                     prefix={'₫'}
                                                 ></NumberFormat>
                                             </div>
-                                            <RatingStars
-                                                rating={item.rating}
-                                                numReviews={item.numReviews}
-                                            />
+                                            <div>
+                                                <RatingStars
+                                                    rating={item.rating}
+                                                    numReviews={item.numReviews}
+                                                />
+                                                <span className="product-num-reviews text-secondary">
+                                                    | {`${item.numReviews} lượt đánh giá`}
+                                                </span>
+                                            </div>
                                         </div>
                                     </div>
                                 </div>
