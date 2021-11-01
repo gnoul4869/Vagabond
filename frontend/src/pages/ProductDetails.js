@@ -3,6 +3,7 @@ import { useDispatch, useSelector } from 'react-redux';
 import { useParams } from 'react-router-dom';
 import { detailsProduct } from '../actions/productActions';
 import ErrorPage from './ErrorPage';
+import NumberInput from '../components/NumberInput';
 import RatingStars from '../components/RatingStars';
 import ProductPrice from '../components/ProductPrice';
 import ProductDetailsLoading from '../components/loading/ProductDetailLoading';
@@ -47,7 +48,7 @@ const ProductDetails = () => {
                                             {product.name}
                                         </div>
                                     </div>
-                                    <div className="row my-2">
+                                    <div className="row my-3">
                                         <div className="container">
                                             <span className="product-details-rating me-1">
                                                 {product.rating}
@@ -65,13 +66,20 @@ const ProductDetails = () => {
                                             </span>
                                         </div>
                                     </div>
-                                    <div className="row my-2">
+                                    <div className="row my-3">
                                         <div className="container product-details-price-container rounded">
                                             <span className="fs-3">Giá:</span>{' '}
-                                            <span className="product-price fs-2">
+                                            <span className="product-price fs-2 ms-2">
                                                 <ProductPrice price={product.price} />
                                             </span>
                                         </div>
+                                    </div>
+                                    <div className="row mt-5">
+                                        <NumberInput
+                                            qty={qty}
+                                            setQty={setQty}
+                                            max={product.countInStock}
+                                        />
                                     </div>
                                 </div>
                             </div>

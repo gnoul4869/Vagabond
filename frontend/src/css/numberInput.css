@@ -1,0 +1,10 @@
+.number-input-group {
+    width: 170px !important;
+}
+
+.number-input-form:focus {
+    border-color: #ccc !important;
+    outline: 0 !important;
+    -webkit-box-shadow: none !important;
+    box-shadow: none !important;
+}

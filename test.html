@@ -13,86 +13,31 @@
             crossorigin="anonymous"
         />
         <style>
-            body {
-                background-color: rgb(155, 148, 148);
-            }
-
-            .card {
-                width: 400px;
-            }
-
-            .inner-card {
-                height: 20px;
-                background-color: #eee;
-            }
-
-            .card-1 {
-                height: 200px;
-                background-color: #eee;
-            }
-
-            .card-2 {
-                height: 130px;
-            }
-
-            .h-screen {
-                height: 100vh;
-            }
-
-            .animate-pulse {
-                animation: pulse 2s cubic-bezier(0.4, 0, 0.6, 1) infinite;
-                white-space: nowrap;
-                text-overflow: ellipsis;
-                overflow: hidden;
-
-                @supports (-webkit-line-clamp: 2) {
-                    overflow: hidden;
-                    text-overflow: ellipsis;
-                    white-space: initial;
-                    display: -webkit-box;
-                    -webkit-line-clamp: 2;
-                    -webkit-box-orient: vertical;
-                }
-            }
-
-            @keyframes pulse {
-                50% {
-                    opacity: 0.9;
-                }
+            input {
+                text-align: center;
             }
         </style>
         <title>Hello, world!</title>
     </head>
     <body>
-        <div class="container h-screen d-flex justify-content-center align-items-center">
-            <div class="card">
-                <div class="card-1 animate-pulse"></div>
-                <div class="card-2 p-3">
-                    test
-                    <div class="row">
-                        <div class="col-4">
-                            <div class="inner-card animate-pulse"></div>
-                        </div>
-                        <div class="col-8">
-                            <div class="inner-card animate-pulse"></div>
-                        </div>
-                    </div>
-                    <div class="row mt-3">
-                        <div class="col-6">
-                            <div class="inner-card animate-pulse"></div>
-                        </div>
-                        <div class="col-6">
-                            <div class="inner-card animate-pulse"></div>
-                        </div>
-                    </div>
-                    <div class="row mt-3">
-                        <div class="col-2">
-                            <div class="inner-card animate-pulse"></div>
-                        </div>
-                        <div class="col">
-                            <div class="inner-card animate-pulse"></div>
-                        </div>
-                    </div>
+        <div class="col-sm-4 col-sm-offset-4">
+            <div class="input-group mb-3">
+                <div class="input-group-prepend">
+                    <button class="btn btn-dark btn-sm" id="minus-btn">
+                        <i class="fa fa-minus"></i>
+                    </button>
+                </div>
+                <input
+                    type="number"
+                    id="qty_input"
+                    class="form-control form-control-sm"
+                    value="1"
+                    min="1"
+                />
+                <div class="input-group-prepend">
+                    <button class="btn btn-dark btn-sm" id="plus-btn">
+                        <i class="fa fa-plus"></i>
+                    </button>
                 </div>
             </div>
         </div>

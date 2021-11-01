@@ -20,7 +20,18 @@ body {
     background-color: whitesmoke !important;
 }
 
+input[type='number']::-webkit-inner-spin-button,
+input[type='number']::-webkit-outer-spin-button {
+    -webkit-appearance: none;
+    -moz-appearance: none;
+    appearance: none;
+}
+
 .link-tag {
     text-decoration: inherit;
     color: inherit;
+}
+
+.btn-icon {
+    vertical-align: -0.09rem;
 }

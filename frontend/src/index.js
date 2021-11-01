@@ -8,6 +8,7 @@ import store from './store.js';
 import './css/index.css';
 import './css/navbar.css';
 import './css/error.css';
+import './css/numberInput.css';
 
 import './css/product/product.css';
 import './css/product/productList.css';
