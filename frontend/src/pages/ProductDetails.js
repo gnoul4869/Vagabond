@@ -52,7 +52,7 @@ const ProductDetails = () => {
                                     </div>
                                     <div className="row my-3">
                                         <div className="container">
-                                            <span className="product-details-rating me-1">
+                                            <span className="product-details-value me-1">
                                                 {product.rating}
                                             </span>
                                             <RatingStars
@@ -61,7 +61,7 @@ const ProductDetails = () => {
                                             />
                                             <span className="product-details-separator"></span>
                                             <span className="product-details-reviews text-secondary">
-                                                <span className="product-details-rating">
+                                                <span className="product-details-value">
                                                     {product.numReviews}
                                                 </span>{' '}
                                                 lượt đánh giá
@@ -88,7 +88,10 @@ const ProductDetails = () => {
                                             />
                                         </div>
                                         <div className="col-auto my-auto text-secondary product-details-label">
-                                            {product.countInStock} sản phẩm có sẵn
+                                            <span className="product-details-value">
+                                                {product.countInStock}
+                                            </span>{' '}
+                                            sản phẩm có sẵn
                                         </div>
                                     </div>
                                     <div className="row mt-5">

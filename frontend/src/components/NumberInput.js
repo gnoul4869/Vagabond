@@ -27,7 +27,7 @@ const NumberInput = ({ qty, max, setQty }) => {
 
             <input
                 type="number"
-                value={qty}
+                value={max > 0 ? qty : 0}
                 min="1"
                 max={max}
                 onChange={(e) => inputHandler(e.target.value)}
