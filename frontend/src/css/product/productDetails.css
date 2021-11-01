@@ -38,3 +38,43 @@
 .product-details-price-container {
     background-color: snow;
 }
+
+.product-details-label {
+    font-weight: 600;
+}
+
+.product-details-btn {
+    border: none;
+    display: block;
+    padding: 16px 32px;
+    font-weight: 600;
+    box-shadow: rgba(0, 0, 0, 0.05) 0px 0px 0px 1px;
+    transition: all 0.1s linear;
+}
+
+.btn-cart {
+    color: var(--inspiring-red);
+    border: 0.0625rem solid var(--inspiring-red);
+    background-color: linen;
+}
+
+.btn-cart:hover {
+    background-color: snow;
+}
+
+.btn-cart:active {
+    background-color: darksalmon;
+}
+
+.btn-buy {
+    color: white;
+    background-color: var(--inspiring-red);
+}
+
+.btn-buy:hover {
+    background-color: darksalmon;
+}
+
+.btn-buy:active {
+    background-color: brown;
+}
