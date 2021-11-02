@@ -35,3 +35,10 @@ input[type='number']::-webkit-outer-spin-button {
 .icon {
     vertical-align: -0.09rem;
 }
+
+.bg-loading {
+    height: 20px;
+    background: linear-gradient(-45deg, #ee7752, #e73c7e, #e79696, #f16363);
+    background-size: 600% 600%;
+    animation: gradient 3s linear infinite;
+}

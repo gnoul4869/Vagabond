@@ -33,23 +33,3 @@
     transform: translateY(-1px);
     box-shadow: 0 0 5px 1px var(--inspiring-red) !important;
 }
-
-/** Skeleton Loading */
-.product-list-loading {
-    height: 20px;
-    background: linear-gradient(-45deg, #ee7752, #e73c7e, #e79696, #f16363);
-    background-size: 600% 600%;
-    animation: gradient 3s linear infinite;
-}
-
-@keyframes gradient {
-    0% {
-        background-position: 0% 50%;
-    }
-    50% {
-        background-position: 100% 50%;
-    }
-    100% {
-        background-position: 0% 50%;
-    }
-}

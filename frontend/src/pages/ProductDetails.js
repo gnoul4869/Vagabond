@@ -10,7 +10,7 @@ import NumberInput from '../components/NumberInput';
 import RatingStars from '../components/RatingStars';
 import ProductPrice from '../components/product/ProductPrice';
 import ProductCarousel from '../components/product/ProductCarousel';
-import ProductDetailsLoading from '../components/loading/ProductDetailLoading';
+import ProductDetailsLoading from '../components/loading/ProductDetailsLoading';
 import ProductDescription from '../components/product/ProductDescription';
 
 const ProductDetails = () => {
