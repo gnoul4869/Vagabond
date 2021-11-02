@@ -15,7 +15,6 @@ const ProductCarousel = ({ images, name }) => {
 
     useEffect(() => {
         setImage(newImages[imageNo]);
-        console.log('test');
     }, [newImages, imageNo]);
 
     return (
