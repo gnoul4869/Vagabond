@@ -8,8 +8,8 @@ import { IoIosWarning } from 'react-icons/io';
 import ErrorPage from './ErrorPage';
 import NumberInput from '../components/NumberInput';
 import RatingStars from '../components/RatingStars';
-import ProductPrice from '../components/ProductPrice';
-import ProductCarousel from '../components/ProductCarousel';
+import ProductPrice from '../components/product/ProductPrice';
+import ProductCarousel from '../components/product/ProductCarousel';
 import ProductDetailsLoading from '../components/loading/ProductDetailLoading';
 
 const ProductDetails = () => {
