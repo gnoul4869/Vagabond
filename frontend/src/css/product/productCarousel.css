@@ -24,6 +24,10 @@
     border: 2px solid var(--inspiring-red);
 }
 
+.product-carousel-img-small-active {
+    border: 2px solid var(--inspiring-red);
+}
+
 .product-carousel-btn {
     border: none;
     background: transparent;
