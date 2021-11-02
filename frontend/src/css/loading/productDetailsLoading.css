@@ -9,7 +9,7 @@
 }
 
 .product-details-loading-btn {
-    width: 200px;
+    max-width: 200px;
     height: 50px;
 }
 

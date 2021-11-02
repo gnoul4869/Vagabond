@@ -18,7 +18,9 @@ const ProductDetails = () => {
     const { id } = useParams();
     const [qty, setQty] = useState(1);
     const productDetails = useSelector((state) => state.productDetails);
-    const { loading, product, error } = productDetails;
+    let { loading, product, error } = productDetails;
+
+    loading = true;
 
     useEffect(() => {
         dispatch(detailsProduct(id));

@@ -58,10 +58,10 @@ const ProductDetailsLoading = () => {
                                     </div>
                                 </div>
                                 <div className="row mt-5">
-                                    <div className="col-5 mt-3">
+                                    <div className="col-12 col-lg-5 mt-3 mx-0 pe-1 px-0">
                                         <div className="bg-loading product-details-loading-btn rounded-pill"></div>
                                     </div>
-                                    <div className="col-5 mt-3">
+                                    <div className="col-12 col-lg-5 mt-3 mx-0 px-0">
                                         <div className="bg-loading product-details-loading-btn rounded-pill"></div>
                                     </div>
                                 </div>
