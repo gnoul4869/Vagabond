@@ -1,5 +1,5 @@
 import React from 'react';
-import { GrFormPrevious, GrFormNext } from 'react-icons/gr';
+import { MdChevronRight, MdChevronLeft } from 'react-icons/md';
 
 const ProductCarousel = ({ images, name }) => {
     const newImages = images.slice(0, 5);
@@ -9,13 +9,13 @@ const ProductCarousel = ({ images, name }) => {
             <div className="row">
                 <img src={images[0]} alt={name} className="product-carousel-img-big" />
             </div>
-            <div className="row mt-3">
-                <div className="col-auto d-flex justify-content-center p-0 ms-3 mb-2">
-                    <button type="button" className="product-carousel-btn-prev">
-                        <GrFormPrevious className="icon" />
+            <div className="row mt-3 justify-content-center">
+                <div className="col-auto d-flex justify-content-center p-0 ms-3 mb-2 fs-4">
+                    <button type="button" className="product-carousel-btn p-0">
+                        <MdChevronLeft className="icon" />
                     </button>
                 </div>
-                <div className="col d-flex justify-content-center flex-wrap">
+                <div className="product-carousel-img-container col d-flex justify-content-center flex-wrap">
                     {newImages.map((image, index) => {
                         return (
                             <img
@@ -27,9 +27,9 @@ const ProductCarousel = ({ images, name }) => {
                         );
                     })}
                 </div>
-                <div className="col-auto d-flex justify-content-center p-0 me-3 mb-2">
-                    <button type="button" className="product-carousel-btn-next">
-                        <GrFormNext className="icon" />
+                <div className="col-auto d-flex justify-content-center p-0 me-3 mb-2 fs-4">
+                    <button type="button" className="product-carousel-btn p-0">
+                        <MdChevronRight className="icon" />
                     </button>
                 </div>
             </div>

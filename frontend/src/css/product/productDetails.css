@@ -72,9 +72,9 @@
 }
 
 .btn-buy:hover {
-    background-color: darksalmon;
+    background-color: brown;
 }
 
 .btn-buy:active {
-    background-color: brown;
+    background-color: darksalmon;
 }

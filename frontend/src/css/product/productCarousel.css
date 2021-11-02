@@ -1,13 +1,14 @@
 .product-carousel-img-big {
     width: 100%;
     height: 100%;
-    max-width: 400px;
-    max-height: 400px;
+    max-width: 300px;
+    max-height: 300px;
     object-fit: contain;
-    cursor: pointer;
+    /* cursor: pointer; */
 }
 
 .product-carousel-img-container {
+    max-width: 454px !important;
 }
 
 .product-carousel-img-small {
@@ -23,16 +24,16 @@
     border: 2px solid var(--inspiring-red);
 }
 
-.product-carousel-btn-prev,
-.product-carousel-btn-next {
+.product-carousel-btn {
     border: none;
     background: transparent;
+    color: var(--inspiring-red);
 }
 
-.product-carousel-btn-prev {
-    left: 0;
+.product-carousel-btn:hover {
+    color: #630606;
 }
 
-.product-carousel-btn-next {
-    right: 0;
+.product-carousel-btn:active {
+    color: darksalmon;
 }
