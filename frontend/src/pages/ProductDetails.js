@@ -9,6 +9,7 @@ import ErrorPage from './ErrorPage';
 import NumberInput from '../components/NumberInput';
 import RatingStars from '../components/RatingStars';
 import ProductPrice from '../components/ProductPrice';
+import ProductCarousel from '../components/ProductCarousel';
 import ProductDetailsLoading from '../components/loading/ProductDetailLoading';
 
 const ProductDetails = () => {
@@ -39,11 +40,12 @@ const ProductDetails = () => {
                         <div className="container p-3">
                             <div className="row h-3">
                                 <div className="col-12 col-md-6 col-lg-5 mx-auto">
-                                    <img
-                                        src={product.image[0]}
+                                    {/* <img
+                                        src={product.images[0]}
                                         alt={product.name}
                                         className="img-fluid"
-                                    />
+                                    /> */}
+                                    <ProductCarousel images={product.images} />
                                 </div>
                                 <div className="col-12 col-md-6 col-lg-5 mx-auto">
                                     <div className="row">

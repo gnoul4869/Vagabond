@@ -17,7 +17,7 @@ const data = {
         {
             name: 'Regular Fit Suit Jacket', // Pierre Cardin Navy Twill Regular Fit Suit Jacket
             category: 'Suit Jacket',
-            image: [
+            images: [
                 '/images/pierre_cardin_navy_twill_regular_fit_suit_jacket.jpg',
                 '/images/default_product.jpg',
                 '/images/default_product.jpg',
@@ -35,7 +35,7 @@ const data = {
         {
             name: 'Double Face Shirt', // Karlskrona Double Face Shirt
             category: 'Casual Shirt',
-            image: [
+            images: [
                 '/images/melka_karlskrona_double_face_shirt.jpg',
                 '/images/default_product.jpg',
                 '/images/default_product.jpg',
@@ -52,7 +52,7 @@ const data = {
         {
             name: 'Navy Blazer', // Scott By The Label Navy Blazer
             category: 'Blazer',
-            image: [
+            images: [
                 '/images/scott_by_the_label_navy_blazer.jpg',
                 '/images/default_product.jpg',
                 '/images/default_product.jpg',
@@ -68,7 +68,7 @@ const data = {
         {
             name: 'Charcoal Melton Overcoat', // Racing Green Charcoal Melton Overcoat
             category: 'Coat',
-            image: [
+            images: [
                 '/images/racing_green_charcoal_melton_overcoat.jpg',
                 '/images/default_product.jpg',
                 '/images/default_product.jpg',
@@ -84,7 +84,7 @@ const data = {
         {
             name: 'V Neck Jumper', // Jett Banks V Neck Jumper
             category: 'Suit Jacket',
-            image: [
+            images: [
                 '/images/jeff_banks_v_neck_jumper.jpg',
                 '/images/default_product.jpg',
                 '/images/default_product.jpg',
@@ -100,7 +100,7 @@ const data = {
         {
             name: 'Plain Blue Panama Slim Fit Suit', // Lemehaus Plain Blue Panama Slim Fit Suit
             category: 'Suit Jacket',
-            image: [
+            images: [
                 '/images/limehaus_plain_blue_panama_slim_fit_jacket.jpg',
                 '/images/default_product.jpg',
             ],

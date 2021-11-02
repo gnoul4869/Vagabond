@@ -35,7 +35,7 @@ const ProductList = () => {
                                     <div className="product-list-card card shadow-sm">
                                         <div className="ratio ratio-1x1">
                                             <img
-                                                src={item.image[0]}
+                                                src={item.images[0]}
                                                 className="product-list-image card-img-top"
                                                 alt={item.name}
                                             />
