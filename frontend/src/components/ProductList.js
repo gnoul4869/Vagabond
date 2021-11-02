@@ -1,7 +1,6 @@
 import React, { useEffect } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
 import { Link } from 'react-router-dom';
-import NumberFormat from 'react-number-format';
 import { listProducts } from '../actions/productActions';
 import ProductPrice from './ProductPrice';
 import ProductListLoading from './loading/ProductListLoading';

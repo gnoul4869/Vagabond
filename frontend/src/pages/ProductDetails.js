@@ -24,11 +24,8 @@ const ProductDetails = () => {
     }, [dispatch, id]);
 
     if (error) {
-        console.log('ok');
         return <ErrorPage error={error} />;
     }
-
-    console.log(qty);
 
     return (
         <section>
@@ -39,15 +36,10 @@ const ProductDetails = () => {
                     <div className="container bg-white mt-5">
                         <div className="container p-3">
                             <div className="row h-3">
-                                <div className="col-12 col-md-6 col-lg-5 mx-auto">
-                                    {/* <img
-                                        src={product.images[0]}
-                                        alt={product.name}
-                                        className="img-fluid"
-                                    /> */}
-                                    <ProductCarousel images={product.images} />
+                                <div className="col-12 col-md-6 mx-auto">
+                                    <ProductCarousel images={product.images} name={product.name} />
                                 </div>
-                                <div className="col-12 col-md-6 col-lg-5 mx-auto">
+                                <div className="col-12 col-md-6 mx-auto">
                                     <div className="row">
                                         <div className="product-details-name fs-3">
                                             {product.name}

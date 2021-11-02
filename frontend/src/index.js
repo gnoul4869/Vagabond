@@ -13,6 +13,7 @@ import './css/numberInput.css';
 import './css/product/product.css';
 import './css/product/productList.css';
 import './css/product/productDetails.css';
+import './css/product/productCarousel.css';
 
 import 'bootstrap/dist/css/bootstrap.min.css';
 
