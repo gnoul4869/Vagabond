@@ -1,6 +1,5 @@
 import React from 'react';
 import { BrowserRouter as Router, Switch, Route } from 'react-router-dom';
-import { Container } from 'react-bootstrap';
 import Navbar from './components/navbar/Navbar.js';
 import Home from './pages/Home';
 import Register from './pages/user/Register';
@@ -14,7 +13,7 @@ const App = () => {
     return (
         <Router>
             <Navbar />
-            <Container>
+            <div className="container">
                 <Switch>
                     <Route exact path="/">
                         <Home />
@@ -38,7 +37,7 @@ const App = () => {
                         <Error404 />
                     </Route>
                 </Switch>
-            </Container>
+            </div>
         </Router>
     );
 };

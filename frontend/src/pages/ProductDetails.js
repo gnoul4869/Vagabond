@@ -115,7 +115,15 @@ const ProductDetails = () => {
                                                             </button>
                                                         </div>
                                                         <div className="col-auto mb-2 mb-xl-0">
-                                                            <Link to="/cart" className="link-tag">
+                                                            <Link
+                                                                to={{
+                                                                    pathname: '/cart',
+                                                                    state: {
+                                                                        productID: product._id,
+                                                                    },
+                                                                }}
+                                                                className="link-tag"
+                                                            >
                                                                 <button className="product-details-btn btn-buy">
                                                                     <RiShoppingBag3Fill className="icon" />{' '}
                                                                     Mua ngay

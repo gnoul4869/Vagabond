@@ -1,19 +1,16 @@
 import React from 'react';
 import brand from '../../images/vagabond_brand.svg';
-import { LinkContainer } from 'react-router-bootstrap';
-import { Nav } from 'react-bootstrap';
 import { FiSearch } from 'react-icons/fi';
 import { BsCart2 } from 'react-icons/bs';
+import { Link } from 'react-router-dom';
 
 const Indexbar = () => {
     return (
         <section>
             <div className="row d-flex align-items-center pb-3">
-                <LinkContainer to="/">
-                    <Nav.Link className="col-md-2">
-                        <img src={brand} alt="vagabond_brand" />
-                    </Nav.Link>
-                </LinkContainer>
+                <Link to="/" className="nav-link">
+                    <img src={brand} alt="vagabond_brand" />
+                </Link>
                 <div className="col-md-8">
                     <div className="d-flex navbar-form-inputs">
                         <input

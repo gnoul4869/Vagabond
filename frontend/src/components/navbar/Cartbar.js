@@ -1,8 +1,7 @@
 import React from 'react';
 import brand from '../../images/vagabond_brand.svg';
-import { LinkContainer } from 'react-router-bootstrap';
-import { Nav } from 'react-bootstrap';
 import { FiSearch } from 'react-icons/fi';
+import { Link } from 'react-router-dom';
 
 const Cartbar = () => {
     return (
@@ -11,11 +10,9 @@ const Cartbar = () => {
                 <div className="col">
                     <div className="row align-items-center justify-content-center justify-content-md-start">
                         <div className="col-5 p-0">
-                            <LinkContainer to="/">
-                                <Nav.Link>
-                                    <img src={brand} alt="vagabond_brand" />
-                                </Nav.Link>
-                            </LinkContainer>
+                            <Link to="/" className="nav-link">
+                                <img src={brand} alt="vagabond_brand" />
+                            </Link>
                         </div>
 
                         <div className="col-5 p-0">

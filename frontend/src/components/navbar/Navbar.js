@@ -1,19 +1,18 @@
 import React from 'react';
 import userIcon from '../../images/user_icon.png';
 import { useLocation } from 'react-router';
-import { LinkContainer } from 'react-router-bootstrap';
-import { Container, Nav, Navbar } from 'react-bootstrap';
 import { socialLinks } from '../../data/links';
 import Cartbar from './Cartbar';
 import Indexbar from './Indexbar';
+import { Link } from 'react-router-dom';
 
 const NavigationBar = () => {
     const location = useLocation().pathname;
 
     return (
         <header className="bg-inspiring-red">
-            <Container>
-                <Navbar variant="dark" className="navbar navbar-expand pt-0 pb-1">
+            <div className="container">
+                <nav className="navbar navbar-expand pt-0 pb-1">
                     <ul className="navbar-nav d-flex me-auto">
                         {socialLinks.map((socialLink) => {
                             const { id, url, icon } = socialLink;
@@ -44,24 +43,20 @@ const NavigationBar = () => {
                                 </LinkContainer>
                             </li> */}
                         <li>
-                            <LinkContainer to="/user/register">
-                                <Nav.Link>
-                                    <span className="navbar-link">Đăng ký</span>
-                                </Nav.Link>
-                            </LinkContainer>
+                            <Link to="/user/register" className="nav-link">
+                                <span className="navbar-link">Đăng ký</span>
+                            </Link>
                         </li>
                         <div className="navbar-link-separator"></div>
                         <li>
-                            <LinkContainer to="/user/login">
-                                <Nav.Link>
-                                    <span className="navbar-link">Đăng nhập</span>
-                                </Nav.Link>
-                            </LinkContainer>
+                            <Link to="/user/login" className="nav-link">
+                                <span className="navbar-link">Đăng nhập</span>
+                            </Link>
                         </li>
                     </ul>
-                </Navbar>
+                </nav>
                 {location === '/cart' ? <Cartbar /> : <Indexbar />}
-            </Container>
+            </div>
         </header>
     );
 };
