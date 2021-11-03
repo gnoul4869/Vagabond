@@ -9,7 +9,7 @@ import { BsCart2 } from 'react-icons/bs';
 
 const NavigationBar = () => {
     return (
-        <header className="bg-inspiring-red sticky-top">
+        <header className="bg-inspiring-red">
             <Container>
                 <Navbar variant="dark" className="navbar navbar-expand pt-0 pb-1">
                     <ul className="navbar-nav d-none d-md-flex me-auto">
