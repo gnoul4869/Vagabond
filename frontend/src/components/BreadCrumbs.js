@@ -4,8 +4,8 @@ import { Link } from 'react-router-dom';
 const BreadCrumbs = (props) => {
     return (
         <nav aria-label="breadcrumb">
-            <ol class="breadcrumb flex-nowrap my-3">
-                <li class="breadcrumb-item">
+            <ol className="breadcrumb flex-nowrap my-3">
+                <li className="breadcrumb-item">
                     <Link to="/" className="link-tag text-primary">
                         Home
                     </Link>
@@ -15,20 +15,16 @@ const BreadCrumbs = (props) => {
                         return (
                             <li
                                 key={index}
-                                class="breadcrumb-item text-truncate active"
+                                className="breadcrumb-item text-truncate active"
                                 aria-current="page"
                             >
-                                <span>
-                                    {itemValue}
-                                </span>
+                                <span>{itemValue}</span>
                             </li>
                         );
                     } else {
                         return (
-                            <li key={index} class="breadcrumb-item text-truncate">
-                                <span>
-                                    {itemValue}
-                                </span>
+                            <li key={index} className="breadcrumb-item text-truncate">
+                                <span>{itemValue}</span>
                             </li>
                         );
                     }

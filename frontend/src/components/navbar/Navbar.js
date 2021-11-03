@@ -1,12 +1,15 @@
 import React from 'react';
 import userIcon from '../../images/user_icon.png';
+import { useLocation } from 'react-router';
 import { LinkContainer } from 'react-router-bootstrap';
 import { Container, Nav, Navbar } from 'react-bootstrap';
 import { socialLinks } from '../../data/links';
 import Cartbar from './Cartbar';
 import Indexbar from './Indexbar';
 
-const NavigationBar = ({ type }) => {
+const NavigationBar = () => {
+    const location = useLocation().pathname;
+
     return (
         <header className="bg-inspiring-red">
             <Container>
@@ -57,7 +60,7 @@ const NavigationBar = ({ type }) => {
                         </li>
                     </ul>
                 </Navbar>
-                {type === 'cart' ? <Cartbar /> : <Indexbar />}
+                {location === '/cart' ? <Cartbar /> : <Indexbar />}
             </Container>
         </header>
     );
