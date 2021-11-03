@@ -1,5 +1,6 @@
 import React from 'react';
 import { BrowserRouter as Router, Switch, Route } from 'react-router-dom';
+import { Container } from 'react-bootstrap';
 import Navbar from './components/navbar/Navbar.js';
 import Home from './pages/Home';
 import Register from './pages/user/Register';
@@ -7,7 +8,7 @@ import Login from './pages/user/Login';
 import Profile from './pages/user/Profile';
 import Error404 from './pages/Error404';
 import ProductDetails from './pages/ProductDetails';
-import { Container } from 'react-bootstrap';
+import Cart from './pages/Cart';
 
 const App = () => {
     return (
@@ -29,6 +30,9 @@ const App = () => {
                     </Route>
                     <Route path="/product/:id">
                         <ProductDetails />
+                    </Route>
+                    <Route path="/cart">
+                        <Cart />
                     </Route>
                     <Route path="*">
                         <Error404 />

@@ -1,6 +1,6 @@
 import React, { useEffect, useState } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
-import { useParams } from 'react-router-dom';
+import { Link, useParams } from 'react-router-dom';
 import { detailsProduct } from '../actions/productActions';
 import { FaCartPlus } from 'react-icons/fa';
 import { RiShoppingBag3Fill } from 'react-icons/ri';
@@ -115,10 +115,12 @@ const ProductDetails = () => {
                                                             </button>
                                                         </div>
                                                         <div className="col-auto mb-2 mb-xl-0">
-                                                            <button className="product-details-btn btn-buy">
-                                                                <RiShoppingBag3Fill className="icon" />{' '}
-                                                                Mua ngay
-                                                            </button>
+                                                            <Link to="/cart" className="link-tag">
+                                                                <button className="product-details-btn btn-buy">
+                                                                    <RiShoppingBag3Fill className="icon" />{' '}
+                                                                    Mua ngay
+                                                                </button>
+                                                            </Link>
                                                         </div>
                                                     </>
                                                 )}
