@@ -1,19 +1,30 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
 
-const BreadCrumbs = () => {
+const BreadCrumbs = (props) => {
     return (
         <nav aria-label="breadcrumb">
             <ol class="breadcrumb my-3">
                 <li class="breadcrumb-item">
-                    <Link to="/">Home</Link>
+                    <Link to="/" className="link-tag text-primary">
+                        Home
+                    </Link>
                 </li>
-                <li class="breadcrumb-item">
-                    <span>Danh mục</span>
-                </li>
-                <li class="breadcrumb-item active" aria-current="page">
-                    <span>Regular Fit Suit Jacket</span>
-                </li>
+                {Object.entries(props).map(([itemKey, itemValue], index, { length }) => {
+                    if (length - 1 === index) {
+                        return (
+                            <li key={index} class="breadcrumb-item active" aria-current="page">
+                                <span>{itemValue}</span>
+                            </li>
+                        );
+                    } else {
+                        return (
+                            <li key={index} class="breadcrumb-item">
+                                <span>{itemValue}</span>
+                            </li>
+                        );
+                    }
+                })}
             </ol>
         </nav>
     );

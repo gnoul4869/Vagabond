@@ -3,7 +3,7 @@ import React from 'react';
 const ProductDetailsLoading = () => {
     return (
         <>
-            <div className="container bg-white">
+            <div className="container bg-white mt-5">
                 <div className="container p-3">
                     <div className="row h-3">
                         <div className="col-12 col-md-6 mx-auto">

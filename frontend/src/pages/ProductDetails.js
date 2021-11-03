@@ -31,13 +31,13 @@ const ProductDetails = () => {
 
     return (
         <>
-            <BreadCrumbs />
-            <section>
-                {loading ? (
-                    <ProductDetailsLoading />
-                ) : (
-                    product && (
-                        <>
+            {loading ? (
+                <ProductDetailsLoading />
+            ) : (
+                product && (
+                    <>
+                        <BreadCrumbs category={product.category} name={product.name} />
+                        <section>
                             <div className="container bg-white">
                                 <div className="container p-3">
                                     <div className="row h-3">
@@ -132,10 +132,10 @@ const ProductDetails = () => {
                                 brand={product.brand}
                                 description={product.description}
                             />
-                        </>
-                    )
-                )}
-            </section>
+                        </section>
+                    </>
+                )
+            )}
         </>
     );
 };
