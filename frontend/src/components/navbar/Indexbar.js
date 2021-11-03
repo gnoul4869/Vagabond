@@ -14,7 +14,7 @@ const Indexbar = () => {
                         <img src={brand} alt="vagabond_brand" />
                     </Nav.Link>
                 </LinkContainer>
-                <div className=" col-md-8">
+                <div className="col-md-8">
                     <div className="d-flex navbar-form-inputs">
                         <input
                             className="form-control"

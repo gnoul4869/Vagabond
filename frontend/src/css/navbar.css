@@ -81,3 +81,9 @@
 .navbar-qty {
     font-size: 1.125rem;
 }
+
+.cart-logo {
+    border-left: 0.125rem solid white;
+    padding-left: 0.9375rem;
+    text-transform: capitalize;
+}

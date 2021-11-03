@@ -27,6 +27,14 @@ input[type='number']::-webkit-outer-spin-button {
     appearance: none;
 }
 
+.text-ired {
+    color: var(--inspiring-red);
+}
+
+.fw-600 {
+    font-weight: 600;
+}
+
 .link-tag {
     text-decoration: inherit;
     color: inherit;

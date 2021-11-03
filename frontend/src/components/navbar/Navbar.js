@@ -14,7 +14,7 @@ const NavigationBar = () => {
         <header className="bg-inspiring-red">
             <Container>
                 <Navbar variant="dark" className="navbar navbar-expand pt-0 pb-1">
-                    <ul className="navbar-nav d-none d-md-flex me-auto">
+                    <ul className="navbar-nav d-flex me-auto">
                         {socialLinks.map((socialLink) => {
                             const { id, url, icon } = socialLink;
                             return (
@@ -26,7 +26,7 @@ const NavigationBar = () => {
                             );
                         })}
                     </ul>
-                    <ul className="navbar-nav d-flex align-items-center ">
+                    <ul className="navbar-nav d-flex align-items-center">
                         {/* <li className="nav-item">
                                 <img
                                     src={userIcon}

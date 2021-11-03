@@ -43,7 +43,7 @@ const ProductList = () => {
                                             <div className="product-list-name text-secondary fw-bold flex-fill">
                                                 {item.name}
                                             </div>
-                                            <div className="product-price fs-5">
+                                            <div className="text-ired fw-600 fs-5">
                                                 <ProductPrice price={item.price} />
                                             </div>
                                             <div>
