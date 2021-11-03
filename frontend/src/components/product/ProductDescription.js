@@ -1,6 +1,6 @@
 import React from 'react';
 
-const ProductDescription = ({ brand, description }) => {
+const ProductDescription = ({ category, brand, description }) => {
     return (
         <>
             <div className="container bg-white mt-3 p-3">
@@ -9,6 +9,14 @@ const ProductDescription = ({ brand, description }) => {
                 </div>
                 <div className="container p-3">
                     <div className="row">
+                        <div className="col-4 col-md-3 col-lg-2 text-secondary product-description-label">
+                            <span>Danh mục</span>
+                        </div>
+                        <div className="col p-0">
+                            <span>{category}</span>
+                        </div>
+                    </div>
+                    <div className="row mt-3">
                         <div className="col-4 col-md-3 col-lg-2 text-secondary product-description-label">
                             <span>Thương hiệu</span>
                         </div>

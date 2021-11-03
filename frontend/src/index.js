@@ -10,6 +10,8 @@ import './css/navbar.css';
 import './css/error.css';
 import './css/numberInput.css';
 
+import './css/breadcrumbs.css';
+
 import './css/product/product.css';
 import './css/product/productList.css';
 import './css/product/productDetails.css';
