@@ -26,10 +26,10 @@ const ProductListLoading = () => {
                                         <div className="col-7">
                                             <div className="bg-loading rounded-pill"></div>
                                         </div>
-                                        <div className="col-1 ps-0">
+                                        <div className="col-1 ps-0 d-none d-md-inline-block">
                                             <div className="bg-loading rounded-pill"></div>
                                         </div>
-                                        <div className="col-4 ps-0">
+                                        <div className="col-4 ps-0 d-none d-md-inline-block">
                                             <div className="bg-loading rounded-pill"></div>
                                         </div>
                                     </div>

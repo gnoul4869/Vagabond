@@ -51,7 +51,7 @@ const ProductList = () => {
                                                     rating={item.rating}
                                                     numReviews={item.numReviews}
                                                 />
-                                                <span className="product-num-reviews text-secondary">
+                                                <span className="product-num-reviews text-secondary d-none d-md-inline-block">
                                                     | {`${item.numReviews} lượt đánh giá`}
                                                 </span>
                                             </div>
