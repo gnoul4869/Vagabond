@@ -1,18 +1,18 @@
 import React from 'react';
 import userIcon from '../../images/user_icon.png';
+import { Link } from 'react-router-dom';
 import { useLocation } from 'react-router';
 import { socialLinks } from '../../data/links';
 import Cartbar from './Cartbar';
 import Indexbar from './Indexbar';
-import { Link } from 'react-router-dom';
 
 const NavigationBar = () => {
     const location = useLocation().pathname;
 
     return (
-        <header className="bg-inspiring-red">
+        <header className="bg-ired">
             <div className="container">
-                <nav className="navbar navbar-expand pt-0 pb-1">
+                <nav className="navbar navbar-expand d-none d-md-flex pt-0 pb-1">
                     <ul className="navbar-nav d-flex me-auto">
                         {socialLinks.map((socialLink) => {
                             const { id, url, icon } = socialLink;

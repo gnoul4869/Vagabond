@@ -1,0 +1,35 @@
+.navbar-toggler {
+    box-shadow: none !important;
+}
+
+.navbar-dropdown {
+    -webkit-transition: max-height 0.3s, opacity 0.2s 0.1s, visibility 0s 0.3s;
+    -moz-transition: max-height 0.3s, opacity 0.2s 0.1s, visibility 0s 0.3s;
+    -ms-transition: max-height 0.3s, opacity 0.2s 0.1s, visibility 0s 0.3s;
+    -o-transition: max-height 0.3s, opacity 0.2s 0.1s, visibility 0s 0.3s;
+    transition: max-height 0.3s, opacity 0.2s 0.1s, visibility 0s 0.3s;
+
+    max-height: 0;
+    overflow: hidden;
+    opacity: 0;
+    visibility: hidden;
+}
+
+.navbar-dropdown-active {
+    -webkit-transition: max-height 0.3s, opacity 0.2s, visibility 0s;
+    -moz-transition: max-height 0.3s, opacity 0.2s, visibility 0s;
+    -ms-transition: max-height 0.3s, opacity 0.2s, visibility 0s;
+    -o-transition: max-height 0.3s, opacity 0.2s, visibility 0s;
+    transition: max-height 0.3s, opacity 0.2s, visibility 0s;
+
+    opacity: 1;
+    visibility: visible;
+}
+
+.navbar-dropdown-active-height-120 {
+    max-height: 120px; /** Default height for auth=false and social links */
+}
+
+.navbar-dropdown-active-height-165 {
+    max-height: 165px; /** Height for auth=false and search box and social links */
+}

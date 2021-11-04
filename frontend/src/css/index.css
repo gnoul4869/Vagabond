@@ -27,6 +27,10 @@ input[type='number']::-webkit-outer-spin-button {
     appearance: none;
 }
 
+.bg-ired {
+    background-color: var(--inspiring-red);
+}
+
 .text-ired {
     color: var(--inspiring-red);
 }

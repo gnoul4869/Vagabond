@@ -6,11 +6,13 @@ import store from './store.js';
 // import reportWebVitals from './reportWebVitals';
 
 import './css/index.css';
-import './css/navbar.css';
 import './css/error.css';
 import './css/numberInput.css';
 
 import './css/breadCrumbs.css';
+
+import './css/navbar/navbar.css';
+import './css/navbar/navbarDropdown.css';
 
 import './css/product/product.css';
 import './css/product/productList.css';

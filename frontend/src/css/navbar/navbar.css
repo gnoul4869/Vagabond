@@ -1,9 +1,5 @@
-.brand {
-    height: 3.75rem;
-}
-
-.bg-inspiring-red {
-    background-color: var(--inspiring-red);
+.nav-logo {
+    min-height: 40px !important;
 }
 
 /*? Disable dragging and selecting html elements */
@@ -82,7 +78,7 @@
     font-size: 1.125rem;
 }
 
-.cart-logo {
+.navbar-cart-logo {
     border-left: 0.125rem solid white;
     padding-left: 0.9375rem;
     text-transform: capitalize;

@@ -16,7 +16,7 @@ const Cartbar = () => {
                         </div>
 
                         <div className="col-5 p-0">
-                            <div className="cart-logo text-white fw-600 fs-3">Giỏ hàng</div>
+                            <div className="navbar-cart-logo text-white fw-600 fs-3">Giỏ hàng</div>
                         </div>
                     </div>
                 </div>
