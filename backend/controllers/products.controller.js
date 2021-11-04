@@ -13,7 +13,7 @@ export const getAllProducts = async (req, res) => {
 export const getSingleProduct = async (req, res) => {
     const product = await Product.findOne({ _id: req.params.id });
     if (!product) {
-        throw new NotFoundError('Không tìm thấy sản phẩm nào');
+        throw new NotFoundError('Sản phẩm này không tồn tại');
     }
     res.status(StatusCodes.OK).json({ product });
 };

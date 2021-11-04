@@ -13,6 +13,7 @@ import ProductCarousel from '../components/product/ProductCarousel';
 import ProductDetailsLoading from '../components/loading/ProductDetailsLoading';
 import ProductDescription from '../components/product/ProductDescription';
 import BreadCrumbs from '../components/BreadCrumbs';
+import { addToCart } from '../actions/cartActions';
 
 const ProductDetails = () => {
     const dispatch = useDispatch();
@@ -20,6 +21,10 @@ const ProductDetails = () => {
     const [qty, setQty] = useState(1);
     const productDetails = useSelector((state) => state.productDetails);
     const { loading, product, error } = productDetails;
+
+    const addToCartBtnHandler = (productID, qty) => {
+        dispatch(addToCart(productID, qty));
+    };
 
     useEffect(() => {
         dispatch(detailsProduct(id));
@@ -109,6 +114,12 @@ const ProductDetails = () => {
                                                             <button
                                                                 type="button"
                                                                 className="product-details-btn btn-cart"
+                                                                onClick={() =>
+                                                                    addToCartBtnHandler(
+                                                                        product._id,
+                                                                        qty
+                                                                    )
+                                                                }
                                                             >
                                                                 <FaCartPlus className="icon" /> Thêm
                                                                 vào giỏ hàng
