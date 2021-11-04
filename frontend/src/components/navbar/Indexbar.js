@@ -1,13 +1,11 @@
-import React, { useState } from 'react';
+import React from 'react';
 import { BsCart2 } from 'react-icons/bs';
 import { HiMenu } from 'react-icons/hi';
 import { Brand, Logo } from './BrandLogo';
 import NavbarDropdown from './NavbarDropdown';
 import SearchBox from './SearchBox';
 
-const Indexbar = () => {
-    const [isDropdownShown, setIsDropdownShown] = useState(false);
-
+const Indexbar = ({ isDropdownShown, setIsDropdownShown }) => {
     return (
         <section>
             <div className="row d-flex align-items-center justify-content-center pb-3 pt-3 pt-md-0">

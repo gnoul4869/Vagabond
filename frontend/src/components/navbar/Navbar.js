@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { useState } from 'react';
 import userIcon from '../../images/user_icon.png';
 import { Link } from 'react-router-dom';
 import { useLocation } from 'react-router';
@@ -7,6 +7,7 @@ import Cartbar from './Cartbar';
 import Indexbar from './Indexbar';
 
 const NavigationBar = () => {
+    const [isDropdownShown, setIsDropdownShown] = useState(false);
     const location = useLocation().pathname;
 
     return (
@@ -55,7 +56,17 @@ const NavigationBar = () => {
                         </li>
                     </ul>
                 </nav>
-                {location === '/cart' ? <Cartbar /> : <Indexbar />}
+                {location === '/cart' ? (
+                    <Cartbar
+                        isDropdownShown={isDropdownShown}
+                        setIsDropdownShown={setIsDropdownShown}
+                    />
+                ) : (
+                    <Indexbar
+                        isDropdownShown={isDropdownShown}
+                        setIsDropdownShown={setIsDropdownShown}
+                    />
+                )}
             </div>
         </header>
     );
