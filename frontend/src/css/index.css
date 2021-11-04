@@ -54,3 +54,16 @@ input[type='number']::-webkit-outer-spin-button {
     background-size: 600% 600%;
     animation: gradient 3s linear infinite;
 }
+
+.form-check-input {
+    box-shadow: none !important;
+}
+
+.form-check-input:focus {
+    border-color: #fd9797 !important;
+}
+
+.form-check-input:checked {
+    background-color: var(--inspiring-red) !important;
+    border-color: var(--inspiring-red) !important;
+}

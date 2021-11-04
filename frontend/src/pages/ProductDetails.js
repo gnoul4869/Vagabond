@@ -5,7 +5,7 @@ import { detailsProduct } from '../actions/productActions';
 import { FaCartPlus } from 'react-icons/fa';
 import { RiShoppingBag3Fill } from 'react-icons/ri';
 import { IoIosWarning } from 'react-icons/io';
-import ErrorPage from './ErrorPage';
+import ErrorPage from './error/ErrorPage';
 import NumberInput from '../components/NumberInput';
 import RatingStars from '../components/RatingStars';
 import ProductPrice from '../components/product/ProductPrice';

@@ -5,7 +5,7 @@ import Home from './pages/Home';
 import Register from './pages/user/Register';
 import Login from './pages/user/Login';
 import Profile from './pages/user/Profile';
-import Error404 from './pages/Error404';
+import Error404 from './pages/error/Error404';
 import ProductDetails from './pages/ProductDetails';
 import Cart from './pages/Cart';
 

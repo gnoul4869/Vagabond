@@ -5,7 +5,7 @@ import { listProducts } from '../../actions/productActions';
 import ProductPrice from './ProductPrice';
 import ProductListLoading from '../loading/ProductListLoading';
 import RatingStars from '../RatingStars';
-import ErrorPage from '../../pages/ErrorPage';
+import ErrorPage from '../../pages/error/ErrorPage';
 
 const ProductList = () => {
     const dispatch = useDispatch();

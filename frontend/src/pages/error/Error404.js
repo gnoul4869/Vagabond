@@ -1,17 +1,17 @@
 import React from 'react';
-import notFoundImage from '../images/not_found.svg';
-import { ImHome } from 'react-icons/im';
+import error404Image from '../../images/error404.svg';
 import { Link } from 'react-router-dom';
+import { ImHome } from 'react-icons/im';
 
-const ErrorPage = ({ error }) => {
+const NotFound = () => {
     return (
         <section className="container mt-5 text-center">
             <div className="row d-flex justify-content-center">
-                <div className="col-3 my-5">
+                <div className="col-6 mt-5">
                     <div className="col-8 mt-5 mb-3 mx-auto">
                         <img
-                            src={notFoundImage}
-                            alt="notFound"
+                            src={error404Image}
+                            alt="error404"
                             className="img-fluid not-found-img"
                         />
                     </div>
@@ -19,7 +19,7 @@ const ErrorPage = ({ error }) => {
             </div>
             <div className="row">
                 <div className="col">
-                    <span className="fs-3">{error}</span>
+                    <span className="fs-3">Xin lỗi, trang bạn tìm kiếm không tồn tại!</span>
                 </div>
             </div>
             <div className="row">
@@ -33,4 +33,4 @@ const ErrorPage = ({ error }) => {
     );
 };
 
-export default ErrorPage;
+export default NotFound;
