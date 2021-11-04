@@ -1,7 +1,9 @@
 import React from 'react';
 import brand from '../../images/vagabond_brand.svg';
+import logo from '../../images/vagabond_logo.svg';
 import { FiSearch } from 'react-icons/fi';
 import { Link } from 'react-router-dom';
+import SearchBox from './SearchBox';
 
 const Cartbar = () => {
     return (
@@ -15,6 +17,12 @@ const Cartbar = () => {
                             </Link>
                         </div>
 
+                        <div className="col-2 d-block d-md-none">
+                            <Link to="/" className="nav-link">
+                                <img src={logo} alt="vagabond_logo" className="nav-logo" />
+                            </Link>
+                        </div>
+
                         <div className="col-5 p-0">
                             <div className="navbar-cart-logo text-white fw-600 fs-3">Giỏ hàng</div>
                         </div>
@@ -22,16 +30,7 @@ const Cartbar = () => {
                 </div>
 
                 <div className="col-md-6">
-                    <div className="d-flex navbar-form-inputs">
-                        <input
-                            className="form-control"
-                            type="text"
-                            placeholder="Tìm kiếm sản phẩm..."
-                        />
-                        <button className="btn-search">
-                            <FiSearch className="search-icon" />
-                        </button>
-                    </div>
+                    <SearchBox />
                 </div>
             </div>
         </section>

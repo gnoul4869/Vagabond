@@ -1,9 +1,7 @@
 import React, { useState } from 'react';
-import brand from '../../images/vagabond_brand.svg';
-import logo from '../../images/vagabond_logo.svg';
-import { Link } from 'react-router-dom';
 import { BsCart2 } from 'react-icons/bs';
 import { HiMenu } from 'react-icons/hi';
+import { Brand, Logo } from './BrandLogo';
 import NavbarDropdown from './NavbarDropdown';
 import SearchBox from './SearchBox';
 
@@ -14,15 +12,11 @@ const Indexbar = () => {
         <section>
             <div className="row d-flex align-items-center justify-content-center pb-3 pt-3 pt-md-0">
                 <div className="col-md-3 col-lg-2 d-none d-md-block">
-                    <Link to="/" className="nav-link">
-                        <img src={brand} alt="vagabond_brand" />
-                    </Link>
+                    <Brand />
                 </div>
 
                 <div className="col-2 d-block d-md-none">
-                    <Link to="/" className="nav-link">
-                        <img src={logo} alt="vagabond_logo" className="nav-logo" />
-                    </Link>
+                    <Logo />
                 </div>
 
                 <div className="col col-md-7 col-lg-8">
