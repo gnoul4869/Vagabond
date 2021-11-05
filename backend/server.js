@@ -21,7 +21,7 @@ const port = process.env.PORT || 5000;
 app.set('trust proxy', 1); //! Enable if you're behind a reverse proxy (Heroku, Bluemix, AWS ELB, Nginx, etc)
 app.use(
     expressLimiter({
-        windowMs: 15 * 60 * 1000, //? 15 minutes
+        windowMs: 10 * 60 * 1000, //? 10 minutes
         max: 100, //? limit each IP to 100 requests per windowMs
     })
 );
