@@ -35,6 +35,12 @@ input[type='number']::-webkit-outer-spin-button {
     color: var(--inspiring-red);
 }
 
+.btn-ired {
+    color: #fff !important;
+    background-color: var(--inspiring-red) !important;
+    border-color: var(--inspiring-red) !important;
+}
+
 .fw-600 {
     font-weight: 600;
 }

@@ -5,6 +5,7 @@ import { MdDeleteForever } from 'react-icons/md';
 import NumberInput from '../components/NumberInput';
 import ProductPrice from '../components/product/ProductPrice';
 import { removeFromCart } from '../actions/cartActions';
+import EmptyCart from '../components/EmptyCart';
 
 const Cart = () => {
     const dispatch = useDispatch();
@@ -50,7 +51,9 @@ const Cart = () => {
             </div>
             <div className="container bg-white mt-2 p-3">
                 <div className="container">
-                    {cartItems &&
+                    {cartItems.length === 0 ? (
+                        <EmptyCart />
+                    ) : (
                         cartItems.map((item) => {
                             return (
                                 <div key={item.id}>
@@ -110,7 +113,8 @@ const Cart = () => {
                                     <hr />
                                 </div>
                             );
-                        })}
+                        })
+                    )}
                 </div>
             </div>
         </>
