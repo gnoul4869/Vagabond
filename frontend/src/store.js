@@ -13,7 +13,7 @@ const initialState = {
         product: null,
     },
     cart: {
-        loading: false,
+        loadingItems: [],
         cartItems: localStorage.getItem('cartItems')
             ? JSON.parse(localStorage.getItem('cartItems'))
             : [],

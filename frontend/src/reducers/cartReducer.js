@@ -4,10 +4,10 @@ import {
     CART_REMOVE_ITEM,
 } from '../constants/cartConstants';
 
-export const cart = (state = { loading: false, cartItems: [] }, action) => {
+export const cart = (state = { loadingItems: [], cartItems: [] }, action) => {
     switch (action.type) {
         case CART_ADD_ITEM_REQUEST:
-            return { ...state, loading: true };
+            return { ...state, loadingItems: [...state.loadingItems, action.payload] };
         case CART_ADD_ITEM_SUCCESS:
             const item = action.payload;
 
@@ -15,11 +15,11 @@ export const cart = (state = { loading: false, cartItems: [] }, action) => {
             if (existItem) {
                 return {
                     ...state,
-                    loading: false,
+                    loadingItems: state.loadingItems.filter((x) => x !== action.payload.id),
                     cartItems: state.cartItems.map((x) => (x.id === item.id ? item : x)),
                 };
             } else {
-                return { ...state, loading: false, cartItems: [...state.cartItems, item] };
+                return { ...state, loadingItems: null, cartItems: [...state.cartItems, item] };
             }
         case CART_REMOVE_ITEM:
             return {

@@ -8,10 +8,7 @@ const NumberInput = ({ qty, max, setQty, productID, disabled }) => {
     const refInput = useRef(null);
 
     const inputHandler = (value) => {
-        if (value >= 1) {
-            if (value > max) {
-                value = max;
-            }
+        if (value >= 1 && value <= max) {
             if (setQty) {
                 setQty(value);
             }

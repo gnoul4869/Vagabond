@@ -9,7 +9,7 @@ import EmptyCart from '../components/EmptyCart';
 
 const Cart = () => {
     const dispatch = useDispatch();
-    const { loading, cartItems } = useSelector((state) => state.cart);
+    const { loadingItems, cartItems } = useSelector((state) => state.cart);
 
     const deleteBtnHandler = (productID) => {
         dispatch(removeFromCart(productID));
@@ -92,7 +92,10 @@ const Cart = () => {
                                                     qty={item.qty}
                                                     max={item.countInStock}
                                                     productID={item.id}
-                                                    disabled={loading}
+                                                    disabled={
+                                                        loadingItems &&
+                                                        loadingItems.includes(item.id)
+                                                    }
                                                 />
                                             </div>
                                         </div>
@@ -115,6 +118,11 @@ const Cart = () => {
                             );
                         })
                     )}
+                </div>
+            </div>
+            <div className="container bg-white mt-2 p-3">
+                <div className="container d-flex">
+                    <div className="text-secondary fw-600 ms-auto">Tổng thanh toán</div>
                 </div>
             </div>
         </>
