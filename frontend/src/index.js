@@ -20,6 +20,8 @@ import './css/product/productDetails.css';
 import './css/product/productCarousel.css';
 import './css/product/productDescription.css';
 
+import './css/cart.css';
+
 import './css/loading/productDetailsLoading.css';
 
 import 'bootstrap/dist/css/bootstrap.min.css';

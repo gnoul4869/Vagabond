@@ -1,6 +1,7 @@
 import React from 'react';
 import { BsCart2 } from 'react-icons/bs';
 import { HiMenu } from 'react-icons/hi';
+import { Link } from 'react-router-dom';
 import { Brand, Logo } from './BrandLogo';
 import NavbarDropdown from './NavbarDropdown';
 import SearchBox from './SearchBox';
@@ -32,7 +33,9 @@ const Indexbar = ({ isDropdownShown, setIsDropdownShown }) => {
                 </div>
 
                 <div className="col-md-2 d-none d-md-block">
-                    <BsCart2 className="navbar-cart-icon text-light mx-auto" />
+                    <Link to="/cart">
+                        <BsCart2 className="navbar-cart-icon text-light mx-auto" />
+                    </Link>
                 </div>
             </div>
             <NavbarDropdown auth={false} search={false} isDropdownShown={isDropdownShown} />

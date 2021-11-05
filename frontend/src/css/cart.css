@@ -1,0 +1,29 @@
+.cart-item-img {
+    width: 100%;
+    height: 100%;
+    max-width: 82px;
+    max-height: 82px;
+    object-fit: contain;
+}
+
+.cart-item-name {
+    font-weight: 600;
+    line-height: 1.5rem;
+    height: 3rem;
+    white-space: nowrap;
+    text-overflow: ellipsis;
+    overflow: hidden;
+    text-decoration: none;
+    color: black !important;
+}
+
+@supports (-webkit-line-clamp: 2) {
+    .cart-item-name {
+        overflow: hidden;
+        text-overflow: ellipsis;
+        white-space: initial;
+        display: -webkit-box;
+        -webkit-line-clamp: 2;
+        -webkit-box-orient: vertical;
+    }
+}

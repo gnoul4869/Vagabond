@@ -91,8 +91,8 @@ const ProductDetails = () => {
                                                 <div className="col-auto">
                                                     <NumberInput
                                                         qty={qty}
-                                                        setQty={setQty}
                                                         max={product.countInStock}
+                                                        setQty={setQty}
                                                     />
                                                 </div>
                                                 <div className="col-auto my-auto text-secondary product-details-label">
