@@ -1,11 +1,18 @@
 import React from 'react';
-import { useSelector } from 'react-redux';
+import { useDispatch, useSelector } from 'react-redux';
 import { Link } from 'react-router-dom';
+import { MdDeleteForever } from 'react-icons/md';
 import NumberInput from '../components/NumberInput';
 import ProductPrice from '../components/product/ProductPrice';
+import { removeFromCart } from '../actions/cartActions';
 
 const Cart = () => {
+    const dispatch = useDispatch();
     const { loading, cartItems } = useSelector((state) => state.cart);
+
+    const deleteBtnHandler = (productID) => {
+        dispatch(removeFromCart(productID));
+    };
 
     return (
         <>
@@ -91,10 +98,13 @@ const Cart = () => {
                                                 <ProductPrice price={item.price * item.qty} />
                                             </div>
                                         </div>
-                                        <div className="col">
-                                            <div className="text-secondary fw-600 text-center">
-                                                Thao tác
-                                            </div>
+                                        <div className="col d-flex justify-content-center">
+                                            <button
+                                                className="cart-btn btn-del"
+                                                onClick={() => deleteBtnHandler(item.id)}
+                                            >
+                                                <MdDeleteForever className="icon" /> Xoá
+                                            </button>
                                         </div>
                                     </div>
                                     <hr />

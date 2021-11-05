@@ -24,7 +24,7 @@ export const cart = (state = { loading: false, cartItems: [] }, action) => {
         case CART_REMOVE_ITEM:
             return {
                 ...state,
-                cartItems: state.cartItems.filter((x) => x.id !== action.payload.id),
+                cartItems: state.cartItems.filter((x) => x.id !== action.payload),
             };
         default:
             return state;

@@ -6,7 +6,6 @@ import { addToCart } from '../actions/cartActions';
 const NumberInput = ({ qty, max, setQty, productID, disabled }) => {
     const dispatch = useDispatch();
     const refInput = useRef(null);
-    console.log(disabled);
 
     const inputHandler = (value) => {
         if (value >= 1) {

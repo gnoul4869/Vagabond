@@ -27,3 +27,26 @@
         -webkit-box-orient: vertical;
     }
 }
+
+.cart-btn {
+    border: none;
+    display: block;
+    padding: 12px 24px;
+    font-weight: 600;
+    box-shadow: rgba(0, 0, 0, 0.05) 0px 0px 0px 1px;
+    transition: all 0.1s linear;
+    border-radius: 10px;
+}
+
+.btn-del {
+    color: white;
+    background-color: var(--inspiring-red);
+}
+
+.btn-del:hover {
+    background-color: brown;
+}
+
+.btn-del:active {
+    background-color: darksalmon;
+}
