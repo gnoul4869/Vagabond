@@ -19,7 +19,7 @@ export const cart = (state = { loading: false, cartItems: [] }, action) => {
                     cartItems: state.cartItems.map((x) => (x.id === item.id ? item : x)),
                 };
             } else {
-                return { ...state, cartItems: [...state.cartItems, item] };
+                return { ...state, loading: false, cartItems: [...state.cartItems, item] };
             }
         case CART_REMOVE_ITEM:
             return {
