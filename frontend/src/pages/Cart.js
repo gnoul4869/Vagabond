@@ -11,7 +11,7 @@ const Cart = () => {
     const dispatch = useDispatch();
     const { loadingItems, cartItems } = useSelector((state) => state.cart);
 
-    const deleteBtnHandler = (productID) => {
+    const deleteHandler = (productID) => {
         dispatch(removeFromCart(productID));
     };
 
@@ -107,7 +107,7 @@ const Cart = () => {
                                         <div className="col d-flex justify-content-center">
                                             <button
                                                 className="cart-btn btn-del"
-                                                onClick={() => deleteBtnHandler(item.id)}
+                                                onClick={() => deleteHandler(item.id)}
                                             >
                                                 <MdDeleteForever className="icon" /> Xoá
                                             </button>

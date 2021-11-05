@@ -5,7 +5,7 @@ import {
     CART_REMOVE_ITEM,
 } from '../constants/cartConstants';
 
-export const addToCart = (productID, qty) => async (dispatch, getState) => {
+export const addToCart = (productID, qty, history) => async (dispatch, getState) => {
     dispatch({ type: CART_ADD_ITEM_REQUEST, payload: productID });
 
     const loadingItems = getState().cart.loadingItems;
@@ -26,6 +26,10 @@ export const addToCart = (productID, qty) => async (dispatch, getState) => {
         });
 
         localStorage.setItem('cartItems', JSON.stringify(getState().cart.cartItems));
+
+        if (history) {
+            history.push('/cart');
+        }
     }
 };
 

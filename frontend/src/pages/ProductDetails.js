@@ -1,6 +1,6 @@
 import React, { useEffect, useState } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
-import { Link, useParams } from 'react-router-dom';
+import { useParams, useHistory } from 'react-router-dom';
 import { detailsProduct } from '../actions/productActions';
 import { FaCartPlus } from 'react-icons/fa';
 import { RiShoppingBag3Fill } from 'react-icons/ri';
@@ -17,14 +17,11 @@ import { addToCart } from '../actions/cartActions';
 
 const ProductDetails = () => {
     const dispatch = useDispatch();
+    const history = useHistory();
     const { id } = useParams();
     const [qty, setQty] = useState(1);
     const productDetails = useSelector((state) => state.productDetails);
     const { loading, product, error } = productDetails;
-
-    const addToCartBtnHandler = (productID, qty) => {
-        dispatch(addToCart(productID, qty));
-    };
 
     useEffect(() => {
         dispatch(detailsProduct(id));
@@ -115,9 +112,8 @@ const ProductDetails = () => {
                                                                 type="button"
                                                                 className="product-details-btn btn-cart"
                                                                 onClick={() =>
-                                                                    addToCartBtnHandler(
-                                                                        product._id,
-                                                                        qty
+                                                                    dispatch(
+                                                                        addToCart(product._id, qty)
                                                                     )
                                                                 }
                                                             >
@@ -126,20 +122,21 @@ const ProductDetails = () => {
                                                             </button>
                                                         </div>
                                                         <div className="col-auto mb-2 mb-xl-0">
-                                                            <Link
-                                                                to={{
-                                                                    pathname: '/cart',
-                                                                    state: {
-                                                                        productID: product._id,
-                                                                    },
-                                                                }}
-                                                                className="link-tag"
+                                                            <button
+                                                                className="product-details-btn btn-buy"
+                                                                onClick={() =>
+                                                                    dispatch(
+                                                                        addToCart(
+                                                                            product._id,
+                                                                            qty,
+                                                                            history
+                                                                        )
+                                                                    )
+                                                                }
                                                             >
-                                                                <button className="product-details-btn btn-buy">
-                                                                    <RiShoppingBag3Fill className="icon" />{' '}
-                                                                    Mua ngay
-                                                                </button>
-                                                            </Link>
+                                                                <RiShoppingBag3Fill className="icon" />{' '}
+                                                                Mua ngay
+                                                            </button>
                                                         </div>
                                                     </>
                                                 )}
