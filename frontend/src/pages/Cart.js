@@ -1,11 +1,11 @@
-import React, { useEffect, useState } from 'react';
+import React from 'react';
 import { useSelector } from 'react-redux';
 import { Link } from 'react-router-dom';
 import NumberInput from '../components/NumberInput';
 import ProductPrice from '../components/product/ProductPrice';
 
 const Cart = () => {
-    const { cartItems } = useSelector((state) => state.cart);
+    const { loading, cartItems } = useSelector((state) => state.cart);
 
     return (
         <>
@@ -82,6 +82,7 @@ const Cart = () => {
                                                     qty={item.qty}
                                                     max={item.countInStock}
                                                     productID={item.id}
+                                                    disabled={loading}
                                                 />
                                             </div>
                                         </div>

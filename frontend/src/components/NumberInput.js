@@ -3,24 +3,23 @@ import { BiMinus, BiPlus } from 'react-icons/bi';
 import { useDispatch } from 'react-redux';
 import { addToCart } from '../actions/cartActions';
 
-const NumberInput = ({ qty, max, setQty, productID }) => {
+const NumberInput = ({ qty, max, setQty, productID, disabled }) => {
     const dispatch = useDispatch();
     const refInput = useRef(null);
 
     const inputHandler = (value) => {
-        if (value < 1) {
-            value = 1;
+        if (value >= 1) {
+            if (value > max) {
+                value = max;
+            }
+            if (setQty) {
+                setQty(value);
+            }
+            if (productID) {
+                dispatch(addToCart(productID, value));
+            }
+            refInput.current.value = value;
         }
-        if (value > max) {
-            value = max;
-        }
-        if (setQty) {
-            setQty(value);
-        }
-        if (productID) {
-            dispatch(addToCart(productID, value));
-        }
-        refInput.current.value = value;
     };
 
     return (
@@ -29,6 +28,7 @@ const NumberInput = ({ qty, max, setQty, productID }) => {
                 type="button"
                 className="border py-1 px-2 bg-white"
                 onClick={() => inputHandler(qty - 1)}
+                disabled={disabled}
             >
                 <BiMinus className="icon" />
             </button>
@@ -42,12 +42,14 @@ const NumberInput = ({ qty, max, setQty, productID }) => {
                 onChange={(e) => inputHandler(e.target.value)}
                 onWheel={(e) => e.target.blur()}
                 ref={refInput}
+                disabled={disabled}
             />
 
             <button
                 type="button"
                 className="border py-1 px-2 bg-white"
                 onClick={() => inputHandler(qty + 1)}
+                disabled={disabled}
             >
                 <BiPlus className="icon" />
             </button>

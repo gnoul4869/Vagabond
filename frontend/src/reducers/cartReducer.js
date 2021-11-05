@@ -1,8 +1,14 @@
-import { CART_ADD_ITEM, CART_REMOVE_ITEM } from '../constants/cartConstants';
+import {
+    CART_ADD_ITEM_REQUEST,
+    CART_ADD_ITEM_SUCCESS,
+    CART_REMOVE_ITEM,
+} from '../constants/cartConstants';
 
-export const cart = (state = { cartItems: [] }, action) => {
+export const cart = (state = { loading: false, cartItems: [] }, action) => {
     switch (action.type) {
-        case CART_ADD_ITEM:
+        case CART_ADD_ITEM_REQUEST:
+            return { ...state, loading: true };
+        case CART_ADD_ITEM_SUCCESS:
             const item = action.payload;
 
             const existItem = state.cartItems.find((x) => x.id === item.id);
@@ -15,11 +21,9 @@ export const cart = (state = { cartItems: [] }, action) => {
             } else {
                 return { ...state, cartItems: [...state.cartItems, item] };
             }
-
         case CART_REMOVE_ITEM:
             return {
                 ...state,
-                loading: false,
                 cartItems: state.cartItems.filter((x) => x.id !== action.payload.id),
             };
         default:
