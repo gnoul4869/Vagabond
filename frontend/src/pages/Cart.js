@@ -19,9 +19,9 @@ const Cart = () => {
 
     return (
         <>
-            <div className="container bg-white mt-4 p-3">
+            <div className="container bg-white mt-4 p-3 d-none d-md-flex">
                 <div className="container">
-                    <div className="row d-none d-md-flex">
+                    <div className="row g-0">
                         {/* <div className="col-auto"> //? This is for another time
                             <input type="checkbox" className="form-check-input" />
                         </div> */}
@@ -59,11 +59,11 @@ const Cart = () => {
                         cartItems.map((item) => {
                             return (
                                 <div key={item.id}>
-                                    <div className="row d-flex align-items-center">
+                                    <div className="row d-flex align-items-center g-0">
                                         {/* <div className="col-auto"> //? This is for another time
                                             <input type="checkbox" className="form-check-input" />
                                         </div> */}
-                                        <div className="col-4">
+                                        <div className="col-12 col-md-4">
                                             <Link to={`/product/${item.id}`} className="link-tag">
                                                 <div className="d-flex">
                                                     <img
@@ -73,22 +73,16 @@ const Cart = () => {
                                                     />
                                                     <div className="cart-item-name ms-2">
                                                         {item.name}
-                                                        Lorem ipsum dolor sit amet consectetur
-                                                        adipisicing elit. Tempore numquam libero
-                                                        corrupti sequi! At minima corrupti ut, amet
-                                                        vero doloremque magnam sequi repellendus
-                                                        atque obcaecati aperiam? Voluptates, ut.
-                                                        Facere, repellendus?
                                                     </div>
                                                 </div>
                                             </Link>
                                         </div>
-                                        <div className="col">
+                                        <div className="col-6 col-md">
                                             <div className="fw-600 text-center">
                                                 <ProductPrice price={item.price} />
                                             </div>
                                         </div>
-                                        <div className="col">
+                                        <div className="col-6 col-md">
                                             <div className="text-secondary fw-600 d-flex justify-content-center">
                                                 <NumberInput
                                                     qty={item.qty}
@@ -101,12 +95,12 @@ const Cart = () => {
                                                 />
                                             </div>
                                         </div>
-                                        <div className="col">
-                                            <div className="fw-600 text-center d-none d-md-block">
+                                        <div className="col d-none d-md-block">
+                                            <div className="fw-600 text-center">
                                                 <ProductPrice price={item.price * item.qty} />
                                             </div>
                                         </div>
-                                        <div className="col-1 d-flex justify-content-center">
+                                        <div className="col-12 col-md-1 mt-2 mt-md-0 d-flex justify-content-end justify-content-md-center">
                                             <button
                                                 className="cart-btn btn-del"
                                                 onClick={() => deleteHandler(item.id)}
@@ -124,17 +118,28 @@ const Cart = () => {
             </div>
             <div className="container bg-white mt-2 p-3">
                 <div className="container d-flex">
-                    <div className="text-secondary fw-600 ms-auto">
-                        Tổng thanh toán (<span className="text-ired">{cartItems.length}</span> Sản
-                        phẩm):{' '}
-                        <span className="text-ired fw-600 fs-5">
-                            <ProductPrice
-                                price={cartItems.reduce((a, c) => a + c.price * c.qty, 0)}
-                            />
-                        </span>
-                        <button type="button" className="cart-btn btn-purchase ms-3">
-                            <RiShoppingBag3Fill className="icon" /> Mua hàng
-                        </button>
+                    <div className="row text-secondary fw-600 g-0 ms-auto">
+                        <div className="col-auto d-none d-md-inline-flex align-items-center">
+                            <div>
+                                Tổng thanh toán (
+                                <span className="text-ired">{cartItems.length}</span> Sản phẩm):
+                            </div>
+                        </div>
+                        <div className="col-2 d-inline-flex d-md-none align-items-center">
+                            Tổng tiền:
+                        </div>
+                        <div className="col d-flex align-items-center mx-2">
+                            <span className="text-ired fw-600 fs-5">
+                                <ProductPrice
+                                    price={cartItems.reduce((a, c) => a + c.price * c.qty, 0)}
+                                />
+                            </span>
+                        </div>
+                        <div className="col d-flex align-items-center">
+                            <button type="button" className="cart-btn btn-purchase ms-1">
+                                <RiShoppingBag3Fill className="icon" /> Mua hàng
+                            </button>
+                        </div>
                     </div>
                 </div>
             </div>
