@@ -6,6 +6,7 @@ import NumberInput from '../components/NumberInput';
 import ProductPrice from '../components/product/ProductPrice';
 import { removeFromCart } from '../actions/cartActions';
 import EmptyCart from '../components/EmptyCart';
+import { cart } from '../reducers/cartReducer';
 
 const Cart = () => {
     const dispatch = useDispatch();
@@ -20,10 +21,10 @@ const Cart = () => {
             <div className="container bg-white mt-4 p-3">
                 <div className="container">
                     <div className="row d-none d-md-flex">
-                        <div className="col-auto">
+                        {/* <div className="col-auto"> //? This is for another time
                             <input type="checkbox" className="form-check-input" />
-                        </div>
-                        <div className="col-3">
+                        </div> */}
+                        <div className="col-4">
                             <div className="text-secondary fw-600">Sản Phẩm</div>
                         </div>
                         <div className="col">
@@ -35,18 +36,18 @@ const Cart = () => {
                         <div className="col">
                             <div className="text-secondary fw-600 text-center">Số tiền</div>
                         </div>
-                        <div className="col">
+                        <div className="col-1">
                             <div className="text-secondary fw-600 text-center">Thao tác</div>
                         </div>
                     </div>
-                    <div className="row d-flex d-md-none">
+                    {/* <div className="row d-flex d-md-none"> //? This is for another time
                         <div className="col-auto">
                             <input type="checkbox" className="form-check-input" />
                         </div>
                         <div className="col">
                             <div className="text-secondary fw-600">Tất cả</div>
                         </div>
-                    </div>
+                    </div> */}
                 </div>
             </div>
             <div className="container bg-white mt-2 p-3">
@@ -58,10 +59,10 @@ const Cart = () => {
                             return (
                                 <div key={item.id}>
                                     <div className="row d-flex align-items-center">
-                                        <div className="col-auto">
+                                        {/* <div className="col-auto"> //? This is for another time
                                             <input type="checkbox" className="form-check-input" />
-                                        </div>
-                                        <div className="col-3">
+                                        </div> */}
+                                        <div className="col-4">
                                             <Link to={`/product/${item.id}`} className="link-tag">
                                                 <div className="d-flex">
                                                     <img
@@ -104,7 +105,7 @@ const Cart = () => {
                                                 <ProductPrice price={item.price * item.qty} />
                                             </div>
                                         </div>
-                                        <div className="col d-flex justify-content-center">
+                                        <div className="col-1 d-flex justify-content-center">
                                             <button
                                                 className="cart-btn btn-del"
                                                 onClick={() => deleteHandler(item.id)}
@@ -122,7 +123,15 @@ const Cart = () => {
             </div>
             <div className="container bg-white mt-2 p-3">
                 <div className="container d-flex">
-                    <div className="text-secondary fw-600 ms-auto">Tổng thanh toán</div>
+                    <div className="text-secondary fw-600 ms-auto">
+                        Tổng thanh toán (<span className="text-ired">{cartItems.length}</span> Sản
+                        phẩm):{' '}
+                        <span className="text-ired fw-600 fs-5">
+                            <ProductPrice
+                                price={cartItems.reduce((a, c) => a + c.price * c.qty, 0)}
+                            />
+                        </span>
+                    </div>
                 </div>
             </div>
         </>
