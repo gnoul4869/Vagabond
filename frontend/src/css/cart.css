@@ -30,12 +30,10 @@
 
 .cart-btn {
     border: none;
-    display: block;
     padding: 8px 16px;
     font-weight: 600;
     box-shadow: rgba(0, 0, 0, 0.05) 0px 0px 0px 1px;
     transition: all 0.1s linear;
-    border-radius: 10px;
 }
 
 .btn-del {
@@ -48,5 +46,19 @@
 }
 
 .btn-del:active {
+    background-color: darksalmon;
+}
+
+.btn-purchase {
+    color: var(--inspiring-red);
+    border: 0.0625rem solid var(--inspiring-red);
+    background-color: linen;
+}
+
+.btn-purchase:hover {
+    background-color: snow;
+}
+
+.btn-purchase:active {
     background-color: darksalmon;
 }

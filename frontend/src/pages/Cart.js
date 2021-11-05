@@ -2,6 +2,7 @@ import React from 'react';
 import { useDispatch, useSelector } from 'react-redux';
 import { Link } from 'react-router-dom';
 import { MdDeleteForever } from 'react-icons/md';
+import { RiShoppingBag3Fill } from 'react-icons/ri';
 import NumberInput from '../components/NumberInput';
 import ProductPrice from '../components/product/ProductPrice';
 import { removeFromCart } from '../actions/cartActions';
@@ -131,6 +132,9 @@ const Cart = () => {
                                 price={cartItems.reduce((a, c) => a + c.price * c.qty, 0)}
                             />
                         </span>
+                        <button type="button" className="cart-btn btn-purchase ms-3">
+                            <RiShoppingBag3Fill className="icon" /> Mua hàng
+                        </button>
                     </div>
                 </div>
             </div>
