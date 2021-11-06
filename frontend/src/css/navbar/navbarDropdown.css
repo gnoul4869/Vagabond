@@ -26,10 +26,14 @@
     visibility: visible;
 }
 
-.navbar-dropdown-active-height-120 {
-    max-height: 120px; /** Default height for auth=false and social links */
+.navbar-dropdown-active-height-162 {
+    /** Default height for auth=false, cart badge, social links */
+    /** 40px + 40px + 50px + 32px */
+    max-height: 162px;
 }
 
-.navbar-dropdown-active-height-165 {
-    max-height: 165px; /** Height for auth=false and search box and social links */
+.navbar-dropdown-active-height-215 {
+    /** Height for auth=false, cart badge, search box, social links */
+    /** 40px + 40px + 50px + 53px + 32px */
+    max-height: 215px;
 }

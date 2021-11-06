@@ -11,8 +11,9 @@ import './css/numberInput.css';
 
 import './css/breadCrumbs.css';
 
-import './css/navbar/navbar.css';
-import './css/navbar/navbarDropdown.css';
+import './css/navbar/navBar.css';
+import './css/navbar/navBarDropdown.css';
+import './css/navbar/navBarCartBadge.css';
 
 import './css/product/product.css';
 import './css/product/productList.css';

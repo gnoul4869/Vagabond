@@ -1,16 +1,17 @@
 import React, { useEffect, useState } from 'react';
 import { Link } from 'react-router-dom';
 import { socialLinks } from '../../data/links';
+import CartBadge from './CartBadge';
 import SearchBox from './SearchBox';
 
-const NavbarDropdown = ({ auth, search, isDropdownShown }) => {
-    const [dropdownHeight, setDropdownHeight] = useState(120);
+const NavbarDropdown = ({ auth, cartBadge, search, isDropdownShown }) => {
+    const [dropdownHeight, setDropdownHeight] = useState(162);
 
     useEffect(() => {
         if (search) {
-            setDropdownHeight(165);
+            setDropdownHeight(215);
         } else {
-            setDropdownHeight(120);
+            setDropdownHeight(162);
         }
     }, [search]);
 
@@ -49,12 +50,20 @@ const NavbarDropdown = ({ auth, search, isDropdownShown }) => {
                         </li>
                     </>
                 )}
-                {search && (
+                {cartBadge && (
                     <li>
+                        <div className="d-flex justify-content-center align-item-center">
+                            <CartBadge />
+                        </div>
+                    </li>
+                )}
+
+                {search && (
+                    <li className="pt-2">
                         <SearchBox />
                     </li>
                 )}
-                <li className="py-2">
+                <li className="py-1">
                     {socialLinks.map((socialLink) => {
                         const { id, url, icon } = socialLink;
                         return (
