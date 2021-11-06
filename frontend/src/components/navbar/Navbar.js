@@ -3,8 +3,8 @@ import userIcon from '../../images/user_icon.png';
 import { Link } from 'react-router-dom';
 import { useLocation } from 'react-router';
 import { socialLinks } from '../../data/links';
-import Cartbar from './Cartbar';
-import Indexbar from './Indexbar';
+import CartBar from './CartBar';
+import IndexBar from './IndexBar';
 
 const NavigationBar = () => {
     const [isDropdownShown, setIsDropdownShown] = useState(false);
@@ -57,12 +57,12 @@ const NavigationBar = () => {
                     </ul>
                 </nav>
                 {location === '/cart' ? (
-                    <Cartbar
+                    <CartBar
                         isDropdownShown={isDropdownShown}
                         setIsDropdownShown={setIsDropdownShown}
                     />
                 ) : (
-                    <Indexbar
+                    <IndexBar
                         isDropdownShown={isDropdownShown}
                         setIsDropdownShown={setIsDropdownShown}
                     />

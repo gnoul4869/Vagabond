@@ -1,6 +1,6 @@
 import React from 'react';
 import { BrowserRouter as Router, Switch, Route } from 'react-router-dom';
-import Navbar from './components/navbar/Navbar.js';
+import NavBar from './components/navbar/NavBar.js';
 import Home from './pages/Home';
 import Register from './pages/user/Register';
 import Login from './pages/user/Login';
@@ -12,7 +12,7 @@ import Cart from './pages/Cart';
 const App = () => {
     return (
         <Router>
-            <Navbar />
+            <NavBar />
             <div className="container">
                 <Switch>
                     <Route exact path="/">

@@ -4,7 +4,7 @@ import { HiMenu } from 'react-icons/hi';
 import SearchBox from './SearchBox';
 import NavbarDropdown from './NavbarDropdown';
 
-const Cartbar = ({ isDropdownShown, setIsDropdownShown }) => {
+const CartBar = ({ isDropdownShown, setIsDropdownShown }) => {
     return (
         <section>
             <div className="row d-flex align-items-center py-auto pb-md-3">
@@ -41,4 +41,4 @@ const Cartbar = ({ isDropdownShown, setIsDropdownShown }) => {
     );
 };
 
-export default Cartbar;
+export default CartBar;
