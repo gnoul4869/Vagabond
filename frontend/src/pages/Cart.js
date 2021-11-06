@@ -112,25 +112,26 @@ const Cart = () => {
                 </div>
             </div>
             <div className="container bg-white mt-2 p-3">
-                <div className="container d-flex">
-                    <div className="row text-secondary fw-600 g-0 ms-auto">
-                        <div className="col-auto d-none d-md-inline-flex align-items-center">
+                <div className="container">
+                    <div className="row text-secondary fw-600 g-0 d-flex justify-content-center">
+                        <div className="col-auto d-none d-md-inline-flex align-items-center ms-auto">
                             <div>
                                 Tổng thanh toán (
                                 <span className="text-ired">{cartItems.length}</span> Sản phẩm):
                             </div>
                         </div>
-                        <div className="col-2 d-inline-flex d-md-none align-items-center">
+                        <div className="col-auto d-inline-flex d-md-none align-items-center">
                             Tổng tiền:
                         </div>
-                        <div className="col d-flex align-items-center mx-2">
+                        <div className="col-auto d-flex align-items-center mx-2">
                             <span className="text-ired fw-600 fs-5">
                                 <ProductPrice
                                     price={cartItems.reduce((a, c) => a + c.price * c.qty, 0)}
                                 />
                             </span>
                         </div>
-                        <div className="col d-flex align-items-center">
+
+                        <div className="col-12 col-md-auto d-flex justify-content-center pt-2 p-md-0">
                             <button type="button" className="cart-btn btn-purchase ms-1">
                                 <RiShoppingBag3Fill className="icon" /> Mua hàng
                             </button>
