@@ -5,11 +5,11 @@ import { cart } from './reducers/cartReducer';
 
 const initialState = {
     productList: {
-        loading: false,
+        isLoading: false,
         products: null,
     },
     productDetails: {
-        loading: false,
+        isLoading: false,
         product: null,
     },
     cart: {
@@ -17,6 +17,7 @@ const initialState = {
         cartItems: localStorage.getItem('cartItems')
             ? JSON.parse(localStorage.getItem('cartItems'))
             : [],
+        isDone: false,
     },
 };
 

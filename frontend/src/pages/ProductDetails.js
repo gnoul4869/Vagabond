@@ -14,6 +14,7 @@ import ProductDetailsLoading from '../components/loading/ProductDetailsLoading';
 import ProductDescription from '../components/product/ProductDescription';
 import BreadCrumbs from '../components/BreadCrumbs';
 import { addToCart } from '../actions/cartActions';
+import AddToCartModal from '../components/modals/AddToCartModal';
 
 const ProductDetails = () => {
     const dispatch = useDispatch();
@@ -21,11 +22,25 @@ const ProductDetails = () => {
     const { id } = useParams();
     const [qty, setQty] = useState(1);
     const productDetails = useSelector((state) => state.productDetails);
-    const { loading, product, error } = productDetails;
+    const { isLoading, product, error } = productDetails;
+    const isDone = useSelector((state) => state.cart.isDone);
+    const [isModalShown, setIsModalShown] = useState(false);
 
     useEffect(() => {
         dispatch(detailsProduct(id));
     }, [dispatch, id]);
+
+    useEffect(() => {
+        if (isDone === true) {
+            setIsModalShown(true);
+        }
+        if (isModalShown === true) {
+            const modalTimeout = setTimeout(() => setIsModalShown(false), 2000);
+            return () => {
+                clearTimeout(modalTimeout);
+            };
+        }
+    }, [isDone, isModalShown]);
 
     if (error) {
         return <ErrorPage error={error} />;
@@ -33,7 +48,7 @@ const ProductDetails = () => {
 
     return (
         <>
-            {loading ? (
+            {isLoading ? (
                 <ProductDetailsLoading />
             ) : (
                 product && (
@@ -151,6 +166,7 @@ const ProductDetails = () => {
                                 description={product.description}
                             />
                         </section>
+                        {isModalShown && <AddToCartModal />}
                     </>
                 )
             )}

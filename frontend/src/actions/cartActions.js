@@ -3,6 +3,7 @@ import {
     CART_ADD_ITEM_REQUEST,
     CART_ADD_ITEM_SUCCESS,
     CART_REMOVE_ITEM,
+    CART_STATE_REFRESH,
 } from '../constants/cartConstants';
 
 export const addToCart = (productID, qty, history) => async (dispatch, getState) => {
@@ -31,6 +32,8 @@ export const addToCart = (productID, qty, history) => async (dispatch, getState)
             history.push('/cart');
         }
     }
+
+    dispatch({ type: CART_STATE_REFRESH });
 };
 
 export const removeFromCart = (productID) => async (dispatch, getState) => {

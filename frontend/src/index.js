@@ -25,6 +25,8 @@ import './css/cart.css';
 
 import './css/loading/productDetailsLoading.css';
 
+import './css/modals/addToCartModal.css';
+
 import 'bootstrap/dist/css/bootstrap.min.css';
 
 ReactDOM.render(

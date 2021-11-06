@@ -10,7 +10,7 @@ import ErrorPage from '../../pages/error/ErrorPage';
 const ProductList = () => {
     const dispatch = useDispatch();
     const productList = useSelector((state) => state.productList);
-    const { loading, products, error } = productList;
+    const { isLoading, products, error } = productList;
 
     useEffect(() => {
         dispatch(listProducts());
@@ -23,7 +23,7 @@ const ProductList = () => {
     return (
         <section className="container bg-trasparent my-4 p-3">
             <div className="row row-cols-2 row-cols-sm-2 row-cols-md-3 row-cols-lg-4 row-cols-xl-5 g-4">
-                {loading ? (
+                {isLoading ? (
                     <ProductListLoading />
                 ) : (
                     products &&

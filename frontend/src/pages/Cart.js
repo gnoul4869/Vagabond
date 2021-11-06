@@ -7,15 +7,10 @@ import NumberInput from '../components/NumberInput';
 import ProductPrice from '../components/product/ProductPrice';
 import { removeFromCart } from '../actions/cartActions';
 import EmptyCart from '../components/EmptyCart';
-import { cart } from '../reducers/cartReducer';
 
 const Cart = () => {
     const dispatch = useDispatch();
     const { loadingItems, cartItems } = useSelector((state) => state.cart);
-
-    const deleteHandler = (productID) => {
-        dispatch(removeFromCart(productID));
-    };
 
     return (
         <>
@@ -103,7 +98,7 @@ const Cart = () => {
                                         <div className="col-12 col-md-1 mt-2 mt-md-0 d-flex justify-content-end justify-content-md-center">
                                             <button
                                                 className="cart-btn btn-del"
-                                                onClick={() => deleteHandler(item.id)}
+                                                onClick={() => dispatch(removeFromCart(item.id))}
                                             >
                                                 <MdDeleteForever className="icon" /> Xoá
                                             </button>
