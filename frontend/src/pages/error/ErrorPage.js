@@ -7,7 +7,7 @@ const ErrorPage = ({ error }) => {
     return (
         <section className="container mt-5 text-center">
             <div className="row d-flex justify-content-center">
-                <div className="col-3 my-5">
+                <div className="col-6 col-md-3 my-5">
                     <div className="col-8 mt-5 mb-3 mx-auto">
                         <img
                             src={notFoundImage}
