@@ -16,7 +16,7 @@ import BreadCrumbs from '../components/BreadCrumbs';
 import { addToCart } from '../actions/cartActions';
 import AddToCartModal from '../components/modals/AddToCartModal';
 
-const ProductDetails = () => {
+const ProductDetailsPage = () => {
     const dispatch = useDispatch();
     const history = useHistory();
     const { id } = useParams();
@@ -174,4 +174,4 @@ const ProductDetails = () => {
     );
 };
 
-export default ProductDetails;
+export default ProductDetailsPage;

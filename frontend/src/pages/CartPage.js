@@ -8,7 +8,7 @@ import ProductPrice from '../components/product/ProductPrice';
 import { removeFromCart } from '../actions/cartActions';
 import EmptyCart from '../components/EmptyCart';
 
-const Cart = () => {
+const CartPage = () => {
     const dispatch = useDispatch();
     const { loadingItems, cartItems } = useSelector((state) => state.cart);
 
@@ -143,4 +143,4 @@ const Cart = () => {
     );
 };
 
-export default Cart;
+export default CartPage;
