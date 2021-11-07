@@ -1,5 +1,17 @@
-.nav-logo {
+.navbar-logo {
     min-height: 30px !important;
+}
+
+.navbar-user-container {
+    color: white;
+    font-weight: 500;
+    position: relative;
+    cursor: pointer;
+    padding: 0.375rem;
+}
+
+.navbar-avatar {
+    max-width: 1.5625rem;
 }
 
 /*? Disable dragging and selecting html elements */
