@@ -27,6 +27,8 @@ import './css/loading/productDetailsLoading.css';
 
 import './css/modals/addToCartModal.css';
 
+import './css/auth.css';
+
 import './css/footer.css';
 
 import 'bootstrap/dist/css/bootstrap.min.css';

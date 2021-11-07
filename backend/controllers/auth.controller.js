@@ -5,7 +5,15 @@ import { BadRequestError, AuthenticationError } from '../errors/custom-api-error
 const register = async (req, res) => {
     const user = await User.create(req.body);
     const token = await user.createJWT();
-    res.status(StatusCodes.CREATED).json({ user: { name: user.name }, token });
+    res.status(StatusCodes.CREATED).json({
+        userInfo: {
+            name: user.name,
+            email: user.email,
+            role: user.role,
+            image: user.image,
+            token: token,
+        },
+    });
 };
 
 const login = async (req, res) => {
@@ -17,25 +25,25 @@ const login = async (req, res) => {
 
     const user = await User.findOne({ email: email });
     if (!user) {
-        throw new AuthenticationError('Thông tin đăng nhập sai');
+        throw new AuthenticationError('Tên tài khoản hoặc mật khẩu của bạn không đúng');
     }
 
     const isPasswordCorrect = await user.comparePassword(password);
     if (!isPasswordCorrect) {
-        throw new AuthenticationError('Thông tin đăng nhập sai');
+        throw new AuthenticationError('Tên tài khoản hoặc mật khẩu của bạn không đúng');
     }
 
     const token = user.createJWT();
 
     res.status(StatusCodes.OK).json({
-        user: { name: user.name, role: user.role },
-        token,
+        userInfo: {
+            name: user.name,
+            email: user.email,
+            role: user.role,
+            image: user.image,
+            token: token,
+        },
     });
 };
 
-const logout = (req, res) => {
-    res.clearCookie('token');
-    res.status(StatusCodes.OK).json({ message: 'Đăng xuất thành công' });
-};
-
-export { register, login, logout };
+export { register, login };

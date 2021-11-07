@@ -1,16 +1,11 @@
 const data = {
     users: [
         {
-            name: 'Gnoul',
+            name: 'gnoul',
             email: 'gnoul@gmail.com',
-            password: '$2b$10$kMvpM0SUTEweJG3odLBBd.JF9mugzHodd.Inke712AOqRehHsaKou', //pass123
+            password: '$2b$10$cY3t7ty9mzkBWNdCAEQqRu1H.1WnXRSsCbYKxtaw4TRgad5I1eLjW', //pass123
             role: 'admin',
-        },
-        {
-            name: 'luong',
-            email: 'luong@gmail.com',
-            password: '$2b$10$kMvpM0SUTEweJG3odLBBd.JF9mugzHodd.Inke712AOqRehHsaKou', //pass123
-            role: 'user',
+            image: '/images/user_profile_picture.jpg',
         },
     ],
     products: [
@@ -19,10 +14,10 @@ const data = {
             category: 'Suit Jacket',
             images: [
                 '/images/pierre_cardin_navy_twill_regular_fit_suit_jacket.jpg',
-                '/images/default_product.jpg',
-                '/images/default_product.jpg',
-                '/images/default_product.jpg',
-                '/images/default_product.jpg',
+                '/images/product_picture.jpg',
+                '/images/product_picture.jpg',
+                '/images/product_picture.jpg',
+                '/images/product_picture.jpg',
             ],
             price: 1000000,
             countInStock: 10,
@@ -37,12 +32,12 @@ const data = {
             category: 'Casual Shirt',
             images: [
                 '/images/melka_karlskrona_double_face_shirt.jpg',
-                '/images/default_product.jpg',
-                '/images/default_product.jpg',
+                '/images/product_picture.jpg',
+                '/images/product_picture.jpg',
                 '/images/melka_karlskrona_double_face_shirt.jpg',
-                '/images/default_product.jpg',
+                '/images/product_picture.jpg',
                 '/images/melka_karlskrona_double_face_shirt.jpg',
-                '/images/default_product.jpg',
+                '/images/product_picture.jpg',
             ],
             price: 500000,
             countInStock: 20,
@@ -57,8 +52,8 @@ const data = {
             category: 'Blazer',
             images: [
                 '/images/scott_by_the_label_navy_blazer.jpg',
-                '/images/default_product.jpg',
-                '/images/default_product.jpg',
+                '/images/product_picture.jpg',
+                '/images/product_picture.jpg',
             ],
             price: 2900000,
             countInStock: 0,
@@ -73,8 +68,8 @@ const data = {
             category: 'Coat',
             images: [
                 '/images/racing_green_charcoal_melton_overcoat.jpg',
-                '/images/default_product.jpg',
-                '/images/default_product.jpg',
+                '/images/product_picture.jpg',
+                '/images/product_picture.jpg',
             ],
             price: 1900000,
             countInStock: 12,
@@ -89,8 +84,8 @@ const data = {
             category: 'Suit Jacket',
             images: [
                 '/images/jeff_banks_v_neck_jumper.jpg',
-                '/images/default_product.jpg',
-                '/images/default_product.jpg',
+                '/images/product_picture.jpg',
+                '/images/product_picture.jpg',
             ],
             price: 800000,
             countInStock: 30,
@@ -105,7 +100,7 @@ const data = {
             category: 'Suit Jacket',
             images: [
                 '/images/limehaus_plain_blue_panama_slim_fit_jacket.jpg',
-                '/images/default_product.jpg',
+                '/images/product_picture.jpg',
             ],
             price: 2500000,
             brand: 'Lemehaus',

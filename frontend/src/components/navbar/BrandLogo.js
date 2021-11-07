@@ -14,7 +14,7 @@ const Brand = () => {
 const Logo = () => {
     return (
         <Link to="/" className="nav-link">
-            <img src={logo} alt="vagabond_logo" className="nav-logo" />
+            <img src={logo} alt="vagabond_logo" className="navbar-logo" />
         </Link>
     );
 };

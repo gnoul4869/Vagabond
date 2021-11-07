@@ -16,7 +16,7 @@ const productSchema = new mongoose.Schema(
         },
         images: {
             type: Array,
-            default: ['/images/default_product.jpg'],
+            default: ['/images/product_picture.jpg'],
         },
         price: {
             type: Number,
