@@ -1,19 +1,30 @@
-import React, { useState } from 'react';
+import React, { useEffect, useState } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
-import { Link } from 'react-router-dom';
+import { Link, useHistory, useLocation } from 'react-router-dom';
 import { VscError } from 'react-icons/vsc';
 import { login } from '../../redux/actions/authActions';
 
 const LoginPage = () => {
+    const location = useLocation();
+    const history = useHistory();
     const dispatch = useDispatch();
     const [email, setEmail] = useState('');
     const [password, setPassword] = useState('');
-    const { userInfo, isLoading, error } = useSelector((state) => state.auth);
+    const { userInfo, error } = useSelector((state) => state.auth);
+
+    const oldLocation =
+        location.state && location.state.oldLocation ? location.state.oldLocation : '/';
 
     const submitHandler = (e) => {
         e.preventDefault();
         dispatch(login(email, password));
     };
+
+    useEffect(() => {
+        if (userInfo) {
+            history.push(oldLocation);
+        }
+    }, [history, oldLocation, userInfo]);
 
     return (
         <div className="row align-items-center g-lg-5 py-5 mx-md-5">
