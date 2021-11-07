@@ -1,7 +1,7 @@
 import React, { useEffect, useState } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
 import { useParams, useHistory } from 'react-router-dom';
-import { detailsProduct } from '../actions/productActions';
+import { detailsProduct } from '../redux/actions/productActions';
 import { FaCartPlus } from 'react-icons/fa';
 import { RiShoppingBag3Fill } from 'react-icons/ri';
 import { IoIosWarning } from 'react-icons/io';
@@ -13,7 +13,7 @@ import ProductCarousel from '../components/product/ProductCarousel';
 import ProductDetailsLoading from '../components/loading/ProductDetailsLoading';
 import ProductDescription from '../components/product/ProductDescription';
 import BreadCrumbs from '../components/BreadCrumbs';
-import { addToCart } from '../actions/cartActions';
+import { addToCart } from '../redux/actions/cartActions';
 import AddToCartModal from '../components/modals/AddToCartModal';
 
 const ProductDetailsPage = () => {

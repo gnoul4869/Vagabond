@@ -2,7 +2,7 @@ import React, { useState } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
 import { Link } from 'react-router-dom';
 import { VscError } from 'react-icons/vsc';
-import { login } from '../../actions/authActions';
+import { login } from '../../redux/actions/authActions';
 
 const LoginPage = () => {
     const dispatch = useDispatch();

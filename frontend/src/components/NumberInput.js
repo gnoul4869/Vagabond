@@ -1,7 +1,7 @@
 import React, { useRef } from 'react';
 import { BiMinus, BiPlus } from 'react-icons/bi';
 import { useDispatch } from 'react-redux';
-import { addToCart } from '../actions/cartActions';
+import { addToCart } from '../redux/actions/cartActions';
 
 const NumberInput = ({ qty, max, setQty, productID, disabled }) => {
     const dispatch = useDispatch();

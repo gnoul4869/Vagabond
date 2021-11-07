@@ -5,7 +5,7 @@ import { MdDeleteForever } from 'react-icons/md';
 import { RiShoppingBag3Fill } from 'react-icons/ri';
 import NumberInput from '../components/NumberInput';
 import ProductPrice from '../components/product/ProductPrice';
-import { removeFromCart } from '../actions/cartActions';
+import { removeFromCart } from '../redux/actions/cartActions';
 import EmptyCart from '../components/EmptyCart';
 
 const CartPage = () => {
