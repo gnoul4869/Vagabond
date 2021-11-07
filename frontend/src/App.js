@@ -8,6 +8,7 @@ import Profile from './pages/user/Profile';
 import Error404 from './pages/error/Error404';
 import ProductDetails from './pages/ProductDetails';
 import Cart from './pages/Cart';
+import Footer from './components/Footer.js';
 
 const App = () => {
     return (
@@ -38,6 +39,7 @@ const App = () => {
                     </Route>
                 </Switch>
             </div>
+            <Footer />
         </Router>
     );
 };
