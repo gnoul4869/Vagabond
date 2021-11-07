@@ -2,7 +2,7 @@ import React from 'react';
 
 const Footer = () => {
     return (
-        <section className="footer-container">
+        <section className="footer-container mt-4">
             <div className="container mt-5">
                 <div>
                     <div className="fw-bold fs-4 my-2">
@@ -17,15 +17,15 @@ const Footer = () => {
                 </div>
                 <div>
                     <div className="fw-bold fs-4 my-2">
-                        MUA SẮM VÀ BÁN HÀNG ONLINE ĐƠN GIẢN, NHANH CHÓNG VÀ AN TOÀN
+                        MUA SẮM ONLINE ĐƠN GIẢN, NHANH CHÓNG VÀ AN TOÀN
                     </div>
                     <p>
-                        Nếu bạn đang tìm kiếm một trang web để mua và bán hàng trực tuyến thì
-                        Vagabond.vn là một sự lựa chọn tuyệt vời dành cho bạn. Bản chất của Vagabond
-                        là một E-commerce platform - nền tảng trang web thương mại điện tử . Điều
-                        này cho phép người mua hàng dễ dàng tương tác, theo dõi thông tin về sản
-                        phẩm và chương trình khuyến mãi của shop. Nhờ nền tảng đó, việc mua hàng
-                        trên Vagabond trở nên nhanh chóng và đơn giản hơn.
+                        Nếu bạn đang tìm kiếm một trang web để mua hàng trực tuyến thì Vagabond.vn
+                        là một sự lựa chọn tuyệt vời dành cho bạn. Bản chất của Vagabond là một
+                        E-commerce platform - nền tảng trang web thương mại điện tử . Điều này cho
+                        phép người mua hàng dễ dàng tương tác, theo dõi thông tin về sản phẩm và
+                        chương trình khuyến mãi của shop. Nhờ nền tảng đó, việc mua hàng trên
+                        Vagabond trở nên nhanh chóng và đơn giản hơn.
                     </p>
                 </div>
                 <div>
