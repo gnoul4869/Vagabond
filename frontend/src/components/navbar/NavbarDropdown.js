@@ -1,19 +1,22 @@
 import React, { useEffect, useState } from 'react';
 import { Link } from 'react-router-dom';
+import { useDispatch, useSelector } from 'react-redux';
 import { socialLinks } from '../../data/links';
 import CartBadge from './CartBadge';
 import SearchBox from './SearchBox';
+import { logout } from '../../redux/actions/authActions';
 
-const NavbarDropdown = ({ auth, cartBadge, search, isDropdownShown }) => {
-    const [dropdownHeight, setDropdownHeight] = useState(162);
+const NavbarDropdown = ({ cartBadge, search, isDropdownShown }) => {
+    const dispatch = useDispatch();
+    const [dropdownHeight, setDropdownHeight] = useState(112);
+    const { userInfo } = useSelector((state) => state.auth);
 
     useEffect(() => {
-        if (search) {
-            setDropdownHeight(215);
-        } else {
-            setDropdownHeight(162);
-        }
-    }, [search]);
+        const userHeight = userInfo ? 40 : 0;
+        const cartHeight = cartBadge ? 50 : 0;
+        const searchHeight = search ? 53 : 0;
+        setDropdownHeight(112 + userHeight + cartHeight + searchHeight);
+    }, [cartBadge, search, userInfo]);
 
     return (
         <div
@@ -23,16 +26,25 @@ const NavbarDropdown = ({ auth, cartBadge, search, isDropdownShown }) => {
             }`}
         >
             <ul className="navbar-nav text-center">
-                {auth ? (
+                {userInfo ? (
                     <>
                         <li>
                             <Link to="/user/register" className="nav-link">
-                                <span className="navbar-link">Đăng ký</span>
+                                <span className="navbar-link">Tài khoản của tôi</span>
                             </Link>
                         </li>
                         <li>
                             <Link to="/user/login" className="nav-link">
-                                <span className="navbar-link">Đăng nhập</span>
+                                <span className="navbar-link">Đơn mua</span>
+                            </Link>
+                        </li>
+                        <li>
+                            <Link
+                                to="#logout"
+                                className="nav-link"
+                                onClick={() => dispatch(logout())}
+                            >
+                                <span className="navbar-link">Đăng xuất</span>
                             </Link>
                         </li>
                     </>
