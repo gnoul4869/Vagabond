@@ -59,7 +59,10 @@ const CartPage = () => {
                                             <input type="checkbox" className="form-check-input" />
                                         </div> */}
                                         <div className="col-12 col-md-4">
-                                            <Link to={`/product/${item.id}`} className="link-tag">
+                                            <Link
+                                                to={`/product/${item.id}`}
+                                                className="link-inherit"
+                                            >
                                                 <div className="d-flex">
                                                     <img
                                                         src={item.images[0]}

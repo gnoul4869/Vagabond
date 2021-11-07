@@ -20,6 +20,14 @@ body {
     background-color: whitesmoke !important;
 }
 
+input {
+    box-shadow: none !important;
+}
+
+input:focus {
+    border-color: lightslategray !important;
+}
+
 input[type='number']::-webkit-inner-spin-button,
 input[type='number']::-webkit-outer-spin-button {
     -webkit-appearance: none;
@@ -35,19 +43,45 @@ input[type='number']::-webkit-outer-spin-button {
     color: var(--inspiring-red);
 }
 
+.btn {
+    box-shadow: none !important;
+}
+
 .btn-ired {
     color: #fff !important;
     background-color: var(--inspiring-red) !important;
     border-color: var(--inspiring-red) !important;
 }
 
+.btn-ired:hover {
+    background-color: brown !important;
+}
+
+.btn-ired:active {
+    background-color: darksalmon !important;
+}
+
 .fw-600 {
     font-weight: 600;
 }
 
-.link-tag {
+.link-inherit {
     text-decoration: inherit;
     color: inherit;
+}
+
+.link-label {
+    text-decoration: none;
+    color: var(--inspiring-red);
+    font-weight: 600;
+}
+
+.link-label:hover {
+    color: brown;
+}
+
+.link-label:active {
+    color: darksalmon;
 }
 
 .icon {

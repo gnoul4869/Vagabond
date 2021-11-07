@@ -29,7 +29,11 @@ const ProductList = () => {
                     products &&
                     products.map((item) => {
                         return (
-                            <Link to={`/product/${item._id}`} key={item._id} className="link-tag">
+                            <Link
+                                to={`/product/${item._id}`}
+                                key={item._id}
+                                className="link-inherit"
+                            >
                                 <div className="col">
                                     <div className="product-list-card card shadow-sm">
                                         <div className="ratio ratio-1x1">
