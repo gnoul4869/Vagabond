@@ -35,7 +35,12 @@ const IndexBar = ({ isDropdownShown, setIsDropdownShown }) => {
                     <CartBadge />
                 </div>
             </div>
-            <NavbarDropdown auth={false} search={false} isDropdownShown={isDropdownShown} />
+            <NavbarDropdown
+                auth={false}
+                cartBadge={true}
+                search={false}
+                isDropdownShown={isDropdownShown}
+            />
         </section>
     );
 };
