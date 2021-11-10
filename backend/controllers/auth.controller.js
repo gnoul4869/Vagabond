@@ -1,7 +1,6 @@
 import User from '../models/user.model.js';
 import { StatusCodes } from 'http-status-codes';
 import { BadRequestError, AuthenticationError } from '../errors/custom-api-error.js';
-import generateMail from '../utils/generateEmail.js';
 
 const register = async (req, res) => {
     const user = await User.create(req.body);
@@ -49,10 +48,4 @@ const login = async (req, res) => {
     });
 };
 
-const verifyEmail = async (req, res) => {
-    const { name, email } = req.body;
-    const info = await generateMail(name, email);
-    res.status(StatusCodes.OK).json({ message: info });
-};
-
-export { register, login, verifyEmail };
+export { register, login };
