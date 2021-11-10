@@ -5,12 +5,6 @@ import jwt from 'jsonwebtoken';
 
 const userSchema = new mongoose.Schema(
     {
-        name: {
-            type: String,
-            required: [true, 'Hãy nhập tên của bạn'],
-            minlength: 5,
-            maxlength: 50,
-        },
         email: {
             type: String,
             required: [true, 'Hãy nhập email của bạn'],
@@ -24,6 +18,20 @@ const userSchema = new mongoose.Schema(
             type: String,
             required: [true, 'Hãy nhập mật khẩu của bạn'],
             minlength: 6,
+        },
+        name: {
+            type: String,
+            required: [true, 'Hãy nhập tên của bạn'],
+            minlength: 5,
+            maxlength: 50,
+        },
+        phoneNumber: {
+            type: String,
+            required: [true, 'Hãy nhập số điện thoại của bạn'],
+        },
+        address: {
+            type: String,
+            required: [true, 'Hãy nhập địa chỉ của bạn'],
         },
         role: {
             type: String,

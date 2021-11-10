@@ -3,7 +3,7 @@ import ProductList from '../components/product/ProductList';
 
 const HomePage = () => {
     return (
-        <main className="text-center">
+        <main>
             <ProductList />
         </main>
     );

@@ -10,7 +10,7 @@ import NavBarUserSubmenu from './NavBarUserSubmenu';
 const NavigationBar = () => {
     const [isDropdownShown, setIsDropdownShown] = useState(false);
     const [isSubmenuShown, setIsSubmenuShown] = useState(false);
-    const location = useLocation().pathname;
+    const location = useLocation();
     const { userInfo } = useSelector((state) => state.auth);
 
     return (
@@ -61,7 +61,7 @@ const NavigationBar = () => {
                                     <Link
                                         to={{
                                             pathname: '/user/login',
-                                            state: { oldLocation: location },
+                                            state: { oldLocation: location.pathname },
                                         }}
                                         className="nav-link"
                                     >
