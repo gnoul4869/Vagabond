@@ -1,6 +1,5 @@
 import {} from 'dotenv/config.js'; //? To use environment variables from .env file
 import express from 'express';
-
 import 'express-async-errors'; //? Make Express catch errors coming from asynchronous functions without try-catch blocks
 import expressLimiter from 'express-rate-limit'; //? Limit repeated requests to public APIs and/or endpoints such as password reset
 import cors from 'cors'; //? Cross-origin resource sharing allows ajax requests to skip the same origin policy and access resources from remote hosts
@@ -8,8 +7,10 @@ import xss from 'xss-clean'; //? Filters input from users to prevent XSS attacks
 import helmet from 'helmet'; //? Helps secure Express apps by setting various HTTP headers
 
 import connectDB from './db/connect.js';
+
 import authRouter from './routes/auth.route.js';
 import productsRouter from './routes/products.route.js';
+
 import auth from './middlewares/auth.middleware.js';
 import notFound from './middlewares/not-found.middleware.js';
 import errorHandler from './middlewares/error-handler.middleware.js';
