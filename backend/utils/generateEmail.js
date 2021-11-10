@@ -1,8 +1,10 @@
 import {} from 'dotenv/config.js';
 import nodemailer from 'nodemailer';
 import otpGenerator from 'otp-generator';
+import { emailTemplate } from './emailTemplate.js';
 
-const generateMail = async (email) => {
+const generateMail = async (name, email) => {
+    console.log(name, email);
     let transporter = nodemailer.createTransport({
         service: 'gmail',
         auth: {
@@ -21,20 +23,17 @@ const generateMail = async (email) => {
         specialChars: false,
     });
 
-    let mailOptions = {
+    const template = emailTemplate(name, otp);
+
+    let info = transporter.sendMail({
         from: 'megafunxofficial@gmail.com',
         to: email,
         subject: 'OTP for Vagabond',
-        text: `Hi there, Use the One-time Password ${otp} to verify and complete your account creation.`,
-    };
-
-    transporter.sendMail(mailOptions, (error) => {
-        if (error) {
-            console.log(error);
-        } else {
-            console.log('Email sent successfully');
-        }
+        text: `Mã OTP của bạn là: ${otp}`,
+        html: template,
     });
+
+    return info;
 };
 
 export default generateMail;

@@ -1,0 +1,433 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <!-- Required meta tags -->
+        <meta charset="utf-8" />
+        <meta name="viewport" content="width=device-width, initial-scale=1" />
+
+        <!-- Bootstrap CSS -->
+        <!-- <link
+            href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/css/bootstrap.css"
+            rel="stylesheet"
+            integrity="sha384-1BmE4kWBq78iYhFldvKuhfTAU6auU8tT94WrHftjDbrCEXSU1oBoqyl2QvZ6jIW3"
+            crossorigin="anonymous"
+        /> -->
+        <!-- CSS only -->
+        <link
+            href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/css/bootstrap.min.css"
+            rel="stylesheet"
+            integrity="sha384-1BmE4kWBq78iYhFldvKuhfTAU6auU8tT94WrHftjDbrCEXSU1oBoqyl2QvZ6jIW3"
+            crossorigin="anonymous"
+        />
+        <link rel="stylesheet" href="test.css" />
+        <title>Hello, world!</title>
+    </head>
+
+    <body style="background: rgba(0, 0, 0, 0.93); height: auto; overflow: hidden" dir="ltr">
+        <noscript aria-hidden="true">You need to enable JavaScript to run this app.</noscript>
+        <div id="root" aria-hidden="true"></div>
+        <div id="views" aria-hidden="true">
+            <div
+                title="popover"
+                id="popover"
+                style="
+                    position: fixed;
+                    top: 0px;
+                    left: 0px;
+                    z-index: 1301;
+                    width: 1722px;
+                    height: 999px;
+                    outline: none 0px;
+                    border: 0px none;
+                    transition: transform 400ms ease-in-out 0s;
+                    transform: translate3d(0px, 0px, 0px);
+                    display: none;
+                "
+            ></div>
+        </div>
+        <iframe
+            id="talon_frame_login_prod"
+            src="https://talon-website-prod.ecosec.on.epicgames.com/challenge?env=prod&amp;flow=login_prod&amp;origin=https%3A%2F%2Fwww.epicgames.com"
+            style="
+                width: 100%;
+                height: 100%;
+                visibility: hidden;
+                opacity: 0;
+                border: none;
+                top: 0px;
+                left: 0px;
+                position: fixed;
+                transition: all 0.3s ease 0s;
+                z-index: -1;
+            "
+            aria-hidden="true"
+        ></iframe>
+        <div
+            role="presentation"
+            class="MuiDialog-root"
+            style="position: fixed; z-index: 1300; inset: 0px"
+        >
+            <div tabindex="0" data-test="sentinelStart"></div>
+            <div
+                class="MuiDialog-container MuiDialog-scrollBody"
+                role="none presentation"
+                tabindex="-1"
+                style="opacity: 1; transition: opacity 225ms cubic-bezier(0.4, 0, 0.2, 1) 0ms"
+            >
+                <div
+                    class="
+                        MuiPaper-root
+                        MuiDialog-paper MuiDialog-paperScrollBody MuiDialog-paperWidthSm
+                        MuiPaper-elevation0 MuiPaper-rounded
+                    "
+                    role="dialog"
+                >
+                    <div class="MuiDialogContent-root sc-jJEKmz grfQOK" id="modal-content">
+                        <div class="sc-hiSbEG hggONy">
+                            <div name="epic-logo" class="sc-bqyKOL hktHsu sc-gWHigU hjZSto">
+                                <svg
+                                    viewBox="0 0 20 23"
+                                    fill="none"
+                                    xmlns="http://www.w3.org/2000/svg"
+                                    size="10"
+                                    class="sc-kstqJO jlLDxI"
+                                ></svg>
+                            </div>
+                            <form novalidate="" class="sc-eCstlR iMhQAk">
+                                <h6
+                                    class="
+                                        MuiTypography-root
+                                        sc-pGacB
+                                        bndsMu
+                                        MuiTypography-subtitle2
+                                        MuiTypography-colorTextPrimary
+                                        MuiTypography-alignCenter
+                                    "
+                                >
+                                    Enter the security code to continue
+                                </h6>
+                                <p
+                                    class="MuiTypography-root sc-pGacB jxEHkE MuiTypography-body2"
+                                    spacing="4"
+                                >
+                                    This appears to be a new device, browser or location. A security
+                                    code has been sent to your email address at
+                                    <mark>t*********9@gmail.com</mark>.
+                                    <a
+                                        href="https://www.epicgames.com/help/epic-accounts-c74/account-security-c112/twofactor-authentication-and-how-to-enable-it-a3218?lang=en-US"
+                                        target="_blank"
+                                        rel="noopener noreferrer"
+                                        >Learn more</a
+                                    >
+                                </p>
+                                <div spacing="0" class="sc-bdfBQB heEczB">
+                                    <div name="code" class="sc-gsTEea sc-hKgJUU kdmLxU fWxVur">
+                                        <div class="MuiFormControl-root">
+                                            <div
+                                                class="
+                                                    MuiInputBase-root
+                                                    MuiOutlinedInput-root
+                                                    jss25
+                                                    jss26
+                                                    MuiInputBase-formControl
+                                                "
+                                            >
+                                                <input
+                                                    aria-invalid="false"
+                                                    autocomplete="off"
+                                                    name="code-input-0"
+                                                    type="text"
+                                                    maxlength="1"
+                                                    inputmode="numeric"
+                                                    class="
+                                                        MuiInputBase-input
+                                                        MuiOutlinedInput-input
+                                                    "
+                                                    value=""
+                                                />
+                                                <fieldset
+                                                    aria-hidden="true"
+                                                    class="jss27 MuiOutlinedInput-notchedOutline"
+                                                    style="padding-left: 8px"
+                                                >
+                                                    <legend class="jss28" style="width: 0.01px">
+                                                        <span>​</span>
+                                                    </legend>
+                                                </fieldset>
+                                            </div>
+                                        </div>
+                                        <div class="MuiFormControl-root">
+                                            <div
+                                                class="
+                                                    MuiInputBase-root
+                                                    MuiOutlinedInput-root
+                                                    jss25
+                                                    jss31
+                                                    MuiInputBase-formControl
+                                                "
+                                            >
+                                                <input
+                                                    aria-invalid="false"
+                                                    autocomplete="off"
+                                                    name="code-input-1"
+                                                    type="text"
+                                                    maxlength="1"
+                                                    inputmode="numeric"
+                                                    class="
+                                                        MuiInputBase-input
+                                                        MuiOutlinedInput-input
+                                                    "
+                                                    value=""
+                                                />
+                                                <fieldset
+                                                    aria-hidden="true"
+                                                    class="jss27 MuiOutlinedInput-notchedOutline"
+                                                    style="padding-left: 8px"
+                                                >
+                                                    <legend class="jss28" style="width: 0.01px">
+                                                        <span>​</span>
+                                                    </legend>
+                                                </fieldset>
+                                            </div>
+                                        </div>
+                                        <div class="MuiFormControl-root">
+                                            <div
+                                                class="
+                                                    MuiInputBase-root
+                                                    MuiOutlinedInput-root
+                                                    jss25
+                                                    jss32
+                                                    MuiInputBase-formControl
+                                                "
+                                            >
+                                                <input
+                                                    aria-invalid="false"
+                                                    autocomplete="off"
+                                                    name="code-input-2"
+                                                    type="text"
+                                                    maxlength="1"
+                                                    inputmode="numeric"
+                                                    class="
+                                                        MuiInputBase-input
+                                                        MuiOutlinedInput-input
+                                                    "
+                                                    value=""
+                                                />
+                                                <fieldset
+                                                    aria-hidden="true"
+                                                    class="jss27 MuiOutlinedInput-notchedOutline"
+                                                    style="padding-left: 8px"
+                                                >
+                                                    <legend class="jss28" style="width: 0.01px">
+                                                        <span>​</span>
+                                                    </legend>
+                                                </fieldset>
+                                            </div>
+                                        </div>
+                                        <div class="MuiFormControl-root">
+                                            <div
+                                                class="
+                                                    MuiInputBase-root
+                                                    MuiOutlinedInput-root
+                                                    jss25
+                                                    jss33
+                                                    MuiInputBase-formControl
+                                                "
+                                            >
+                                                <input
+                                                    aria-invalid="false"
+                                                    autocomplete="off"
+                                                    name="code-input-3"
+                                                    type="text"
+                                                    maxlength="1"
+                                                    inputmode="numeric"
+                                                    class="
+                                                        MuiInputBase-input
+                                                        MuiOutlinedInput-input
+                                                    "
+                                                    value=""
+                                                />
+                                                <fieldset
+                                                    aria-hidden="true"
+                                                    class="jss27 MuiOutlinedInput-notchedOutline"
+                                                    style="padding-left: 8px"
+                                                >
+                                                    <legend class="jss28" style="width: 0.01px">
+                                                        <span>​</span>
+                                                    </legend>
+                                                </fieldset>
+                                            </div>
+                                        </div>
+                                        <div class="MuiFormControl-root">
+                                            <div
+                                                class="
+                                                    MuiInputBase-root
+                                                    MuiOutlinedInput-root
+                                                    jss25
+                                                    jss34
+                                                    MuiInputBase-formControl
+                                                "
+                                            >
+                                                <input
+                                                    aria-invalid="false"
+                                                    autocomplete="off"
+                                                    name="code-input-4"
+                                                    type="text"
+                                                    maxlength="1"
+                                                    inputmode="numeric"
+                                                    class="
+                                                        MuiInputBase-input
+                                                        MuiOutlinedInput-input
+                                                    "
+                                                    value=""
+                                                />
+                                                <fieldset
+                                                    aria-hidden="true"
+                                                    class="jss27 MuiOutlinedInput-notchedOutline"
+                                                    style="padding-left: 8px"
+                                                >
+                                                    <legend class="jss28" style="width: 0.01px">
+                                                        <span>​</span>
+                                                    </legend>
+                                                </fieldset>
+                                            </div>
+                                        </div>
+                                        <div class="MuiFormControl-root">
+                                            <div
+                                                class="
+                                                    MuiInputBase-root
+                                                    MuiOutlinedInput-root
+                                                    jss25
+                                                    jss35
+                                                    MuiInputBase-formControl
+                                                "
+                                            >
+                                                <input
+                                                    aria-invalid="false"
+                                                    autocomplete="off"
+                                                    name="code-input-5"
+                                                    type="text"
+                                                    maxlength="1"
+                                                    inputmode="numeric"
+                                                    class="
+                                                        MuiInputBase-input
+                                                        MuiOutlinedInput-input
+                                                    "
+                                                    value=""
+                                                />
+                                                <fieldset
+                                                    aria-hidden="true"
+                                                    class="jss27 MuiOutlinedInput-notchedOutline"
+                                                    style="padding-left: 8px"
+                                                >
+                                                    <legend class="jss28" style="width: 0.01px">
+                                                        <span>​</span>
+                                                    </legend>
+                                                </fieldset>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class="sc-jSgvzq kRWQtk">
+                                        <label class="MuiFormControlLabel-root"
+                                            ><span
+                                                class="
+                                                    MuiButtonBase-root
+                                                    MuiIconButton-root
+                                                    jss36
+                                                    MuiCheckbox-root MuiCheckbox-colorPrimary
+                                                    jss37
+                                                    Mui-checked
+                                                    MuiIconButton-colorPrimary
+                                                "
+                                                aria-disabled="false"
+                                                ><span class="MuiIconButton-label"
+                                                    ><input
+                                                        class="jss39"
+                                                        id="rememberDevice"
+                                                        name="rememberDevice"
+                                                        type="checkbox"
+                                                        data-indeterminate="false"
+                                                        value="rememberDevice"
+                                                        checked="" /><svg
+                                                        class="MuiSvgIcon-root"
+                                                        focusable="false"
+                                                        viewBox="0 0 24 24"
+                                                        aria-hidden="true"
+                                                    ></svg></span></span
+                                            ><span
+                                                class="
+                                                    MuiTypography-root
+                                                    MuiFormControlLabel-label
+                                                    MuiTypography-body1
+                                                "
+                                                ><p
+                                                    class="
+                                                        MuiTypography-root
+                                                        sc-pGacB
+                                                        bndsMu
+                                                        MuiTypography-body2
+                                                    "
+                                                >
+                                                    Remember device
+                                                </p></span
+                                            ></label
+                                        >
+                                    </div>
+                                    <div spacing="6" class="sc-gsTEea sc-hKgJUU gLYZYt fWxVur">
+                                        <button
+                                            class="
+                                                MuiButtonBase-root
+                                                MuiButton-root
+                                                MuiButton-contained
+                                                MuiButton-containedSecondary
+                                                jss45
+                                                MuiButton-disableElevation MuiButton-fullWidth
+                                            "
+                                            tabindex="0"
+                                            type="button"
+                                            id="cancel"
+                                            aria-label="Cancel"
+                                        >
+                                            <span class="MuiButton-label"
+                                                ><span class="jss48">Cancel</span></span
+                                            ></button
+                                        ><button
+                                            class="
+                                                MuiButtonBase-root
+                                                MuiButton-root
+                                                MuiButton-contained
+                                                MuiButton-containedPrimary
+                                                jss44
+                                                MuiButton-disableElevation
+                                                Mui-disabled
+                                                jss40
+                                                MuiButton-fullWidth
+                                                Mui-disabled
+                                            "
+                                            tabindex="-1"
+                                            type="submit"
+                                            disabled=""
+                                            id="continue"
+                                            aria-label="Continue"
+                                        >
+                                            <span class="MuiButton-label"
+                                                ><span class="jss48">Continue</span></span
+                                            >
+                                        </button>
+                                    </div>
+                                </div>
+                            </form>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div tabindex="0" data-test="sentinelEnd"></div>
+        </div>
+        <!-- JavaScript Bundle with Popper -->
+        <script
+            src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/js/bootstrap.bundle.min.js"
+            integrity="sha384-ka7Sk0Gln4gmtz2MlQnikT1wXgYsOg+OMhuP+IlRH9sENBO0LRn5q+8nbTov4+1p"
+            crossorigin="anonymous"
+        ></script>
+    </body>
+</html>

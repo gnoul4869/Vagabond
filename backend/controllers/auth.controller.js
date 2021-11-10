@@ -50,8 +50,9 @@ const login = async (req, res) => {
 };
 
 const verifyEmail = async (req, res) => {
-    await generateMail(req.body.email);
-    res.status(StatusCodes.OK).json({ message: 'ok' });
+    const { name, email } = req.body;
+    const info = await generateMail(name, email);
+    res.status(StatusCodes.OK).json({ message: info });
 };
 
 export { register, login, verifyEmail };
