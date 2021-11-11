@@ -16,8 +16,9 @@ const RegisterPage = () => {
     const [email, setEmail] = useState('');
     const [step, setStep] = useState(0);
     const [password, setPassword] = useState('');
+    const [otp, setOtp] = useState('');
     const { userInfo } = useSelector((state) => state.auth);
-    const { isLoading, isEmailSent, error } = useSelector((state) => state.verification);
+    const { isLoading, isEmailSent, error, message } = useSelector((state) => state.verification);
 
     const oldLocation =
         location.state && location.state.oldLocation ? location.state.oldLocation : '/';
@@ -30,15 +31,23 @@ const RegisterPage = () => {
     const switchStep = (step) => {
         switch (step) {
             case 0:
-                return <UserDetails setName={setName} setEmail={setEmail} isLoading={isLoading} />;
+                return (
+                    <UserDetails
+                        name={name}
+                        setName={setName}
+                        email={email}
+                        setEmail={setEmail}
+                        isLoading={isLoading}
+                    />
+                );
             case 1:
-                return <EmailVerification email={email} />;
+                return (
+                    <EmailVerification email={email} message={message} otp={otp} setOtp={setOtp} />
+                );
             default:
             // Do nothing
         }
     };
-
-    console.log(isEmailSent);
 
     const backBtnHandler = () => {
         dispatch(refreshVerification());
@@ -69,11 +78,7 @@ const RegisterPage = () => {
                     onSubmit={submitHandler}
                 >
                     {step > 0 && (
-                        <button
-                            type="button"
-                            className="register-back-btn"
-                            onClick={backBtnHandler}
-                        >
+                        <button type="button" className="auth-back-btn" onClick={backBtnHandler}>
                             <MdArrowBack className="icon" />
                         </button>
                     )}

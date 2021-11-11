@@ -6,7 +6,7 @@ import {
 } from '../constants/verificationConstants';
 
 export const verification = (
-    state = { isLoading: false, isEmailSent: false, isVerified: false },
+    state = { isLoading: false, isEmailSent: false, isVerified: false, message: '' },
     action
 ) => {
     switch (action.type) {
@@ -18,6 +18,7 @@ export const verification = (
             return {
                 isLoading: false,
                 isEmailSent: true,
+                message: action.payload,
             };
         case VERIFICATION_SEND_FAIL:
             return {
@@ -29,6 +30,7 @@ export const verification = (
                 isLoading: false,
                 isEmailSent: false,
                 isVerified: false,
+                message: '',
             };
         default:
             return state;

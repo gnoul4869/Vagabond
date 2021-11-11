@@ -9,11 +9,17 @@ const verifyEmail = async (req, res) => {
         throw new BadRequestError('Hãy nhập tên và email của bạn');
     }
     const otp = generateMail(name, email);
-    await Verification.deleteMany({ email });
-    await Verification.create({ email, otp });
-    res.status(StatusCodes.OK).json({
-        message: `Đã gửi mã OTP tới email ${email}`,
-    });
+    const verificationInfo = await Verification.findOne({ email });
+    if (verificationInfo) {
+        res.status(StatusCodes.OK).json({
+            message: `Mã xác nhận OTP đã được gửi tới địa chỉ email ${email}. Bạn vui lòng kiểm tra email hoặc đợi thêm ít phút để thử lại`,
+        });
+    } else {
+        await Verification.create({ email, otp });
+        res.status(StatusCodes.OK).json({
+            message: `Hệ thống đã gửi mã xác nhận OTP tới địa chỉ email ${email}`,
+        });
+    }
 };
 
 const confirmEmail = async (req, res) => {

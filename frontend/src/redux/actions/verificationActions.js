@@ -9,8 +9,8 @@ import {
 export const verifyEmail = (name, email) => async (dispatch) => {
     dispatch({ type: VERIFICATION_SEND_REQUEST });
     try {
-        await axios.post('/api/v1/verification/verifyemail', { name, email });
-        dispatch({ type: VERIFICATION_SEND_SUCCESS });
+        const { data } = await axios.post('/api/v1/verification/verifyemail', { name, email });
+        dispatch({ type: VERIFICATION_SEND_SUCCESS, payload: data.message });
     } catch (error) {
         dispatch({
             type: VERIFICATION_SEND_FAIL,

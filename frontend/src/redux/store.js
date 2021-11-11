@@ -31,6 +31,7 @@ const initialState = {
         isLoading: false,
         isEmailSent: false,
         isVerified: false,
+        message: '',
     },
 };
 

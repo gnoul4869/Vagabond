@@ -1,6 +1,6 @@
 import React from 'react';
 
-const UserDetails = ({ setName, setEmail, isLoading }) => {
+const UserDetails = ({ name, setName, email, setEmail, isLoading }) => {
     return (
         <>
             <div className="form-floating mb-3">
@@ -11,6 +11,7 @@ const UserDetails = ({ setName, setEmail, isLoading }) => {
                     className="form-control"
                     onChange={(e) => setName(e.target.value)}
                     disabled={isLoading}
+                    value={name && name}
                 />
                 <label htmlFor="input">Họ tên</label>
             </div>
@@ -22,6 +23,7 @@ const UserDetails = ({ setName, setEmail, isLoading }) => {
                     className="form-control"
                     onChange={(e) => setEmail(e.target.value)}
                     disabled={isLoading}
+                    value={email && email}
                 />
                 <label htmlFor="input">Email</label>
             </div>
