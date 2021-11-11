@@ -3,23 +3,53 @@ import { VscError } from 'react-icons/vsc';
 import { useDispatch, useSelector } from 'react-redux';
 import { useHistory, useLocation } from 'react-router';
 import { Link } from 'react-router-dom';
+import { refreshVerification, verifyEmail } from '../../redux/actions/verificationActions';
 import UserDetails from '../../components/register/UserDetails';
+import EmailVerification from '../../components/register/EmailVerification';
+import { MdArrowBack } from 'react-icons/md';
 
 const RegisterPage = () => {
     const location = useLocation();
     const history = useHistory();
     const dispatch = useDispatch();
-    const [email, setEmail] = useState('');
-    const [password, setPassword] = useState('');
     const [name, setName] = useState('');
-    const { userInfo, error } = useSelector((state) => state.auth);
+    const [email, setEmail] = useState('');
+    const [step, setStep] = useState(0);
+    const [password, setPassword] = useState('');
+    const { userInfo } = useSelector((state) => state.auth);
+    const { isLoading, isEmailSent, error } = useSelector((state) => state.verification);
 
     const oldLocation =
         location.state && location.state.oldLocation ? location.state.oldLocation : '/';
 
     const submitHandler = (e) => {
         e.preventDefault();
+        dispatch(verifyEmail(name, email));
     };
+
+    const switchStep = (step) => {
+        switch (step) {
+            case 0:
+                return <UserDetails setName={setName} setEmail={setEmail} isLoading={isLoading} />;
+            case 1:
+                return <EmailVerification email={email} />;
+            default:
+            // Do nothing
+        }
+    };
+
+    console.log(isEmailSent);
+
+    const backBtnHandler = () => {
+        dispatch(refreshVerification());
+        setStep(step - 1);
+    };
+
+    useEffect(() => {
+        if (isEmailSent && step === 0) {
+            setStep(1);
+        }
+    }, [isEmailSent, step]);
 
     useEffect(() => {
         if (userInfo) {
@@ -34,14 +64,26 @@ const RegisterPage = () => {
                 <p className="col-lg-10 fs-2 ms-3">Bước đầu khám phá</p>
             </div>
             <div className="col-md-10 mx-auto col-lg-5">
-                <form className="p-4 p-md-5 border rounded-3 bg-white" onSubmit={submitHandler}>
+                <form
+                    className="auth-form p-4 p-md-5 border rounded-3 bg-white"
+                    onSubmit={submitHandler}
+                >
+                    {step > 0 && (
+                        <button
+                            type="button"
+                            className="register-back-btn"
+                            onClick={backBtnHandler}
+                        >
+                            <MdArrowBack className="icon" />
+                        </button>
+                    )}
                     {error && (
-                        <div className="error-container">
+                        <div className="auth-error-container">
                             <VscError className="icon text-ired" />
                             <span className="ms-2">{error}</span>
                         </div>
                     )}
-                    <UserDetails setEmail={setEmail} setPassword={setPassword} setName={setName} />
+                    {switchStep(step)}
                     <hr className="my-4" />
                     <div className="text-muted text-center">
                         <span>Đã là thành viên?</span>{' '}

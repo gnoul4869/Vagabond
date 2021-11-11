@@ -1,39 +1,31 @@
 import React from 'react';
 
-const UserDetails = ({ setEmail, setPassword, setName }) => {
+const UserDetails = ({ setName, setEmail, isLoading }) => {
     return (
         <>
             <div className="form-floating mb-3">
                 <input
-                    type="email"
-                    id="input"
-                    placeholder="name@example.com"
+                    type="text"
+                    id="name"
+                    placeholder="Nguyễn Văn A"
                     className="form-control"
-                    onChange={(e) => setEmail(e.target.value)}
+                    onChange={(e) => setName(e.target.value)}
+                    disabled={isLoading}
                 />
                 <label htmlFor="input">Họ tên</label>
             </div>
             <div className="form-floating mb-3">
                 <input
                     type="email"
-                    id="input"
+                    id="email"
                     placeholder="name@example.com"
                     className="form-control"
                     onChange={(e) => setEmail(e.target.value)}
+                    disabled={isLoading}
                 />
                 <label htmlFor="input">Email</label>
             </div>
-            <div className="form-floating mb-3">
-                <input
-                    type="password"
-                    id="password"
-                    placeholder="Password"
-                    className="form-control"
-                    onChange={(e) => setPassword(e.target.value)}
-                />
-                <label htmlFor="password">Mật khẩu</label>
-            </div>
-            <button className="w-100 btn btn-lg btn-ired" type="submit">
+            <button className="w-100 btn btn-lg btn-ired" type="submit" disabled={isLoading}>
                 Tiếp theo
             </button>
         </>

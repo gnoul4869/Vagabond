@@ -24,13 +24,17 @@ const generateMail = (name, email) => {
 
     const template = emailTemplate(name, otp);
 
-    transporter.sendMail({
-        from: 'megafunxofficial@gmail.com',
-        to: email,
-        subject: 'Mã xác thực OTP trên Vagabond',
-        text: `Mã OTP của bạn là: ${otp}`,
-        html: template,
-    });
+    try {
+        transporter.sendMail({
+            from: 'megafunxofficial@gmail.com',
+            to: email,
+            subject: 'Mã xác thực OTP trên Vagabond',
+            text: `Mã OTP của bạn là: ${otp}`,
+            html: template,
+        });
+    } catch (error) {
+        console.log(error);
+    }
 
     return otp;
 };

@@ -3,6 +3,7 @@ import thunk from 'redux-thunk';
 import { productList, productDetails } from './reducers/productReducer';
 import { cart } from './reducers/cartReducer';
 import { auth } from './reducers/authReducer';
+import { verification } from './reducers/verificationReducer';
 
 const initialState = {
     productList: {
@@ -26,6 +27,11 @@ const initialState = {
             ? JSON.parse(localStorage.getItem('userInfo'))
             : null,
     },
+    verification: {
+        isLoading: false,
+        isEmailSent: false,
+        isVerified: false,
+    },
 };
 
 const reducer = combineReducers({
@@ -33,6 +39,7 @@ const reducer = combineReducers({
     productDetails,
     cart,
     auth,
+    verification,
 });
 
 const composeEnhancer = window.__REDUX_DEVTOOLS_EXTENSION_COMPOSE__ || compose;

@@ -9,6 +9,7 @@ const verifyEmail = async (req, res) => {
         throw new BadRequestError('Hãy nhập tên và email của bạn');
     }
     const otp = generateMail(name, email);
+    await Verification.deleteMany({ email });
     await Verification.create({ email, otp });
     res.status(StatusCodes.OK).json({
         message: `Đã gửi mã OTP tới email ${email}`,

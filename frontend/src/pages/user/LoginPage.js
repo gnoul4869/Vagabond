@@ -35,7 +35,7 @@ const LoginPage = () => {
             <div className="col-md-10 col-lg-5 mx-auto">
                 <form className="p-4 p-md-5 border rounded-3 bg-white" onSubmit={submitHandler}>
                     {error && (
-                        <div className="error-container">
+                        <div className="auth-error-container">
                             <VscError className="icon text-ired" />
                             <span className="ms-2">{error}</span>
                         </div>
@@ -43,7 +43,7 @@ const LoginPage = () => {
                     <div className="form-floating mb-3">
                         <input
                             type="email"
-                            id="input"
+                            id="email"
                             placeholder="name@example.com"
                             className="form-control"
                             onChange={(e) => setEmail(e.target.value)}
