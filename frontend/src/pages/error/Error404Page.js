@@ -5,7 +5,7 @@ import { ImHome } from 'react-icons/im';
 
 const ErrorNotFoundPage = () => {
     return (
-        <section className="container mt-5 text-center">
+        <section className="container pb-5 text-center">
             <div className="row d-flex justify-content-center">
                 <div className="col-6 mt-5">
                     <div className="col-8 mt-5 mb-3 mx-auto">
