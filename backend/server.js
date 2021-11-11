@@ -10,6 +10,7 @@ import connectDB from './db/connect.js';
 
 import authRouter from './routes/auth.route.js';
 import productsRouter from './routes/products.route.js';
+import verficationRouter from './routes/verification.route.js';
 
 import auth from './middlewares/auth.middleware.js';
 import notFound from './middlewares/not-found.middleware.js';
@@ -34,6 +35,7 @@ app.use(helmet());
 //* Routes
 app.use('/api/v1/auth', authRouter);
 app.use('/api/v1/products', productsRouter);
+app.use('/api/v1/verification', verficationRouter);
 
 //* Error middlewares (Must be placed in the bottom)
 app.use(notFound);
