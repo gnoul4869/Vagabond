@@ -25,12 +25,12 @@ const login = async (req, res) => {
 
     const user = await User.findOne({ email: email });
     if (!user) {
-        throw new AuthenticationError('Tên tài khoản hoặc mật khẩu của bạn không đúng');
+        throw new AuthenticationError('Email hoặc mật khẩu của bạn không đúng');
     }
 
     const isPasswordCorrect = await user.comparePassword(password);
     if (!isPasswordCorrect) {
-        throw new AuthenticationError('Tên tài khoản hoặc mật khẩu của bạn không đúng');
+        throw new AuthenticationError('Email hoặc mật khẩu của bạn không đúng');
     }
 
     const token = user.createJWT();

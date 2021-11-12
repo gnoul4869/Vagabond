@@ -7,13 +7,13 @@ const UserDetails = ({ name, setName, email, setEmail, isLoading }) => {
                 <input
                     type="text"
                     id="name"
-                    placeholder="Nguyễn Văn A"
+                    placeholder="Tên"
                     className="form-control"
                     onChange={(e) => setName(e.target.value)}
                     disabled={isLoading}
                     value={name && name}
                 />
-                <label htmlFor="input">Họ tên</label>
+                <label htmlFor="input">Tên</label>
             </div>
             <div className="form-floating mb-3">
                 <input

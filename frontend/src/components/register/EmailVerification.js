@@ -52,7 +52,7 @@ const EmailVerification = ({ email, status, otp, setOtp, error, isVerified }) =>
                     </div>
                     <div className="mb-3">
                         <p className="text-break">
-                            Bạn đã xác thực mã OTP thành công. Nhấn tiếp tục để hoàn tất đăng ký tài
+                            Bạn đã xác nhận mã OTP thành công. Nhấn tiếp tục để hoàn tất đăng ký tài
                             khoản
                         </p>
                     </div>
