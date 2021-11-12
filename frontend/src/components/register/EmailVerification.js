@@ -58,10 +58,6 @@ const EmailVerification = ({ email, status, otp, setOtp, error, isVerified }) =>
                     </div>
                 </>
             )}
-
-            <button className="w-100 btn btn-lg btn-ired" type="submit">
-                Tiếp theo
-            </button>
         </>
     );
 };

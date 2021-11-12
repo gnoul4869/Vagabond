@@ -61,6 +61,11 @@ input[type='number']::-webkit-outer-spin-button {
     background-color: darksalmon !important;
 }
 
+.btn-ired-loading {
+    background-color: brown !important;
+    pointer-events: none;
+}
+
 .fw-600 {
     font-weight: 600;
 }

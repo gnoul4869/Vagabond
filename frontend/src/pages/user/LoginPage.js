@@ -2,6 +2,7 @@ import React, { useEffect, useState } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
 import { Link, useHistory, useLocation } from 'react-router-dom';
 import { VscError } from 'react-icons/vsc';
+import BarLoader from 'react-spinners/BarLoader';
 import { login } from '../../redux/actions/authActions';
 
 const LoginPage = () => {
@@ -63,11 +64,18 @@ const LoginPage = () => {
                         <label htmlFor="password">Mật khẩu</label>
                     </div>
                     <button
-                        className="w-100 btn btn-lg btn-ired"
+                        className={`w-100 btn btn-lg btn-ired ${isLoading && 'btn-ired-loading'}`}
                         type="submit"
-                        disabled={isLoading}
                     >
-                        Đăng nhập
+                        {!isLoading ? (
+                            'Đăng nhập'
+                        ) : (
+                            <BarLoader
+                                color="white"
+                                css="display: inherit; margin-bottom: 4px;"
+                                width="50"
+                            />
+                        )}
                     </button>
                     <hr className="my-4" />
                     <div className="text-muted text-center">

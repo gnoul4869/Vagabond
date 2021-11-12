@@ -27,9 +27,6 @@ const PersonalDetails = ({ name, setName, email, setEmail, isLoading }) => {
                 />
                 <label htmlFor="input">Số điện thoại</label>
             </div>
-            <button className="w-100 btn btn-lg btn-ired" type="submit" disabled={isLoading}>
-                Tiếp theo
-            </button>
         </>
     );
 };

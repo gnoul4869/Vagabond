@@ -3,6 +3,8 @@ import { VscError } from 'react-icons/vsc';
 import { useDispatch, useSelector } from 'react-redux';
 import { useHistory, useLocation } from 'react-router';
 import { Link } from 'react-router-dom';
+import { MdArrowBack } from 'react-icons/md';
+import BarLoader from 'react-spinners/BarLoader';
 import {
     confirmEmail,
     refreshVerification,
@@ -10,7 +12,6 @@ import {
 } from '../../redux/actions/verificationActions';
 import UserDetails from '../../components/register/UserDetails';
 import EmailVerification from '../../components/register/EmailVerification';
-import { MdArrowBack } from 'react-icons/md';
 import PersonalDetails from '../../components/register/PersonalDetails';
 
 const RegisterPage = () => {
@@ -119,6 +120,20 @@ const RegisterPage = () => {
                         </div>
                     )}
                     {switchStep(step)}
+                    <button
+                        className={`w-100 btn btn-lg btn-ired ${isLoading && 'btn-ired-loading'}`}
+                        type="submit"
+                    >
+                        {!isLoading ? (
+                            'Tiếp theo'
+                        ) : (
+                            <BarLoader
+                                color="white"
+                                css="display: inherit; margin-bottom: 4px;"
+                                width="50"
+                            />
+                        )}
+                    </button>
                     <hr className="my-4" />
                     <div className="text-muted text-center">
                         <span>Đã là thành viên?</span>{' '}

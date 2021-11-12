@@ -27,9 +27,6 @@ const UserDetails = ({ name, setName, email, setEmail, isLoading }) => {
                 />
                 <label htmlFor="input">Email</label>
             </div>
-            <button className="w-100 btn btn-lg btn-ired" type="submit" disabled={isLoading}>
-                Tiếp theo
-            </button>
         </>
     );
 };
