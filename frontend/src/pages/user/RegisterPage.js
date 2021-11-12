@@ -18,16 +18,20 @@ const RegisterPage = () => {
     const location = useLocation();
     const history = useHistory();
     const dispatch = useDispatch();
+
+    const [step, setStep] = useState(2);
     const [name, setName] = useState('');
     const [email, setEmail] = useState('');
-    const [step, setStep] = useState(0);
-    const [password, setPassword] = useState('');
     const [otp, setOtp] = useState('');
+    const [address, setAddress] = useState('');
+    const [phoneNumber, setPhoneNumber] = useState('');
+    const [gender, setGender] = useState('');
+    const [password, setPassword] = useState('');
     const { userInfo } = useSelector((state) => state.auth);
+
     const { isLoading, isEmailSent, isVerified, error, status } = useSelector(
         (state) => state.verification
     );
-
     const oldLocation =
         location.state && location.state.oldLocation ? location.state.oldLocation : '/';
 
@@ -76,7 +80,15 @@ const RegisterPage = () => {
                     />
                 );
             case 2:
-                return <PersonalDetails />;
+                return (
+                    <PersonalDetails
+                        address={address}
+                        setAddress={setAddress}
+                        phoneNumber={phoneNumber}
+                        setPhoneNumber={setPhoneNumber}
+                        setGender={setGender}
+                    />
+                );
             default:
             // Do nothing
         }

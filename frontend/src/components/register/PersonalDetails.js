@@ -1,31 +1,77 @@
 import React from 'react';
 
-const PersonalDetails = ({ name, setName, email, setEmail, isLoading }) => {
+const PersonalDetails = ({
+    isLoading,
+    address,
+    setAddress,
+    phoneNumber,
+    setPhoneNumber,
+    setGender,
+}) => {
     return (
         <>
             <div className="form-floating mb-3">
                 <input
                     type="text"
-                    id="name"
-                    placeholder="Nguyễn Văn A"
+                    id="address"
+                    placeholder="Z-City"
                     className="form-control"
-                    onChange={(e) => setName(e.target.value)}
+                    onChange={(e) => setAddress(e.target.value)}
                     disabled={isLoading}
-                    value={name && name}
+                    value={address && address}
                 />
                 <label htmlFor="input">Địa chỉ</label>
             </div>
             <div className="form-floating mb-3">
                 <input
-                    type="email"
-                    id="email"
-                    placeholder="name@example.com"
+                    type="tel"
+                    id="tel"
+                    placeholder="XXX-XXX-XXX"
                     className="form-control"
-                    onChange={(e) => setEmail(e.target.value)}
+                    onChange={(e) => setPhoneNumber(e.target.value)}
                     disabled={isLoading}
-                    value={email && email}
+                    value={phoneNumber && phoneNumber}
                 />
                 <label htmlFor="input">Số điện thoại</label>
+            </div>
+            <div className="form-check-inline mb-3">
+                <input
+                    type="radio"
+                    value="Nam"
+                    id="male"
+                    name="gender"
+                    class="form-check-input"
+                    onChange={(e) => setGender(e.target.value)}
+                />
+                <label class="form-check-label ms-2" htmlFor="male">
+                    Nam
+                </label>
+            </div>
+            <div className="form-check-inline mb-3">
+                <input
+                    type="radio"
+                    value="Nữ"
+                    id="female"
+                    name="gender"
+                    class="form-check-input"
+                    onChange={(e) => setGender(e.target.value)}
+                />
+                <label class="form-check-label ms-2" htmlFor="female">
+                    Nữ
+                </label>
+            </div>
+            <div className="form-check-inline mb-3">
+                <input
+                    type="radio"
+                    value="Khác"
+                    id="other"
+                    name="gender"
+                    class="form-check-input"
+                    onChange={(e) => setGender(e.target.value)}
+                />
+                <label class="form-check-label ms-2" htmlFor="other">
+                    Khác
+                </label>
             </div>
         </>
     );

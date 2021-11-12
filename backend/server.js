@@ -19,10 +19,6 @@ import errorHandler from './middlewares/error-handler.middleware.js';
 const app = express();
 const port = process.env.PORT || 5000;
 
-process.on('unhandledRejection', (reason, p) => {
-    throw reason;
-});
-
 //* Middlewares
 app.set('trust proxy', 1); //! Enable if you're behind a reverse proxy (Heroku, Bluemix, AWS ELB, Nginx, etc)
 app.use(
