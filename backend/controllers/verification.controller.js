@@ -32,6 +32,10 @@ const confirmEmail = async (req, res) => {
     if (!otp) {
         throw new BadRequestError('Mã OTP không được để trống');
     }
+    const isOTPExist = await Verification.findOne({ email });
+    if (!isOTPExist) {
+        throw new BadRequestError('Mã OTP đã hết hạn');
+    }
     const verificationInfo = await Verification.findOne({ email, otp });
     if (!verificationInfo) {
         throw new AuthenticationError('Mã OTP không đúng');

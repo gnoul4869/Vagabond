@@ -33,11 +33,13 @@ export const verifyEmail = (name, email, setStep) => async (dispatch) => {
     }
 };
 
-export const confirmEmail = (email, otp) => async (dispatch) => {
+export const confirmEmail = (email, otp, setStep) => async (dispatch) => {
     dispatch({ type: VERIFICATION_CONFIRM_REQUEST });
     try {
         const { data } = await axios.post('/api/v1/verification/confirmemail', { email, otp });
         dispatch({ type: VERIFICATION_CONFIRM_SUCCESS, payload: data.message });
+
+        setStep(2);
     } catch (error) {
         dispatch({
             type: VERIFICATION_CONFIRM_FAIL,

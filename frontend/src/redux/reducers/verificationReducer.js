@@ -31,11 +31,13 @@ export const verification = (
         case VERIFICATION_CONFIRM_REQUEST:
             return {
                 ...state,
+                error: '',
                 isLoading: true,
             };
         case VERIFICATION_CONFIRM_SUCCESS:
             return {
                 ...state,
+                error: '',
                 isLoading: false,
                 isVerified: true,
             };
@@ -43,6 +45,7 @@ export const verification = (
             return {
                 ...state,
                 isLoading: false,
+                isEmailSent: false,
                 error: action.payload,
             };
         case VERIFICATION_STATE_REFRESH:
