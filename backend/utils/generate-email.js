@@ -3,9 +3,11 @@ import nodemailer from 'nodemailer';
 import otpGenerator from 'otp-generator';
 import { emailTemplate } from './email-template.js';
 
-const generateMail = (name, email) => {
+const generateMail = async (name, email) => {
     let transporter = nodemailer.createTransport({
-        service: 'gmail',
+        host: 'smtp.gmail.com',
+        port: 465,
+        secure: true, // true for 465, false for other ports
         auth: {
             type: 'OAuth2',
             user: process.env.MAIL_USERNAME,
@@ -24,7 +26,7 @@ const generateMail = (name, email) => {
 
     const template = emailTemplate(name, otp);
 
-    transporter
+    let info = await transporter
         .sendMail({
             from: 'megafunxofficial@gmail.com',
             to: email,
@@ -34,7 +36,7 @@ const generateMail = (name, email) => {
         })
         .catch();
 
-    return otp;
+    return { otp, info };
 };
 
 export default generateMail;

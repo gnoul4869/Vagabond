@@ -8,24 +8,29 @@ const verifyEmail = async (req, res) => {
     if (!name || !email) {
         throw new BadRequestError('Hãy nhập tên và email của bạn');
     }
-    const otp = generateMail(name, email);
+    const { otp } = await generateMail(name, email);
     const verificationInfo = await Verification.findOne({ email });
     if (verificationInfo) {
         res.status(StatusCodes.OK).json({
-            message: `Mã xác nhận OTP đã được gửi tới địa chỉ email ${email}. Bạn vui lòng kiểm tra email hoặc đợi thêm ít phút để thử lại`,
+            message: `Mã xác nhận OTP đã được gửi tới địa chỉ email ${email}. Bạn vui lòng kiểm tra email hoặc thử lại sau ít phút nữa`,
+            status: 'EMAIL_ALREADY_SENT',
         });
     } else {
         await Verification.create({ email, otp });
         res.status(StatusCodes.OK).json({
             message: `Hệ thống đã gửi mã xác nhận OTP tới địa chỉ email ${email}`,
+            status: 'EMAIL_SENT',
         });
     }
 };
 
 const confirmEmail = async (req, res) => {
     const { email, otp } = req.body;
-    if (!email || !otp) {
-        throw new BadRequestError('Email hoặc OTP không được để trống');
+    if (!email) {
+        throw new BadRequestError('Email không được để trống');
+    }
+    if (!otp) {
+        throw new BadRequestError('Mã OTP không được để trống');
     }
     const verificationInfo = await Verification.findOne({ email, otp });
     if (!verificationInfo) {

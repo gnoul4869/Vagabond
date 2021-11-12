@@ -1,4 +1,7 @@
 import {
+    VERIFICATION_CONFIRM_FAIL,
+    VERIFICATION_CONFIRM_REQUEST,
+    VERIFICATION_CONFIRM_SUCCESS,
     VERIFICATION_SEND_FAIL,
     VERIFICATION_SEND_REQUEST,
     VERIFICATION_SEND_SUCCESS,
@@ -6,7 +9,7 @@ import {
 } from '../constants/verificationConstants';
 
 export const verification = (
-    state = { isLoading: false, isEmailSent: false, isVerified: false, message: '' },
+    state = { isLoading: false, isEmailSent: false, isVerified: false, error: '', status: '' },
     action
 ) => {
     switch (action.type) {
@@ -18,19 +21,42 @@ export const verification = (
             return {
                 isLoading: false,
                 isEmailSent: true,
-                message: action.payload,
+                status: action.payload.status,
             };
         case VERIFICATION_SEND_FAIL:
             return {
                 isLoading: false,
                 error: action.payload,
             };
+        case VERIFICATION_CONFIRM_REQUEST:
+            return {
+                ...state,
+                isLoading: true,
+            };
+        case VERIFICATION_CONFIRM_SUCCESS:
+            return {
+                ...state,
+                isLoading: false,
+                isVerified: true,
+            };
+        case VERIFICATION_CONFIRM_FAIL:
+            return {
+                ...state,
+                isLoading: false,
+                error: action.payload,
+            };
         case VERIFICATION_STATE_REFRESH:
+            if (action.payload === 'REFRESH_ERROR') {
+                return {
+                    ...state,
+                    error: '',
+                };
+            }
             return {
                 isLoading: false,
                 isEmailSent: false,
                 isVerified: false,
-                message: '',
+                error: '',
             };
         default:
             return state;

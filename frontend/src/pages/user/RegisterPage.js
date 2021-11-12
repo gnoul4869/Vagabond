@@ -3,10 +3,15 @@ import { VscError } from 'react-icons/vsc';
 import { useDispatch, useSelector } from 'react-redux';
 import { useHistory, useLocation } from 'react-router';
 import { Link } from 'react-router-dom';
-import { refreshVerification, verifyEmail } from '../../redux/actions/verificationActions';
+import {
+    confirmEmail,
+    refreshVerification,
+    verifyEmail,
+} from '../../redux/actions/verificationActions';
 import UserDetails from '../../components/register/UserDetails';
 import EmailVerification from '../../components/register/EmailVerification';
 import { MdArrowBack } from 'react-icons/md';
+import PersonalDetails from '../../components/register/PersonalDetails';
 
 const RegisterPage = () => {
     const location = useLocation();
@@ -18,14 +23,32 @@ const RegisterPage = () => {
     const [password, setPassword] = useState('');
     const [otp, setOtp] = useState('');
     const { userInfo } = useSelector((state) => state.auth);
-    const { isLoading, isEmailSent, error, message } = useSelector((state) => state.verification);
+    const { isLoading, isEmailSent, isVerified, error, status } = useSelector(
+        (state) => state.verification
+    );
 
     const oldLocation =
         location.state && location.state.oldLocation ? location.state.oldLocation : '/';
 
     const submitHandler = (e) => {
         e.preventDefault();
-        dispatch(verifyEmail(name, email));
+
+        switch (step) {
+            case 0:
+                if (!isEmailSent) {
+                    return dispatch(verifyEmail(name, email, setStep));
+                } else {
+                    return setStep(step + 1);
+                }
+            case 1:
+                if (!isVerified) {
+                    return dispatch(confirmEmail(email, otp));
+                } else {
+                    return setStep(step + 1);
+                }
+            default:
+            // Do nothing
+        }
     };
 
     const switchStep = (step) => {
@@ -42,23 +65,30 @@ const RegisterPage = () => {
                 );
             case 1:
                 return (
-                    <EmailVerification email={email} message={message} otp={otp} setOtp={setOtp} />
+                    <EmailVerification
+                        email={email}
+                        status={status}
+                        otp={otp}
+                        setOtp={setOtp}
+                        error={error}
+                        isVerified={isVerified}
+                    />
                 );
+            case 2:
+                return <PersonalDetails />;
             default:
             // Do nothing
         }
     };
 
     const backBtnHandler = () => {
-        dispatch(refreshVerification());
-        setStep(step - 1);
+        dispatch(refreshVerification('REFRESH_ERROR'));
+        setStep(step - 1 >= 0 ? step - 1 : step);
     };
 
     useEffect(() => {
-        if (isEmailSent && step === 0) {
-            setStep(1);
-        }
-    }, [isEmailSent, step]);
+        dispatch(refreshVerification());
+    }, [dispatch, email]);
 
     useEffect(() => {
         if (userInfo) {

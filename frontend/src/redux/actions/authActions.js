@@ -23,7 +23,7 @@ export const login = (email, password) => async (dispatch) => {
             payload:
                 error.response && error.response.data.message
                     ? error.response.data.message
-                    : error.message,
+                    : 'Đã có lỗi xảy ra. Bạn vui lòng thử lại sau ít phút nữa',
         });
     }
 };
@@ -47,7 +47,7 @@ export const register = (email, password, name, phoneNumber, address) => async (
             payload:
                 error.response && error.response.data.message
                     ? error.response.data.message
-                    : error.message,
+                    : 'Đã có lỗi xảy ra. Bạn vui lòng thử lại sau ít phút nữa',
         });
     }
 };
