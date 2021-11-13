@@ -20,7 +20,7 @@ const Footer = () => {
                         MUA SẮM ONLINE ĐƠN GIẢN, NHANH CHÓNG VÀ AN TOÀN
                     </div>
                     <p>
-                        Nếu bạn đang tìm kiếm một trang web để mua hàng trực tuyến thì Vagabond.vn
+                        Nếu bạn đang tìm kiếm một trang web để mua hàng trực tuyến thì vagabond.cf
                         là một sự lựa chọn tuyệt vời dành cho bạn. Bản chất của Vagabond là một
                         E-commerce platform - nền tảng trang web thương mại điện tử . Điều này cho
                         phép người mua hàng dễ dàng tương tác, theo dõi thông tin về sản phẩm và
@@ -52,8 +52,8 @@ const Footer = () => {
                     </p>
                     <p>
                         Đến với Vagabond ngay hôm nay để mua hàng online giá rẻ và trải nghiệm dịch
-                        vụ chăm sóc khách hàng tuyệt vời tại đây. Hãy truy cập ngay Vagabond.com
-                        ngay hôm nay!
+                        vụ chăm sóc khách hàng tuyệt vời tại đây. Hãy truy cập ngay vagabond.cf ngay
+                        hôm nay!
                     </p>
                 </div>
             </div>

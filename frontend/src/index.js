@@ -6,9 +6,9 @@ import store from './redux/store.js';
 // import reportWebVitals from './reportWebVitals';
 
 import './css/index.css';
-import './css/footer.css';
 
 //* Components
+import './css/components/footer.css';
 import './css/components/dateInput.css';
 import './css/components/numberInput.css';
 import './css/components/breadCrumbs.css';
@@ -28,6 +28,7 @@ import './css/components/loading/productDetailsLoading.css';
 import './css/pages/cartPage.css';
 import './css/pages/authPage.css';
 import './css/pages/errorPage.css';
+import './css/pages/profilePage.css';
 import './css/pages/productDetailsPage.css';
 
 import 'bootstrap/dist/css/bootstrap.min.css';
