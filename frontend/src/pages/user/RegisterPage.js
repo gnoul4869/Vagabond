@@ -26,6 +26,7 @@ const RegisterPage = () => {
     const [address, setAddress] = useState('');
     const [phoneNumber, setPhoneNumber] = useState('');
     const [gender, setGender] = useState('');
+    const [birthDate, setBirthDate] = useState(new Date());
     const [password, setPassword] = useState('');
     const { userInfo } = useSelector((state) => state.auth);
 
@@ -87,6 +88,8 @@ const RegisterPage = () => {
                         phoneNumber={phoneNumber}
                         setPhoneNumber={setPhoneNumber}
                         setGender={setGender}
+                        birthDate={birthDate}
+                        setBirthDate={setBirthDate}
                     />
                 );
             default:

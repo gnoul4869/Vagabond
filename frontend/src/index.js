@@ -7,7 +7,6 @@ import store from './redux/store.js';
 
 import './css/index.css';
 import './css/error.css';
-import './css/numberInput.css';
 
 import './css/navbar/navBar.css';
 import './css/navbar/navBarDropdown.css';
@@ -23,6 +22,8 @@ import './css/product/productDescription.css';
 import './css/auth.css';
 import './css/cart.css';
 import './css/breadCrumbs.css';
+import './css/numberInput.css';
+import './css/dateInput.css';
 
 import './css/loading/productDetailsLoading.css';
 

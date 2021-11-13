@@ -1,4 +1,5 @@
 import React from 'react';
+import DateInput from '../DateInput';
 
 const PersonalDetails = ({
     isLoading,
@@ -7,10 +8,12 @@ const PersonalDetails = ({
     phoneNumber,
     setPhoneNumber,
     setGender,
+    birthDate,
+    setBirthDate,
 }) => {
     return (
         <>
-            <div className="form-floating mb-3">
+            <div className="form-floating mt-4 mt-md-0 mb-3">
                 <input
                     type="text"
                     id="address"
@@ -40,10 +43,10 @@ const PersonalDetails = ({
                     value="Nam"
                     id="male"
                     name="gender"
-                    class="form-check-input"
+                    className="form-check-input"
                     onChange={(e) => setGender(e.target.value)}
                 />
-                <label class="form-check-label ms-2" htmlFor="male">
+                <label className="form-check-label ms-2 fw-600" htmlFor="male">
                     Nam
                 </label>
             </div>
@@ -53,25 +56,31 @@ const PersonalDetails = ({
                     value="Nữ"
                     id="female"
                     name="gender"
-                    class="form-check-input"
+                    className="form-check-input"
                     onChange={(e) => setGender(e.target.value)}
                 />
-                <label class="form-check-label ms-2" htmlFor="female">
+                <label className="form-check-label ms-2 fw-600" htmlFor="female">
                     Nữ
                 </label>
             </div>
-            <div className="form-check-inline mb-3">
+            <div className="form-check-inline mb-3 fw-600">
                 <input
                     type="radio"
                     value="Khác"
                     id="other"
                     name="gender"
-                    class="form-check-input"
+                    className="form-check-input"
                     onChange={(e) => setGender(e.target.value)}
                 />
-                <label class="form-check-label ms-2" htmlFor="other">
+                <label className="form-check-label ms-2" htmlFor="other">
                     Khác
                 </label>
+            </div>
+            <div className="row justify-content-start align-items-center mb-3 g-0">
+                <div className="col-auto me-2">Ngày sinh</div>
+                <div className="col">
+                    <DateInput date={birthDate} setDate={setBirthDate} />
+                </div>
             </div>
         </>
     );
