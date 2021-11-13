@@ -10,14 +10,17 @@ const userSchema = new mongoose.Schema(
             required: [true, 'Hãy nhập email của bạn'],
             match: [
                 /^(([^<>()[\]\\.,;:\s@"]+(\.[^<>()[\]\\.,;:\s@"]+)*)|(".+"))@((\[[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\])|(([a-zA-Z\-0-9]+\.)+[a-zA-Z]{2,}))$/,
-                'Please provide an valid email',
+                'Hãy cung cấp email hợp lệ',
             ],
             unique: true,
         },
         password: {
             type: String,
             required: [true, 'Hãy nhập mật khẩu của bạn'],
-            minlength: 6,
+            match: [
+                /^(((?=.*[a-z])(?=.*[A-Z]))|((?=.*[a-z])(?=.*[0-9]))|((?=.*[A-Z])(?=.*[0-9])))(?=.{6,})/,
+                'Hãy sử dụng một mật khẩu khó hơn',
+            ],
         },
         name: {
             type: String,

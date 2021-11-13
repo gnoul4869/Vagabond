@@ -24,6 +24,7 @@ import './css/cart.css';
 import './css/breadCrumbs.css';
 import './css/numberInput.css';
 import './css/dateInput.css';
+import './css/passwordStrength.css';
 
 import './css/loading/productDetailsLoading.css';
 

@@ -1,11 +1,12 @@
 import React from 'react';
+import PasswordStrength from '../PasswordStrength';
 
 const Confirmation = ({
     isLoading,
     password,
     setPassword,
-    passwordConfirm,
-    setPasswordConfirm,
+    confirmPassword,
+    setConfirmPassword,
 }) => {
     return (
         <>
@@ -24,15 +25,16 @@ const Confirmation = ({
             <div className="form-floating mb-3">
                 <input
                     type="password"
-                    id="passwordConfirm"
+                    id="confirmPassword"
                     placeholder="name@example.com"
                     className="form-control"
-                    onChange={(e) => setPasswordConfirm(e.target.value)}
+                    onChange={(e) => setConfirmPassword(e.target.value)}
                     disabled={isLoading}
-                    value={passwordConfirm && passwordConfirm}
+                    value={confirmPassword && confirmPassword}
                 />
                 <label htmlFor="input">Xác nhận mật khẩu</label>
             </div>
+            <PasswordStrength password={password} />
         </>
     );
 };

@@ -4,13 +4,48 @@ import { BadRequestError, AuthenticationError } from '../errors/custom-api-error
 import moment from 'moment';
 
 const register = async (req, res) => {
-    var age = moment().diff(req.body.birthDate, 'years');
+    const { email, password, name, address, phoneNumber, gender, birthDate } = req.body;
+
+    if (!email) {
+        throw new BadRequestError('Hãy nhập mail của bạn');
+    }
+
+    if (!password) {
+        throw new BadRequestError('Hãy nhập mật khẩu của bạn');
+    }
+
+    if (password.length < 6) {
+        throw new BadRequestError('Mật khẩu phải có ít nhất 6 ký tự');
+    }
+
+    if (!name) {
+        throw new BadRequestError('Hãy nhập tên của bạn');
+    }
+
+    if (!address) {
+        throw new BadRequestError('Hãy nhập địa chỉ của bạn');
+    }
+
+    if (!phoneNumber) {
+        throw new BadRequestError('Hãy nhập số điện thoại của bạn');
+    }
+
+    if (!gender) {
+        throw new BadRequestError('Hãy chọn giới tính của bạn');
+    }
+
+    if (!birthDate) {
+        throw new BadRequestError('Hãy chọn ngày sinh của bạn');
+    }
+
+    var age = moment().diff(birthDate, 'years');
     if (age < 12) {
         throw new BadRequestError('Bạn phải lớn hơn 12 tuổi để đăng ký tài khoản');
     }
     if (age > 125) {
         throw new BadRequestError('Số tuổi không hợp lệ');
     }
+
     const user = await User.create(req.body);
     const token = await user.createJWT();
     res.status(StatusCodes.CREATED).json({
@@ -51,8 +86,10 @@ const login = async (req, res) => {
         userInfo: {
             email: user.email,
             name: user.name,
-            phoneNumber: user.phoneNumber,
             address: user.address,
+            phoneNumber: user.phoneNumber,
+            gender: user.gender,
+            birthDate: user.birthDate,
             role: user.role,
             image: user.image,
             token: token,

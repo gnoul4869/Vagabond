@@ -14,13 +14,15 @@ import {
 import UserDetails from '../../components/register/UserDetails';
 import EmailVerification from '../../components/register/EmailVerification';
 import PersonalDetails from '../../components/register/PersonalDetails';
+import Confirmation from '../../components/register/Confirmation';
+import { register } from '../../redux/actions/authActions';
 
 const RegisterPage = () => {
     const location = useLocation();
     const history = useHistory();
     const dispatch = useDispatch();
 
-    const [step, setStep] = useState(2);
+    const [step, setStep] = useState(3);
     const [name, setName] = useState('');
     const [email, setEmail] = useState('');
     const [otp, setOtp] = useState('');
@@ -29,14 +31,16 @@ const RegisterPage = () => {
     const [gender, setGender] = useState('');
     const [birthDate, setBirthDate] = useState(new Date());
     const [password, setPassword] = useState('');
+    const [confirmPassword, setConfirmPassword] = useState('');
     const [validationError, setValidationError] = useState('');
-    const { userInfo } = useSelector((state) => state.auth);
 
-    console.log(phoneNumber.length);
+    const userAuth = useSelector((state) => state.auth);
+    const userInfo = userAuth.userInfo;
 
     const { isLoading, isEmailSent, isVerified, error, status } = useSelector(
         (state) => state.verification
     );
+
     const oldLocation =
         location.state && location.state.oldLocation ? location.state.oldLocation : '/';
 
@@ -60,25 +64,48 @@ const RegisterPage = () => {
                 if (!address) {
                     return setValidationError('Hãy nhập địa chỉ của bạn');
                 }
+
                 if (!phoneNumber) {
                     return setValidationError('Hãy nhập số điện thoại của bạn');
                 }
+
                 if (phoneNumber.length !== 10) {
                     return setValidationError('Số điện thoại của bạn không hợp lệ');
                 }
+
                 if (!gender) {
                     return setValidationError('Hãy chọn giới tính của bạn');
                 }
-                if (birthDate) {
-                    var age = moment().diff(birthDate, 'years');
-                    if (age < 12) {
-                        return setValidationError('Bạn phải lớn hơn 12 tuổi để đăng ký tài khoản');
-                    }
-                    if (age > 125) {
-                        return setValidationError('Số tuổi không hợp lệ');
-                    }
+
+                if (!birthDate) {
+                    return setValidationError('Hãy chọn ngày sinh của bạn');
                 }
+
+                var age = moment().diff(birthDate, 'years');
+                if (age < 12) {
+                    return setValidationError('Bạn phải lớn hơn 12 tuổi để đăng ký tài khoản');
+                }
+                if (age > 125) {
+                    return setValidationError('Số tuổi không hợp lệ');
+                }
+
+                setValidationError('');
                 return setStep(step + 1);
+            }
+            case 3: {
+                if (!password) {
+                    return setValidationError('Hãy nhập mật khẩu của bạn');
+                }
+                if (!confirmPassword) {
+                    return setValidationError('Hãy xác nhận mật khẩu của bạn');
+                }
+                if (password !== confirmPassword) {
+                    return setValidationError('Mật khẩu xác nhận không đúng');
+                }
+                setValidationError('');
+                return dispatch(
+                    register(email, password, name, address, phoneNumber, gender, birthDate)
+                );
             }
             default:
             // Do nothing
@@ -115,9 +142,19 @@ const RegisterPage = () => {
                         setAddress={setAddress}
                         phoneNumber={phoneNumber}
                         setPhoneNumber={setPhoneNumber}
+                        gender={gender}
                         setGender={setGender}
                         birthDate={birthDate}
                         setBirthDate={setBirthDate}
+                    />
+                );
+            case 3:
+                return (
+                    <Confirmation
+                        password={password}
+                        setPassword={setPassword}
+                        confirmPassword={confirmPassword}
+                        setConfirmPassword={setConfirmPassword}
                     />
                 );
             default:
@@ -157,10 +194,10 @@ const RegisterPage = () => {
                             <MdArrowBack className="icon" />
                         </button>
                     )}
-                    {error ? (
+                    {error || userAuth.error ? (
                         <div className="auth-error-container mt-4 mt-md-0">
                             <VscError className="icon text-ired" />
-                            <span className="ms-2">{error}</span>
+                            <span className="ms-2">{error || userAuth.error}</span>
                         </div>
                     ) : (
                         validationError && (
@@ -172,10 +209,12 @@ const RegisterPage = () => {
                     )}
                     {switchStep(step)}
                     <button
-                        className={`w-100 btn btn-lg btn-ired ${isLoading && 'btn-ired-loading'}`}
+                        className={`w-100 btn btn-lg btn-ired ${
+                            isLoading || userAuth.isLoading ? 'btn-ired-loading' : ''
+                        }`}
                         type="submit"
                     >
-                        {!isLoading ? (
+                        {!isLoading && !userAuth.isLoading ? (
                             'Tiếp theo'
                         ) : (
                             <BarLoader
