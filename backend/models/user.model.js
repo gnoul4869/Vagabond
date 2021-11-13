@@ -18,7 +18,7 @@ const userSchema = new mongoose.Schema(
             type: String,
             required: [true, 'Hãy nhập mật khẩu của bạn'],
             match: [
-                /^(((?=.*[a-z])(?=.*[A-Z]))|((?=.*[a-z])(?=.*[0-9]))|((?=.*[A-Z])(?=.*[0-9])))(?=.{6,})/,
+                /^((?=.*[a-z])|(?=.*[A-Z]))(?=.*[0-9])(?=.{6,})/,
                 'Hãy sử dụng một mật khẩu khó hơn',
             ],
         },

@@ -7,14 +7,20 @@ const register = async (req, res) => {
     const { email, password, name, address, phoneNumber, gender, birthDate } = req.body;
 
     if (!email) {
-        throw new BadRequestError('Hãy nhập mail của bạn');
+        throw new BadRequestError('Hãy nhập email của bạn');
     }
 
     if (!password) {
         throw new BadRequestError('Hãy nhập mật khẩu của bạn');
     }
 
-    if (password.length < 6) {
+    if (!RegExp('(?=.*[a-z])|(?=.*[A-Z])').test(password)) {
+        throw new BadRequestError('Mật khẩu phải có ít nhất 1 chữ cái');
+    }
+    if (!RegExp('(?=.*[0-9])').test(password)) {
+        throw new BadRequestError('Mật khẩu phải có ít nhất 1 chữ số');
+    }
+    if (!RegExp('(?=.{6,})').test(password)) {
         throw new BadRequestError('Mật khẩu phải có ít nhất 6 ký tự');
     }
 

@@ -22,7 +22,7 @@ const RegisterPage = () => {
     const history = useHistory();
     const dispatch = useDispatch();
 
-    const [step, setStep] = useState(3);
+    const [step, setStep] = useState(0);
     const [name, setName] = useState('');
     const [email, setEmail] = useState('');
     const [otp, setOtp] = useState('');
@@ -32,10 +32,10 @@ const RegisterPage = () => {
     const [birthDate, setBirthDate] = useState(new Date());
     const [password, setPassword] = useState('');
     const [confirmPassword, setConfirmPassword] = useState('');
-    const [validationError, setValidationError] = useState('');
 
     const userAuth = useSelector((state) => state.auth);
     const userInfo = userAuth.userInfo;
+    const [validationError, setValidationError] = useState(userAuth.error);
 
     const { isLoading, isEmailSent, isVerified, error, status } = useSelector(
         (state) => state.verification
@@ -95,6 +95,15 @@ const RegisterPage = () => {
             case 3: {
                 if (!password) {
                     return setValidationError('Hãy nhập mật khẩu của bạn');
+                }
+                if (!RegExp('(?=.*[a-z])|(?=.*[A-Z])').test(password)) {
+                    return setValidationError('Mật khẩu phải có ít nhất 1 chữ cái');
+                }
+                if (!RegExp('(?=.*[0-9])').test(password)) {
+                    return setValidationError('Mật khẩu phải có ít nhất 1 chữ số');
+                }
+                if (!RegExp('(?=.{6,})').test(password)) {
+                    return setValidationError('Mật khẩu phải có ít nhất 6 ký tự');
                 }
                 if (!confirmPassword) {
                     return setValidationError('Hãy xác nhận mật khẩu của bạn');
