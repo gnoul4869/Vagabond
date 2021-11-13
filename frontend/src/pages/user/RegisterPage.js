@@ -49,7 +49,7 @@ const RegisterPage = () => {
 
         switch (step) {
             case 0:
-                if (!isEmailSent) {
+                if (!isEmailSent && !isVerified) {
                     return dispatch(verifyEmail(name, email, setStep));
                 } else {
                     return setStep(step + 1);
