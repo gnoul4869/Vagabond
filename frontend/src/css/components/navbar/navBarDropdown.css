@@ -1,0 +1,69 @@
+.navbar-toggler {
+    box-shadow: none !important;
+}
+
+.navbar-dropdown {
+    -webkit-transition: max-height 0.3s, opacity 0.2s 0.1s, visibility 0s 0.3s;
+    -moz-transition: max-height 0.3s, opacity 0.2s 0.1s, visibility 0s 0.3s;
+    -ms-transition: max-height 0.3s, opacity 0.2s 0.1s, visibility 0s 0.3s;
+    -o-transition: max-height 0.3s, opacity 0.2s 0.1s, visibility 0s 0.3s;
+    transition: max-height 0.3s, opacity 0.2s 0.1s, visibility 0s 0.3s;
+
+    max-height: 0;
+    overflow: hidden;
+    opacity: 0;
+    visibility: hidden;
+}
+
+.navbar-dropdown-active {
+    -webkit-transition: max-height 0.3s, opacity 0.2s, visibility 0s;
+    -moz-transition: max-height 0.3s, opacity 0.2s, visibility 0s;
+    -ms-transition: max-height 0.3s, opacity 0.2s, visibility 0s;
+    -o-transition: max-height 0.3s, opacity 0.2s, visibility 0s;
+    transition: max-height 0.3s, opacity 0.2s, visibility 0s;
+
+    opacity: 1;
+    visibility: visible;
+}
+
+.navbar-dropdown-active-height-112 {
+    /** Default height for auth=false and social links */
+    /** 40px + 40px + 32px */
+    max-height: 112px;
+}
+
+.navbar-dropdown-active-height-162 {
+    /** Height for auth=false, cart badge, social links */
+    /** 40px + 40px + 50px + 32px */
+    max-height: 162px;
+}
+
+.navbar-dropdown-active-height-165 {
+    /** Height for auth=false, search box, social links */
+    /** 40px + 40px + 53px + 32px */
+    max-height: 165px;
+}
+
+.navbar-dropdown-active-height-202 {
+    /** Height for auth=true, cart badge, social links */
+    /** 40px + 40px + 40px + 50px + 32px */
+    max-height: 202px;
+}
+
+.navbar-dropdown-active-height-205 {
+    /** Height for auth=true, search box, social links */
+    /** 40px + 40px + 40px + 53px + 32px */
+    max-height: 205px;
+}
+
+.navbar-dropdown-active-height-215 {
+    /** Height for auth=false, cart badge, search box, social links */
+    /** 40px + 40px + 50px + 53px + 32px */
+    max-height: 215px;
+}
+
+.navbar-dropdown-active-height-255 {
+    /** Height for auth=true, cart badge, search box, social links */
+    /** 40px + 40px + 40px + 50px + 53px + 32px */
+    max-height: 255px;
+}

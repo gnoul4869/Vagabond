@@ -28,7 +28,7 @@ const NavBarUserSubmenu = ({ isSubmenuShown, setIsSubmenuShown, targetWidth }) =
         <aside className={`navbar-user-submenu ${isSubmenuShown && 'show'}`} ref={submenuContainer}>
             <div className="container">
                 <div className="row submenu-item">
-                    <Link to="#">Tài khoản của tôi</Link>
+                    <Link to="/user/profile">Tài khoản của tôi</Link>
                 </div>
                 <div className="row submenu-item">
                     <Link to="#">Đơn mua</Link>

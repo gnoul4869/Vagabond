@@ -2,8 +2,10 @@ import React from 'react';
 
 const ProfilePage = () => {
     return (
-        <div className="text-center">
-            <h1>Profile</h1>
+        <div className="container bg-white mt-3">
+            <div className="container p-3">
+                <span className="fs-4 fw-600">Hồ sơ của tôi</span>
+            </div>
         </div>
     );
 };
