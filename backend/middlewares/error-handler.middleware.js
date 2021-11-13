@@ -8,7 +8,7 @@ const errorHandler = (err, req, res, next) => {
 
     if (err.code && err.code === 11000) {
         customError.statusCode = StatusCodes.BAD_REQUEST;
-        customError.message = `Duplicate key value for ${Object.keys(err.keyValue)}`;
+        customError.message = `${Object.keys(err.keyValue)} đã tồn tại`;
     }
 
     if (err.name && err.name === 'ValidationError') {

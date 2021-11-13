@@ -1,14 +1,26 @@
 import User from '../models/user.model.js';
 import { StatusCodes } from 'http-status-codes';
 import { BadRequestError, AuthenticationError } from '../errors/custom-api-error.js';
+import moment from 'moment';
 
 const register = async (req, res) => {
+    var age = moment().diff(req.body.birthDate, 'years');
+    if (age < 12) {
+        throw new BadRequestError('Bạn phải lớn hơn 12 tuổi để đăng ký tài khoản');
+    }
+    if (age > 125) {
+        throw new BadRequestError('Số tuổi không hợp lệ');
+    }
     const user = await User.create(req.body);
     const token = await user.createJWT();
     res.status(StatusCodes.CREATED).json({
         userInfo: {
-            name: user.name,
             email: user.email,
+            name: user.name,
+            address: user.address,
+            phoneNumber: user.phoneNumber,
+            gender: user.gender,
+            birthDate: user.birthDate,
             role: user.role,
             image: user.image,
             token: token,

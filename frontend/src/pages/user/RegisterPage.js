@@ -28,7 +28,10 @@ const RegisterPage = () => {
     const [gender, setGender] = useState('');
     const [birthDate, setBirthDate] = useState(new Date());
     const [password, setPassword] = useState('');
+    const [validationError, setValidationError] = useState('');
     const { userInfo } = useSelector((state) => state.auth);
+
+    console.log(birthDate);
 
     const { isLoading, isEmailSent, isVerified, error, status } = useSelector(
         (state) => state.verification
@@ -52,6 +55,14 @@ const RegisterPage = () => {
                 } else {
                     return setStep(step + 1);
                 }
+            case 2: {
+                if (!address) {
+                    return setValidationError('Hãy nhập địa chỉ của bạn');
+                }
+                if (!phoneNumber) {
+                    return setValidationError('Hãy nhập số điện thoại của bạn');
+                }
+            }
             default:
             // Do nothing
         }
@@ -99,6 +110,7 @@ const RegisterPage = () => {
 
     const backBtnHandler = () => {
         dispatch(refreshVerification('REFRESH_ERROR'));
+        setValidationError('');
         setStep(step - 1 >= 0 ? step - 1 : step);
     };
 
@@ -128,11 +140,18 @@ const RegisterPage = () => {
                             <MdArrowBack className="icon" />
                         </button>
                     )}
-                    {error && (
+                    {error ? (
                         <div className="auth-error-container">
                             <VscError className="icon text-ired" />
                             <span className="ms-2">{error}</span>
                         </div>
+                    ) : (
+                        validationError && (
+                            <div className="auth-error-container">
+                                <VscError className="icon text-ired" />
+                                <span className="ms-2">{validationError}</span>
+                            </div>
+                        )
                     )}
                     {switchStep(step)}
                     <button

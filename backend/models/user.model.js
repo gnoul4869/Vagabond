@@ -25,13 +25,22 @@ const userSchema = new mongoose.Schema(
             minlength: 5,
             maxlength: 50,
         },
+        address: {
+            type: String,
+            required: [true, 'Hãy nhập địa chỉ của bạn'],
+        },
         phoneNumber: {
             type: String,
             required: [true, 'Hãy nhập số điện thoại của bạn'],
         },
-        address: {
+        gender: {
             type: String,
-            required: [true, 'Hãy nhập địa chỉ của bạn'],
+            enum: ['Nam', 'Nữ', 'Khác'],
+            required: [true, 'Hãy chọn giới tính của bạn'],
+        },
+        birthDate: {
+            type: Date,
+            required: [true, 'Hãy nhập ngày sinh của bạn'],
         },
         role: {
             type: String,

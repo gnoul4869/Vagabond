@@ -19,3 +19,13 @@
 .react-date-picker__calendar .react-calendar {
     border: none;
 }
+
+.react-calendar__tile--active {
+    background: var(--inspiring-red);
+    color: white;
+}
+
+.react-calendar__tile--active:enabled:hover,
+.react-calendar__tile--active:enabled:focus {
+    background: var(--inspiring-red-hover);
+}
