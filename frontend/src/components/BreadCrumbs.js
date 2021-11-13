@@ -6,7 +6,7 @@ const BreadCrumbs = (props) => {
         <nav aria-label="breadcrumb">
             <ol className="breadcrumb flex-nowrap my-3">
                 <li className="breadcrumb-item">
-                    <Link to="/" className="link-inherit text-primary">
+                    <Link to="/" className="link-label">
                         Home
                     </Link>
                 </li>

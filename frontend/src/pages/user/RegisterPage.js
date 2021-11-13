@@ -4,6 +4,7 @@ import { useDispatch, useSelector } from 'react-redux';
 import { useHistory, useLocation } from 'react-router';
 import { Link } from 'react-router-dom';
 import { MdArrowBack } from 'react-icons/md';
+import moment from 'moment';
 import BarLoader from 'react-spinners/BarLoader';
 import {
     confirmEmail,
@@ -31,7 +32,7 @@ const RegisterPage = () => {
     const [validationError, setValidationError] = useState('');
     const { userInfo } = useSelector((state) => state.auth);
 
-    console.log(birthDate);
+    console.log(phoneNumber.length);
 
     const { isLoading, isEmailSent, isVerified, error, status } = useSelector(
         (state) => state.verification
@@ -62,6 +63,22 @@ const RegisterPage = () => {
                 if (!phoneNumber) {
                     return setValidationError('Hãy nhập số điện thoại của bạn');
                 }
+                if (phoneNumber.length !== 10) {
+                    return setValidationError('Số điện thoại của bạn không hợp lệ');
+                }
+                if (!gender) {
+                    return setValidationError('Hãy chọn giới tính của bạn');
+                }
+                if (birthDate) {
+                    var age = moment().diff(birthDate, 'years');
+                    if (age < 12) {
+                        return setValidationError('Bạn phải lớn hơn 12 tuổi để đăng ký tài khoản');
+                    }
+                    if (age > 125) {
+                        return setValidationError('Số tuổi không hợp lệ');
+                    }
+                }
+                return setStep(step + 1);
             }
             default:
             // Do nothing
@@ -141,13 +158,13 @@ const RegisterPage = () => {
                         </button>
                     )}
                     {error ? (
-                        <div className="auth-error-container">
+                        <div className="auth-error-container mt-4 mt-md-0">
                             <VscError className="icon text-ired" />
                             <span className="ms-2">{error}</span>
                         </div>
                     ) : (
                         validationError && (
-                            <div className="auth-error-container">
+                            <div className="auth-error-container mt-4 mt-md-0">
                                 <VscError className="icon text-ired" />
                                 <span className="ms-2">{validationError}</span>
                             </div>

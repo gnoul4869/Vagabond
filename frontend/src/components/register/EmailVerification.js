@@ -11,7 +11,7 @@ const EmailVerification = ({ email, status, otp, setOtp, error, isVerified }) =>
     }, [email, setOtp]);
 
     return (
-        <>
+        <div className="mt-4 mt-md-0">
             {!isVerified ? (
                 <>
                     <div className="mb-3 fw-600 fs-5 text-center">Hãy nhập mã OTP để tiếp tục</div>
@@ -58,7 +58,7 @@ const EmailVerification = ({ email, status, otp, setOtp, error, isVerified }) =>
                     </div>
                 </>
             )}
-        </>
+        </div>
     );
 };
 
