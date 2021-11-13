@@ -56,7 +56,7 @@ const LoginPage = () => {
                         <input
                             type="password"
                             id="password"
-                            placeholder="Password"
+                            placeholder="Mật khẩu"
                             className="form-control"
                             onChange={(e) => setPassword(e.target.value)}
                             disabled={isLoading}
@@ -73,7 +73,7 @@ const LoginPage = () => {
                             <BarLoader
                                 color="white"
                                 css="display: inherit; margin-bottom: 4px;"
-                                width="50"
+                                width="50px"
                             />
                         )}
                     </button>
