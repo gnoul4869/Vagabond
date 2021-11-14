@@ -35,7 +35,7 @@ const RegisterPage = () => {
 
     const userAuth = useSelector((state) => state.auth);
     const userInfo = userAuth.userInfo;
-    const [validationError, setValidationError] = useState(userAuth.error);
+    const [validationError, setValidationError] = useState('');
 
     const { isLoading, isEmailSent, isVerified, error, status } = useSelector(
         (state) => state.verification
@@ -203,10 +203,10 @@ const RegisterPage = () => {
                             <MdArrowBack className="icon" />
                         </button>
                     )}
-                    {error || userAuth.error ? (
+                    {error ? (
                         <div className="auth-error-container mt-4 mt-md-0">
                             <VscError className="icon text-ired" />
-                            <span className="ms-2">{error || userAuth.error}</span>
+                            <span className="ms-2">{error}</span>
                         </div>
                     ) : (
                         validationError && (
