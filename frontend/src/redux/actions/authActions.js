@@ -15,7 +15,12 @@ export const login = (email, password) => async (dispatch) => {
 
     try {
         const { data } = await axios.post('/api/v1/auth/login', { email, password });
-        const { userInfo } = data;
+        const userInfo = {
+            name: data.userInfo.name,
+            image: data.userInfo.image,
+            role: data.userInfo.role,
+            token: data.userInfo.token,
+        };
         dispatch({ type: LOGIN_SUCCESS, payload: userInfo });
         localStorage.setItem('userInfo', JSON.stringify(userInfo));
     } catch (error) {
@@ -42,7 +47,12 @@ export const register =
                 gender,
                 birthDate,
             });
-            const { userInfo } = data;
+            const userInfo = {
+                name: data.userInfo.name,
+                image: data.userInfo.image,
+                role: data.userInfo.role,
+                token: data.userInfo.token,
+            };
             dispatch({ type: REGISTER_SUCCESS, payload: userInfo });
             localStorage.setItem('userInfo', JSON.stringify(userInfo));
         } catch (error) {
