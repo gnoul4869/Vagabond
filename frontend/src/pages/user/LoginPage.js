@@ -3,7 +3,7 @@ import { useDispatch, useSelector } from 'react-redux';
 import { Link, useHistory, useLocation } from 'react-router-dom';
 import { VscError } from 'react-icons/vsc';
 import BarLoader from 'react-spinners/BarLoader';
-import { login } from '../../redux/actions/authActions';
+import { login, refreshAuth } from '../../redux/actions/authActions';
 
 const LoginPage = () => {
     const location = useLocation();
@@ -26,6 +26,10 @@ const LoginPage = () => {
             history.push(oldLocation);
         }
     }, [history, oldLocation, userInfo]);
+
+    useEffect(() => {
+        dispatch(refreshAuth('REFRESH_ERROR'));
+    }, [dispatch]);
 
     return (
         <div className="row align-items-center gx-lg-5 py-5 mx-md-5">

@@ -32,10 +32,10 @@ const RegisterPage = () => {
     const [birthDate, setBirthDate] = useState(new Date());
     const [password, setPassword] = useState('');
     const [confirmPassword, setConfirmPassword] = useState('');
+    const [validationError, setValidationError] = useState('');
 
     const userAuth = useSelector((state) => state.auth);
     const userInfo = userAuth.userInfo;
-    const [validationError, setValidationError] = useState('');
 
     const { isLoading, isEmailSent, isVerified, error, status } = useSelector(
         (state) => state.verification
@@ -180,6 +180,10 @@ const RegisterPage = () => {
     useEffect(() => {
         dispatch(refreshVerification());
     }, [dispatch, email]);
+
+    useEffect(() => {
+        dispatch(refreshVerification('REFRESH_ERROR'));
+    }, [dispatch]);
 
     useEffect(() => {
         if (userInfo) {

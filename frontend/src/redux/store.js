@@ -9,10 +9,12 @@ const initialState = {
     productList: {
         isLoading: false,
         products: null,
+        error: '',
     },
     productDetails: {
         isLoading: false,
         product: null,
+        error: '',
     },
     cart: {
         loadingItems: [],
@@ -26,6 +28,7 @@ const initialState = {
         userInfo: localStorage.getItem('userInfo')
             ? JSON.parse(localStorage.getItem('userInfo'))
             : null,
+        error: '',
     },
     verification: {
         isLoading: false,

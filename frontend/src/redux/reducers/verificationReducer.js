@@ -56,10 +56,10 @@ export const verification = (
                 };
             }
             return {
+                ...state,
                 isLoading: false,
                 isEmailSent: false,
                 isVerified: false,
-                error: '',
             };
         default:
             return state;

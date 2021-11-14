@@ -1,4 +1,5 @@
 import {
+    AUTH_STATE_REFRESH,
     LOGIN_FAIL,
     LOGIN_REQUEST,
     LOGIN_SUCCESS,
@@ -8,7 +9,7 @@ import {
     REGISTER_SUCCESS,
 } from '../constants/authConstants';
 
-export const auth = (state = { isLoading: false, userInfo: null }, action) => {
+export const auth = (state = { isLoading: false, userInfo: null, error: '' }, action) => {
     switch (action.type) {
         case LOGIN_REQUEST:
             return {
@@ -40,6 +41,18 @@ export const auth = (state = { isLoading: false, userInfo: null }, action) => {
             };
         case LOGOUT:
             return {};
+        case AUTH_STATE_REFRESH:
+            if (action.payload === 'ERROR_REFRESH') {
+                return {
+                    ...state,
+                    error: '',
+                };
+            }
+            return {
+                isLoading: false,
+                userInfo: null,
+                error: '',
+            };
         default:
             return state;
     }

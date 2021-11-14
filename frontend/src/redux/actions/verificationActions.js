@@ -49,6 +49,6 @@ export const confirmEmail = (email, otp, setStep) => async (dispatch) => {
     }
 };
 
-export const refreshVerification = (target) => async (dispatch) => {
+export const refreshVerification = (target) => (dispatch) => {
     dispatch({ type: VERIFICATION_STATE_REFRESH, payload: target });
 };

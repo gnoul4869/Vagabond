@@ -1,5 +1,6 @@
 import axios from 'axios';
 import {
+    AUTH_STATE_REFRESH,
     LOGIN_FAIL,
     LOGIN_REQUEST,
     LOGIN_SUCCESS,
@@ -58,4 +59,8 @@ export const register =
 export const logout = () => (dispatch) => {
     localStorage.removeItem('userInfo');
     dispatch({ type: LOGOUT });
+};
+
+export const refreshAuth = (target) => (dispatch) => {
+    dispatch({ type: AUTH_STATE_REFRESH, payload: target });
 };

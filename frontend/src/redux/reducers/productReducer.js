@@ -7,7 +7,7 @@ import {
     PRODUCT_LIST_SUCCESS,
 } from '../constants/productConstants';
 
-export const productList = (state = { isLoading: false, products: [] }, action) => {
+export const productList = (state = { isLoading: false, products: [], error: '' }, action) => {
     switch (action.type) {
         case PRODUCT_LIST_REQUEST:
             return { isLoading: true };
@@ -20,7 +20,7 @@ export const productList = (state = { isLoading: false, products: [] }, action) 
     }
 };
 
-export const productDetails = (state = { isLoading: false, product: {} }, action) => {
+export const productDetails = (state = { isLoading: false, product: {}, error: '' }, action) => {
     switch (action.type) {
         case PRODUCT_DETAILS_REQUEST:
             return { isLoading: true };
