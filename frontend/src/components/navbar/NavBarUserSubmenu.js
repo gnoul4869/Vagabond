@@ -15,10 +15,7 @@ const NavBarUserSubmenu = ({ isSubmenuShown, setIsSubmenuShown, targetWidth }) =
     useEffect(() => {
         const submenu = submenuContainer.current;
         const initialValue = parseInt(
-            window
-                .getComputedStyle(submenuContainer.current)
-                .getPropertyValue('right')
-                .replace('px', '')
+            window.getComputedStyle(submenuContainer.current).getPropertyValue('right')
         );
         const value = targetWidth / 2 + initialValue;
         submenu.style.right = `${value}px`;
