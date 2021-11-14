@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import React, { useEffect, useRef, useState } from 'react';
 import { Link } from 'react-router-dom';
 import { useLocation } from 'react-router';
 import { socialLinks } from '../../data/links';
@@ -10,8 +10,16 @@ import NavBarUserSubmenu from './NavBarUserSubmenu';
 const NavigationBar = () => {
     const [isDropdownShown, setIsDropdownShown] = useState(false);
     const [isSubmenuShown, setIsSubmenuShown] = useState(false);
+    const [targetWidth, setTargetWidth] = useState(0);
     const location = useLocation();
     const { userInfo } = useSelector((state) => state.auth);
+    const usernameContainer = useRef();
+
+    useEffect(() => {
+        if (userInfo && usernameContainer.current) {
+            setTargetWidth(usernameContainer.current.clientWidth);
+        }
+    }, [userInfo]);
 
     return (
         <header className="bg-ired">
@@ -42,11 +50,14 @@ const NavigationBar = () => {
                                         alt={userInfo.name}
                                         className="navbar-avatar rounded-circle"
                                     />
-                                    <span className="ms-1">{userInfo.name}</span>
+                                    <div className="d-inline-block ms-1" ref={usernameContainer}>
+                                        {userInfo.name}
+                                    </div>
                                 </div>
                                 <NavBarUserSubmenu
                                     isSubmenuShown={isSubmenuShown}
                                     setIsSubmenuShown={setIsSubmenuShown}
+                                    targetWidth={targetWidth}
                                 />
                             </li>
                         ) : (
