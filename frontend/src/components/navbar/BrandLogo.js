@@ -3,7 +3,7 @@ import { Link } from 'react-router-dom';
 import brand from '../../images/vagabond_brand.svg';
 import logo from '../../images/vagabond_logo.svg';
 
-const Brand = () => {
+export const Brand = () => {
     return (
         <Link to="/" className="nav-link">
             <img src={brand} alt="vagabond_brand" />
@@ -11,12 +11,10 @@ const Brand = () => {
     );
 };
 
-const Logo = () => {
+export const Logo = () => {
     return (
         <Link to="/" className="nav-link">
             <img src={logo} alt="vagabond_logo" className="navbar-logo" />
         </Link>
     );
 };
-
-export { Brand, Logo };

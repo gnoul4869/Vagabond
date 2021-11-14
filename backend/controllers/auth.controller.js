@@ -3,7 +3,7 @@ import { StatusCodes } from 'http-status-codes';
 import { BadRequestError, AuthenticationError } from '../errors/custom-api-error.js';
 import moment from 'moment';
 
-const register = async (req, res) => {
+export const register = async (req, res) => {
     const { email, password, name, address, phoneNumber, gender, birthDate } = req.body;
 
     if (!email) {
@@ -69,7 +69,7 @@ const register = async (req, res) => {
     });
 };
 
-const login = async (req, res) => {
+export const login = async (req, res) => {
     const { email, password } = req.body;
 
     if (!email || !password) {
@@ -102,5 +102,3 @@ const login = async (req, res) => {
         },
     });
 };
-
-export { register, login };

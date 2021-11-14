@@ -4,7 +4,7 @@ import User from '../models/user.model.js';
 import Verification from '../models/verification.model.js';
 import generateMail from '../utils/generate-email.js';
 
-const verifyEmail = async (req, res) => {
+export const verifyEmail = async (req, res) => {
     const { name, email } = req.body;
     if (!name || !email) {
         throw new BadRequestError('Hãy nhập tên và email của bạn');
@@ -29,7 +29,7 @@ const verifyEmail = async (req, res) => {
     }
 };
 
-const confirmEmail = async (req, res) => {
+export const confirmEmail = async (req, res) => {
     const { email, otp } = req.body;
     if (!email) {
         throw new BadRequestError('Email không được để trống');
@@ -48,5 +48,3 @@ const confirmEmail = async (req, res) => {
     await Verification.findOneAndDelete({ _id: verificationInfo._id });
     res.status(StatusCodes.OK).json({ message: `Email ${email} đã xác thực thành công` });
 };
-
-export { verifyEmail, confirmEmail };
