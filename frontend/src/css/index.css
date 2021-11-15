@@ -94,7 +94,7 @@ input[type='number']::-webkit-outer-spin-button {
 }
 
 .bg-loading {
-    height: 20px;
+    height: 1.25rem;
     background: linear-gradient(-45deg, #ee7752, #e73c7e, #e79696, #f16363);
     background-size: 600% 600%;
     animation: gradient 3s linear infinite;

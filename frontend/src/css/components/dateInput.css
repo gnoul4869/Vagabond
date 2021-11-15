@@ -9,7 +9,7 @@
 }
 
 .react-date-picker__wrapper {
-    padding: 3px;
+    padding: 0.1875rem;
 }
 
 .react-date-picker__button:enabled:focus .react-date-picker__button__icon {

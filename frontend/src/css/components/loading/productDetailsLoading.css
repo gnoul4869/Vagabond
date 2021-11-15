@@ -1,6 +1,6 @@
 .product-details-loading-img-big {
-    width: 300px !important;
-    height: 300px !important;
+    width: 18.75rem !important;
+    height: 18.75rem !important;
 }
 
 .product-details-loading-img-small {
@@ -9,8 +9,8 @@
 }
 
 .product-details-loading-btn {
-    max-width: 200px;
-    height: 50px;
+    max-width: 12.5rem;
+    height: 3.125rem;
 }
 
 @keyframes gradient {

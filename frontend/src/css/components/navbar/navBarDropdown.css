@@ -28,42 +28,42 @@
 
 .navbar-dropdown-active-height-112 {
     /** Default height for auth=false and social links */
-    /** 40px + 40px + 32px */
-    max-height: 112px;
+    /** 2.5rem + 2.5rem + 2rem = 7rem */
+    max-height: 7rem;
 }
 
 .navbar-dropdown-active-height-162 {
     /** Height for auth=false, cart badge, social links */
-    /** 40px + 40px + 50px + 32px */
-    max-height: 162px;
+    /** 2.5rem + 2.5rem + 3.125rem + 2rem = 10.125rem */
+    max-height: 10.125rem;
 }
 
 .navbar-dropdown-active-height-165 {
     /** Height for auth=false, search box, social links */
-    /** 40px + 40px + 53px + 32px */
-    max-height: 165px;
+    /** 2.5rem + 2.5rem + 3.3125rem + 2rem = 10.3125rem */
+    max-height: 10.3125rem;
 }
 
 .navbar-dropdown-active-height-202 {
     /** Height for auth=true, cart badge, social links */
-    /** 40px + 40px + 40px + 50px + 32px */
-    max-height: 202px;
+    /** 2.5rem + 2.5rem + 2.5rem + 3.125rem + 2rem = 12.625rem */
+    max-height: 12.625rem;
 }
 
 .navbar-dropdown-active-height-205 {
     /** Height for auth=true, search box, social links */
-    /** 40px + 40px + 40px + 53px + 32px */
-    max-height: 205px;
+    /** 2.5rem + 2.5rem + 2.5rem + 3.3125rem + 2rem = 12.8125rem */
+    max-height: 12.8125rem;
 }
 
 .navbar-dropdown-active-height-215 {
     /** Height for auth=false, cart badge, search box, social links */
-    /** 40px + 40px + 50px + 53px + 32px */
-    max-height: 215px;
+    /** 2.5rem + 2.5rem + 3.125rem + 3.3125rem + 2rem = 13.4375rem */
+    max-height: 13.4375rem;
 }
 
 .navbar-dropdown-active-height-255 {
     /** Height for auth=true, cart badge, search box, social links */
-    /** 40px + 40px + 40px + 50px + 53px + 32px */
-    max-height: 255px;
+    /** 2.5rem + 2.5rem + 2.5rem + 3.125rem + 3.3125rem + 2rem = 15.9375rem */
+    max-height: 15.9375rem;
 }

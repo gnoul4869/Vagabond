@@ -232,8 +232,8 @@ const RegisterPage = () => {
                         ) : (
                             <BarLoader
                                 color="white"
-                                css="display: inherit; margin-bottom: 4px;"
-                                width="50px"
+                                css="display: inherit; margin-bottom: .25rem;"
+                                width="3.125rem"
                             />
                         )}
                     </button>
