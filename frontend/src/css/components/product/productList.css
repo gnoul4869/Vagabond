@@ -12,7 +12,7 @@
 
 .product-container:hover {
     transform: translateY(-0.0625rem);
-    z-index: 3 !important;
+    z-index: 1 !important;
     box-shadow: 0rem 0rem 0.1875rem 0rem var(--inspiring-red);
 }
 
