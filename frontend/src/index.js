@@ -10,6 +10,7 @@ import './css/index.css';
 //* Components
 import './css/components/footer.css';
 import './css/components/dateInput.css';
+import './css/components/ratingStar.css';
 import './css/components/numberInput.css';
 import './css/components/breadCrumbs.css';
 import './css/components/navbar/navBar.css';

@@ -199,7 +199,7 @@ const RegisterPage = () => {
             </div>
             <div className="col-md-10 mx-auto col-lg-5">
                 <form
-                    className="auth-form p-4 p-md-5 border rounded-3 bg-white"
+                    className="auth-form m-4 p-md-5 border rounded-3 bg-white"
                     onSubmit={submitHandler}
                 >
                     {step > 0 && (

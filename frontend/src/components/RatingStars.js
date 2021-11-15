@@ -2,7 +2,7 @@ import { BsStar, BsStarFill, BsStarHalf } from 'react-icons/bs';
 
 const RatingStars = ({ rating, numReviews }) => {
     return (
-        <span className="product-review-star">
+        <span className="rating-star">
             {rating >= 1 ? <BsStarFill /> : rating >= 0.5 ? <BsStarHalf /> : <BsStar />}
             {rating >= 2 ? <BsStarFill /> : rating >= 1.5 ? <BsStarHalf /> : <BsStar />}
             {rating >= 3 ? <BsStarFill /> : rating >= 2.5 ? <BsStarHalf /> : <BsStar />}

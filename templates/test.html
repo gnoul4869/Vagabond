@@ -23,411 +23,1117 @@
         <title>Hello, world!</title>
     </head>
 
-    <body style="background: rgba(0, 0, 0, 0.93); height: auto; overflow: hidden" dir="ltr">
-        <noscript aria-hidden="true">You need to enable JavaScript to run this app.</noscript>
-        <div id="root" aria-hidden="true"></div>
-        <div id="views" aria-hidden="true">
-            <div
-                title="popover"
-                id="popover"
-                style="
-                    position: fixed;
-                    top: 0px;
-                    left: 0px;
-                    z-index: 1301;
-                    width: 1722px;
-                    height: 999px;
-                    outline: none 0px;
-                    border: 0px none;
-                    transition: transform 400ms ease-in-out 0s;
-                    transform: translate3d(0px, 0px, 0px);
-                    display: none;
-                "
-            ></div>
-        </div>
-        <iframe
-            id="talon_frame_login_prod"
-            src="https://talon-website-prod.ecosec.on.epicgames.com/challenge?env=prod&amp;flow=login_prod&amp;origin=https%3A%2F%2Fwww.epicgames.com"
-            style="
-                width: 100%;
-                height: 100%;
-                visibility: hidden;
-                opacity: 0;
-                border: none;
-                top: 0px;
-                left: 0px;
-                position: fixed;
-                transition: all 0.3s ease 0s;
-                z-index: -1;
-            "
-            aria-hidden="true"
-        ></iframe>
-        <div
-            role="presentation"
-            class="MuiDialog-root"
-            style="position: fixed; z-index: 1300; inset: 0px"
-        >
-            <div tabindex="0" data-test="sentinelStart"></div>
-            <div
-                class="MuiDialog-container MuiDialog-scrollBody"
-                role="none presentation"
-                tabindex="-1"
-                style="opacity: 1; transition: opacity 225ms cubic-bezier(0.4, 0, 0.2, 1) 0ms"
-            >
-                <div
-                    class="
-                        MuiPaper-root
-                        MuiDialog-paper MuiDialog-paperScrollBody MuiDialog-paperWidthSm
-                        MuiPaper-elevation0 MuiPaper-rounded
-                    "
-                    role="dialog"
-                >
-                    <div class="MuiDialogContent-root sc-jJEKmz grfQOK" id="modal-content">
-                        <div class="sc-hiSbEG hggONy">
-                            <div name="epic-logo" class="sc-bqyKOL hktHsu sc-gWHigU hjZSto">
-                                <svg
-                                    viewBox="0 0 20 23"
-                                    fill="none"
-                                    xmlns="http://www.w3.org/2000/svg"
-                                    size="10"
-                                    class="sc-kstqJO jlLDxI"
-                                ></svg>
+    <body>
+        <div class="box-cat-right">
+            <!-- <div class="banner-cat">
+                <div class="owl-carousel owl-loaded owl-drag">
+                    <div class="owl-stage-outer">
+                        <div
+                            class="owl-stage"
+                            style="
+                                transform: translate3d(-2626px, 0px, 0px);
+                                transition: all 0s ease 0s;
+                                width: 6565px;
+                            "
+                        >
+                            <div class="owl-item cloned" style="width: 1313px">
+                                <a href="/ad.php?id=12"
+                                    ><img
+                                        class="owl-lazy"
+                                        data-src="/media/banner/22_Jul90e5e9fb5157f58c82195a819c6f3f53.png"
+                                        alt=""
+                                        src="https://kccshop.vn/media/banner/22_Jul90e5e9fb5157f58c82195a819c6f3f53.png"
+                                        style="opacity: 1"
+                                /></a>
                             </div>
-                            <form novalidate="" class="sc-eCstlR iMhQAk">
-                                <h6
-                                    class="
-                                        MuiTypography-root
-                                        sc-pGacB
-                                        bndsMu
-                                        MuiTypography-subtitle2
-                                        MuiTypography-colorTextPrimary
-                                        MuiTypography-alignCenter
-                                    "
+                            <div class="owl-item cloned" style="width: 1313px">
+                                <a href="/ad.php?id=12"
+                                    ><img
+                                        class="owl-lazy"
+                                        data-src="/media/banner/22_Jul90e5e9fb5157f58c82195a819c6f3f53.png"
+                                        alt=""
+                                        src="https://kccshop.vn/media/banner/22_Jul90e5e9fb5157f58c82195a819c6f3f53.png"
+                                        style="opacity: 1"
+                                /></a>
+                            </div>
+                            <div class="owl-item active" style="width: 1313px">
+                                <a href="/ad.php?id=12"
+                                    ><img
+                                        class="owl-lazy"
+                                        data-src="/media/banner/22_Jul90e5e9fb5157f58c82195a819c6f3f53.png"
+                                        alt=""
+                                        src="https://kccshop.vn/media/banner/22_Jul90e5e9fb5157f58c82195a819c6f3f53.png"
+                                        style="opacity: 1"
+                                /></a>
+                            </div>
+                            <div class="owl-item cloned" style="width: 1313px">
+                                <a href="/ad.php?id=12"
+                                    ><img
+                                        class="owl-lazy"
+                                        data-src="/media/banner/22_Jul90e5e9fb5157f58c82195a819c6f3f53.png"
+                                        alt=""
+                                        src="https://kccshop.vn/media/banner/22_Jul90e5e9fb5157f58c82195a819c6f3f53.png"
+                                        style="opacity: 1"
+                                /></a>
+                            </div>
+                            <div class="owl-item cloned" style="width: 1313px">
+                                <a href="/ad.php?id=12"
+                                    ><img
+                                        class="owl-lazy"
+                                        data-src="/media/banner/22_Jul90e5e9fb5157f58c82195a819c6f3f53.png"
+                                        alt=""
+                                        src="https://kccshop.vn/media/banner/22_Jul90e5e9fb5157f58c82195a819c6f3f53.png"
+                                        style="opacity: 1"
+                                /></a>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="owl-nav disabled">
+                        <button type="button" role="presentation" class="owl-prev">
+                            <i class="fa fa-angle-left" aria-hidden="true"></i></button
+                        ><button type="button" role="presentation" class="owl-next">
+                            <i class="fa fa-angle-right" aria-hidden="true"></i>
+                        </button>
+                    </div>
+                    <div class="owl-dots disabled"></div>
+                </div>
+            </div> -->
+
+            <!-- <div class="product-cat-sort bg-w">
+                <div class="count-pro">Tìm thấy <span>102</span> sản phẩm</div>
+                <div class="product-cat-sort-r">
+                    <select onchange="location.href=this.value" class="sort-pro">
+                        <option value="0">Sắp xếp sản phẩm</option>
+
+                        <option value="https://kccshop.vn/cpu-bo-vi-xu-ly/?sort=new">
+                            Mới nhất
+                        </option>
+
+                        <option value="https://kccshop.vn/cpu-bo-vi-xu-ly/?sort=price-asc">
+                            Giá tăng dần
+                        </option>
+
+                        <option value="https://kccshop.vn/cpu-bo-vi-xu-ly/?sort=price-desc">
+                            Giá giảm dần
+                        </option>
+
+                        <option value="https://kccshop.vn/cpu-bo-vi-xu-ly/?sort=view">
+                            Lượt xem
+                        </option>
+
+                        <option value="https://kccshop.vn/cpu-bo-vi-xu-ly/?sort=comment">
+                            Trao đổi
+                        </option>
+
+                        <option value="https://kccshop.vn/cpu-bo-vi-xu-ly/?sort=rating">
+                            Đánh giá
+                        </option>
+
+                        <option value="https://kccshop.vn/cpu-bo-vi-xu-ly/?sort=name">
+                            Tên A-&gt;Z
+                        </option>
+                    </select>
+                </div>
+            </div> -->
+            <div class="product-list bg-w">
+                <div class="item">
+                    <div class="p-container">
+                        <span class="p-discount icon-2021">-15%</span>
+
+                        <a href="/cpu-intel-core-i7-12700kf/" class="p-img">
+                            <img
+                                src="https://kccshop.vn/media/product/250-2689-12700k.jpg"
+                                alt="CPU Intel Core i7 12700KF  (5.00GHz, 12 Nhân 20 Luồng, 25M Cache, Alder Lake) - Socket Intel LGA 1700"
+                            />
+                        </a>
+                        <a href="/cpu-intel-core-i7-12700kf/" class="p-name line-clamp-2"
+                            >CPU Intel Core i7 12700KF (5.00GHz, 12 Nhân 20 Luồng, 25M Cache, Alder
+                            Lake) - Socket Intel LGA 1700</a
+                        >
+                        <div class="p-bot">
+                            <div class="p-stt-price">
+                                <span class="p-price">11.790.000đ</span>
+                                <span class="p-old-price"> 13.790.000đ </span>
+
+                                <span class="p-stt p-con"
+                                    ><i class="fa fa-check" aria-hidden="true"></i> Còn hàng</span
                                 >
-                                    Enter the security code to continue
-                                </h6>
-                                <p
-                                    class="MuiTypography-root sc-pGacB jxEHkE MuiTypography-body2"
-                                    spacing="4"
+                            </div>
+                            <a
+                                href="javascript:;"
+                                onclick="addProductToCart(2692, 0, 1, 0);"
+                                class="product-buynow icon-2021"
+                            ></a>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="item">
+                    <div class="p-container">
+                        <a href="/cpu-intel-core-i5-12600kf/" class="p-img">
+                            <img
+                                src="https://kccshop.vn/media/product/250-2691-"
+                                alt="CPU Intel Core i5 12600KF  (4.90GHz, 10 Nhân 16 Luồng, 20M Cache, Alder Lake) - Socket Intel LGA 1700"
+                            />
+                        </a>
+                        <a href="/cpu-intel-core-i5-12600kf/" class="p-name line-clamp-2"
+                            >CPU Intel Core i5 12600KF (4.90GHz, 10 Nhân 16 Luồng, 20M Cache, Alder
+                            Lake) - Socket Intel LGA 1700</a
+                        >
+                        <div class="p-bot">
+                            <div class="p-stt-price">
+                                <span class="p-price">Liên hệ</span>
+                                <span class="p-old-price"></span>
+
+                                <span class="p-stt p-het"
+                                    ><i class="fa fa-times" aria-hidden="true"></i> Hết hàng</span
                                 >
-                                    This appears to be a new device, browser or location. A security
-                                    code has been sent to your email address at
-                                    <mark>t*********9@gmail.com</mark>.
-                                    <a
-                                        href="https://www.epicgames.com/help/epic-accounts-c74/account-security-c112/twofactor-authentication-and-how-to-enable-it-a3218?lang=en-US"
-                                        target="_blank"
-                                        rel="noopener noreferrer"
-                                        >Learn more</a
-                                    >
-                                </p>
-                                <div spacing="0" class="sc-bdfBQB heEczB">
-                                    <div name="code" class="sc-gsTEea sc-hKgJUU kdmLxU fWxVur">
-                                        <div class="MuiFormControl-root">
-                                            <div
-                                                class="
-                                                    MuiInputBase-root
-                                                    MuiOutlinedInput-root
-                                                    jss25
-                                                    jss26
-                                                    MuiInputBase-formControl
-                                                "
-                                            >
-                                                <input
-                                                    aria-invalid="false"
-                                                    autocomplete="off"
-                                                    name="code-input-0"
-                                                    type="text"
-                                                    maxlength="1"
-                                                    inputmode="numeric"
-                                                    class="
-                                                        MuiInputBase-input
-                                                        MuiOutlinedInput-input
-                                                    "
-                                                    value=""
-                                                />
-                                                <fieldset
-                                                    aria-hidden="true"
-                                                    class="jss27 MuiOutlinedInput-notchedOutline"
-                                                    style="padding-left: 8px"
-                                                >
-                                                    <legend class="jss28" style="width: 0.01px">
-                                                        <span>​</span>
-                                                    </legend>
-                                                </fieldset>
-                                            </div>
-                                        </div>
-                                        <div class="MuiFormControl-root">
-                                            <div
-                                                class="
-                                                    MuiInputBase-root
-                                                    MuiOutlinedInput-root
-                                                    jss25
-                                                    jss31
-                                                    MuiInputBase-formControl
-                                                "
-                                            >
-                                                <input
-                                                    aria-invalid="false"
-                                                    autocomplete="off"
-                                                    name="code-input-1"
-                                                    type="text"
-                                                    maxlength="1"
-                                                    inputmode="numeric"
-                                                    class="
-                                                        MuiInputBase-input
-                                                        MuiOutlinedInput-input
-                                                    "
-                                                    value=""
-                                                />
-                                                <fieldset
-                                                    aria-hidden="true"
-                                                    class="jss27 MuiOutlinedInput-notchedOutline"
-                                                    style="padding-left: 8px"
-                                                >
-                                                    <legend class="jss28" style="width: 0.01px">
-                                                        <span>​</span>
-                                                    </legend>
-                                                </fieldset>
-                                            </div>
-                                        </div>
-                                        <div class="MuiFormControl-root">
-                                            <div
-                                                class="
-                                                    MuiInputBase-root
-                                                    MuiOutlinedInput-root
-                                                    jss25
-                                                    jss32
-                                                    MuiInputBase-formControl
-                                                "
-                                            >
-                                                <input
-                                                    aria-invalid="false"
-                                                    autocomplete="off"
-                                                    name="code-input-2"
-                                                    type="text"
-                                                    maxlength="1"
-                                                    inputmode="numeric"
-                                                    class="
-                                                        MuiInputBase-input
-                                                        MuiOutlinedInput-input
-                                                    "
-                                                    value=""
-                                                />
-                                                <fieldset
-                                                    aria-hidden="true"
-                                                    class="jss27 MuiOutlinedInput-notchedOutline"
-                                                    style="padding-left: 8px"
-                                                >
-                                                    <legend class="jss28" style="width: 0.01px">
-                                                        <span>​</span>
-                                                    </legend>
-                                                </fieldset>
-                                            </div>
-                                        </div>
-                                        <div class="MuiFormControl-root">
-                                            <div
-                                                class="
-                                                    MuiInputBase-root
-                                                    MuiOutlinedInput-root
-                                                    jss25
-                                                    jss33
-                                                    MuiInputBase-formControl
-                                                "
-                                            >
-                                                <input
-                                                    aria-invalid="false"
-                                                    autocomplete="off"
-                                                    name="code-input-3"
-                                                    type="text"
-                                                    maxlength="1"
-                                                    inputmode="numeric"
-                                                    class="
-                                                        MuiInputBase-input
-                                                        MuiOutlinedInput-input
-                                                    "
-                                                    value=""
-                                                />
-                                                <fieldset
-                                                    aria-hidden="true"
-                                                    class="jss27 MuiOutlinedInput-notchedOutline"
-                                                    style="padding-left: 8px"
-                                                >
-                                                    <legend class="jss28" style="width: 0.01px">
-                                                        <span>​</span>
-                                                    </legend>
-                                                </fieldset>
-                                            </div>
-                                        </div>
-                                        <div class="MuiFormControl-root">
-                                            <div
-                                                class="
-                                                    MuiInputBase-root
-                                                    MuiOutlinedInput-root
-                                                    jss25
-                                                    jss34
-                                                    MuiInputBase-formControl
-                                                "
-                                            >
-                                                <input
-                                                    aria-invalid="false"
-                                                    autocomplete="off"
-                                                    name="code-input-4"
-                                                    type="text"
-                                                    maxlength="1"
-                                                    inputmode="numeric"
-                                                    class="
-                                                        MuiInputBase-input
-                                                        MuiOutlinedInput-input
-                                                    "
-                                                    value=""
-                                                />
-                                                <fieldset
-                                                    aria-hidden="true"
-                                                    class="jss27 MuiOutlinedInput-notchedOutline"
-                                                    style="padding-left: 8px"
-                                                >
-                                                    <legend class="jss28" style="width: 0.01px">
-                                                        <span>​</span>
-                                                    </legend>
-                                                </fieldset>
-                                            </div>
-                                        </div>
-                                        <div class="MuiFormControl-root">
-                                            <div
-                                                class="
-                                                    MuiInputBase-root
-                                                    MuiOutlinedInput-root
-                                                    jss25
-                                                    jss35
-                                                    MuiInputBase-formControl
-                                                "
-                                            >
-                                                <input
-                                                    aria-invalid="false"
-                                                    autocomplete="off"
-                                                    name="code-input-5"
-                                                    type="text"
-                                                    maxlength="1"
-                                                    inputmode="numeric"
-                                                    class="
-                                                        MuiInputBase-input
-                                                        MuiOutlinedInput-input
-                                                    "
-                                                    value=""
-                                                />
-                                                <fieldset
-                                                    aria-hidden="true"
-                                                    class="jss27 MuiOutlinedInput-notchedOutline"
-                                                    style="padding-left: 8px"
-                                                >
-                                                    <legend class="jss28" style="width: 0.01px">
-                                                        <span>​</span>
-                                                    </legend>
-                                                </fieldset>
-                                            </div>
-                                        </div>
-                                    </div>
-                                    <div class="sc-jSgvzq kRWQtk">
-                                        <label class="MuiFormControlLabel-root"
-                                            ><span
-                                                class="
-                                                    MuiButtonBase-root
-                                                    MuiIconButton-root
-                                                    jss36
-                                                    MuiCheckbox-root MuiCheckbox-colorPrimary
-                                                    jss37
-                                                    Mui-checked
-                                                    MuiIconButton-colorPrimary
-                                                "
-                                                aria-disabled="false"
-                                                ><span class="MuiIconButton-label"
-                                                    ><input
-                                                        class="jss39"
-                                                        id="rememberDevice"
-                                                        name="rememberDevice"
-                                                        type="checkbox"
-                                                        data-indeterminate="false"
-                                                        value="rememberDevice"
-                                                        checked="" /><svg
-                                                        class="MuiSvgIcon-root"
-                                                        focusable="false"
-                                                        viewBox="0 0 24 24"
-                                                        aria-hidden="true"
-                                                    ></svg></span></span
-                                            ><span
-                                                class="
-                                                    MuiTypography-root
-                                                    MuiFormControlLabel-label
-                                                    MuiTypography-body1
-                                                "
-                                                ><p
-                                                    class="
-                                                        MuiTypography-root
-                                                        sc-pGacB
-                                                        bndsMu
-                                                        MuiTypography-body2
-                                                    "
-                                                >
-                                                    Remember device
-                                                </p></span
-                                            ></label
-                                        >
-                                    </div>
-                                    <div spacing="6" class="sc-gsTEea sc-hKgJUU gLYZYt fWxVur">
-                                        <button
-                                            class="
-                                                MuiButtonBase-root
-                                                MuiButton-root
-                                                MuiButton-contained
-                                                MuiButton-containedSecondary
-                                                jss45
-                                                MuiButton-disableElevation MuiButton-fullWidth
-                                            "
-                                            tabindex="0"
-                                            type="button"
-                                            id="cancel"
-                                            aria-label="Cancel"
-                                        >
-                                            <span class="MuiButton-label"
-                                                ><span class="jss48">Cancel</span></span
-                                            ></button
-                                        ><button
-                                            class="
-                                                MuiButtonBase-root
-                                                MuiButton-root
-                                                MuiButton-contained
-                                                MuiButton-containedPrimary
-                                                jss44
-                                                MuiButton-disableElevation
-                                                Mui-disabled
-                                                jss40
-                                                MuiButton-fullWidth
-                                                Mui-disabled
-                                            "
-                                            tabindex="-1"
-                                            type="submit"
-                                            disabled=""
-                                            id="continue"
-                                            aria-label="Continue"
-                                        >
-                                            <span class="MuiButton-label"
-                                                ><span class="jss48">Continue</span></span
-                                            >
-                                        </button>
-                                    </div>
-                                </div>
-                            </form>
+                            </div>
+                            <a
+                                href="javascript:;"
+                                onclick="addProductToCart(2691, 0, 1, 0);"
+                                class="p-buynow icon-2021"
+                            ></a>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="item">
+                    <div class="p-container">
+                        <span class="p-discount icon-2021">-12%</span>
+
+                        <a href="/cpu-intel-core-i5-12600k/" class="p-img">
+                            <img
+                                src="https://kccshop.vn/media/product/250-2690-12600k.jpg"
+                                alt="CPU Intel Core i5 12600K  (4.90GHz, 10 Nhân 16 Luồng, 20M Cache, Alder Lake) - Socket Intel LGA 1700"
+                            />
+                        </a>
+                        <a href="/cpu-intel-core-i5-12600k/" class="p-name line-clamp-2"
+                            >CPU Intel Core i5 12600K (4.90GHz, 10 Nhân 16 Luồng, 20M Cache, Alder
+                            Lake) - Socket Intel LGA 1700</a
+                        >
+                        <div class="p-bot">
+                            <div class="p-stt-price">
+                                <span class="p-price">8.790.000đ</span>
+                                <span class="p-old-price"> 9.990.000đ </span>
+
+                                <span class="p-stt p-con"
+                                    ><i class="fa fa-check" aria-hidden="true"></i> Còn hàng</span
+                                >
+                            </div>
+                            <a
+                                href="javascript:;"
+                                onclick="addProductToCart(2690, 0, 1, 0);"
+                                class="p-buynow icon-2021"
+                            ></a>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="item">
+                    <div class="p-container">
+                        <a href="/cpu-intel-core-i7-12700k/" class="p-img">
+                            <img
+                                src="https://kccshop.vn/media/product/250-2689-12700k.jpg"
+                                alt="CPU Intel Core i7-12700K (5.00GHz, 12 Nhân 20 Luồng, 25M Cache, Alder Lake) - Socket Intel LGA 1700"
+                            />
+                        </a>
+                        <a href="/cpu-intel-core-i7-12700k/" class="p-name line-clamp-2"
+                            >CPU Intel Core i7-12700K (5.00GHz, 12 Nhân 20 Luồng, 25M Cache, Alder
+                            Lake) - Socket Intel LGA 1700</a
+                        >
+                        <div class="p-bot">
+                            <div class="p-stt-price">
+                                <span class="p-price">Liên hệ</span>
+                                <span class="p-old-price"></span>
+
+                                <span class="p-stt p-het"
+                                    ><i class="fa fa-times" aria-hidden="true"></i> Hết hàng</span
+                                >
+                            </div>
+                            <a
+                                href="javascript:;"
+                                onclick="addProductToCart(2689, 0, 1, 0);"
+                                class="p-buynow icon-2021"
+                            ></a>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="item">
+                    <div class="p-container">
+                        <a href="/cpu-intel-core-i9-12900kf/" class="p-img">
+                            <img
+                                src="https://kccshop.vn/media/product/250-2688-"
+                                alt="CPU Intel Core i9-12900KF (5.20GHz, 16 Nhân 24 Luồng, 30M Cache, Alder Lake) - Socket Intel LGA 1700"
+                            />
+                        </a>
+                        <a href="/cpu-intel-core-i9-12900kf/" class="p-name line-clamp-2"
+                            >CPU Intel Core i9-12900KF (5.20GHz, 16 Nhân 24 Luồng, 30M Cache, Alder
+                            Lake) - Socket Intel LGA 1700</a
+                        >
+                        <div class="p-bot">
+                            <div class="p-stt-price">
+                                <span class="p-price">Liên hệ</span>
+                                <span class="p-old-price"></span>
+
+                                <span class="p-stt p-het"
+                                    ><i class="fa fa-times" aria-hidden="true"></i> Hết hàng</span
+                                >
+                            </div>
+                            <a
+                                href="javascript:;"
+                                onclick="addProductToCart(2688, 0, 1, 0);"
+                                class="p-buynow icon-2021"
+                            ></a>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="item">
+                    <div class="p-container">
+                        <a href="/cpu-intel-core-i9-12900k/" class="p-img">
+                            <img
+                                src="https://kccshop.vn/media/product/250-2687-12900k.jpg"
+                                alt="CPU Intel Core i9-12900K (5.20GHz, 16 Nhân 24 Luồng, 30M Cache, Alder Lake) - Socket Intel LGA 1700"
+                            />
+                        </a>
+                        <a href="/cpu-intel-core-i9-12900k/" class="p-name line-clamp-2"
+                            >CPU Intel Core i9-12900K (5.20GHz, 16 Nhân 24 Luồng, 30M Cache, Alder
+                            Lake) - Socket Intel LGA 1700</a
+                        >
+                        <div class="p-bot">
+                            <div class="p-stt-price">
+                                <span class="p-price">Liên hệ</span>
+                                <span class="p-old-price"></span>
+
+                                <span class="p-stt p-het"
+                                    ><i class="fa fa-times" aria-hidden="true"></i> Hết hàng</span
+                                >
+                            </div>
+                            <a
+                                href="javascript:;"
+                                onclick="addProductToCart(2687, 0, 1, 0);"
+                                class="p-buynow icon-2021"
+                            ></a>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="item">
+                    <div class="p-container">
+                        <span class="p-discount icon-2021">-19%</span>
+
+                        <a
+                            href="/cpu-intel-core-i7-11700-tray-2-9ghz-turbo-4-7ghz-8-nhan-16-luong-20mb-cache-65w/"
+                            class="p-img"
+                        >
+                            <img
+                                src="https://kccshop.vn/media/product/250-2652-11700-tray.jpg"
+                                alt="CPU Intel Core i7-11700 TRAY (2.9GHz Turbo 4.7GHz, 8 nhân 16 luồng, 20MB Cache, 65W) – SK LGA 1200"
+                            />
+                        </a>
+                        <a
+                            href="/cpu-intel-core-i7-11700-tray-2-9ghz-turbo-4-7ghz-8-nhan-16-luong-20mb-cache-65w/"
+                            class="p-name line-clamp-2"
+                            >CPU Intel Core i7-11700 TRAY (2.9GHz Turbo 4.7GHz, 8 nhân 16 luồng,
+                            20MB Cache, 65W) – SK LGA 1200</a
+                        >
+                        <div class="p-bot">
+                            <div class="p-stt-price">
+                                <span class="p-price">7.900.000đ</span>
+                                <span class="p-old-price"> 9.800.000đ </span>
+
+                                <span class="p-stt p-con"
+                                    ><i class="fa fa-check" aria-hidden="true"></i> Còn hàng</span
+                                >
+                            </div>
+                            <a
+                                href="javascript:;"
+                                onclick="addProductToCart(2652, 0, 1, 0);"
+                                class="p-buynow icon-2021"
+                            ></a>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="item">
+                    <div class="p-container">
+                        <span class="p-discount icon-2021">-17%</span>
+
+                        <a href="/cpu-intel-core-i7-10700k-tray/" class="p-img">
+                            <img
+                                src="https://kccshop.vn/media/product/250-2651-10700k-tray.jpg"
+                                alt="CPU Intel Core i7-10700K TRAY"
+                            />
+                        </a>
+                        <a href="/cpu-intel-core-i7-10700k-tray/" class="p-name line-clamp-2"
+                            >CPU Intel Core i7-10700K TRAY</a
+                        >
+                        <div class="p-bot">
+                            <div class="p-stt-price">
+                                <span class="p-price">7.899.000đ</span>
+                                <span class="p-old-price"> 9.499.000đ </span>
+
+                                <span class="p-stt p-con"
+                                    ><i class="fa fa-check" aria-hidden="true"></i> Còn hàng</span
+                                >
+                            </div>
+                            <a
+                                href="javascript:;"
+                                onclick="addProductToCart(2651, 0, 1, 0);"
+                                class="p-buynow icon-2021"
+                            ></a>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="item">
+                    <div class="p-container">
+                        <span class="p-discount icon-2021">-15%</span>
+
+                        <a
+                            href="/cpu-intel-core-i3-10105-3-7ghz-turbo-up-to-4-4ghz-4-nhan-8-luong-6mb-cache-65w-socket-intel-lga-1200/"
+                            class="p-img"
+                        >
+                            <img
+                                src="https://kccshop.vn/media/product/250-2565-58736_cpu_intel_core_i3_10105.jpeg"
+                                alt="CPU Intel Core i3-10105 (3.7GHz turbo up to 4.4Ghz, 4 nhân 8 luồng, 6MB Cache, 65W) - Socket Intel LGA 1200"
+                            />
+                        </a>
+                        <a
+                            href="/cpu-intel-core-i3-10105-3-7ghz-turbo-up-to-4-4ghz-4-nhan-8-luong-6mb-cache-65w-socket-intel-lga-1200/"
+                            class="p-name line-clamp-2"
+                            >CPU Intel Core i3-10105 (3.7GHz turbo up to 4.4Ghz, 4 nhân 8 luồng, 6MB
+                            Cache, 65W) - Socket Intel LGA 1200</a
+                        >
+                        <div class="p-bot">
+                            <div class="p-stt-price">
+                                <span class="p-price">3.399.000đ</span>
+                                <span class="p-old-price"> 3.999.000đ </span>
+
+                                <span class="p-stt p-con"
+                                    ><i class="fa fa-check" aria-hidden="true"></i> Còn hàng</span
+                                >
+                            </div>
+                            <a
+                                href="javascript:;"
+                                onclick="addProductToCart(2565, 0, 1, 0);"
+                                class="p-buynow icon-2021"
+                            ></a>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="item">
+                    <div class="p-container">
+                        <a
+                            href="/cpu-amd-ryzen-5-3600-tray-3-6ghz-turbo-up-to-4-2ghz-6-nhan-12-luong-35mb-cache-65w/"
+                            class="p-img"
+                        >
+                            <img
+                                src="https://kccshop.vn/media/product/250-2484-3600-tray.jpg"
+                                alt="CPU Amd Ryzen 5 3600 Tray (3.6GHz turbo up to 4.2GHz, 6 nhân 12 luồng, 35MB Cache, 65W)"
+                            />
+                        </a>
+                        <a
+                            href="/cpu-amd-ryzen-5-3600-tray-3-6ghz-turbo-up-to-4-2ghz-6-nhan-12-luong-35mb-cache-65w/"
+                            class="p-name line-clamp-2"
+                            >CPU Amd Ryzen 5 3600 Tray (3.6GHz turbo up to 4.2GHz, 6 nhân 12 luồng,
+                            35MB Cache, 65W)</a
+                        >
+                        <div class="p-bot">
+                            <div class="p-stt-price">
+                                <span class="p-price">4.999.000đ</span>
+                                <span class="p-old-price"></span>
+
+                                <span class="p-stt p-con"
+                                    ><i class="fa fa-check" aria-hidden="true"></i> Còn hàng</span
+                                >
+                            </div>
+                            <a
+                                href="javascript:;"
+                                onclick="addProductToCart(2484, 0, 1, 0);"
+                                class="p-buynow icon-2021"
+                            ></a>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="item">
+                    <div class="p-container">
+                        <span class="p-discount icon-2021">-25%</span>
+
+                        <a
+                            href="/cpu-intel-core-i3-10100f-3-60-up-to-4-30ghz-6m-4-cores-8-threads-box-chinh-hang/"
+                            class="p-img"
+                        >
+                            <img
+                                src="https://kccshop.vn/media/product/250-2421-"
+                                alt="CPU Intel Core i3 10100F (3.60 Up to 4.30GHz, 6M, 4 Cores 8 Threads) Box Chính Hãng "
+                            />
+                        </a>
+                        <a
+                            href="/cpu-intel-core-i3-10100f-3-60-up-to-4-30ghz-6m-4-cores-8-threads-box-chinh-hang/"
+                            class="p-name line-clamp-2"
+                            >CPU Intel Core i3 10100F (3.60 Up to 4.30GHz, 6M, 4 Cores 8 Threads)
+                            Box Chính Hãng
+                        </a>
+                        <div class="p-bot">
+                            <div class="p-stt-price">
+                                <span class="p-price">2.250.000đ</span>
+                                <span class="p-old-price"> 3.000.000đ </span>
+
+                                <span class="p-stt p-con"
+                                    ><i class="fa fa-check" aria-hidden="true"></i> Còn hàng</span
+                                >
+                            </div>
+                            <a
+                                href="javascript:;"
+                                onclick="addProductToCart(2421, 0, 1, 0);"
+                                class="p-buynow icon-2021"
+                            ></a>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="item">
+                    <div class="p-container">
+                        <span class="p-discount icon-2021">-2%</span>
+
+                        <a
+                            href="/cpu-intel-core-i5-11400f-tray-2-60-up-to-4-40ghz-12m-6-cores-12-threads/"
+                            class="p-img"
+                        >
+                            <img
+                                src="https://kccshop.vn/media/product/250-2414-11400f-tray.jpg"
+                                alt="CPU Intel Core i5 11400F TRAY (2.60 Up to 4.40GHz, 12M, 6 Cores 12 Threads)"
+                            />
+                        </a>
+                        <a
+                            href="/cpu-intel-core-i5-11400f-tray-2-60-up-to-4-40ghz-12m-6-cores-12-threads/"
+                            class="p-name line-clamp-2"
+                            >CPU Intel Core i5 11400F TRAY (2.60 Up to 4.40GHz, 12M, 6 Cores 12
+                            Threads)</a
+                        >
+                        <div class="p-bot">
+                            <div class="p-stt-price">
+                                <span class="p-price">4.799.000đ</span>
+                                <span class="p-old-price"> 4.899.000đ </span>
+
+                                <span class="p-stt p-het"
+                                    ><i class="fa fa-times" aria-hidden="true"></i> Hết hàng</span
+                                >
+                            </div>
+                            <a
+                                href="javascript:;"
+                                onclick="addProductToCart(2414, 0, 1, 0);"
+                                class="p-buynow icon-2021"
+                            ></a>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="item">
+                    <div class="p-container">
+                        <span class="p-discount icon-2021">-13%</span>
+
+                        <a
+                            href="/cpu-intel-core-i5-11400-tray-2-60-up-to-4-40ghz-12m-6-cores-12-threads/"
+                            class="p-img"
+                        >
+                            <img
+                                src="https://kccshop.vn/media/product/250-2396-11400-tray.jpg"
+                                alt="CPU Intel Core i5 11400 TRAY (2.60 Up to 4.40GHz, 12M, 6 Cores 12 Threads)"
+                            />
+                        </a>
+                        <a
+                            href="/cpu-intel-core-i5-11400-tray-2-60-up-to-4-40ghz-12m-6-cores-12-threads/"
+                            class="p-name line-clamp-2"
+                            >CPU Intel Core i5 11400 TRAY (2.60 Up to 4.40GHz, 12M, 6 Cores 12
+                            Threads)</a
+                        >
+                        <div class="p-bot">
+                            <div class="p-stt-price">
+                                <span class="p-price">4.799.000đ</span>
+                                <span class="p-old-price"> 5.499.000đ </span>
+
+                                <span class="p-stt p-con"
+                                    ><i class="fa fa-check" aria-hidden="true"></i> Còn hàng</span
+                                >
+                            </div>
+                            <a
+                                href="javascript:;"
+                                onclick="addProductToCart(2396, 0, 1, 0);"
+                                class="p-buynow icon-2021"
+                            ></a>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="item">
+                    <div class="p-container">
+                        <span class="p-discount icon-2021">-9%</span>
+
+                        <a href="/cpu-amd-ryzen-5-5600g/" class="p-img">
+                            <img
+                                src="https://kccshop.vn/media/product/250-2285-1.jpg"
+                                alt="CPU AMD Ryzen 5 5600G (3.9GHz Upto 4.4GHz / 19MB / 6 Cores, 12 Threads / 65W / Socket AM4)"
+                            />
+                        </a>
+                        <a href="/cpu-amd-ryzen-5-5600g/" class="p-name line-clamp-2"
+                            >CPU AMD Ryzen 5 5600G (3.9GHz Upto 4.4GHz / 19MB / 6 Cores, 12 Threads
+                            / 65W / Socket AM4)</a
+                        >
+                        <div class="p-bot">
+                            <div class="p-stt-price">
+                                <span class="p-price">6.800.000đ</span>
+                                <span class="p-old-price"> 7.500.000đ </span>
+
+                                <span class="p-stt p-con"
+                                    ><i class="fa fa-check" aria-hidden="true"></i> Còn hàng</span
+                                >
+                            </div>
+                            <a
+                                href="javascript:;"
+                                onclick="addProductToCart(2285, 0, 1, 0);"
+                                class="p-buynow icon-2021"
+                            ></a>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="item">
+                    <div class="p-container">
+                        <span class="p-discount icon-2021">-3%</span>
+
+                        <a
+                            href="/cpu-amd-ryzen-7-5700g-3-8ghz-upto-4-6ghz-20mb-8-cores-16-threads-65w-socket-am4/"
+                            class="p-img"
+                        >
+                            <img
+                                src="https://kccshop.vn/media/product/250-2284-1.jpg"
+                                alt="CPU AMD Ryzen 7 5700G (3.8GHz Upto 4.6GHz / 20MB / 8 Cores, 16 Threads / 65W / Socket AM4)"
+                            />
+                        </a>
+                        <a
+                            href="/cpu-amd-ryzen-7-5700g-3-8ghz-upto-4-6ghz-20mb-8-cores-16-threads-65w-socket-am4/"
+                            class="p-name line-clamp-2"
+                            >CPU AMD Ryzen 7 5700G (3.8GHz Upto 4.6GHz / 20MB / 8 Cores, 16 Threads
+                            / 65W / Socket AM4)</a
+                        >
+                        <div class="p-bot">
+                            <div class="p-stt-price">
+                                <span class="p-price">9.699.000đ</span>
+                                <span class="p-old-price"> 10.000.000đ </span>
+
+                                <span class="p-stt p-con"
+                                    ><i class="fa fa-check" aria-hidden="true"></i> Còn hàng</span
+                                >
+                            </div>
+                            <a
+                                href="javascript:;"
+                                onclick="addProductToCart(2284, 0, 1, 0);"
+                                class="p-buynow icon-2021"
+                            ></a>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="item">
+                    <div class="p-container">
+                        <span class="p-discount icon-2021">-4%</span>
+
+                        <a href="/cpu-amd-ryzen-threadripper-pro-3955wx/" class="p-img">
+                            <img
+                                src="https://kccshop.vn/media/product/250-2283-"
+                                alt="CPU AMD Ryzen Threadripper Pro 3955WX (3.9 GHz Upto 4.3GHz / 73MB / 16 Cores, 32 Threads / 280W / Socket sWRX8) - Hàng Chính Hãng"
+                            />
+                        </a>
+                        <a
+                            href="/cpu-amd-ryzen-threadripper-pro-3955wx/"
+                            class="p-name line-clamp-2"
+                            >CPU AMD Ryzen Threadripper Pro 3955WX (3.9 GHz Upto 4.3GHz / 73MB / 16
+                            Cores, 32 Threads / 280W / Socket sWRX8) - Hàng Chính Hãng</a
+                        >
+                        <div class="p-bot">
+                            <div class="p-stt-price">
+                                <span class="p-price">28.900.000đ</span>
+                                <span class="p-old-price"> 30.000.000đ </span>
+
+                                <span class="p-stt p-con"
+                                    ><i class="fa fa-check" aria-hidden="true"></i> Còn hàng</span
+                                >
+                            </div>
+                            <a
+                                href="javascript:;"
+                                onclick="addProductToCart(2283, 0, 1, 0);"
+                                class="p-buynow icon-2021"
+                            ></a>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="item">
+                    <div class="p-container">
+                        <span class="p-discount icon-2021">-7%</span>
+
+                        <a href="/cpu-amd-ryzen-threadripper-pro-3975wx/" class="p-img">
+                            <img
+                                src="https://kccshop.vn/media/product/250-2282-"
+                                alt="CPU AMD Ryzen Threadripper Pro 3975WX (3.5 GHz Upto 4.2GHz / 146MB / 32 Cores, 64 Threads / 280W / Socket sWRX8) - Hàng Chính Hãng"
+                            />
+                        </a>
+                        <a
+                            href="/cpu-amd-ryzen-threadripper-pro-3975wx/"
+                            class="p-name line-clamp-2"
+                            >CPU AMD Ryzen Threadripper Pro 3975WX (3.5 GHz Upto 4.2GHz / 146MB / 32
+                            Cores, 64 Threads / 280W / Socket sWRX8) - Hàng Chính Hãng</a
+                        >
+                        <div class="p-bot">
+                            <div class="p-stt-price">
+                                <span class="p-price">69.500.000đ</span>
+                                <span class="p-old-price"> 75.000.000đ </span>
+
+                                <span class="p-stt p-con"
+                                    ><i class="fa fa-check" aria-hidden="true"></i> Còn hàng</span
+                                >
+                            </div>
+                            <a
+                                href="javascript:;"
+                                onclick="addProductToCart(2282, 0, 1, 0);"
+                                class="p-buynow icon-2021"
+                            ></a>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="item">
+                    <div class="p-container">
+                        <span class="p-discount icon-2021">-4%</span>
+
+                        <a
+                            href="/cpu-amd-ryzen-threadripper-pro-3995wx-2-7-ghz-upto-4-2ghz-292mb-64-cores-128-threads-280w-socket-swrx8-hang-chinh-hang/"
+                            class="p-img"
+                        >
+                            <img
+                                src="https://kccshop.vn/media/product/250-2281-1.jpg"
+                                alt="CPU AMD Ryzen Threadripper Pro 3995WX (2.7 GHz Upto 4.2GHz / 292MB / 64 Cores, 128 Threads / 280W / Socket sWRX8) - Hàng Chính Hãng"
+                            />
+                        </a>
+                        <a
+                            href="/cpu-amd-ryzen-threadripper-pro-3995wx-2-7-ghz-upto-4-2ghz-292mb-64-cores-128-threads-280w-socket-swrx8-hang-chinh-hang/"
+                            class="p-name line-clamp-2"
+                            >CPU AMD Ryzen Threadripper Pro 3995WX (2.7 GHz Upto 4.2GHz / 292MB / 64
+                            Cores, 128 Threads / 280W / Socket sWRX8) - Hàng Chính Hãng</a
+                        >
+                        <div class="p-bot">
+                            <div class="p-stt-price">
+                                <span class="p-price">138.500.000đ</span>
+                                <span class="p-old-price"> 145.000.000đ </span>
+
+                                <span class="p-stt p-con"
+                                    ><i class="fa fa-check" aria-hidden="true"></i> Còn hàng</span
+                                >
+                            </div>
+                            <a
+                                href="javascript:;"
+                                onclick="addProductToCart(2281, 0, 1, 0);"
+                                class="p-buynow icon-2021"
+                            ></a>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="item">
+                    <div class="p-container">
+                        <span class="p-discount icon-2021">-27%</span>
+
+                        <a href="/cpu-amd-athlon-3000g/" class="p-img">
+                            <img
+                                src="https://kccshop.vn/media/product/250-2280-53258_hnc_cpu_amd_athlon_3000g.jpg"
+                                alt="CPU AMD Athlon 3000G (3.5GHz, 2 nhân 4 luồng , 5MB Cache, 35W) - Socket AMD AM4"
+                            />
+                        </a>
+                        <a href="/cpu-amd-athlon-3000g/" class="p-name line-clamp-2"
+                            >CPU AMD Athlon 3000G (3.5GHz, 2 nhân 4 luồng , 5MB Cache, 35W) - Socket
+                            AMD AM4</a
+                        >
+                        <div class="p-bot">
+                            <div class="p-stt-price">
+                                <span class="p-price">1.350.000đ</span>
+                                <span class="p-old-price"> 1.850.000đ </span>
+
+                                <span class="p-stt p-het"
+                                    ><i class="fa fa-times" aria-hidden="true"></i> Hết hàng</span
+                                >
+                            </div>
+                            <a
+                                href="javascript:;"
+                                onclick="addProductToCart(2280, 0, 1, 0);"
+                                class="p-buynow icon-2021"
+                            ></a>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="item">
+                    <div class="p-container">
+                        <span class="p-discount icon-2021">-22%</span>
+
+                        <a href="/cpu-intel-core-i5-10400-tray/" class="p-img">
+                            <img
+                                src="https://kccshop.vn/media/product/250-2277-1.jpg"
+                                alt="CPU Intel Core i5 10400 TRAY (2.90 Up to 4.30GHz, 12M, 6 Cores 12 Threads)"
+                            />
+                        </a>
+                        <a href="/cpu-intel-core-i5-10400-tray/" class="p-name line-clamp-2"
+                            >CPU Intel Core i5 10400 TRAY (2.90 Up to 4.30GHz, 12M, 6 Cores 12
+                            Threads)</a
+                        >
+                        <div class="p-bot">
+                            <div class="p-stt-price">
+                                <span class="p-price">3.899.000đ</span>
+                                <span class="p-old-price"> 5.000.000đ </span>
+
+                                <span class="p-stt p-con"
+                                    ><i class="fa fa-check" aria-hidden="true"></i> Còn hàng</span
+                                >
+                            </div>
+                            <a
+                                href="javascript:;"
+                                onclick="addProductToCart(2277, 0, 1, 0);"
+                                class="p-buynow icon-2021"
+                            ></a>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="item">
+                    <div class="p-container">
+                        <span class="p-discount icon-2021">-8%</span>
+
+                        <a href="/cpu-intel-core-i9-10850k/" class="p-img">
+                            <img
+                                src="https://kccshop.vn/media/product/250-2275-1.jpg"
+                                alt="CPU Intel Core i9-10850K (3.6GHz turbo up to 5.2GHz, 10 nhân 20 luồng, 20MB Cache, 95W) - Socket Intel LGA 1200"
+                            />
+                        </a>
+                        <a href="/cpu-intel-core-i9-10850k/" class="p-name line-clamp-2"
+                            >CPU Intel Core i9-10850K (3.6GHz turbo up to 5.2GHz, 10 nhân 20 luồng,
+                            20MB Cache, 95W) - Socket Intel LGA 1200</a
+                        >
+                        <div class="p-bot">
+                            <div class="p-stt-price">
+                                <span class="p-price">10.299.000đ</span>
+                                <span class="p-old-price"> 11.200.000đ </span>
+
+                                <span class="p-stt p-con"
+                                    ><i class="fa fa-check" aria-hidden="true"></i> Còn hàng</span
+                                >
+                            </div>
+                            <a
+                                href="javascript:;"
+                                onclick="addProductToCart(2275, 0, 1, 0);"
+                                class="p-buynow icon-2021"
+                            ></a>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="item">
+                    <div class="p-container">
+                        <span class="p-discount icon-2021">-4%</span>
+
+                        <a href="/cpu-amd-ryzen-threadripper-3990x/" class="p-img">
+                            <img
+                                src="https://kccshop.vn/media/product/250-1803-50229_hnc_ryzen_threadripper_3960x_right_facing_850x850.jpg"
+                                alt="CPU AMD Ryzen Threadripper 3990X (2.9GHz turbo up to 4.3GHz, 64 nhân 128 luồng, 292MB Cache, 280W) - Socket sTRX4"
+                            />
+                        </a>
+                        <a href="/cpu-amd-ryzen-threadripper-3990x/" class="p-name line-clamp-2"
+                            >CPU AMD Ryzen Threadripper 3990X (2.9GHz turbo up to 4.3GHz, 64 nhân
+                            128 luồng, 292MB Cache, 280W) - Socket sTRX4</a
+                        >
+                        <div class="p-bot">
+                            <div class="p-stt-price">
+                                <span class="p-price">97.999.000đ</span>
+                                <span class="p-old-price"> 102.000.000đ </span>
+
+                                <span class="p-stt p-con"
+                                    ><i class="fa fa-check" aria-hidden="true"></i> Còn hàng</span
+                                >
+                            </div>
+                            <a
+                                href="javascript:;"
+                                onclick="addProductToCart(1805, 0, 1, 0);"
+                                class="p-buynow icon-2021"
+                            ></a>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="item">
+                    <div class="p-container">
+                        <span class="p-discount icon-2021">-7%</span>
+
+                        <a href="/cpu-amd-ryzen-threadripper-3960x/" class="p-img">
+                            <img
+                                src="https://kccshop.vn/media/product/250-1803-50229_hnc_ryzen_threadripper_3960x_right_facing_850x850.jpg"
+                                alt="CPU AMD Ryzen Threadripper 3960X (3.8GHz turbo up to 4.5GHz, 24 nhân 48 luồng, 140MB Cache, 280W) - Socket sTRX4"
+                            />
+                        </a>
+                        <a href="/cpu-amd-ryzen-threadripper-3960x/" class="p-name line-clamp-2"
+                            >CPU AMD Ryzen Threadripper 3960X (3.8GHz turbo up to 4.5GHz, 24 nhân 48
+                            luồng, 140MB Cache, 280W) - Socket sTRX4</a
+                        >
+                        <div class="p-bot">
+                            <div class="p-stt-price">
+                                <span class="p-price">35.300.000đ</span>
+                                <span class="p-old-price"> 38.000.000đ </span>
+
+                                <span class="p-stt p-con"
+                                    ><i class="fa fa-check" aria-hidden="true"></i> Còn hàng</span
+                                >
+                            </div>
+                            <a
+                                href="javascript:;"
+                                onclick="addProductToCart(1804, 0, 1, 0);"
+                                class="p-buynow icon-2021"
+                            ></a>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="item">
+                    <div class="p-container">
+                        <span class="p-discount icon-2021">-4%</span>
+
+                        <a href="/cpu-amd-ryzen-threadripper-3970x/" class="p-img">
+                            <img
+                                src="https://kccshop.vn/media/product/250-1803-50229_hnc_ryzen_threadripper_3960x_right_facing_850x850.jpg"
+                                alt="CPU AMD Ryzen Threadripper 3970X (3.7GHz turbo up to 4.5GHz, 32 nhân 64 luồng, 144MB Cache, 280W) - Socket sTRX4"
+                            />
+                        </a>
+                        <a href="/cpu-amd-ryzen-threadripper-3970x/" class="p-name line-clamp-2"
+                            >CPU AMD Ryzen Threadripper 3970X (3.7GHz turbo up to 4.5GHz, 32 nhân 64
+                            luồng, 144MB Cache, 280W) - Socket sTRX4</a
+                        >
+                        <div class="p-bot">
+                            <div class="p-stt-price">
+                                <span class="p-price">49.999.000đ</span>
+                                <span class="p-old-price"> 52.000.000đ </span>
+
+                                <span class="p-stt p-con"
+                                    ><i class="fa fa-check" aria-hidden="true"></i> Còn hàng</span
+                                >
+                            </div>
+                            <a
+                                href="javascript:;"
+                                onclick="addProductToCart(1803, 0, 1, 0);"
+                                class="p-buynow icon-2021"
+                            ></a>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="item">
+                    <div class="p-container">
+                        <a href="/cpu-amd-ryzen-5-3500x/" class="p-img">
+                            <img
+                                src="https://kccshop.vn/media/product/250-113-54097_ryzen_5.jpg"
+                                alt="CPU AMD Ryzen 5 3500X (3.6GHz turbo up to 4.1GHz, 6 nhân 6 luồng, 32MB Cache, 65W) - Socket AMD AM4"
+                            />
+                        </a>
+                        <a href="/cpu-amd-ryzen-5-3500x/" class="p-name line-clamp-2"
+                            >CPU AMD Ryzen 5 3500X (3.6GHz turbo up to 4.1GHz, 6 nhân 6 luồng, 32MB
+                            Cache, 65W) - Socket AMD AM4</a
+                        >
+                        <div class="p-bot">
+                            <div class="p-stt-price">
+                                <span class="p-price">3.699.000đ</span>
+                                <span class="p-old-price"></span>
+
+                                <span class="p-stt p-het"
+                                    ><i class="fa fa-times" aria-hidden="true"></i> Hết hàng</span
+                                >
+                            </div>
+                            <a
+                                href="javascript:;"
+                                onclick="addProductToCart(1802, 0, 1, 0);"
+                                class="p-buynow icon-2021"
+                            ></a>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="item">
+                    <div class="p-container">
+                        <span class="p-discount icon-2021">-20%</span>
+
+                        <a href="/cpu-intel-pentium-gold-g6405/" class="p-img">
+                            <img
+                                src="https://kccshop.vn/media/product/250-1801-58752_cpu_intel_pentium_gold_g6405.jpg"
+                                alt="CPU Intel Pentium Gold G6405 (4.1GHz, 2 nhân 4 luồng, 4MB Cache, 58W) - Socket Intel LGA 1200)"
+                            />
+                        </a>
+                        <a href="/cpu-intel-pentium-gold-g6405/" class="p-name line-clamp-2"
+                            >CPU Intel Pentium Gold G6405 (4.1GHz, 2 nhân 4 luồng, 4MB Cache, 58W) -
+                            Socket Intel LGA 1200)</a
+                        >
+                        <div class="p-bot">
+                            <div class="p-stt-price">
+                                <span class="p-price">1.999.000đ</span>
+                                <span class="p-old-price"> 2.500.000đ </span>
+
+                                <span class="p-stt p-con"
+                                    ><i class="fa fa-check" aria-hidden="true"></i> Còn hàng</span
+                                >
+                            </div>
+                            <a
+                                href="javascript:;"
+                                onclick="addProductToCart(1801, 0, 1, 0);"
+                                class="p-buynow icon-2021"
+                            ></a>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="item">
+                    <div class="p-container">
+                        <span class="p-discount icon-2021">-28%</span>
+
+                        <a href="/cpu-intel-core-i9-11900k/" class="p-img">
+                            <img
+                                src="https://kccshop.vn/media/product/250-1800-58413_cpu_intel_core_i9_11900kf_3_5ghz_turbo_up_to_5_3ghz_8_nhan_16_luong_16mb_cache_125w_socket_intel_lga_1200_1.jpg"
+                                alt="CPU Intel Core i9-11900K (3.5GHz turbo up to 5.3Ghz, 8 nhân 16 luồng, 16MB Cache, 125W) - Socket Intel LGA 1200"
+                            />
+                        </a>
+                        <a href="/cpu-intel-core-i9-11900k/" class="p-name line-clamp-2"
+                            >CPU Intel Core i9-11900K (3.5GHz turbo up to 5.3Ghz, 8 nhân 16 luồng,
+                            16MB Cache, 125W) - Socket Intel LGA 1200</a
+                        >
+                        <div class="p-bot">
+                            <div class="p-stt-price">
+                                <span class="p-price">12.900.000đ</span>
+                                <span class="p-old-price"> 18.000.000đ </span>
+
+                                <span class="p-stt p-con"
+                                    ><i class="fa fa-check" aria-hidden="true"></i> Còn hàng</span
+                                >
+                            </div>
+                            <a
+                                href="javascript:;"
+                                onclick="addProductToCart(1800, 0, 1, 0);"
+                                class="p-buynow icon-2021"
+                            ></a>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="item">
+                    <div class="p-container">
+                        <span class="p-discount icon-2021">-26%</span>
+
+                        <a href="/cpu-intel-core-i9-11900/" class="p-img">
+                            <img
+                                src="https://kccshop.vn/media/product/250-1798-58414_cpu_intel_core_i9_11900kf_3_5ghz_turbo_up_to_5_3ghz_8_nhan_16_luong_16mb_cache_125w_socket_intel_lga_1200_1.jpg"
+                                alt="CPU Intel Core i9-11900 (2.5GHz turbo up to 5.2Ghz, 8 nhân 16 luồng, 16MB Cache, 65W) - Socket Intel LGA 1200"
+                            />
+                        </a>
+                        <a href="/cpu-intel-core-i9-11900/" class="p-name line-clamp-2"
+                            >CPU Intel Core i9-11900 (2.5GHz turbo up to 5.2Ghz, 8 nhân 16 luồng,
+                            16MB Cache, 65W) - Socket Intel LGA 1200</a
+                        >
+                        <div class="p-bot">
+                            <div class="p-stt-price">
+                                <span class="p-price">11.300.000đ</span>
+                                <span class="p-old-price"> 15.300.000đ </span>
+
+                                <span class="p-stt p-con"
+                                    ><i class="fa fa-check" aria-hidden="true"></i> Còn hàng</span
+                                >
+                            </div>
+                            <a
+                                href="javascript:;"
+                                onclick="addProductToCart(1799, 0, 1, 0);"
+                                class="p-buynow icon-2021"
+                            ></a>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="item">
+                    <div class="p-container">
+                        <a href="/cpu-intel-core-i9-11900kf/" class="p-img">
+                            <img
+                                src="https://kccshop.vn/media/product/250-1798-58414_cpu_intel_core_i9_11900kf_3_5ghz_turbo_up_to_5_3ghz_8_nhan_16_luong_16mb_cache_125w_socket_intel_lga_1200_1.jpg"
+                                alt="CPU Intel Core i9-11900KF (3.5GHz turbo up to 5.3Ghz, 8 nhân 16 luồng, 16MB Cache, 125W) - Socket Intel LGA 1200"
+                            />
+                        </a>
+                        <a href="/cpu-intel-core-i9-11900kf/" class="p-name line-clamp-2"
+                            >CPU Intel Core i9-11900KF (3.5GHz turbo up to 5.3Ghz, 8 nhân 16 luồng,
+                            16MB Cache, 125W) - Socket Intel LGA 1200</a
+                        >
+                        <div class="p-bot">
+                            <div class="p-stt-price">
+                                <span class="p-price">15.899.000đ</span>
+                                <span class="p-old-price"></span>
+
+                                <span class="p-stt p-con"
+                                    ><i class="fa fa-check" aria-hidden="true"></i> Còn hàng</span
+                                >
+                            </div>
+                            <a
+                                href="javascript:;"
+                                onclick="addProductToCart(1798, 0, 1, 0);"
+                                class="p-buynow icon-2021"
+                            ></a>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="item">
+                    <div class="p-container">
+                        <span class="p-discount icon-2021">-13%</span>
+
+                        <a href="/core-i3-9100f-processor/" class="p-img">
+                            <img
+                                src="https://kccshop.vn/media/product/250-184-b151162195caf80f73463e0522123b5f.jpg"
+                                alt="Core i3-9100F Processor (Chính Hãng)- Phiên Bản 7W"
+                            />
+                        </a>
+                        <a href="/core-i3-9100f-processor/" class="p-name line-clamp-2"
+                            >Core i3-9100F Processor (Chính Hãng)- Phiên Bản 7W</a
+                        >
+                        <div class="p-bot">
+                            <div class="p-stt-price">
+                                <span class="p-price">2.599.000đ</span>
+                                <span class="p-old-price"> 3.000.000đ </span>
+
+                                <span class="p-stt p-con"
+                                    ><i class="fa fa-check" aria-hidden="true"></i> Còn hàng</span
+                                >
+                            </div>
+                            <a
+                                href="javascript:;"
+                                onclick="addProductToCart(184, 0, 1, 0);"
+                                class="p-buynow icon-2021"
+                            ></a>
                         </div>
                     </div>
                 </div>
             </div>
-            <div tabindex="0" data-test="sentinelEnd"></div>
+
+            <!-- <div class="paging">
+                <a href="/cpu-bo-vi-xu-ly/" class="current"> 1 </a>
+
+                <a href="/cpu-bo-vi-xu-ly/?page=2"> 2 </a>
+
+                <a href="/cpu-bo-vi-xu-ly/?page=3"> 3 </a>
+
+                <a href="/cpu-bo-vi-xu-ly/?page=4"> 4 </a>
+            </div> -->
         </div>
-        <!-- JavaScript Bundle with Popper -->
-        <script
-            src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/js/bootstrap.bundle.min.js"
-            integrity="sha384-ka7Sk0Gln4gmtz2MlQnikT1wXgYsOg+OMhuP+IlRH9sENBO0LRn5q+8nbTov4+1p"
-            crossorigin="anonymous"
-        ></script>
     </body>
 </html>

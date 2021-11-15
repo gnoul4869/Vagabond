@@ -35,13 +35,37 @@ input[type='number']::-webkit-outer-spin-button {
     appearance: none;
 }
 
+/** Background */
+
 .bg-ired {
     background-color: var(--inspiring-red);
 }
 
+.bg-loading {
+    height: 1.25rem;
+    background: linear-gradient(-45deg, #ee7752, #e73c7e, #e79696, #f16363);
+    background-size: 600% 600%;
+    animation: gradient 3s linear infinite;
+}
+
+/** Text */
+
 .text-ired {
     color: var(--inspiring-red);
 }
+
+.fw-600 {
+    font-weight: 600;
+}
+
+.line-clamp-2 {
+    display: -webkit-box;
+    -webkit-line-clamp: 2;
+    -webkit-box-orient: vertical;
+    overflow: hidden;
+}
+
+/** Button */
 
 .btn {
     box-shadow: none !important;
@@ -66,9 +90,7 @@ input[type='number']::-webkit-outer-spin-button {
     pointer-events: none;
 }
 
-.fw-600 {
-    font-weight: 600;
-}
+/** Link */
 
 .link-inherit {
     text-decoration: inherit;
@@ -93,12 +115,7 @@ input[type='number']::-webkit-outer-spin-button {
     vertical-align: -0.09rem;
 }
 
-.bg-loading {
-    height: 1.25rem;
-    background: linear-gradient(-45deg, #ee7752, #e73c7e, #e79696, #f16363);
-    background-size: 600% 600%;
-    animation: gradient 3s linear infinite;
-}
+/** Form */
 
 .form-check-input {
     box-shadow: none !important;
@@ -111,12 +128,4 @@ input[type='number']::-webkit-outer-spin-button {
 .form-check-input:checked {
     background-color: var(--inspiring-red) !important;
     border-color: var(--inspiring-red) !important;
-}
-
-.react-datepicker-wrapper,
-.react-datepicker__input-container,
-.react-datepicker__input-container input {
-    display: block !important;
-    width: 100% !important;
-    background-color: #c73434 !important;
 }
