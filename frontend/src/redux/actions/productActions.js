@@ -8,7 +8,7 @@ import {
     PRODUCT_LIST_SUCCESS,
 } from '../constants/productConstants';
 
-const errorMessage = 'Đã có lỗi xảy ra, hãy thử lại sau';
+const errorMessage = 'Đã có lỗi xảy ra. Bạn vui lòng thử lại sau ít phút nữa';
 
 export const listProducts = () => async (dispatch) => {
     dispatch({ type: PRODUCT_LIST_REQUEST });
@@ -27,7 +27,7 @@ export const listProducts = () => async (dispatch) => {
     }
 };
 
-export const detailsProduct = (productID) => async (dispatch) => {
+export const detailProduct = (productID) => async (dispatch) => {
     dispatch({ type: PRODUCT_DETAILS_REQUEST });
     try {
         const { data } = await axios.get(`/api/v1/products/${productID}`);

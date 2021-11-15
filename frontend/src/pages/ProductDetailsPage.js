@@ -1,7 +1,7 @@
 import React, { useEffect, useState } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
 import { useParams, useHistory } from 'react-router-dom';
-import { detailsProduct } from '../redux/actions/productActions';
+import { detailProduct } from '../redux/actions/productActions';
 import { FaCartPlus } from 'react-icons/fa';
 import { RiShoppingBag3Fill } from 'react-icons/ri';
 import { IoIosWarning } from 'react-icons/io';
@@ -21,13 +21,12 @@ const ProductDetailsPage = () => {
     const history = useHistory();
     const { id } = useParams();
     const [qty, setQty] = useState(1);
-    const productDetails = useSelector((state) => state.productDetails);
-    const { isLoading, product, error } = productDetails;
+    const { isLoading, product, error } = useSelector((state) => state.productDetails);
     const isDone = useSelector((state) => state.cart.isDone);
     const [isModalShown, setIsModalShown] = useState(false);
 
     useEffect(() => {
-        dispatch(detailsProduct(id));
+        dispatch(detailProduct(id));
     }, [dispatch, id]);
 
     useEffect(() => {

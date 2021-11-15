@@ -10,6 +10,8 @@ import {
     REGISTER_SUCCESS,
 } from '../constants/authConstants';
 
+const errorMessage = 'Đã có lỗi xảy ra. Bạn vui lòng thử lại sau ít phút nữa';
+
 export const login = (email, password) => async (dispatch) => {
     dispatch({ type: LOGIN_REQUEST });
 
@@ -29,7 +31,7 @@ export const login = (email, password) => async (dispatch) => {
             payload:
                 error.response && error.response.data.message
                     ? error.response.data.message
-                    : 'Đã có lỗi xảy ra. Bạn vui lòng thử lại sau ít phút nữa',
+                    : errorMessage,
         });
     }
 };
@@ -61,7 +63,7 @@ export const register =
                 payload:
                     error.response && error.response.data.message
                         ? error.response.data.message
-                        : 'Đã có lỗi xảy ra. Bạn vui lòng thử lại sau ít phút nữa',
+                        : errorMessage,
             });
         }
     };

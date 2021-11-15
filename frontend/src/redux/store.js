@@ -1,27 +1,16 @@
 import { applyMiddleware, combineReducers, compose, createStore } from 'redux';
 import thunk from 'redux-thunk';
-import { productList, productDetails } from './reducers/productReducer';
-import { cart } from './reducers/cartReducer';
+import { user } from './reducers/userReducer';
 import { auth } from './reducers/authReducer';
+import { cart } from './reducers/cartReducer';
 import { verification } from './reducers/verificationReducer';
+import { productList, productDetails } from './reducers/productReducer';
 
 const initialState = {
-    productList: {
+    user: {
         isLoading: false,
-        products: null,
+        userDetails: {},
         error: '',
-    },
-    productDetails: {
-        isLoading: false,
-        product: null,
-        error: '',
-    },
-    cart: {
-        loadingItems: [],
-        cartItems: localStorage.getItem('cartItems')
-            ? JSON.parse(localStorage.getItem('cartItems'))
-            : [],
-        isDone: false,
     },
     auth: {
         isLoading: false,
@@ -37,14 +26,32 @@ const initialState = {
         error: '',
         status: '',
     },
+    cart: {
+        loadingItems: [],
+        cartItems: localStorage.getItem('cartItems')
+            ? JSON.parse(localStorage.getItem('cartItems'))
+            : [],
+        isDone: false,
+    },
+    productList: {
+        isLoading: false,
+        products: null,
+        error: '',
+    },
+    productDetails: {
+        isLoading: false,
+        product: null,
+        error: '',
+    },
 };
 
 const reducer = combineReducers({
-    productList,
-    productDetails,
-    cart,
+    user,
     auth,
     verification,
+    cart,
+    productList,
+    productDetails,
 });
 
 const composeEnhancer = window.__REDUX_DEVTOOLS_EXTENSION_COMPOSE__ || compose;

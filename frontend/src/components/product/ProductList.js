@@ -9,8 +9,7 @@ import ErrorPage from '../../pages/error/ErrorPage';
 
 const ProductList = () => {
     const dispatch = useDispatch();
-    const productList = useSelector((state) => state.productList);
-    const { isLoading, products, error } = productList;
+    const { isLoading, products, error } = useSelector((state) => state.productList);
 
     useEffect(() => {
         dispatch(listProducts());

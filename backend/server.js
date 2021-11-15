@@ -8,6 +8,7 @@ import helmet from 'helmet'; //? Helps secure Express apps by setting various HT
 
 import connectDB from './db/connect.js';
 
+import userRouter from './routes/user.route.js';
 import authRouter from './routes/auth.route.js';
 import productsRouter from './routes/products.route.js';
 import verficationRouter from './routes/verification.route.js';
@@ -33,6 +34,7 @@ app.use(xss());
 app.use(helmet());
 
 //* Routes
+app.use('/api/v1/user/', auth, userRouter);
 app.use('/api/v1/auth', authRouter);
 app.use('/api/v1/products', productsRouter);
 app.use('/api/v1/verification', verficationRouter);

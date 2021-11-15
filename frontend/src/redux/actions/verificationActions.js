@@ -9,6 +9,8 @@ import {
     VERIFICATION_STATE_REFRESH,
 } from '../constants/verificationConstants';
 
+const errorMessage = 'Đã có lỗi xảy ra. Bạn vui lòng thử lại sau ít phút nữa';
+
 export const verifyEmail = (name, email, setStep) => async (dispatch) => {
     dispatch({ type: VERIFICATION_SEND_REQUEST });
     try {
@@ -28,7 +30,7 @@ export const verifyEmail = (name, email, setStep) => async (dispatch) => {
             payload:
                 error.response && error.response.data.message
                     ? error.response.data.message
-                    : 'Đã có lỗi xảy ra. Bạn vui lòng thử lại sau ít phút nữa',
+                    : errorMessage,
         });
     }
 };
@@ -44,7 +46,7 @@ export const confirmEmail = (email, otp, setStep) => async (dispatch) => {
             payload:
                 error.response && error.response.data.message
                     ? error.response.data.message
-                    : 'Đã có lỗi xảy ra. Bạn vui lòng thử lại sau ít phút nữa',
+                    : errorMessage,
         });
     }
 };
