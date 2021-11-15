@@ -320,8 +320,9 @@ a:hover {
     border: solid 1px #d81e23;
 }
 .box-cat-right {
-    width: calc(100% - 295px);
+    width: 100%;
     float: right;
+    background-color: red;
 }
 .box-cat-right .banner-cat {
     width: 100%;
@@ -334,6 +335,7 @@ a:hover {
 .box-cat-right .product-list .item {
     width: 25%;
     float: left;
+    background-color: blueviolet;
 }
 .product-cat-sort {
     border-bottom: solid 1px #eeeeee;

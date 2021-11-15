@@ -18,7 +18,6 @@ import './css/components/passwordStrength.css';
 import './css/components/navbar/navBarDropdown.css';
 import './css/components/navbar/navBarCartBadge.css';
 import './css/components/navbar/navBarUserSubmenu.css';
-import './css/components/product/product.css';
 import './css/components/product/productList.css';
 import './css/components/product/productCarousel.css';
 import './css/components/product/productDescription.css';
