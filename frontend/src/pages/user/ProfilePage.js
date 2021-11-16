@@ -1,9 +1,10 @@
-import React, { useEffect } from 'react';
+import React, { useEffect, useState } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
 import { detailUser } from '../../redux/actions/userAction';
 import ErrorPage from '../error/ErrorPage';
 import UserDetailsLoading from '../../components/loading/UserDetailsLoading';
 import { useHistory, useLocation } from 'react-router';
+import GenderRadio from '../../components/GenderRadio';
 
 const ProfilePage = () => {
     const history = useHistory();
@@ -13,9 +14,17 @@ const ProfilePage = () => {
     const userAuth = useSelector((state) => state.auth);
     const userInfo = userAuth.userInfo;
 
+    const [gender, setGender] = useState('');
+
     useEffect(() => {
         dispatch(detailUser());
     }, [dispatch]);
+
+    useEffect(() => {
+        if (userDetails) {
+            setGender(userDetails.gender);
+        }
+    }, [userDetails]);
 
     useEffect(() => {
         if (!userInfo) {
@@ -49,14 +58,36 @@ const ProfilePage = () => {
                                 className="profile-user-image rounded-circle my-3"
                             />
                         </div>
-                        <div className="container py-4 bg-info">
-                            <div className="row justify-content-center mx-auto">
-                                <div className="col-1 text-secondary fw-600 ">Email</div>
-                                <div className="col-5 text-sdark ms-3 ">{userDetails.email}</div>
-                            </div>
-                            <div className="row justify-content-center mx-auto">
-                                <div className="col-1 text-secondary fw-600 text-end">Tên</div>
-                                <div className="col-5 text-sdark ms-3">{userDetails.name}</div>
+                        <div className="container py-4">
+                            <div className="row">
+                                <div className="col">
+                                    <div className="text-secondary fw-600 text-end">Email</div>
+                                    <div className="text-secondary fw-600 text-end">Tên</div>
+                                    <div className="text-secondary fw-600 text-end">Địa chỉ</div>
+                                    <div className="text-secondary fw-600 text-end">
+                                        Số điện thoại
+                                    </div>
+                                    <div className="text-secondary fw-600 text-end">Giới tính</div>
+                                    <div className="text-secondary fw-600 text-end">Ngày sinh</div>
+                                </div>
+                                <div className="col">
+                                    <div className="text-sdark fw-600 text-start">
+                                        {userDetails.email}
+                                    </div>
+                                    <div className="text-sdark fw-600 text-start">
+                                        {userDetails.name}
+                                    </div>
+                                    <div className="text-sdark fw-600 text-start">
+                                        {userDetails.address}
+                                    </div>
+                                    <div className="text-sdark fw-600 text-start">
+                                        {userDetails.phoneNumber}
+                                    </div>
+                                    <GenderRadio gender={gender} setGender={setGender} />
+                                    <div className="text-sdark fw-600 text-start">
+                                        {userDetails.birthDate}
+                                    </div>
+                                </div>
                             </div>
                         </div>
                     </div>

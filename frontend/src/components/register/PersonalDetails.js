@@ -1,5 +1,6 @@
 import React from 'react';
 import DateInput from '../DateInput';
+import GenderRadio from '../GenderRadio';
 
 const PersonalDetails = ({
     isLoading,
@@ -38,47 +39,8 @@ const PersonalDetails = ({
                 />
                 <label htmlFor="input">Số điện thoại</label>
             </div>
-            <div className="form-check-inline mb-3">
-                <input
-                    type="radio"
-                    value="Nam"
-                    id="male"
-                    name="gender"
-                    className="form-check-input"
-                    checked={gender === 'Nam' ? true : false}
-                    onChange={(e) => setGender(e.target.value)}
-                />
-                <label className="form-check-label ms-2 fw-600" htmlFor="male">
-                    Nam
-                </label>
-            </div>
-            <div className="form-check-inline mb-3">
-                <input
-                    type="radio"
-                    value="Nữ"
-                    id="female"
-                    name="gender"
-                    className="form-check-input"
-                    checked={gender === 'Nữ' ? true : false}
-                    onChange={(e) => setGender(e.target.value)}
-                />
-                <label className="form-check-label ms-2 fw-600" htmlFor="female">
-                    Nữ
-                </label>
-            </div>
-            <div className="form-check-inline mb-3 fw-600">
-                <input
-                    type="radio"
-                    value="Khác"
-                    id="other"
-                    name="gender"
-                    className="form-check-input"
-                    checked={gender === 'Khác' ? true : false}
-                    onChange={(e) => setGender(e.target.value)}
-                />
-                <label className="form-check-label ms-2" htmlFor="other">
-                    Khác
-                </label>
+            <div className="mb-3">
+                <GenderRadio gender={gender} setGender={setGender} />
             </div>
             <div className="row justify-content-start align-items-center mb-3 g-0">
                 <div className="col-auto me-2">Ngày sinh</div>
