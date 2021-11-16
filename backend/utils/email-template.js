@@ -279,7 +279,7 @@ export const emailTemplate = (name, otp) => {
                                                                             "
                                                                             href="#"
                                                                             target="_blank"
-                                                                            >www.vagabond.cf</a
+                                                                            >www.vagabond-shop.cf</a
                                                                         ><br />
                                                                     </div>
                                                                 </td>

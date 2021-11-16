@@ -35,7 +35,7 @@ const LoginPage = () => {
         <div className="row align-items-center gx-lg-5 py-5 mx-md-5">
             <div className="col-lg-7 text-center text-lg-start">
                 <h1 className="display-5 fw-bold mb-3 text-ired">Đăng nhập thành viên</h1>
-                <p className="col-lg-10 fs-2 ms-3 text-dark">Thoải mái mua hàng</p>
+                <p className="col-lg-10 fs-2 ms-3 text-sdark">Thoải mái mua hàng</p>
             </div>
             <div className="col-md-10 col-lg-5 mx-auto">
                 <form className="p-4 p-md-5 border rounded-3 bg-white" onSubmit={submitHandler}>

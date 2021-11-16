@@ -14,7 +14,7 @@
     text-overflow: ellipsis;
     overflow: hidden;
     text-decoration: none;
-    color: var(--not-pure-black);
+    color: var(--dark-slate-gray);
 }
 
 @supports (-webkit-line-clamp: 2) {

@@ -8,12 +8,12 @@ import { useSelector } from 'react-redux';
 import NavBarUserSubmenu from './NavBarUserSubmenu';
 
 const NavigationBar = () => {
+    const location = useLocation();
+    const usernameContainer = useRef();
     const [isDropdownShown, setIsDropdownShown] = useState(false);
     const [isSubmenuShown, setIsSubmenuShown] = useState(false);
     const [targetWidth, setTargetWidth] = useState(0);
-    const location = useLocation();
     const { userInfo } = useSelector((state) => state.auth);
-    const usernameContainer = useRef();
 
     useEffect(() => {
         if (userInfo && usernameContainer.current) {
@@ -63,7 +63,18 @@ const NavigationBar = () => {
                         ) : (
                             <>
                                 <li>
-                                    <Link to="/user/register" className="nav-link">
+                                    <Link
+                                        to={{
+                                            pathname: '/user/register',
+                                            state: {
+                                                oldLocation:
+                                                    location.state && location.state.oldLocation
+                                                        ? location.state.oldLocation
+                                                        : location.pathname,
+                                            },
+                                        }}
+                                        className="nav-link"
+                                    >
                                         <span className="navbar-link">Đăng ký</span>
                                     </Link>
                                 </li>
@@ -72,7 +83,12 @@ const NavigationBar = () => {
                                     <Link
                                         to={{
                                             pathname: '/user/login',
-                                            state: { oldLocation: location.pathname },
+                                            state: {
+                                                oldLocation:
+                                                    location.state && location.state.oldLocation
+                                                        ? location.state.oldLocation
+                                                        : location.pathname,
+                                            },
                                         }}
                                         className="nav-link"
                                     >

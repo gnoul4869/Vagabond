@@ -1,7 +1,7 @@
 :root {
     --inspiring-red: #c73434;
     --inspiring-red-hover: #df4343;
-    --not-pure-black: #2f2f2f;
+    --dark-slate-gray: #2f2f2f;
     --not-pure-white: #fdfdfd;
     --white-hover: #d6d6d6;
 }
@@ -56,8 +56,8 @@ input[type='number']::-webkit-outer-spin-button {
     color: var(--inspiring-red);
 }
 
-.text-dark {
-    color: var(--not-pure-black);
+.text-sdark {
+    color: var(--dark-slate-gray);
 }
 
 .fw-600 {
@@ -134,4 +134,9 @@ input[type='number']::-webkit-outer-spin-button {
 .form-check-input:checked {
     background-color: var(--inspiring-red) !important;
     border-color: var(--inspiring-red) !important;
+}
+
+/** Border */
+.divider-line {
+    border-bottom: 0.0625rem solid #efefef;
 }

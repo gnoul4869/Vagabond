@@ -12,7 +12,7 @@
     white-space: nowrap;
     text-overflow: ellipsis;
     overflow: hidden;
-    color: var(--not-pure-black);
+    color: var(--dark-slate-gray);
 }
 
 @supports (-webkit-line-clamp: 2) {
