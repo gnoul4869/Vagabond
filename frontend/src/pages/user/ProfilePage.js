@@ -3,14 +3,28 @@ import { useDispatch, useSelector } from 'react-redux';
 import { detailUser } from '../../redux/actions/userAction';
 import ErrorPage from '../error/ErrorPage';
 import UserDetailsLoading from '../../components/loading/UserDetailsLoading';
+import { useHistory, useLocation } from 'react-router';
 
 const ProfilePage = () => {
+    const history = useHistory();
+    const location = useLocation();
     const dispatch = useDispatch();
     const { isLoading, userDetails, error } = useSelector((state) => state.user);
+    const userAuth = useSelector((state) => state.auth);
+    const userInfo = userAuth.userInfo;
 
     useEffect(() => {
         dispatch(detailUser());
     }, [dispatch]);
+
+    useEffect(() => {
+        if (!userInfo) {
+            history.push({
+                pathname: '/user/login',
+                state: { oldLocation: location.pathname },
+            });
+        }
+    }, [history, location.pathname, userInfo]);
 
     if (error) {
         return <ErrorPage error={error} />;

@@ -84,7 +84,18 @@ const LoginPage = () => {
                     <hr className="my-4" />
                     <div className="text-muted text-center">
                         <span>Chưa phải là thành viên?</span>{' '}
-                        <Link to="/user/register" className="link-label">
+                        <Link
+                            to={{
+                                pathname: '/user/register',
+                                state: {
+                                    oldLocation:
+                                        location.state && location.state.oldLocation
+                                            ? location.state.oldLocation
+                                            : '/',
+                                },
+                            }}
+                            className="link-label"
+                        >
                             Đăng ký
                         </Link>
                     </div>

@@ -243,7 +243,12 @@ const RegisterPage = () => {
                         <Link
                             to={{
                                 pathname: '/user/login',
-                                state: { oldLocation: location.pathname },
+                                state: {
+                                    oldLocation:
+                                        location.state && location.state.oldLocation
+                                            ? location.state.oldLocation
+                                            : location.pathname,
+                                },
                             }}
                             className="link-label"
                         >
