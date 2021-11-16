@@ -3,7 +3,7 @@ import React from 'react';
 const Footer = () => {
     return (
         <section className="footer-container mt-4">
-            <div className="container mt-5">
+            <div className="container text-dark mt-5">
                 <div>
                     <div className="fw-bold fs-4 my-2">
                         VAGABOND - GÌ CŨNG CÓ, MUA HẾT Ở VAGABOND

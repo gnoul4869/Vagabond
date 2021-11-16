@@ -1,6 +1,8 @@
 :root {
     --inspiring-red: #c73434;
     --inspiring-red-hover: #df4343;
+    --not-pure-black: #2f2f2f;
+    --not-pure-white: #fdfdfd;
     --white-hover: #d6d6d6;
 }
 
@@ -52,6 +54,10 @@ input[type='number']::-webkit-outer-spin-button {
 
 .text-ired {
     color: var(--inspiring-red);
+}
+
+.text-dark {
+    color: var(--not-pure-black);
 }
 
 .fw-600 {

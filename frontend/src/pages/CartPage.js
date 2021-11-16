@@ -76,7 +76,7 @@ const CartPage = () => {
                                             </Link>
                                         </div>
                                         <div className="col-6 col-md">
-                                            <div className="fw-600 text-center">
+                                            <div className="text-dark fw-600 text-center">
                                                 <ProductPrice price={item.price} />
                                             </div>
                                         </div>
@@ -94,7 +94,7 @@ const CartPage = () => {
                                             </div>
                                         </div>
                                         <div className="col d-none d-md-block">
-                                            <div className="fw-600 text-center">
+                                            <div className="text-dark fw-600 text-center">
                                                 <ProductPrice price={item.price * item.qty} />
                                             </div>
                                         </div>

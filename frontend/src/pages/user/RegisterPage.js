@@ -195,7 +195,7 @@ const RegisterPage = () => {
         <div className="row align-items-center g-lg-5 py-5 mx-md-5">
             <div className="col-lg-7 text-center text-lg-start">
                 <h1 className="display-5 fw-bold lh-1 mb-3 text-ired">Đăng ký thành viên</h1>
-                <p className="col-lg-10 fs-2 ms-3">Bước đầu khám phá</p>
+                <p className="col-lg-10 fs-2 ms-3 text-dark">Bước đầu khám phá</p>
             </div>
             <div className="col-md-10 mx-auto col-lg-5">
                 <form
