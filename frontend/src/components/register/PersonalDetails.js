@@ -19,11 +19,11 @@ const PersonalDetails = ({
                 <input
                     type="text"
                     id="address"
-                    placeholder="Z-City"
+                    placeholder="Địa chỉ"
                     className="form-control"
+                    value={address && address}
                     onChange={(e) => setAddress(e.target.value)}
                     disabled={isLoading}
-                    value={address && address}
                 />
                 <label htmlFor="input">Địa chỉ</label>
             </div>
@@ -31,21 +31,21 @@ const PersonalDetails = ({
                 <input
                     type="tel"
                     id="tel"
-                    placeholder="XXX-XXX-XXX"
+                    placeholder="Số điện thoại"
                     className="form-control"
+                    value={phoneNumber && phoneNumber}
                     onChange={(e) => setPhoneNumber(e.target.value)}
                     disabled={isLoading}
-                    value={phoneNumber && phoneNumber}
                 />
                 <label htmlFor="input">Số điện thoại</label>
             </div>
             <div className="mb-3">
-                <GenderRadio gender={gender} setGender={setGender} />
+                <GenderRadio gender={gender} setGender={setGender} isLoading={isLoading} />
             </div>
             <div className="row justify-content-start align-items-center mb-3 g-0">
                 <div className="col-auto me-2">Ngày sinh</div>
                 <div className="col">
-                    <DateInput date={birthDate} setDate={setBirthDate} />
+                    <DateInput date={birthDate} setDate={setBirthDate} isLoading={isLoading} />
                 </div>
             </div>
         </>

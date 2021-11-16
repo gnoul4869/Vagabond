@@ -5,6 +5,8 @@ import ErrorPage from '../error/ErrorPage';
 import UserDetailsLoading from '../../components/loading/UserDetailsLoading';
 import { useHistory, useLocation } from 'react-router';
 import GenderRadio from '../../components/GenderRadio';
+import DateInput from '../../components/DateInput';
+import moment from 'moment';
 
 const ProfilePage = () => {
     const history = useHistory();
@@ -14,7 +16,15 @@ const ProfilePage = () => {
     const userAuth = useSelector((state) => state.auth);
     const userInfo = userAuth.userInfo;
 
+    const [name, setName] = useState('');
+    const [address, setAddress] = useState('');
+    const [phoneNumber, setPhoneNumber] = useState('');
     const [gender, setGender] = useState('');
+    const [birthDate, setBirthDate] = useState(new Date());
+
+    const submitHandler = (e) => {
+        e.preventDefault();
+    };
 
     useEffect(() => {
         dispatch(detailUser());
@@ -22,7 +32,11 @@ const ProfilePage = () => {
 
     useEffect(() => {
         if (userDetails) {
+            setName(userDetails.name);
+            setAddress(userDetails.address);
+            setPhoneNumber(userDetails.phoneNumber);
             setGender(userDetails.gender);
+            setBirthDate(moment(userDetails.birthDate).toDate());
         }
     }, [userDetails]);
 
@@ -59,36 +73,112 @@ const ProfilePage = () => {
                             />
                         </div>
                         <div className="container py-4">
-                            <div className="row">
-                                <div className="col">
-                                    <div className="text-secondary fw-600 text-end">Email</div>
-                                    <div className="text-secondary fw-600 text-end">Tên</div>
-                                    <div className="text-secondary fw-600 text-end">Địa chỉ</div>
-                                    <div className="text-secondary fw-600 text-end">
-                                        Số điện thoại
+                            <form onSubmit={submitHandler}>
+                                <div className="row align-items-center">
+                                    <div className="profile-field-name">
+                                        <div className="fw-600 text-secondary text-end">Email</div>
                                     </div>
-                                    <div className="text-secondary fw-600 text-end">Giới tính</div>
-                                    <div className="text-secondary fw-600 text-end">Ngày sinh</div>
-                                </div>
-                                <div className="col">
-                                    <div className="text-sdark fw-600 text-start">
-                                        {userDetails.email}
-                                    </div>
-                                    <div className="text-sdark fw-600 text-start">
-                                        {userDetails.name}
-                                    </div>
-                                    <div className="text-sdark fw-600 text-start">
-                                        {userDetails.address}
-                                    </div>
-                                    <div className="text-sdark fw-600 text-start">
-                                        {userDetails.phoneNumber}
-                                    </div>
-                                    <GenderRadio gender={gender} setGender={setGender} />
-                                    <div className="text-sdark fw-600 text-start">
-                                        {userDetails.birthDate}
+                                    <div className="profile-field-value">
+                                        <div className="text-sdark text-start">
+                                            {userDetails.email}
+                                        </div>
                                     </div>
                                 </div>
-                            </div>
+                                <div className="row align-items-center mt-2">
+                                    <div className="profile-field-name">
+                                        <div className="fw-600 text-secondary text-end">Tên</div>
+                                    </div>
+                                    <div className="profile-field-value">
+                                        <div className="col-md-6">
+                                            <input
+                                                type="text"
+                                                id="name"
+                                                placeholder="Tên"
+                                                className="form-control"
+                                                onChange={(e) => setName(e.target.value)}
+                                                disabled={isLoading}
+                                                value={name && name}
+                                            />
+                                        </div>
+                                    </div>
+                                </div>
+                                <div className="row align-items-center mt-2">
+                                    <div className="profile-field-name">
+                                        <div className="fw-600 text-secondary text-end">
+                                            Địa chỉ
+                                        </div>
+                                    </div>
+                                    <div className="profile-field-value">
+                                        <div className="col-md-6">
+                                            <div className="fw-600 text-secondary text-start">
+                                                <input
+                                                    type="text"
+                                                    id="address"
+                                                    placeholder="Địa chỉ"
+                                                    className="form-control"
+                                                    onChange={(e) => setAddress(e.target.value)}
+                                                    disabled={isLoading}
+                                                    value={address && address}
+                                                />
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div className="row align-items-center mt-2">
+                                    <div className="profile-field-name">
+                                        <div className="fw-600 text-secondary text-end">
+                                            Số điện thoại
+                                        </div>
+                                    </div>
+                                    <div className="profile-field-value">
+                                        <div className="col-md-6">
+                                            <div className="fw-600 text-secondary text-start">
+                                                <input
+                                                    type="tel"
+                                                    id="tel"
+                                                    placeholder="Số điện thoại"
+                                                    className="form-control"
+                                                    onChange={(e) => setPhoneNumber(e.target.value)}
+                                                    disabled={isLoading}
+                                                    value={phoneNumber && phoneNumber}
+                                                />
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div className="row align-items-center mt-2">
+                                    <div className="profile-field-name">
+                                        <div className="fw-600 text-secondary text-end">
+                                            Giới tính
+                                        </div>
+                                    </div>
+                                    <div className="profile-field-value">
+                                        <div className="col-md-6">
+                                            <GenderRadio
+                                                gender={gender}
+                                                setGender={setGender}
+                                                isLoading={isLoading}
+                                            />
+                                        </div>
+                                    </div>
+                                </div>
+                                <div className="row align-items-center mt-2">
+                                    <div className="profile-field-name">
+                                        <div className="fw-600 text-secondary text-end">
+                                            Giới tính
+                                        </div>
+                                    </div>
+                                    <div className="profile-field-value">
+                                        <div className="col-md-6">
+                                            <DateInput
+                                                date={birthDate}
+                                                setDate={setBirthDate}
+                                                isLoading={isLoading}
+                                            />
+                                        </div>
+                                    </div>
+                                </div>
+                            </form>
                         </div>
                     </div>
                 )

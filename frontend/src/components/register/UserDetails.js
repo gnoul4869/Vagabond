@@ -9,9 +9,9 @@ const UserDetails = ({ name, setName, email, setEmail, isLoading }) => {
                     id="name"
                     placeholder="Tên"
                     className="form-control"
+                    value={name && name}
                     onChange={(e) => setName(e.target.value)}
                     disabled={isLoading}
-                    value={name && name}
                 />
                 <label htmlFor="input">Tên</label>
             </div>
@@ -19,11 +19,11 @@ const UserDetails = ({ name, setName, email, setEmail, isLoading }) => {
                 <input
                     type="email"
                     id="email"
-                    placeholder="name@example.com"
+                    placeholder="Email"
                     className="form-control"
+                    value={email && email}
                     onChange={(e) => setEmail(e.target.value)}
                     disabled={isLoading}
-                    value={email && email}
                 />
                 <label htmlFor="input">Email</label>
             </div>

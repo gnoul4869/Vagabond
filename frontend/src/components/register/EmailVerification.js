@@ -1,7 +1,7 @@
 import React, { useEffect } from 'react';
 import OtpInput from 'react-otp-input';
 
-const EmailVerification = ({ email, status, otp, setOtp, error, isVerified }) => {
+const EmailVerification = ({ email, status, otp, setOtp, error, isVerified, isLoading }) => {
     const inputHandler = (value) => {
         setOtp(value);
     };
@@ -43,7 +43,8 @@ const EmailVerification = ({ email, status, otp, setOtp, error, isVerified }) =>
                         containerStyle="d-flex justify-content-evenly mb-3"
                         inputStyle="auth-otp-input"
                         errorStyle="auth-otp-error"
-                    />{' '}
+                        isDisabled={isLoading}
+                    />
                 </>
             ) : (
                 <>

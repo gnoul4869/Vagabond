@@ -25,8 +25,8 @@ const userSchema = new mongoose.Schema(
         name: {
             type: String,
             required: [true, 'Hãy nhập tên của bạn'],
-            minlength: 5,
-            maxlength: 50,
+            minlength: [5, 'Tên không thể có ít hơn 5 ký tự'],
+            maxlength: [40, 'Tên không thể có nhiều hơn 40 ký tự'],
         },
         address: {
             type: String,

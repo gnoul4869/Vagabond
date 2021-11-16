@@ -142,6 +142,7 @@ const RegisterPage = () => {
                         setOtp={setOtp}
                         error={error}
                         isVerified={isVerified}
+                        isLoading={isLoading}
                     />
                 );
             case 2:

@@ -5,3 +5,33 @@
     max-height: 12.5rem;
     object-fit: contain;
 }
+
+.profile-field-name {
+    width: 45% !important;
+}
+
+.profile-field-value {
+    width: 55% !important;
+}
+
+/*? X-Small devices (portrait phones, less than 576px) */
+@media (max-width: 575.98px) {
+    .profile-field-name {
+        width: 25% !important;
+    }
+
+    .profile-field-value {
+        width: 75% !important;
+    }
+}
+
+/*? Small devices (landscape phones, less than 768px) */
+@media (min-width: 576px) and (max-width: 767.98px) {
+    .profile-field-name {
+        width: 30% !important;
+    }
+
+    .profile-field-value {
+        width: 70% !important;
+    }
+}

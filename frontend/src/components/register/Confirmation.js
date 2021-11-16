@@ -16,9 +16,9 @@ const Confirmation = ({
                     id="password"
                     placeholder="Tên"
                     className="form-control"
+                    value={password && password}
                     onChange={(e) => setPassword(e.target.value)}
                     disabled={isLoading}
-                    value={password && password}
                 />
                 <label htmlFor="input">Mật khẩu</label>
             </div>
@@ -28,9 +28,9 @@ const Confirmation = ({
                     id="confirmPassword"
                     placeholder="name@example.com"
                     className="form-control"
+                    value={confirmPassword && confirmPassword}
                     onChange={(e) => setConfirmPassword(e.target.value)}
                     disabled={isLoading}
-                    value={confirmPassword && confirmPassword}
                 />
                 <label htmlFor="input">Xác nhận mật khẩu</label>
             </div>

@@ -1,6 +1,6 @@
 import React from 'react';
 
-const GenderRadio = ({ gender, setGender }) => {
+const GenderRadio = ({ gender, setGender, isLoading }) => {
     return (
         <>
             <div className="form-check-inline">
@@ -12,6 +12,7 @@ const GenderRadio = ({ gender, setGender }) => {
                     className="form-check-input"
                     checked={gender === 'Nam' ? true : false}
                     onChange={(e) => setGender(e.target.value)}
+                    disabled={isLoading}
                 />
                 <label className="form-check-label ms-2 fw-600" htmlFor="male">
                     Nam
@@ -26,6 +27,7 @@ const GenderRadio = ({ gender, setGender }) => {
                     className="form-check-input"
                     checked={gender === 'Nữ' ? true : false}
                     onChange={(e) => setGender(e.target.value)}
+                    disabled={isLoading}
                 />
                 <label className="form-check-label ms-2 fw-600" htmlFor="female">
                     Nữ
@@ -40,6 +42,7 @@ const GenderRadio = ({ gender, setGender }) => {
                     className="form-check-input"
                     checked={gender === 'Khác' ? true : false}
                     onChange={(e) => setGender(e.target.value)}
+                    disabled={isLoading}
                 />
                 <label className="form-check-label ms-2" htmlFor="other">
                     Khác

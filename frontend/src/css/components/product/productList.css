@@ -7,6 +7,7 @@
 .product-container {
     display: flex;
     flex-direction: column;
+    text-decoration: none !important;
     position: relative;
     background: white;
     padding: 0.3125rem;
@@ -55,7 +56,7 @@
     height: 2.5rem;
     line-height: 1.25rem;
     margin-bottom: 0.3125rem;
-    color: var(--not-pure-black);
+    color: var(--dark-slate-gray);
 }
 
 .product-name:hover {

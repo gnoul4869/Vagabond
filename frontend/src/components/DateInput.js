@@ -2,7 +2,7 @@ import React from 'react';
 import DatePicker from 'react-date-picker';
 import { FaRegCalendarAlt } from 'react-icons/fa';
 
-const DateInput = ({ date, setDate }) => {
+const DateInput = ({ date, setDate, isLoading }) => {
     return (
         <DatePicker
             value={date}
@@ -15,6 +15,7 @@ const DateInput = ({ date, setDate }) => {
             clearIcon={null}
             calendarIcon={<FaRegCalendarAlt />}
             maxDate={new Date()}
+            disabled={isLoading}
         />
     );
 };
