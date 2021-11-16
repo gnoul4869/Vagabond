@@ -30,13 +30,13 @@
     box-shadow: 0rem 0rem 0.1875rem 0rem var(--inspiring-red);
 }
 
-.product-image {
+.product-image-container {
     margin-bottom: 0.3125rem;
     position: relative;
     padding-top: 100%;
 }
 
-.product-image img {
+.product-image {
     position: absolute;
     max-width: 100%;
     max-height: 100%;

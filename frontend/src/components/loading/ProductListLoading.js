@@ -37,23 +37,24 @@ const ProductListLoading = () => {
                     //         </div>
                     //     </div>
                     // </div>
-                    <div key={index} className="product-container">
-                        <div className="product-image">
-                            <div className="bg-loading"></div>
-                        </div>
-                        <div className="bg-loading rounded-pill"></div>
-
-                        <div className="product-bottom">
-                            <div className="product-price-status-container">
-                                <span className="product-price">
-                                    <div className="bg-loading rounded-pill"></div>
-                                </span>
-                                <div className="product-rating">
-                                    <div className="bg-loading rounded-pill"></div>
-                                    <div className="bg-loading rounded-pill"></div>
-                                </div>
+                    <div key={index} className="product-wrapper">
+                        <div className="product-container">
+                            <div className="product-image-container">
+                                <div className="product-image bg-loading"></div>
                             </div>
-                            <div className="bg-loading rounded-pill"></div>
+                            <div className="product-name bg-loading rounded-pill"></div>
+
+                            <div className="product-bottom">
+                                <div className="product-info-container">
+                                    <div className="product-price">
+                                        <div className="bg-loading rounded-pill w-75"></div>
+                                    </div>
+                                    <div className="product-rating">
+                                        <div className="bg-loading rounded-pill w-50"></div>
+                                    </div>
+                                </div>
+                                <div className="bg-loading rounded-pill w-25"></div>
+                            </div>
                         </div>
                     </div>
                 );

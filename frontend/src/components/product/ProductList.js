@@ -49,8 +49,12 @@ const ProductList = () => {
                             <div key={item._id} className="product-wrapper">
                                 <div className="product-container">
                                     <Link to={`/product/${item._id}`} className="link-inherit">
-                                        <div className="product-image">
-                                            <img src={item.images[0]} alt={item.name} />
+                                        <div className="product-image-container">
+                                            <img
+                                                src={item.images[0]}
+                                                alt={item.name}
+                                                className="product-image"
+                                            />
                                         </div>
                                         <div className="product-name line-clamp-2">{item.name}</div>
                                     </Link>
