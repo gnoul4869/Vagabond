@@ -54,6 +54,7 @@ export const auth = (state = { isLoading: false, userInfo: null, error: '' }, ac
             return {
                 ...state,
                 userInfo: {
+                    ...state.userInfo,
                     name: action.payload.name,
                     image: action.payload.image,
                 },
