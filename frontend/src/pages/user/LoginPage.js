@@ -51,6 +51,7 @@ const LoginPage = () => {
                             id="email"
                             placeholder="name@example.com"
                             className="form-control"
+                            value={email}
                             onChange={(e) => setEmail(e.target.value)}
                             disabled={isLoading}
                         />
@@ -62,6 +63,7 @@ const LoginPage = () => {
                             id="password"
                             placeholder="Mật khẩu"
                             className="form-control"
+                            value={password}
                             onChange={(e) => setPassword(e.target.value)}
                             disabled={isLoading}
                         />

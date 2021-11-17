@@ -84,7 +84,7 @@ const ProfilePage = () => {
                                         </div>
                                     </div>
                                 </div>
-                                <div className="row align-items-center mt-2">
+                                <div className="row align-items-center mt-3">
                                     <div className="profile-field-name">
                                         <div className="fw-600 text-secondary text-end">Tên</div>
                                     </div>
@@ -95,14 +95,14 @@ const ProfilePage = () => {
                                                 id="name"
                                                 placeholder="Tên"
                                                 className="form-control"
+                                                value={name ? name : ''}
                                                 onChange={(e) => setName(e.target.value)}
                                                 disabled={isLoading}
-                                                value={name && name}
                                             />
                                         </div>
                                     </div>
                                 </div>
-                                <div className="row align-items-center mt-2">
+                                <div className="row align-items-center mt-3">
                                     <div className="profile-field-name">
                                         <div className="fw-600 text-secondary text-end">
                                             Địa chỉ
@@ -118,13 +118,13 @@ const ProfilePage = () => {
                                                     className="form-control"
                                                     onChange={(e) => setAddress(e.target.value)}
                                                     disabled={isLoading}
-                                                    value={address && address}
+                                                    value={address ? address : ''}
                                                 />
                                             </div>
                                         </div>
                                     </div>
                                 </div>
-                                <div className="row align-items-center mt-2">
+                                <div className="row align-items-center mt-3">
                                     <div className="profile-field-name">
                                         <div className="fw-600 text-secondary text-end">
                                             Số điện thoại
@@ -140,13 +140,13 @@ const ProfilePage = () => {
                                                     className="form-control"
                                                     onChange={(e) => setPhoneNumber(e.target.value)}
                                                     disabled={isLoading}
-                                                    value={phoneNumber && phoneNumber}
+                                                    value={phoneNumber ? phoneNumber : ''}
                                                 />
                                             </div>
                                         </div>
                                     </div>
                                 </div>
-                                <div className="row align-items-center mt-2">
+                                <div className="row align-items-center mt-3">
                                     <div className="profile-field-name">
                                         <div className="fw-600 text-secondary text-end">
                                             Giới tính
@@ -162,7 +162,7 @@ const ProfilePage = () => {
                                         </div>
                                     </div>
                                 </div>
-                                <div className="row align-items-center mt-2">
+                                <div className="row align-items-center mt-3">
                                     <div className="profile-field-name">
                                         <div className="fw-600 text-secondary text-end">
                                             Giới tính
@@ -176,6 +176,13 @@ const ProfilePage = () => {
                                                 isLoading={isLoading}
                                             />
                                         </div>
+                                    </div>
+                                </div>
+                                <div className="row justify-content-center">
+                                    <div className="col-auto mt-5">
+                                        <button type="submit" className="btn btn-ired">
+                                            Lưu
+                                        </button>
                                     </div>
                                 </div>
                             </form>

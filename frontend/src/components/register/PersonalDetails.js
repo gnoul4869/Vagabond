@@ -21,7 +21,7 @@ const PersonalDetails = ({
                     id="address"
                     placeholder="Địa chỉ"
                     className="form-control"
-                    value={address && address}
+                    value={address}
                     onChange={(e) => setAddress(e.target.value)}
                     disabled={isLoading}
                 />
@@ -33,7 +33,7 @@ const PersonalDetails = ({
                     id="tel"
                     placeholder="Số điện thoại"
                     className="form-control"
-                    value={phoneNumber && phoneNumber}
+                    value={phoneNumber}
                     onChange={(e) => setPhoneNumber(e.target.value)}
                     disabled={isLoading}
                 />

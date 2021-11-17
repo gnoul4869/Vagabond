@@ -16,7 +16,7 @@ const Confirmation = ({
                     id="password"
                     placeholder="Tên"
                     className="form-control"
-                    value={password && password}
+                    value={password}
                     onChange={(e) => setPassword(e.target.value)}
                     disabled={isLoading}
                 />
@@ -28,7 +28,7 @@ const Confirmation = ({
                     id="confirmPassword"
                     placeholder="name@example.com"
                     className="form-control"
-                    value={confirmPassword && confirmPassword}
+                    value={confirmPassword}
                     onChange={(e) => setConfirmPassword(e.target.value)}
                     disabled={isLoading}
                 />

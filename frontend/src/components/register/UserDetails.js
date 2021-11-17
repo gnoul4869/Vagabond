@@ -9,7 +9,7 @@ const UserDetails = ({ name, setName, email, setEmail, isLoading }) => {
                     id="name"
                     placeholder="Tên"
                     className="form-control"
-                    value={name && name}
+                    value={name}
                     onChange={(e) => setName(e.target.value)}
                     disabled={isLoading}
                 />
@@ -21,7 +21,7 @@ const UserDetails = ({ name, setName, email, setEmail, isLoading }) => {
                     id="email"
                     placeholder="Email"
                     className="form-control"
-                    value={email && email}
+                    value={email}
                     onChange={(e) => setEmail(e.target.value)}
                     disabled={isLoading}
                 />
