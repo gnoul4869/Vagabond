@@ -53,6 +53,14 @@ const RegisterPage = () => {
                     return setValidationError('Hãy nhập tên của bạn');
                 }
 
+                if (name.length < 5) {
+                    return setValidationError('Tên không thể có ít hơn 5 ký tự');
+                }
+
+                if (name.length > 40) {
+                    return setValidationError('Tên không thể có nhiều hơn 40 ký tự');
+                }
+
                 if (!email) {
                     return setValidationError('Hãy nhập email của bạn');
                 }
@@ -64,6 +72,8 @@ const RegisterPage = () => {
                 ) {
                     return setValidationError('Email không hợp lệ');
                 }
+
+                setValidationError('');
 
                 if (!isEmailSent && !isVerified) {
                     return dispatch(verifyEmail(name, email, setStep));

@@ -6,9 +6,31 @@ import generateMail from '../utils/generate-email.js';
 
 export const verifyEmail = async (req, res) => {
     const { name, email } = req.body;
-    if (!name || !email) {
-        throw new BadRequestError('Hãy nhập tên và email của bạn');
+
+    if (!name) {
+        throw new BadRequestError('Hãy nhập tên của bạn');
     }
+
+    if (name.length < 5) {
+        throw new BadRequestError('Tên không thể có ít hơn 5 ký tự');
+    }
+
+    if (name.length > 40) {
+        throw new BadRequestError('Tên không thể có nhiều hơn 40 ký tự');
+    }
+
+    if (!email) {
+        throw new BadRequestError('Hãy nhập email của bạn');
+    }
+
+    if (
+        !RegExp(
+            /^(([^<>()[\]\\.,;:\s@"]+(\.[^<>()[\]\\.,;:\s@"]+)*)|(".+"))@((\[[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\])|(([a-zA-Z\-0-9]+\.)+[a-zA-Z]{2,}))$/
+        ).test(email)
+    ) {
+        throw new BadRequestError('Email không hợp lệ');
+    }
+
     const user = await User.findOne({ email });
     if (user) {
         throw new BadRequestError('Email này đã được đăng ký');
