@@ -7,6 +7,7 @@ import { useHistory, useLocation } from 'react-router';
 import GenderRadio from '../../components/GenderRadio';
 import DateInput from '../../components/DateInput';
 import moment from 'moment';
+import { VscError } from 'react-icons/vsc';
 
 const ProfilePage = () => {
     const history = useHistory();
@@ -21,9 +22,40 @@ const ProfilePage = () => {
     const [phoneNumber, setPhoneNumber] = useState('');
     const [gender, setGender] = useState('');
     const [birthDate, setBirthDate] = useState(new Date());
+    const [validationError, setValidationError] = useState('');
 
     const submitHandler = (e) => {
         e.preventDefault();
+
+        if (!address) {
+            return setValidationError('Hãy nhập địa chỉ của bạn');
+        }
+
+        if (!phoneNumber) {
+            return setValidationError('Hãy nhập số điện thoại của bạn');
+        }
+
+        if (phoneNumber.length !== 10) {
+            return setValidationError('Số điện thoại của bạn không hợp lệ');
+        }
+
+        if (!gender) {
+            return setValidationError('Hãy chọn giới tính của bạn');
+        }
+
+        if (!birthDate) {
+            return setValidationError('Hãy chọn ngày sinh của bạn');
+        }
+
+        var age = moment().diff(birthDate, 'years');
+        if (age < 12) {
+            return setValidationError('Bạn phải lớn hơn 12 tuổi để đăng ký tài khoản');
+        }
+        if (age > 125) {
+            return setValidationError('Số tuổi không hợp lệ');
+        }
+
+        // setValidationError('');
     };
 
     useEffect(() => {
@@ -185,6 +217,13 @@ const ProfilePage = () => {
                                         </button>
                                     </div>
                                 </div>
+
+                                {(error || validationError) && (
+                                    <div className="auth-error-container mt-4 mt-md-0">
+                                        <VscError className="icon text-ired" />
+                                        <span className="ms-2">{error || validationError}</span>
+                                    </div>
+                                )}
                             </form>
                         </div>
                     </div>

@@ -49,6 +49,14 @@ const RegisterPage = () => {
 
         switch (step) {
             case 0:
+                if (!name) {
+                    return setValidationError('Hãy nhập tên của bạn');
+                }
+
+                if (!email) {
+                    return setValidationError('Hãy nhập email của bạn');
+                }
+
                 if (!isEmailSent && !isVerified) {
                     return dispatch(verifyEmail(name, email, setStep));
                 } else {
@@ -208,18 +216,11 @@ const RegisterPage = () => {
                             <MdArrowBack className="icon" />
                         </button>
                     )}
-                    {error ? (
+                    {(error || validationError) && (
                         <div className="auth-error-container mt-4 mt-md-0">
                             <VscError className="icon text-ired" />
-                            <span className="ms-2">{error}</span>
+                            <span className="ms-2">{error || validationError}</span>
                         </div>
-                    ) : (
-                        validationError && (
-                            <div className="auth-error-container mt-4 mt-md-0">
-                                <VscError className="icon text-ired" />
-                                <span className="ms-2">{validationError}</span>
-                            </div>
-                        )
                     )}
                     {switchStep(step)}
                     <button

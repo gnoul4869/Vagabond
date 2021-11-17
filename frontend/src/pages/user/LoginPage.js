@@ -11,6 +11,8 @@ const LoginPage = () => {
     const dispatch = useDispatch();
     const [email, setEmail] = useState('');
     const [password, setPassword] = useState('');
+    const [validationError, setValidationError] = useState('');
+
     const { userInfo, isLoading, error } = useSelector((state) => state.auth);
 
     const oldLocation =
@@ -18,6 +20,15 @@ const LoginPage = () => {
 
     const submitHandler = (e) => {
         e.preventDefault();
+
+        if (!email) {
+            return setValidationError('Hãy nhập email của bạn');
+        }
+
+        if (!password) {
+            return setValidationError('Hãy nhập mật khẩu của bạn');
+        }
+
         dispatch(login(email, password));
     };
 
@@ -39,10 +50,10 @@ const LoginPage = () => {
             </div>
             <div className="col-md-10 col-lg-5 mx-auto">
                 <form className="p-4 p-md-5 border rounded-3 bg-white" onSubmit={submitHandler}>
-                    {error && (
+                    {(error || validationError) && (
                         <div className="auth-error-container">
                             <VscError className="icon text-ired" />
-                            <span className="ms-2">{error}</span>
+                            <span className="ms-2">{error || validationError}</span>
                         </div>
                     )}
                     <div className="form-floating mb-3">
