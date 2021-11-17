@@ -20,7 +20,7 @@ const ProfilePage = () => {
         (state) => state.user
     );
 
-    const [details, setDetails] = useState(userDetails);
+    const [details] = useState(userDetails);
 
     const [name, setName] = useState('');
     const [address, setAddress] = useState('');
