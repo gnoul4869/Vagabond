@@ -37,6 +37,10 @@ const LoginPage = () => {
             return setValidationError('Hãy nhập mật khẩu của bạn');
         }
 
+        if (password.length < 6) {
+            return setValidationError('Mật khẩu không hợp lệ');
+        }
+
         setValidationError('');
 
         dispatch(login(email, password));

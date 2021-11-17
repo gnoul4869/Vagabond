@@ -55,7 +55,7 @@ const ProfilePage = () => {
             return setValidationError('Số tuổi không hợp lệ');
         }
 
-        // setValidationError('');
+        setValidationError('');
     };
 
     useEffect(() => {
