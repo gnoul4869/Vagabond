@@ -9,6 +9,7 @@ export const register = async (req, res) => {
     if (!email) {
         throw new BadRequestError('Hãy nhập email của bạn');
     }
+
     if (
         !RegExp(
             /^(([^<>()[\]\\.,;:\s@"]+(\.[^<>()[\]\\.,;:\s@"]+)*)|(".+"))@((\[[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\])|(([a-zA-Z\-0-9]+\.)+[a-zA-Z]{2,}))$/
@@ -20,6 +21,7 @@ export const register = async (req, res) => {
     if (!password) {
         throw new BadRequestError('Hãy nhập mật khẩu của bạn');
     }
+
     if (password.length < 6) {
         throw new BadRequestError('Mật khẩu không hợp lệ');
     }
@@ -27,9 +29,11 @@ export const register = async (req, res) => {
     if (!RegExp('(?=.*[a-z])|(?=.*[A-Z])').test(password)) {
         throw new BadRequestError('Mật khẩu phải có ít nhất 1 chữ cái');
     }
+
     if (!RegExp('(?=.*[0-9])').test(password)) {
         throw new BadRequestError('Mật khẩu phải có ít nhất 1 chữ số');
     }
+
     if (!RegExp('(?=.{6,})').test(password)) {
         throw new BadRequestError('Mật khẩu phải có ít nhất 6 ký tự');
     }
@@ -62,10 +66,15 @@ export const register = async (req, res) => {
         throw new BadRequestError('Hãy chọn ngày sinh của bạn');
     }
 
+    if (!moment(birthDate).isValid()) {
+        throw new BadRequestError('Ngày sinh không hợp lệ');
+    }
+
     var age = moment().diff(birthDate, 'years');
     if (age < 12) {
         throw new BadRequestError('Bạn phải lớn hơn 12 tuổi để đăng ký tài khoản');
     }
+
     if (age > 125) {
         throw new BadRequestError('Số tuổi không hợp lệ');
     }

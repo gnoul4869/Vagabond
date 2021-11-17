@@ -31,6 +31,14 @@ export const updateUserDetails = async (req, res) => {
         throw new BadRequestError('Hãy nhập tên của bạn');
     }
 
+    if (name.length < 5) {
+        throw new BadRequestError('Tên không thể có ít hơn 5 ký tự');
+    }
+
+    if (name.length > 40) {
+        throw new BadRequestError('Tên không thể có nhiều hơn 40 ký tự');
+    }
+
     if (!address) {
         throw new BadRequestError('Hãy nhập địa chỉ của bạn');
     }
@@ -45,6 +53,10 @@ export const updateUserDetails = async (req, res) => {
 
     if (!birthDate) {
         throw new BadRequestError('Hãy chọn ngày sinh của bạn');
+    }
+
+    if (!moment(birthDate).isValid()) {
+        throw new BadRequestError('Ngày sinh không hợp lệ');
     }
 
     var age = moment().diff(birthDate, 'years');

@@ -1,5 +1,6 @@
 import {
     AUTH_STATE_REFRESH,
+    AUTH_STATE_UPDATE,
     LOGIN_FAIL,
     LOGIN_REQUEST,
     LOGIN_SUCCESS,
@@ -49,6 +50,14 @@ export const auth = (state = { isLoading: false, userInfo: null, error: '' }, ac
                 };
             }
             return {};
+        case AUTH_STATE_UPDATE:
+            return {
+                ...state,
+                userInfo: {
+                    name: action.payload.name,
+                    image: action.payload.image,
+                },
+            };
         default:
             return state;
     }

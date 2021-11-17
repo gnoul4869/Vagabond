@@ -1,4 +1,5 @@
 import axios from 'axios';
+import { AUTH_STATE_UPDATE } from '../constants/authConstants';
 import {
     USER_GET_DETAILS_FAIL,
     USER_GET_DETAILS_REQUEST,
@@ -44,6 +45,10 @@ export const updateUserDetails =
             );
             const { userDetails } = data;
             dispatch({ type: USER_UPDATE_DETAILS_SUCCESS, payload: userDetails });
+            dispatch({
+                type: AUTH_STATE_UPDATE,
+                payload: { name: userDetails.name, image: userDetails.image },
+            });
             localStorage.setItem(
                 'userInfo',
                 JSON.stringify({ ...userInfo, name: userDetails.name, image: userDetails.image })

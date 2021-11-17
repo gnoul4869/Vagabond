@@ -15,7 +15,7 @@ const ProfilePage = () => {
     const location = useLocation();
     const dispatch = useDispatch();
     const { userInfo } = useSelector((state) => state.auth);
-    const { isLoading, userDetails, error } = useSelector((state) => state.user);
+    const { isLoading, isUpdating, userDetails, error } = useSelector((state) => state.user);
 
     const [name, setName] = useState('');
     const [address, setAddress] = useState('');
@@ -57,6 +57,10 @@ const ProfilePage = () => {
             return setValidationError('Hãy chọn ngày sinh của bạn');
         }
 
+        if (!moment(birthDate).isValid()) {
+            return setValidationError('Ngày sinh không hợp lệ');
+        }
+
         var age = moment().diff(birthDate, 'years');
         if (age < 12) {
             return setValidationError('Số tuổi của bạn phải lớn hơn 12');
@@ -70,8 +74,10 @@ const ProfilePage = () => {
     };
 
     useEffect(() => {
-        dispatch(getUserDetails());
-    }, [dispatch]);
+        if (!userDetails) {
+            dispatch(getUserDetails());
+        }
+    }, [dispatch, userDetails]);
 
     useEffect(() => {
         if (userDetails) {
@@ -140,7 +146,7 @@ const ProfilePage = () => {
                                                 className="form-control"
                                                 value={name ? name : ''}
                                                 onChange={(e) => setName(e.target.value)}
-                                                disabled={isLoading}
+                                                disabled={isUpdating}
                                             />
                                         </div>
                                     </div>
@@ -160,7 +166,7 @@ const ProfilePage = () => {
                                                     placeholder="Địa chỉ"
                                                     className="form-control"
                                                     onChange={(e) => setAddress(e.target.value)}
-                                                    disabled={isLoading}
+                                                    disabled={isUpdating}
                                                     value={address ? address : ''}
                                                 />
                                             </div>
@@ -182,7 +188,7 @@ const ProfilePage = () => {
                                                     placeholder="Số điện thoại"
                                                     className="form-control"
                                                     onChange={(e) => setPhoneNumber(e.target.value)}
-                                                    disabled={isLoading}
+                                                    disabled={isUpdating}
                                                     value={phoneNumber ? phoneNumber : ''}
                                                 />
                                             </div>
@@ -200,7 +206,7 @@ const ProfilePage = () => {
                                             <GenderRadio
                                                 gender={gender}
                                                 setGender={setGender}
-                                                isLoading={isLoading}
+                                                isLoading={isUpdating}
                                             />
                                         </div>
                                     </div>
@@ -216,7 +222,7 @@ const ProfilePage = () => {
                                             <DateInput
                                                 date={birthDate}
                                                 setDate={setBirthDate}
-                                                isLoading={isLoading}
+                                                isLoading={isUpdating}
                                             />
                                         </div>
                                     </div>
@@ -237,11 +243,11 @@ const ProfilePage = () => {
                                     <div className="col-auto">
                                         <button
                                             className={`w-100 btn btn-ired ${
-                                                isLoading && 'btn-ired-loading'
+                                                isUpdating && 'btn-ired-loading'
                                             }`}
                                             type="submit"
                                         >
-                                            {!isLoading ? (
+                                            {!isUpdating ? (
                                                 'Lưu'
                                             ) : (
                                                 <BarLoader

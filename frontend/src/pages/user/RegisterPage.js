@@ -52,9 +52,11 @@ const RegisterPage = () => {
                 if (!name) {
                     return setValidationError('Hãy nhập tên của bạn');
                 }
+
                 if (name.length < 5) {
                     return setValidationError('Tên không thể có ít hơn 5 ký tự');
                 }
+
                 if (name.length > 40) {
                     return setValidationError('Tên không thể có nhiều hơn 40 ký tự');
                 }
@@ -62,6 +64,7 @@ const RegisterPage = () => {
                 if (!email) {
                     return setValidationError('Hãy nhập email của bạn');
                 }
+
                 if (
                     !RegExp(
                         /^(([^<>()[\]\\.,;:\s@"]+(\.[^<>()[\]\\.,;:\s@"]+)*)|(".+"))@((\[[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\])|(([a-zA-Z\-0-9]+\.)+[a-zA-Z]{2,}))$/
@@ -102,6 +105,10 @@ const RegisterPage = () => {
 
                 if (!birthDate) {
                     return setValidationError('Hãy chọn ngày sinh của bạn');
+                }
+
+                if (!moment(birthDate).isValid()) {
+                    return setValidationError('Ngày sinh không hợp lệ');
                 }
 
                 var age = moment().diff(birthDate, 'years');

@@ -7,7 +7,10 @@ import {
     USER_UPDATE_DETAILS_SUCCESS,
 } from '../constants/userConstants';
 
-export const user = (state = { isLoading: false, userDetails: null, error: '' }, action) => {
+export const user = (
+    state = { isLoading: false, isUpdating: false, userDetails: null, error: '' },
+    action
+) => {
     switch (action.type) {
         case USER_GET_DETAILS_REQUEST:
             return {
@@ -26,19 +29,14 @@ export const user = (state = { isLoading: false, userDetails: null, error: '' },
             };
         case USER_UPDATE_DETAILS_REQUEST:
             return {
-                isLoading: true,
+                ...state,
+                isUpdating: true,
                 error: '',
             };
         case USER_UPDATE_DETAILS_SUCCESS:
-            return {
-                isLoading: false,
-                userDetails: action.payload,
-            };
+            return { ...state, isUpdating: false, userDetails: action.payload };
         case USER_UPDATE_DETAILS_FAIL:
-            return {
-                isLoading: false,
-                error: action.payload,
-            };
+            return { ...state, isUpdating: false, error: action.payload };
         default:
             return state;
     }

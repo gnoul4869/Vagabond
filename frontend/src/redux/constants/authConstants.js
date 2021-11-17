@@ -9,3 +9,4 @@ export const LOGIN_FAIL = 'LOGIN_FAIL';
 export const LOGOUT = 'LOGOUT';
 
 export const AUTH_STATE_REFRESH = 'AUTH_STATE_REFRESH';
+export const AUTH_STATE_UPDATE = 'AUTH_STATE_UPDATE';
