@@ -10,7 +10,7 @@ const userSchema = new mongoose.Schema(
             required: [true, 'Hãy nhập email của bạn'],
             match: [
                 /^(([^<>()[\]\\.,;:\s@"]+(\.[^<>()[\]\\.,;:\s@"]+)*)|(".+"))@((\[[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\])|(([a-zA-Z\-0-9]+\.)+[a-zA-Z]{2,}))$/,
-                'Hãy cung cấp email hợp lệ',
+                'Email không hợp lệ',
             ],
             unique: true,
         },

@@ -25,9 +25,19 @@ const LoginPage = () => {
             return setValidationError('Hãy nhập email của bạn');
         }
 
+        if (
+            !RegExp(
+                /^(([^<>()[\]\\.,;:\s@"]+(\.[^<>()[\]\\.,;:\s@"]+)*)|(".+"))@((\[[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\])|(([a-zA-Z\-0-9]+\.)+[a-zA-Z]{2,}))$/
+            ).test(email)
+        ) {
+            return setValidationError('Email không hợp lệ');
+        }
+
         if (!password) {
             return setValidationError('Hãy nhập mật khẩu của bạn');
         }
+
+        setValidationError('');
 
         dispatch(login(email, password));
     };
@@ -49,7 +59,11 @@ const LoginPage = () => {
                 <p className="col-lg-10 fs-2 ms-3 text-sdark">Thoải mái mua hàng</p>
             </div>
             <div className="col-md-10 col-lg-5 mx-auto">
-                <form className="p-4 p-md-5 border rounded-3 bg-white" onSubmit={submitHandler}>
+                <form
+                    className="p-4 p-md-5 border rounded-3 bg-white"
+                    onSubmit={submitHandler}
+                    noValidate
+                >
                     {(error || validationError) && (
                         <div className="auth-error-container">
                             <VscError className="icon text-ired" />

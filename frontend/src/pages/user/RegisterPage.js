@@ -57,6 +57,14 @@ const RegisterPage = () => {
                     return setValidationError('Hãy nhập email của bạn');
                 }
 
+                if (
+                    !RegExp(
+                        /^(([^<>()[\]\\.,;:\s@"]+(\.[^<>()[\]\\.,;:\s@"]+)*)|(".+"))@((\[[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\])|(([a-zA-Z\-0-9]+\.)+[a-zA-Z]{2,}))$/
+                    ).test(email)
+                ) {
+                    return setValidationError('Email không hợp lệ');
+                }
+
                 if (!isEmailSent && !isVerified) {
                     return dispatch(verifyEmail(name, email, setStep));
                 } else {
@@ -210,6 +218,7 @@ const RegisterPage = () => {
                 <form
                     className="auth-form p-4 p-md-5 border rounded-3 bg-white"
                     onSubmit={submitHandler}
+                    noValidate
                 >
                     {step > 0 && (
                         <button type="button" className="auth-back-btn" onClick={backBtnHandler}>
