@@ -35,6 +35,8 @@ const userSchema = new mongoose.Schema(
         phoneNumber: {
             type: String,
             required: [true, 'Hãy nhập số điện thoại của bạn'],
+            minlength: [10, 'Số điện thoại của bạn không hợp lệ'],
+            maxlength: [10, 'Số điện thoại của bạn không hợp lệ'],
         },
         gender: {
             type: String,

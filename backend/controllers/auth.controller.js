@@ -58,6 +58,10 @@ export const register = async (req, res) => {
         throw new BadRequestError('Hãy nhập số điện thoại của bạn');
     }
 
+    if (phoneNumber.length !== 10) {
+        throw new BadRequestError('Số điện thoại của bạn không hợp lệ');
+    }
+
     if (!gender) {
         throw new BadRequestError('Hãy chọn giới tính của bạn');
     }
