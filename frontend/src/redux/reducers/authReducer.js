@@ -48,11 +48,7 @@ export const auth = (state = { isLoading: false, userInfo: null, error: '' }, ac
                     error: '',
                 };
             }
-            return {
-                isLoading: false,
-                userInfo: null,
-                error: '',
-            };
+            return {};
         default:
             return state;
     }

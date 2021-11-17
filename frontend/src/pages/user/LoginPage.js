@@ -24,7 +24,6 @@ const LoginPage = () => {
         if (!email) {
             return setValidationError('Hãy nhập email của bạn');
         }
-
         if (
             !RegExp(
                 /^(([^<>()[\]\\.,;:\s@"]+(\.[^<>()[\]\\.,;:\s@"]+)*)|(".+"))@((\[[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\])|(([a-zA-Z\-0-9]+\.)+[a-zA-Z]{2,}))$/
@@ -36,7 +35,6 @@ const LoginPage = () => {
         if (!password) {
             return setValidationError('Hãy nhập mật khẩu của bạn');
         }
-
         if (password.length < 6) {
             return setValidationError('Mật khẩu không hợp lệ');
         }

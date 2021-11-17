@@ -34,8 +34,8 @@ const RegisterPage = () => {
     const [confirmPassword, setConfirmPassword] = useState('');
     const [validationError, setValidationError] = useState('');
 
-    const userAuth = useSelector((state) => state.auth);
-    const userInfo = userAuth.userInfo;
+    const auth = useSelector((state) => state.auth);
+    const userInfo = auth.userInfo;
 
     const { isLoading, isEmailSent, isVerified, error, status } = useSelector(
         (state) => state.verification
@@ -52,11 +52,9 @@ const RegisterPage = () => {
                 if (!name) {
                     return setValidationError('Hãy nhập tên của bạn');
                 }
-
                 if (name.length < 5) {
                     return setValidationError('Tên không thể có ít hơn 5 ký tự');
                 }
-
                 if (name.length > 40) {
                     return setValidationError('Tên không thể có nhiều hơn 40 ký tự');
                 }
@@ -64,7 +62,6 @@ const RegisterPage = () => {
                 if (!email) {
                     return setValidationError('Hãy nhập email của bạn');
                 }
-
                 if (
                     !RegExp(
                         /^(([^<>()[\]\\.,;:\s@"]+(\.[^<>()[\]\\.,;:\s@"]+)*)|(".+"))@((\[[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\])|(([a-zA-Z\-0-9]+\.)+[a-zA-Z]{2,}))$/
@@ -244,11 +241,11 @@ const RegisterPage = () => {
                     {switchStep(step)}
                     <button
                         className={`w-100 btn btn-lg btn-ired ${
-                            isLoading || userAuth.isLoading ? 'btn-ired-loading' : ''
+                            isLoading || auth.isLoading ? 'btn-ired-loading' : ''
                         }`}
                         type="submit"
                     >
-                        {!isLoading && !userAuth.isLoading ? (
+                        {!isLoading && !auth.isLoading ? (
                             'Tiếp theo'
                         ) : (
                             <BarLoader

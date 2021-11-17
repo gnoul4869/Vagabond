@@ -1,22 +1,23 @@
 import { applyMiddleware, combineReducers, compose, createStore } from 'redux';
 import thunk from 'redux-thunk';
-import { user } from './reducers/userReducer';
 import { auth } from './reducers/authReducer';
+import { user } from './reducers/userReducer';
 import { cart } from './reducers/cartReducer';
 import { verification } from './reducers/verificationReducer';
 import { productList, productDetails } from './reducers/productReducer';
 
 const initialState = {
-    user: {
-        isLoading: false,
-        userDetails: {},
-        error: '',
-    },
     auth: {
         isLoading: false,
         userInfo: localStorage.getItem('userInfo')
             ? JSON.parse(localStorage.getItem('userInfo'))
             : null,
+        userDetails: null,
+        error: '',
+    },
+    user: {
+        isLoading: false,
+        userDetails: null,
         error: '',
     },
     verification: {
@@ -46,8 +47,8 @@ const initialState = {
 };
 
 const reducer = combineReducers({
-    user,
     auth,
+    user,
     verification,
     cart,
     productList,

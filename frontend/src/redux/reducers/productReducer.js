@@ -20,7 +20,7 @@ export const productList = (state = { isLoading: false, products: [], error: '' 
     }
 };
 
-export const productDetails = (state = { isLoading: false, product: {}, error: '' }, action) => {
+export const productDetails = (state = { isLoading: false, product: null, error: '' }, action) => {
     switch (action.type) {
         case PRODUCT_DETAILS_REQUEST:
             return { isLoading: true };

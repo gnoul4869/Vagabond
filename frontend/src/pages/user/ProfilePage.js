@@ -1,6 +1,7 @@
 import React, { useEffect, useState } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
-import { detailUser } from '../../redux/actions/userAction';
+import { getUserDetails, updateUserDetails } from '../../redux/actions/userAction';
+import BarLoader from 'react-spinners/BarLoader';
 import ErrorPage from '../error/ErrorPage';
 import UserDetailsLoading from '../../components/loading/UserDetailsLoading';
 import { useHistory, useLocation } from 'react-router';
@@ -13,9 +14,8 @@ const ProfilePage = () => {
     const history = useHistory();
     const location = useLocation();
     const dispatch = useDispatch();
+    const { userInfo } = useSelector((state) => state.auth);
     const { isLoading, userDetails, error } = useSelector((state) => state.user);
-    const userAuth = useSelector((state) => state.auth);
-    const userInfo = userAuth.userInfo;
 
     const [name, setName] = useState('');
     const [address, setAddress] = useState('');
@@ -26,6 +26,16 @@ const ProfilePage = () => {
 
     const submitHandler = (e) => {
         e.preventDefault();
+
+        if (!name) {
+            return setValidationError('Hãy nhập tên của bạn');
+        }
+        if (name.length < 5) {
+            return setValidationError('Tên không thể có ít hơn 5 ký tự');
+        }
+        if (name.length > 40) {
+            return setValidationError('Tên không thể có nhiều hơn 40 ký tự');
+        }
 
         if (!address) {
             return setValidationError('Hãy nhập địa chỉ của bạn');
@@ -49,17 +59,18 @@ const ProfilePage = () => {
 
         var age = moment().diff(birthDate, 'years');
         if (age < 12) {
-            return setValidationError('Bạn phải lớn hơn 12 tuổi để đăng ký tài khoản');
+            return setValidationError('Số tuổi của bạn phải lớn hơn 12');
         }
         if (age > 125) {
             return setValidationError('Số tuổi không hợp lệ');
         }
 
         setValidationError('');
+        dispatch(updateUserDetails(name, address, phoneNumber, gender, birthDate));
     };
 
     useEffect(() => {
-        dispatch(detailUser());
+        dispatch(getUserDetails());
     }, [dispatch]);
 
     useEffect(() => {
@@ -197,7 +208,7 @@ const ProfilePage = () => {
                                 <div className="row align-items-center mt-3">
                                     <div className="profile-field-name">
                                         <div className="fw-600 text-secondary text-end">
-                                            Giới tính
+                                            Ngày sinh
                                         </div>
                                     </div>
                                     <div className="profile-field-value">
@@ -210,20 +221,38 @@ const ProfilePage = () => {
                                         </div>
                                     </div>
                                 </div>
+                                <div className="row justify-content-center mt-4">
+                                    <div className="col-auto">
+                                        {(error || validationError) && (
+                                            <div className="auth-error-container mt-4 mt-md-0">
+                                                <VscError className="text-ired" />
+                                                <span className="ms-2">
+                                                    {error || validationError}
+                                                </span>
+                                            </div>
+                                        )}
+                                    </div>
+                                </div>
                                 <div className="row justify-content-center">
-                                    <div className="col-auto mt-5">
-                                        <button type="submit" className="btn btn-ired">
-                                            Lưu
+                                    <div className="col-auto">
+                                        <button
+                                            className={`w-100 btn btn-ired ${
+                                                isLoading && 'btn-ired-loading'
+                                            }`}
+                                            type="submit"
+                                        >
+                                            {!isLoading ? (
+                                                'Lưu'
+                                            ) : (
+                                                <BarLoader
+                                                    color="white"
+                                                    css="display: inherit; margin-bottom: .25rem;"
+                                                    width="3.125rem"
+                                                />
+                                            )}
                                         </button>
                                     </div>
                                 </div>
-
-                                {(error || validationError) && (
-                                    <div className="auth-error-container mt-4 mt-md-0">
-                                        <VscError className="icon text-ired" />
-                                        <span className="ms-2">{error || validationError}</span>
-                                    </div>
-                                )}
                             </form>
                         </div>
                     </div>

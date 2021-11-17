@@ -49,7 +49,7 @@ export const updateUserDetails = async (req, res) => {
 
     var age = moment().diff(birthDate, 'years');
     if (age < 12) {
-        throw new BadRequestError('Bạn phải lớn hơn 12 tuổi để đăng ký tài khoản');
+        throw new BadRequestError('Số tuổi của bạn phải lớn hơn 12');
     }
     if (age > 125) {
         throw new BadRequestError('Số tuổi không hợp lệ');
