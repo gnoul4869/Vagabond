@@ -17,6 +17,8 @@ const ProfilePage = () => {
     const { userInfo } = useSelector((state) => state.auth);
     const { isLoading, isUpdating, userDetails, error } = useSelector((state) => state.user);
 
+    const [details, setDetails] = useState(userDetails);
+
     const [name, setName] = useState('');
     const [address, setAddress] = useState('');
     const [phoneNumber, setPhoneNumber] = useState('');
@@ -74,10 +76,8 @@ const ProfilePage = () => {
     };
 
     useEffect(() => {
-        if (!userDetails) {
-            dispatch(getUserDetails());
-        }
-    }, [dispatch, userDetails]);
+        dispatch(getUserDetails());
+    }, [dispatch, details]);
 
     useEffect(() => {
         if (userDetails) {
@@ -240,7 +240,7 @@ const ProfilePage = () => {
                                     </div>
                                 </div>
                                 <div className="row justify-content-center">
-                                    <div className="col-auto">
+                                    <div className="col-4 col-md-2 col-lg-1">
                                         <button
                                             className={`w-100 btn btn-ired ${
                                                 isUpdating && 'btn-ired-loading'
