@@ -17,6 +17,8 @@ const initialState = {
     },
     user: {
         isLoading: false,
+        isUpdating: false,
+        isDone: false,
         userDetails: null,
         error: '',
     },

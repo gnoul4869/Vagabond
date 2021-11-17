@@ -4,6 +4,7 @@ import {
     USER_GET_DETAILS_FAIL,
     USER_GET_DETAILS_REQUEST,
     USER_GET_DETAILS_SUCCESS,
+    USER_STATE_REFRESH,
     USER_UPDATE_DETAILS_FAIL,
     USER_UPDATE_DETAILS_REQUEST,
     USER_UPDATE_DETAILS_SUCCESS,
@@ -53,6 +54,7 @@ export const updateUserDetails =
                 'userInfo',
                 JSON.stringify({ ...userInfo, name: userDetails.name, image: userDetails.image })
             );
+            dispatch({ type: USER_STATE_REFRESH });
         } catch (error) {
             dispatch({
                 type: USER_UPDATE_DETAILS_FAIL,

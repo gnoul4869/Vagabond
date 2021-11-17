@@ -8,7 +8,7 @@ import RatingStars from '../RatingStars';
 import ErrorPage from '../../pages/error/ErrorPage';
 import { FaCartPlus } from 'react-icons/fa';
 import { addToCart } from '../../redux/actions/cartActions';
-import AddToCartModal from '../modals/AddToCartModal';
+import SuccessModal from '../modals/SuccessModal';
 
 const ProductList = () => {
     const dispatch = useDispatch();
@@ -88,7 +88,7 @@ const ProductList = () => {
                     })
                 )}
             </section>
-            {isModalShown && <AddToCartModal />}
+            {isModalShown && <SuccessModal message={'Sản phẩm đã được thêm vào giỏ hàng'} />}
         </>
     );
 };

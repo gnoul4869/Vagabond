@@ -8,6 +8,7 @@ import store from './redux/store.js';
 import './css/index.css';
 
 //* Components
+import './css/components/modal.css';
 import './css/components/footer.css';
 import './css/components/dateInput.css';
 import './css/components/ratingStar.css';
@@ -21,7 +22,6 @@ import './css/components/navbar/navBarUserSubmenu.css';
 import './css/components/product/productList.css';
 import './css/components/product/productCarousel.css';
 import './css/components/product/productDescription.css';
-import './css/components/modals/addToCartModal.css';
 import './css/components/loading/productDetailsLoading.css';
 
 //* Pages

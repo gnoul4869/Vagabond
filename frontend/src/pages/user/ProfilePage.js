@@ -9,13 +9,16 @@ import GenderRadio from '../../components/GenderRadio';
 import DateInput from '../../components/DateInput';
 import moment from 'moment';
 import { VscError } from 'react-icons/vsc';
+import SuccessModal from '../../components/modals/SuccessModal';
 
 const ProfilePage = () => {
     const history = useHistory();
     const location = useLocation();
     const dispatch = useDispatch();
     const { userInfo } = useSelector((state) => state.auth);
-    const { isLoading, isUpdating, userDetails, error } = useSelector((state) => state.user);
+    const { isLoading, isUpdating, isDone, userDetails, error } = useSelector(
+        (state) => state.user
+    );
 
     const [details, setDetails] = useState(userDetails);
 
@@ -25,6 +28,20 @@ const ProfilePage = () => {
     const [gender, setGender] = useState('');
     const [birthDate, setBirthDate] = useState(new Date());
     const [validationError, setValidationError] = useState('');
+
+    const [isModalShown, setIsModalShown] = useState(false);
+
+    useEffect(() => {
+        if (isDone === true) {
+            setIsModalShown(true);
+        }
+        if (isModalShown === true) {
+            const modalTimeout = setTimeout(() => setIsModalShown(false), 2000);
+            return () => {
+                clearTimeout(modalTimeout);
+            };
+        }
+    }, [isDone, isModalShown]);
 
     const submitHandler = (e) => {
         e.preventDefault();
@@ -264,6 +281,7 @@ const ProfilePage = () => {
                     </div>
                 )
             )}
+            {isModalShown && <SuccessModal message={'Cập nhật hồ sơ thành công'} />}
         </>
     );
 };

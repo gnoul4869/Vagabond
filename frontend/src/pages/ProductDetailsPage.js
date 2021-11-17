@@ -14,7 +14,7 @@ import ProductDetailsLoading from '../components/loading/ProductDetailsLoading';
 import ProductDescription from '../components/product/ProductDescription';
 import BreadCrumbs from '../components/BreadCrumbs';
 import { addToCart } from '../redux/actions/cartActions';
-import AddToCartModal from '../components/modals/AddToCartModal';
+import SuccessModal from '../components/modals/SuccessModal';
 
 const ProductDetailsPage = () => {
     const dispatch = useDispatch();
@@ -165,7 +165,9 @@ const ProductDetailsPage = () => {
                                 description={product.description}
                             />
                         </section>
-                        {isModalShown && <AddToCartModal />}
+                        {isModalShown && (
+                            <SuccessModal message={'Sản phẩm đã được thêm vào giỏ hàng'} />
+                        )}
                     </>
                 )
             )}
