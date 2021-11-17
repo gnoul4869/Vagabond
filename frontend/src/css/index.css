@@ -137,6 +137,15 @@ input[type='number']::-webkit-outer-spin-button {
 }
 
 /** Border */
-.divider-line {
+.divider {
+    border-top: 0.0625rem solid #efefef;
+    border-bottom: 0.0625rem solid #efefef;
+}
+
+.divider-top {
+    border-top: 0.0625rem solid #efefef;
+}
+
+.divider-bottom {
     border-bottom: 0.0625rem solid #efefef;
 }

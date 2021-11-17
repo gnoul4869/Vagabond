@@ -109,17 +109,17 @@ const ProfilePage = () => {
             ) : (
                 userDetails && (
                     <div className="container bg-white mt-3">
-                        <div className="container text-center">
-                            <div className="row divider-line mx-5 py-3">
-                                <span className="text-sdark fs-4 fw-600">Hồ sơ của tôi</span>
-                            </div>
+                        <div className="container text-center py-3">
+                            <span className="text-sdark fs-4 fw-600">Hồ sơ của tôi</span>
                         </div>
-                        <div className="container divider-line d-flex justify-content-center">
-                            <img
-                                src="https://cdn.discordapp.com/attachments/848437070229798912/909785212509093908/futaba_02.png"
-                                alt={userDetails.name}
-                                className="profile-user-image rounded-circle my-3"
-                            />
+                        <div className="container">
+                            <div className="d-flex justify-content-center divider mx-2 mx-md-5 py-4">
+                                <img
+                                    src="https://cdn.discordapp.com/attachments/848437070229798912/909785212509093908/futaba_02.png"
+                                    alt={userDetails.name}
+                                    className="profile-user-image rounded-circle"
+                                />
+                            </div>
                         </div>
                         <div className="container py-4">
                             <form onSubmit={submitHandler}>
