@@ -146,13 +146,15 @@ const ProfilePage = () => {
                         <div className="container">
                             <div className="divider mx-2 mx-md-5 py-4">
                                 <div className="d-flex justify-content-center">
-                                    <img
-                                        src={image}
-                                        alt={name}
-                                        className="profile-user-image rounded-circle"
-                                    />
+                                    <div className="profile-user-image-container">
+                                        <div
+                                            className="profile-user-image"
+                                            style={{ backgroundImage: `url(${image})` }}
+                                            onClick={uploadImage}
+                                        ></div>
+                                    </div>
                                 </div>
-                                <div className="d-flex justify-content-center mt-4">
+                                <div className="d-flex justify-content-center mt-3">
                                     <input
                                         type="file"
                                         accept=".jpg,.jpeg,.png"
