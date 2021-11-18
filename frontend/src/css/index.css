@@ -3,7 +3,7 @@
     --inspiring-red-hover: #df4343;
     --dark-slate-gray: #2f2f2f;
     --not-pure-white: #fdfdfd;
-    --white-hover: #d6d6d6;
+    --white-hover: #f8f8f8;
 }
 
 body {
@@ -92,6 +92,25 @@ input[type='number']::-webkit-outer-spin-button {
 }
 
 .btn-ired-loading {
+    background-color: brown !important;
+    pointer-events: none;
+}
+
+.btn-white {
+    color: var(--dark-slate-gray) !important;
+    background-color: var(--not-pure-white) !important;
+    border: 1px solid rgba(0, 0, 0, 0.14) !important;
+}
+
+.btn-white:hover {
+    background-color: var(--white-hover) !important;
+}
+
+.btn-white:active {
+    background-color: white !important;
+}
+
+.btn-white-loading {
     background-color: brown !important;
     pointer-events: none;
 }

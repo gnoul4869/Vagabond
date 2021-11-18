@@ -1,4 +1,4 @@
-import React, { useEffect, useState } from 'react';
+import React, { useEffect, useRef, useState } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
 import { getUserDetails, updateUserDetails } from '../../redux/actions/userAction';
 import BarLoader from 'react-spinners/BarLoader';
@@ -22,6 +22,7 @@ const ProfilePage = () => {
 
     const [details] = useState(userDetails);
 
+    const [image, setImage] = useState('');
     const [name, setName] = useState('');
     const [address, setAddress] = useState('');
     const [phoneNumber, setPhoneNumber] = useState('');
@@ -30,6 +31,18 @@ const ProfilePage = () => {
     const [validationError, setValidationError] = useState('');
 
     const [isModalShown, setIsModalShown] = useState(false);
+
+    const imageInput = useRef();
+    const uploadImage = () => {
+        imageInput.current.click();
+    };
+    const imageHandler = (e) => {
+        const file = e.target.files[0];
+        if (file.size > 1048576) {
+            return alert('Chỉ cho phép hình ảnh có kích thước tối đa 1 MB');
+        }
+        setImage(URL.createObjectURL(file));
+    };
 
     useEffect(() => {
         if (isDone === true) {
@@ -98,6 +111,7 @@ const ProfilePage = () => {
 
     useEffect(() => {
         if (userDetails) {
+            setImage(userDetails.image);
             setName(userDetails.name);
             setAddress(userDetails.address);
             setPhoneNumber(userDetails.phoneNumber);
@@ -130,12 +144,30 @@ const ProfilePage = () => {
                             <span className="text-sdark fs-4 fw-600">Hồ sơ của tôi</span>
                         </div>
                         <div className="container">
-                            <div className="d-flex justify-content-center divider mx-2 mx-md-5 py-4">
-                                <img
-                                    src="https://cdn.discordapp.com/attachments/848437070229798912/909785212509093908/futaba_02.png"
-                                    alt={userDetails.name}
-                                    className="profile-user-image rounded-circle"
-                                />
+                            <div className="divider mx-2 mx-md-5 py-4">
+                                <div className="d-flex justify-content-center">
+                                    <img
+                                        src={image}
+                                        alt={name}
+                                        className="profile-user-image rounded-circle"
+                                    />
+                                </div>
+                                <div className="d-flex justify-content-center mt-4">
+                                    <input
+                                        type="file"
+                                        accept=".jpg,.jpeg,.png"
+                                        className="d-none"
+                                        ref={imageInput}
+                                        onChange={imageHandler}
+                                    />
+                                    <button
+                                        type="button"
+                                        className="btn btn-white"
+                                        onClick={uploadImage}
+                                    >
+                                        Chọn ảnh
+                                    </button>
+                                </div>
                             </div>
                         </div>
                         <div className="container py-4">
