@@ -23,7 +23,7 @@ const ProfilePage = () => {
     const [details] = useState(userDetails);
 
     const [imageFile, setImageFile] = useState(null);
-    const [image, setImage] = useState('');
+    const [image, setImage] = useState('/images/user_profile_picture.jpg');
     const [name, setName] = useState('');
     const [address, setAddress] = useState('');
     const [phoneNumber, setPhoneNumber] = useState('');

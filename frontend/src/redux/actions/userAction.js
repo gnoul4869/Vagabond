@@ -39,7 +39,6 @@ export const updateUserDetails =
         try {
             const { userInfo } = getState().auth;
             const image = imageFile ? await uploadImageToStorage(imageFile) : userInfo.image;
-            console.log(image);
             const { data } = await axios.patch(
                 '/api/v1/user',
                 { name, address, phoneNumber, gender, birthDate, image },
