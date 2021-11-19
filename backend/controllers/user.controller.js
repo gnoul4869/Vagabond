@@ -3,6 +3,7 @@ import User from '../models/user.model.js';
 import { BadRequestError, NotFoundError } from '../errors/custom-api-error.js';
 import { hideEmail } from '../utils/hide-details.js';
 import moment from 'moment';
+import { uploadImageToStorage } from '../firebase.js';
 
 export const getUserDetails = async (req, res) => {
     const user = await User.findById({ _id: req.user.id });
@@ -25,7 +26,7 @@ export const getUserDetails = async (req, res) => {
 };
 
 export const updateUserDetails = async (req, res) => {
-    const { image, name, address, phoneNumber, gender, birthDate } = req.body;
+    const { name, address, phoneNumber, gender, birthDate } = req.body;
 
     if (!name) {
         throw new BadRequestError('Hãy nhập tên của bạn');
@@ -59,17 +60,34 @@ export const updateUserDetails = async (req, res) => {
         throw new BadRequestError('Hãy chọn ngày sinh của bạn');
     }
 
-    if (!moment(birthDate).isValid()) {
+    const convertedDate = moment(new Date(birthDate), moment.ISO_8601);
+
+    if (!convertedDate.isValid()) {
         throw new BadRequestError('Ngày sinh không hợp lệ');
     }
 
-    var age = moment().diff(birthDate, 'years');
+    const age = moment().diff(convertedDate, 'years');
+
     if (age < 12) {
         throw new BadRequestError('Số tuổi của bạn phải lớn hơn 12');
     }
+
     if (age > 125) {
         throw new BadRequestError('Số tuổi không hợp lệ');
     }
+
+    if (req.file && req.file.size > 1 * 1024 * 1024) {
+        throw new BadRequestError('Chỉ cho phép hình ảnh có kích thước tối đa 1 MB');
+    }
+
+    if (req.file) {
+        console.log(req.file);
+    }
+
+    // const image = req.file
+    //     ? await uploadImageToStorage(req.file, req.user.id)
+    //     : '/images/user_profile_picture.jpg';
+    const image = '/images/user_profile_picture.jpg';
 
     const user = await User.findByIdAndUpdate(
         { _id: req.user.id },
@@ -79,7 +97,7 @@ export const updateUserDetails = async (req, res) => {
             phoneNumber,
             gender,
             birthDate,
-            image: image ? image : '/images/user_profile_picture.jpg',
+            image,
         },
         { new: true, runValidators: true }
     );

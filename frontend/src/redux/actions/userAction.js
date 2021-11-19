@@ -9,7 +9,6 @@ import {
     USER_UPDATE_DETAILS_REQUEST,
     USER_UPDATE_DETAILS_SUCCESS,
 } from '../constants/userConstants';
-import { uploadImageToStorage } from '../../firebase';
 
 const errorMessage = 'Đã có lỗi xảy ra. Bạn vui lòng thử lại sau ít phút nữa';
 
@@ -38,14 +37,20 @@ export const updateUserDetails =
         dispatch({ type: USER_UPDATE_DETAILS_REQUEST });
         try {
             const { userInfo } = getState().auth;
-            const image = imageFile ? await uploadImageToStorage(imageFile) : userInfo.image;
-            const { data } = await axios.patch(
-                '/api/v1/user',
-                { name, address, phoneNumber, gender, birthDate, image },
-                {
-                    headers: { Authorization: `Bearer ${userInfo.token}` },
-                }
-            );
+            const formData = new FormData();
+
+            formData.append('name', name);
+            formData.append('address', address);
+            formData.append('phoneNumber', phoneNumber);
+            formData.append('gender', gender);
+            formData.append('birthDate', birthDate);
+            formData.append('imageFile', imageFile);
+
+            const { data } = await axios.patch('/api/v1/user', formData, {
+                headers: {
+                    Authorization: `Bearer ${userInfo.token}`,
+                },
+            });
             const { userDetails } = data;
             dispatch({ type: USER_UPDATE_DETAILS_SUCCESS, payload: userDetails });
             dispatch({

@@ -1,7 +1,5 @@
 import { initializeApp } from 'firebase/app';
-import { getAnalytics } from 'firebase/analytics';
 import { getStorage, ref, uploadBytesResumable, getDownloadURL } from 'firebase/storage';
-import { v4 as uuidv4 } from 'uuid';
 
 const firebaseConfig = {
     apiKey: 'AIzaSyBkBqGYE3SjQqiRNV9AXW27fTa85S56jEs',
@@ -14,19 +12,18 @@ const firebaseConfig = {
 };
 
 const app = initializeApp(firebaseConfig);
-getAnalytics(app);
 
 const storage = getStorage(app);
 
-export const uploadImageToStorage = async (imageFile) => {
+export const uploadImageToStorage = async (imageFile, userID) => {
     return new Promise((resolve, reject) => {
-        const storageRef = ref(storage, `images/${uuidv4()}`);
+        const storageRef = ref(storage, `images/${userID}`);
         const uploadTask = uploadBytesResumable(storageRef, imageFile);
 
         uploadTask.on(
             'state_changed',
 
-            (snapshot) => {
+            () => {
                 // TODO: To be implemented
                 // const progress = (snapshot.bytesTransferred / snapshot.totalBytes) * 100;
                 // console.log('Upload is ' + progress + '% done');

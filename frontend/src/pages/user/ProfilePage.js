@@ -131,7 +131,7 @@ const ProfilePage = () => {
         }
     }, [history, location.pathname, userInfo]);
 
-    if (error) {
+    if (!userDetails && error) {
         return <ErrorPage error={error} />;
     }
 
