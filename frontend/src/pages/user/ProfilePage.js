@@ -1,15 +1,15 @@
 import React, { useEffect, useRef, useState } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
-import { getUserDetails, updateUserDetails } from '../../redux/actions/userAction';
-import BarLoader from 'react-spinners/BarLoader';
-import ErrorPage from '../error/ErrorPage';
-import UserDetailsLoading from '../../components/loading/UserDetailsLoading';
-import { useHistory, useLocation } from 'react-router';
-import GenderRadio from '../../components/GenderRadio';
-import DateInput from '../../components/DateInput';
 import moment from 'moment';
+import BarLoader from 'react-spinners/BarLoader';
 import { VscError } from 'react-icons/vsc';
+import { useHistory, useLocation } from 'react-router';
+import ErrorPage from '../error/ErrorPage';
+import DateInput from '../../components/DateInput';
+import GenderRadio from '../../components/GenderRadio';
 import SuccessModal from '../../components/modals/SuccessModal';
+import UserDetailsLoading from '../../components/loading/UserDetailsLoading';
+import { getUserDetails, updateUserDetails } from '../../redux/actions/userAction';
 
 const ProfilePage = () => {
     const history = useHistory();
@@ -22,6 +22,7 @@ const ProfilePage = () => {
 
     const [details] = useState(userDetails);
 
+    const [imageFile, setImageFile] = useState(null);
     const [image, setImage] = useState('');
     const [name, setName] = useState('');
     const [address, setAddress] = useState('');
@@ -38,10 +39,11 @@ const ProfilePage = () => {
     };
     const imageHandler = (e) => {
         const file = e.target.files[0];
-        if (file.size > 1048576) {
+        if (file.size > 1 * 1024 * 1024) {
             return alert('Chỉ cho phép hình ảnh có kích thước tối đa 1 MB');
         }
         setImage(URL.createObjectURL(file));
+        setImageFile(file);
     };
 
     useEffect(() => {
@@ -102,7 +104,7 @@ const ProfilePage = () => {
         }
 
         setValidationError('');
-        dispatch(updateUserDetails(name, address, phoneNumber, gender, birthDate));
+        dispatch(updateUserDetails(name, address, phoneNumber, gender, birthDate, imageFile));
     };
 
     useEffect(() => {
@@ -166,6 +168,7 @@ const ProfilePage = () => {
                                         type="button"
                                         className="btn btn-white"
                                         onClick={uploadImage}
+                                        disabled={isUpdating}
                                     >
                                         Chọn ảnh
                                     </button>

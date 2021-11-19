@@ -9,6 +9,7 @@ import {
     USER_UPDATE_DETAILS_REQUEST,
     USER_UPDATE_DETAILS_SUCCESS,
 } from '../constants/userConstants';
+import { uploadImageToStorage } from '../../firebase';
 
 const errorMessage = 'Đã có lỗi xảy ra. Bạn vui lòng thử lại sau ít phút nữa';
 
@@ -33,13 +34,15 @@ export const getUserDetails = () => async (dispatch, getState) => {
 };
 
 export const updateUserDetails =
-    (name, address, phoneNumber, gender, birthDate) => async (dispatch, getState) => {
+    (name, address, phoneNumber, gender, birthDate, imageFile) => async (dispatch, getState) => {
         dispatch({ type: USER_UPDATE_DETAILS_REQUEST });
         try {
             const { userInfo } = getState().auth;
+            const image = imageFile ? await uploadImageToStorage(imageFile) : userInfo.image;
+            console.log(image);
             const { data } = await axios.patch(
                 '/api/v1/user',
-                { name, address, phoneNumber, gender, birthDate },
+                { name, address, phoneNumber, gender, birthDate, image },
                 {
                     headers: { Authorization: `Bearer ${userInfo.token}` },
                 }

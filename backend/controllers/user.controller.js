@@ -25,7 +25,7 @@ export const getUserDetails = async (req, res) => {
 };
 
 export const updateUserDetails = async (req, res) => {
-    const { name, address, phoneNumber, gender, birthDate } = req.body;
+    const { image, name, address, phoneNumber, gender, birthDate } = req.body;
 
     if (!name) {
         throw new BadRequestError('Hãy nhập tên của bạn');
@@ -73,7 +73,14 @@ export const updateUserDetails = async (req, res) => {
 
     const user = await User.findByIdAndUpdate(
         { _id: req.user.id },
-        { name, address, phoneNumber, gender, birthDate },
+        {
+            name,
+            address,
+            phoneNumber,
+            gender,
+            birthDate,
+            image: image ? image : '/images/user_profile_picture.jpg',
+        },
         { new: true, runValidators: true }
     );
     if (!user) {
