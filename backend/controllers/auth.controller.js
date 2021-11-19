@@ -70,13 +70,16 @@ export const register = async (req, res) => {
         throw new BadRequestError('Hãy chọn ngày sinh của bạn');
     }
 
-    if (!moment(birthDate).isValid()) {
+    const convertedDate = moment(new Date(birthDate), moment.ISO_8601);
+
+    if (!convertedDate.isValid()) {
         throw new BadRequestError('Ngày sinh không hợp lệ');
     }
 
-    var age = moment().diff(birthDate, 'years');
+    const age = moment().diff(convertedDate, 'years');
+
     if (age < 12) {
-        throw new BadRequestError('Bạn phải lớn hơn 12 tuổi để đăng ký tài khoản');
+        throw new BadRequestError('Số tuổi của bạn phải lớn hơn 12');
     }
 
     if (age > 125) {
