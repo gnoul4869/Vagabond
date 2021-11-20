@@ -135,9 +135,11 @@ const CartPage = () => {
                         </div>
 
                         <div className="col-12 col-md-auto d-flex justify-content-center pt-2 p-md-0">
-                            <button type="button" className="cart-btn btn-purchase ms-1">
-                                <RiShoppingBag3Fill className="icon" /> Mua hàng
-                            </button>
+                            <Link to="/checkout">
+                                <button type="button" className="cart-btn btn-purchase ms-1">
+                                    <RiShoppingBag3Fill className="icon" /> Mua hàng
+                                </button>
+                            </Link>
                         </div>
                     </div>
                 </div>

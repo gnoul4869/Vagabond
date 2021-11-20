@@ -9,10 +9,14 @@ const ProductCarousel = ({ images, name }) => {
 
     const imageButtonHandler = (value) => {
         if (value >= 5 && value <= images.length) {
-            setImageArray(value);
+            setImageArray(value + 1);
+        } else if (value === 0 && imageArray > 5) {
+            setImageArray(imageArray - 1);
+        } else {
+            setImageNo(value >= 0 ? value : 0);
         }
     };
-
+    console.log(imageArray, imageNo);
     useEffect(() => {
         setImage(newImages[imageNo]);
     }, [newImages, imageNo]);
@@ -22,13 +26,13 @@ const ProductCarousel = ({ images, name }) => {
             <div className="row">
                 <img src={image} alt={name} className="product-carousel-img-big" />
             </div>
-            <div className="row mt-3 justify-content-center">
+            <div className="row mt-3 d-none d-md-flex justify-content-center">
                 {images.length > 5 && (
                     <div className="col-auto d-flex justify-content-center p-0 ms-3 mb-2 fs-4">
                         <button
                             type="button"
                             className="product-carousel-btn p-0"
-                            onClick={() => imageButtonHandler(imageArray - 1)}
+                            onClick={() => imageButtonHandler(imageNo - 1)}
                         >
                             <MdChevronLeft className="icon" />
                         </button>
@@ -55,7 +59,7 @@ const ProductCarousel = ({ images, name }) => {
                         <button
                             type="button"
                             className="product-carousel-btn p-0"
-                            onClick={() => imageButtonHandler(imageArray + 1)}
+                            onClick={() => imageButtonHandler(imageNo + 1)}
                         >
                             <MdChevronRight className="icon" />
                         </button>
