@@ -4,27 +4,32 @@ import { HiMenu } from 'react-icons/hi';
 import SearchBox from '../SearchBox';
 import NavbarDropdown from './NavbarDropdown';
 
-const CartBar = ({ isDropdownShown, setIsDropdownShown }) => {
+const CartBar = ({ path, isDropdownShown, setIsDropdownShown }) => {
+    let title = 'Welcome';
+    if (path === '/cart') {
+        title = 'Giỏ Hàng';
+    }
+    if (path === '/checkout') {
+        title = 'Thanh toán';
+    }
+
     return (
         <section>
-            <div className="row d-flex align-items-center py-auto pb-md-3">
+            <div className="row d-flex align-items-center py-auto py-2 py-md-0 pb-md-2">
                 <div className="col">
                     <div className="row align-items-center justify-content-center justify-content-md-start">
-                        <div className="secondarybar-badge-container">
-                            <div className="secondarybar-badge">
-                                <Brand />
-                            </div>
-                        </div>
-                        {/* <div className="col-md-4 col-lg-3 d-none d-md-block p-0">
+                        <div className="col-auto d-none d-md-block mb-2">
                             <Brand />
                         </div>
-
-                        <div className="col-md-5 col-lg-4 d-flex align-items-center">
-                            <div className="d-block d-md-none">
-                                <Logo />
-                            </div>
-                            <div className="navbar-cart-logo text-white fw-600 fs-3">Giỏ hàng</div>
-                        </div> */}
+                        <div className="col-auto d-block d-md-none">
+                            <Logo />
+                        </div>
+                        <div className="col-auto">
+                            <div className="secondarybar-badge-separator"></div>
+                        </div>
+                        <div className="col-auto">
+                            <div className="secondarybar-badge-title">{title}</div>
+                        </div>
                     </div>
                 </div>
 
