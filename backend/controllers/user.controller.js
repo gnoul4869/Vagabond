@@ -76,26 +76,26 @@ export const updateUserDetails = async (req, res) => {
         throw new BadRequestError('Số tuổi không hợp lệ');
     }
 
-    if (req.file && req.file.size > 1 * 1024 * 1024) {
-        throw new BadRequestError('Chỉ cho phép hình ảnh có kích thước tối đa 1 MB');
+    let newData = {
+        name,
+        address,
+        phoneNumber,
+        gender,
+        birthDate,
+    };
+
+    if (req.file) {
+        if (req.file.size > 1 * 1024 * 1024) {
+            throw new BadRequestError('Chỉ cho phép hình ảnh có kích thước tối đa 1 MB');
+        }
+        const image = await uploadImageToStorage(req.file, req.user.id);
+        newData = { ...newData, image };
     }
 
-    const image = req.file
-        ? await uploadImageToStorage(req.file, req.user.id)
-        : '/images/user_profile_picture.jpg';
-
-    const user = await User.findByIdAndUpdate(
-        { _id: req.user.id },
-        {
-            name,
-            address,
-            phoneNumber,
-            gender,
-            birthDate,
-            image,
-        },
-        { new: true, runValidators: true }
-    );
+    const user = await User.findByIdAndUpdate({ _id: req.user.id }, newData, {
+        new: true,
+        runValidators: true,
+    });
     if (!user) {
         throw new NotFoundError('Tài khoản không tồn tại');
     }
