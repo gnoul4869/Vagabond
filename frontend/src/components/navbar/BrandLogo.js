@@ -7,7 +7,7 @@ export const Brand = () => {
     return (
         <Link to="/">
             <div className="brand-container">
-                <img src={brand} alt="vagabond_brand" className="brand" />
+                <div style={{ backgroundImage: `url(${brand})` }} className="brand"></div>
             </div>
         </Link>
     );
@@ -17,7 +17,7 @@ export const Logo = () => {
     return (
         <Link to="/">
             <div className="logo-container">
-                <img src={logo} alt="vagabond_logo" className="navbar-logo" />
+                <div style={{ backgroundImage: `url(${logo})` }} className="logo"></div>
             </div>
         </Link>
     );

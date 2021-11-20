@@ -8,12 +8,12 @@ import SearchBox from '../SearchBox';
 const IndexBar = ({ isDropdownShown, setIsDropdownShown }) => {
     return (
         <section>
-            <div className="row d-flex align-items-center justify-content-between pb-3 pt-3 pt-md-0">
-                <div className="col-md-3 col-lg-2 d-none d-md-block p-0">
+            <div className="row d-flex align-items-center justify-content-around pb-3 pt-3 pt-md-0 g-0">
+                <div className="col-auto d-none d-md-block">
                     <Brand />
                 </div>
 
-                <div className="col-2 d-block d-md-none">
+                <div className="col-2 d-flex d-md-none justify-content-center">
                     <Logo />
                 </div>
 
@@ -21,7 +21,7 @@ const IndexBar = ({ isDropdownShown, setIsDropdownShown }) => {
                     <SearchBox />
                 </div>
 
-                <div className="col-2 d-block d-md-none">
+                <div className="col-2 d-flex d-md-none justify-content-center">
                     <button
                         className="navbar-toggler"
                         type="button"
@@ -31,7 +31,7 @@ const IndexBar = ({ isDropdownShown, setIsDropdownShown }) => {
                     </button>
                 </div>
 
-                <div className="col-auto 2 d-none d-md-flex justify-content-center align-item-center bg-dark">
+                <div className="col-auto d-none d-md-flex">
                     <CartBadge />
                 </div>
             </div>
