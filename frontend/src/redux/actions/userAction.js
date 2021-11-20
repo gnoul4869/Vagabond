@@ -44,7 +44,9 @@ export const updateUserDetails =
             formData.append('phoneNumber', phoneNumber);
             formData.append('gender', gender);
             formData.append('birthDate', birthDate);
-            formData.append('imageFile', imageFile);
+            if (imageFile) {
+                formData.append('imageFile', imageFile);
+            }
 
             const { data } = await axios.patch('/api/v1/user', formData, {
                 headers: {

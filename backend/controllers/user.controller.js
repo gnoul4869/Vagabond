@@ -3,7 +3,7 @@ import User from '../models/user.model.js';
 import { BadRequestError, NotFoundError } from '../errors/custom-api-error.js';
 import { hideEmail } from '../utils/hide-details.js';
 import moment from 'moment';
-import { uploadImageToStorage } from '../firebase.js';
+import { uploadImageToStorage } from '../firebase/firebase.js';
 
 export const getUserDetails = async (req, res) => {
     const user = await User.findById({ _id: req.user.id });
@@ -80,14 +80,9 @@ export const updateUserDetails = async (req, res) => {
         throw new BadRequestError('Chỉ cho phép hình ảnh có kích thước tối đa 1 MB');
     }
 
-    if (req.file) {
-        console.log(req.file);
-    }
-
-    // const image = req.file
-    //     ? await uploadImageToStorage(req.file, req.user.id)
-    //     : '/images/user_profile_picture.jpg';
-    const image = '/images/user_profile_picture.jpg';
+    const image = req.file
+        ? await uploadImageToStorage(req.file, req.user.id)
+        : '/images/user_profile_picture.jpg';
 
     const user = await User.findByIdAndUpdate(
         { _id: req.user.id },

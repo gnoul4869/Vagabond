@@ -44,13 +44,14 @@ const NavigationBar = () => {
                                 onMouseEnter={() => setIsSubmenuShown(true)}
                                 onMouseLeave={() => setIsSubmenuShown(false)}
                             >
-                                <div className="navbar-user-container d-flex-inline">
-                                    <img
-                                        src={userInfo.image}
-                                        alt={userInfo.name}
-                                        className="navbar-avatar rounded-circle"
-                                    />
-                                    <div className="d-inline-block ms-1" ref={usernameContainer}>
+                                <div className="navbar-user-container d-flex">
+                                    <div className="navbar-avatar-container">
+                                        <div
+                                            className="navbar-avatar"
+                                            style={{ backgroundImage: `url(${userInfo.image})` }}
+                                        ></div>
+                                    </div>
+                                    <div className="ms-2" ref={usernameContainer}>
                                         {userInfo.name}
                                     </div>
                                 </div>

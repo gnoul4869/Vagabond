@@ -39,11 +39,13 @@ const ProfilePage = () => {
     };
     const imageHandler = (e) => {
         const file = e.target.files[0];
-        if (file.size > 1 * 1024 * 1024) {
-            return alert('Chỉ cho phép hình ảnh có kích thước tối đa 1 MB');
+        if (file) {
+            if (file.size > 1 * 1024 * 1024) {
+                return alert('Chỉ cho phép hình ảnh có kích thước tối đa 1 MB');
+            }
+            setImage(URL.createObjectURL(file));
+            setImageFile(file);
         }
-        setImage(URL.createObjectURL(file));
-        setImageFile(file);
     };
 
     useEffect(() => {
