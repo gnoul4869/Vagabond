@@ -1,7 +1,7 @@
 import React, { useEffect, useRef } from 'react';
 import { useDispatch } from 'react-redux';
 import { Link } from 'react-router-dom';
-import { logout } from '../../redux/actions/authActions';
+import { logout } from '../../../redux/actions/authActions';
 
 const NavBarUserSubmenu = ({ isSubmenuShown, setIsSubmenuShown, targetWidth }) => {
     const submenuContainer = useRef();

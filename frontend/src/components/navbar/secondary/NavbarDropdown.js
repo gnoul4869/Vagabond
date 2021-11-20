@@ -1,10 +1,10 @@
 import React, { useEffect, useState } from 'react';
 import { Link } from 'react-router-dom';
 import { useDispatch, useSelector } from 'react-redux';
-import { socialLinks } from '../../data/links';
-import CartBadge from './CartBadge';
-import SearchBox from './SearchBox';
-import { logout } from '../../redux/actions/authActions';
+import { socialLinks } from '../../../data/links';
+import CartBadge from '../CartBadge';
+import SearchBox from '../SearchBox';
+import { logout } from '../../../redux/actions/authActions';
 
 const NavbarDropdown = ({ cartBadge, search, isDropdownShown }) => {
     const dispatch = useDispatch();

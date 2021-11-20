@@ -1,6 +1,6 @@
 import React from 'react';
 import { BrowserRouter as Router, Switch, Route } from 'react-router-dom';
-import NavBar from './components/navbar/NavBar.js';
+import NavBar from './components/navbar/main/NavBar.js';
 import HomePage from './pages/HomePage';
 import RegisterPage from './pages/user/RegisterPage';
 import LoginPage from './pages/user/LoginPage';
@@ -8,6 +8,7 @@ import ProfilePage from './pages/user/ProfilePage';
 import Error404Page from './pages/error/Error404Page';
 import ProductDetailsPage from './pages/ProductDetailsPage';
 import CartPage from './pages/CartPage';
+import CheckoutPage from './pages/CheckoutPage.js';
 import Footer from './components/Footer.js';
 
 const App = () => {
@@ -33,6 +34,9 @@ const App = () => {
                     </Route>
                     <Route path="/cart">
                         <CartPage />
+                    </Route>
+                    <Route path="/checkout">
+                        <CheckoutPage />
                     </Route>
                     <Route path="*">
                         <Error404Page />
