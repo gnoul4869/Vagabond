@@ -1,5 +1,5 @@
 import React from 'react';
-import notFoundImage from '../../images/not_found.svg';
+import notFoundImage from '../../images/not_found.png';
 import { ImHome } from 'react-icons/im';
 import { useLocation } from 'react-router';
 import { Link } from 'react-router-dom';

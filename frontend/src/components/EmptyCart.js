@@ -1,7 +1,7 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
 import { RiShoppingBag3Fill } from 'react-icons/ri';
-import emptyCartImage from '../images/empty_cart.svg';
+import emptyCartImage from '../images/empty_cart.png';
 
 const EmptyCart = () => {
     return (

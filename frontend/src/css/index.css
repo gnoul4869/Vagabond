@@ -156,6 +156,12 @@ input[type='number']::-webkit-outer-spin-button {
 }
 
 /** Border */
+.separator {
+    border-right: 0.0625rem solid hsla(0, 0%, 100%, 0.4);
+    height: 0.8125rem;
+    margin: 0 0.3125rem;
+}
+
 .divider {
     border-top: 0.0625rem solid #efefef;
     border-bottom: 0.0625rem solid #efefef;

@@ -1,7 +1,3 @@
-.navbar-logo {
-    min-height: 1.875rem !important;
-}
-
 .navbar-user-container {
     color: white;
     font-weight: 500;
@@ -43,12 +39,6 @@
 .navbar-link:hover {
     color: var(--white-hover);
     cursor: pointer;
-}
-
-.navbar-link-separator {
-    border-right: 0.0625rem solid hsla(0, 0%, 100%, 0.4);
-    height: 0.8125rem;
-    margin: 0 0.3125rem;
 }
 
 .navbar-form-inputs {

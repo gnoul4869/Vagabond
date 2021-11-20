@@ -10,7 +10,12 @@ const CartBar = ({ isDropdownShown, setIsDropdownShown }) => {
             <div className="row d-flex align-items-center py-auto pb-md-3">
                 <div className="col">
                     <div className="row align-items-center justify-content-center justify-content-md-start">
-                        <div className="col-md-4 col-lg-3 d-none d-md-block p-0">
+                        <div className="secondarybar-badge-container">
+                            <div className="secondarybar-badge">
+                                <Brand />
+                            </div>
+                        </div>
+                        {/* <div className="col-md-4 col-lg-3 d-none d-md-block p-0">
                             <Brand />
                         </div>
 
@@ -19,7 +24,7 @@ const CartBar = ({ isDropdownShown, setIsDropdownShown }) => {
                                 <Logo />
                             </div>
                             <div className="navbar-cart-logo text-white fw-600 fs-3">Giỏ hàng</div>
-                        </div>
+                        </div> */}
                     </div>
                 </div>
 

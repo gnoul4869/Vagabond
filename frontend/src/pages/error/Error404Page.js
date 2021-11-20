@@ -1,5 +1,5 @@
 import React from 'react';
-import error404Image from '../../images/error404.svg';
+import error404Image from '../../images/error404.png';
 import { Link } from 'react-router-dom';
 import { ImHome } from 'react-icons/im';
 
