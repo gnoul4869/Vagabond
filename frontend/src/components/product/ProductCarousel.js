@@ -10,13 +10,13 @@ const ProductCarousel = ({ images, name }) => {
     const imageButtonHandler = (value) => {
         if (value >= 5 && value <= images.length) {
             setImageArray(value + 1);
-        } else if (value === 0 && imageArray > 5) {
+        } else if (value <= 0 && imageArray > 5) {
             setImageArray(imageArray - 1);
         } else {
-            setImageNo(value >= 0 ? value : 0);
+            setImageNo(value > 0 ? value : 0);
         }
     };
-    console.log(imageArray, imageNo);
+
     useEffect(() => {
         setImage(newImages[imageNo]);
     }, [newImages, imageNo]);
