@@ -7,7 +7,7 @@
     width: 20% !important;
     display: flex;
     justify-content: center;
-    padding-right: 2px;
+    padding-right: 0.125rem;
 }
 
 .product-details-loading-img-container:last-child {

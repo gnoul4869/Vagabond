@@ -96,7 +96,7 @@ input[type='number']::-webkit-outer-spin-button {
 .btn-white {
     color: var(--dark-slate-gray) !important;
     background-color: var(--not-pure-white) !important;
-    border: 1px solid rgba(0, 0, 0, 0.14) !important;
+    border: 0.0625rem solid rgba(0, 0, 0, 0.14) !important;
 }
 
 .btn-white:hover {
@@ -171,14 +171,14 @@ input[type='number']::-webkit-outer-spin-button {
 }
 
 .postcard-border {
-    height: 4px;
+    height: 0.25rem;
     width: 100%;
     background-image: repeating-linear-gradient(
         45deg,
-        steelblue 0 30px,
-        transparent 30px 45px,
-        coral 45px 75px,
-        transparent 75px 90px
+        steelblue 0 1.875rem,
+        transparent 1.875rem 2.8125rem,
+        coral 2.8125rem 4.6875rem,
+        transparent 4.6875rem 5.625rem
     );
 }
 
