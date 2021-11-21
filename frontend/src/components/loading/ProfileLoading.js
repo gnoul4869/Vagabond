@@ -36,18 +36,7 @@ const ProfileLoading = () => {
                             </div>
                         </div>
                     </div>
-                    <div className="row align-items-center mt-3">
-                        <div className="profile-field-name">
-                            <div className="col-md-2 ms-auto">
-                                <div className="bg-loading rounded-pill"></div>
-                            </div>
-                        </div>
-                        <div className="profile-field-value">
-                            <div className="col-md-6">
-                                <div className="bg-loading rounded-pill"></div>
-                            </div>
-                        </div>
-                    </div>
+
                     <div className="row align-items-center mt-3">
                         <div className="profile-field-name">
                             <div className="col-md-3 ms-auto">
@@ -60,6 +49,7 @@ const ProfileLoading = () => {
                             </div>
                         </div>
                     </div>
+
                     <div className="row align-items-center mt-3">
                         <div className="profile-field-name">
                             <div className="col-md-4 ms-auto">
@@ -72,6 +62,7 @@ const ProfileLoading = () => {
                             </div>
                         </div>
                     </div>
+
                     <div className="row align-items-center mt-3">
                         <div className="profile-field-name">
                             <div className="col-md-2 ms-auto">
@@ -92,6 +83,7 @@ const ProfileLoading = () => {
                             </div>
                         </div>
                     </div>
+
                     <div className="row align-items-center mt-3">
                         <div className="profile-field-name">
                             <div className="col-md-2 ms-auto">
@@ -101,6 +93,32 @@ const ProfileLoading = () => {
                         <div className="profile-field-value">
                             <div className="col-md-6">
                                 <div className="bg-loading rounded-pill w-45"></div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div className="row align-items-center mt-3">
+                        <div className="profile-field-name">
+                            <div className="col-md-2 ms-auto">
+                                <div className="bg-loading rounded-pill"></div>
+                            </div>
+                        </div>
+                        <div className="profile-field-value">
+                            <div className="col-md-10">
+                                <div className="row m-0">
+                                    <div className="col p-0 me-2">
+                                        <div className="bg-loading rounded-pill"></div>
+                                    </div>
+                                    <div className="col p-0 me-2">
+                                        <div className="bg-loading rounded-pill"></div>
+                                    </div>
+                                    <div className="col p-0">
+                                        <div className="bg-loading rounded-pill"></div>
+                                    </div>
+                                </div>
+                                <div className="form-floating mt-2">
+                                    <div className="bg-loading rounded-pill"></div>
+                                </div>
                             </div>
                         </div>
                     </div>

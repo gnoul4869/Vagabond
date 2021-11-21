@@ -274,17 +274,6 @@ const ProfilePage = () => {
                                     </div>
                                     <div className="profile-field-value">
                                         <div className="col-md-10">
-                                            {/* <div className="fw-600 text-secondary text-start">
-                                                <input
-                                                    type="text"
-                                                    id="address"
-                                                    placeholder="Địa chỉ"
-                                                    className="form-control"
-                                                    onChange={(e) => setAddress(e.target.value)}
-                                                    disabled={isUpdating}
-                                                    value={address ? address : ''}
-                                                />
-                                            </div> */}
                                             <AddressInput
                                                 isLoading={isLoading}
                                                 address={address}
