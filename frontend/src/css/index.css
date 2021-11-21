@@ -37,6 +37,14 @@ input[type='number']::-webkit-outer-spin-button {
     appearance: none;
 }
 
+select {
+    box-shadow: none !important;
+}
+
+select:focus {
+    border-color: lightslategray !important;
+}
+
 /** Background */
 .bg-ired {
     background-color: var(--inspiring-red);

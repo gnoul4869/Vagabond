@@ -5,6 +5,8 @@ import { Provider } from 'react-redux';
 import store from './redux/store.js';
 // import reportWebVitals from './reportWebVitals';
 
+import 'bootstrap/dist/css/bootstrap.min.css';
+
 //* Components
 import './css/components/modal.css';
 import './css/components/cartItems.css';
@@ -23,8 +25,8 @@ import './css/components/navbar/secondary/navBarUserSubmenu.css';
 import './css/components/product/productList.css';
 import './css/components/product/productCarousel.css';
 import './css/components/product/productDescription.css';
-import './css/components/loading/profilePageLoading.css';
-import './css/components/loading/productDetailsPageLoading.css';
+import './css/components/loading/profileLoading.css';
+import './css/components/loading/productDetailsLoading.css';
 
 //* Pages
 import './css/pages/cartPage.css';
@@ -33,8 +35,6 @@ import './css/pages/errorPage.css';
 import './css/pages/profilePage.css';
 import './css/pages/checkoutPage.css';
 import './css/pages/productDetailsPage.css';
-
-import 'bootstrap/dist/css/bootstrap.min.css';
 
 import './css/index.css';
 
