@@ -8,7 +8,14 @@
 }
 
 .product-carousel-img-container {
-    max-width: 28.375rem !important;
+    width: 20%;
+    display: flex;
+    justify-content: center;
+    padding-right: 2px;
+}
+
+.product-carousel-img-container:last-child {
+    padding-right: 0;
 }
 
 .product-carousel-img-small {

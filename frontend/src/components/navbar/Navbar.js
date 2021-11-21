@@ -1,11 +1,11 @@
 import React, { useEffect, useRef, useState } from 'react';
 import { Link } from 'react-router-dom';
 import { useLocation } from 'react-router';
-import { socialLinks } from '../../data/links';
-import CartBar from './CartBar';
-import IndexBar from './IndexBar';
 import { useSelector } from 'react-redux';
-import NavBarUserSubmenu from './NavBarUserSubmenu';
+import { socialLinks } from '../../data/links';
+import IndexBar from './secondary/IndexBar';
+import SecondaryBar from './secondary/SecondaryBar';
+import NavBarUserSubmenu from './secondary/NavBarUserSubmenu';
 
 const NavigationBar = () => {
     const location = useLocation();
@@ -79,7 +79,7 @@ const NavigationBar = () => {
                                         <span className="navbar-link">Đăng ký</span>
                                     </Link>
                                 </li>
-                                <div className="navbar-link-separator"></div>
+                                <div className="separator"></div>
                                 <li>
                                     <Link
                                         to={{
@@ -100,8 +100,9 @@ const NavigationBar = () => {
                         )}
                     </ul>
                 </nav>
-                {location === '/cart' ? (
-                    <CartBar
+                {location.pathname === '/cart' || location.pathname === '/checkout' ? (
+                    <SecondaryBar
+                        path={location.pathname}
                         isDropdownShown={isDropdownShown}
                         setIsDropdownShown={setIsDropdownShown}
                     />

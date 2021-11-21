@@ -26,9 +26,13 @@ const ProductCarousel = ({ images, name }) => {
             <div className="row">
                 <img src={image} alt={name} className="product-carousel-img-big" />
             </div>
-            <div className="row mt-3 d-none d-md-flex justify-content-center">
+            <div
+                className={`row justify-content-center align-items-center mt-3 mx-md-2 ${
+                    images.length <= 5 && 'px-5'
+                }`}
+            >
                 {images.length > 5 && (
-                    <div className="col-auto d-flex justify-content-center p-0 ms-3 mb-2 fs-4">
+                    <div className="col-auto d-flex justify-content-center p-0 ms-3 fs-4">
                         <button
                             type="button"
                             className="product-carousel-btn p-0"
@@ -39,23 +43,24 @@ const ProductCarousel = ({ images, name }) => {
                     </div>
                 )}
 
-                <div className="product-carousel-img-container col d-flex justify-content-center flex-wrap">
+                <div className="col d-flex justify-content-center flex-wrap">
                     {newImages.map((item, index) => {
                         return (
-                            <img
-                                key={index}
-                                src={item}
-                                alt={name}
-                                className={`product-carousel-img-small me-1 mb-2 ${
-                                    index === imageNo && `product-carousel-img-small-active`
-                                }`}
-                                onClick={() => setImageNo(index)}
-                            />
+                            <div key={index} className="product-carousel-img-container">
+                                <img
+                                    src={item}
+                                    alt={name}
+                                    className={`product-carousel-img-small ${
+                                        index === imageNo && `product-carousel-img-small-active`
+                                    }`}
+                                    onClick={() => setImageNo(index)}
+                                />
+                            </div>
                         );
                     })}
                 </div>
                 {images.length > 5 && (
-                    <div className="col-auto d-flex justify-content-center p-0 me-3 mb-2 fs-4">
+                    <div className="col-auto d-flex justify-content-center p-0 me-3 fs-4">
                         <button
                             type="button"
                             className="product-carousel-btn p-0"
