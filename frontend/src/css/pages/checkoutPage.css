@@ -1,0 +1,11 @@
+.post-card-line {
+    height: 4px;
+    width: 100%;
+    background-image: repeating-linear-gradient(
+        45deg,
+        steelblue 0 30px,
+        transparent 30px 45px,
+        coral 45px 75px,
+        transparent 75px 90px
+    );
+}

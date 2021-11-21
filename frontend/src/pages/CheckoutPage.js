@@ -17,7 +17,12 @@ const CheckoutPage = () => {
         }
     }, [history, location.pathname, userInfo]);
 
-    return <div>Checkout</div>;
+    return (
+        <div className="mt-3 bg-white">
+            <div className="post-card-line"></div>
+            <div className="container">Checkout</div>
+        </div>
+    );
 };
 
 export default CheckoutPage;

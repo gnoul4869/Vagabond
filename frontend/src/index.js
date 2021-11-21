@@ -31,6 +31,7 @@ import './css/pages/cartPage.css';
 import './css/pages/authPage.css';
 import './css/pages/errorPage.css';
 import './css/pages/profilePage.css';
+import './css/pages/checkoutPage.css';
 import './css/pages/productDetailsPage.css';
 
 import 'bootstrap/dist/css/bootstrap.min.css';
