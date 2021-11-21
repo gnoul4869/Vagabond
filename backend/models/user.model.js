@@ -28,10 +28,6 @@ const userSchema = new mongoose.Schema(
             minlength: [5, 'Tên không thể có ít hơn 5 ký tự'],
             maxlength: [40, 'Tên không thể có nhiều hơn 40 ký tự'],
         },
-        address: {
-            type: String,
-            required: [true, 'Hãy nhập địa chỉ của bạn'],
-        },
         phoneNumber: {
             type: String,
             required: [true, 'Hãy nhập số điện thoại của bạn'],
