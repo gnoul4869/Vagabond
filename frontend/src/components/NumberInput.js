@@ -1,4 +1,4 @@
-import React, { useRef } from 'react';
+import React, { useRef, useState } from 'react';
 import { BiMinus, BiPlus } from 'react-icons/bi';
 import { useDispatch } from 'react-redux';
 import { addToCart } from '../redux/actions/cartActions';
@@ -6,10 +6,14 @@ import { addToCart } from '../redux/actions/cartActions';
 const NumberInput = ({ qty, max, setQty, productID, disabled }) => {
     const dispatch = useDispatch();
     const refInput = useRef(null);
+    const [error, setError] = useState('');
 
     const inputHandler = (value) => {
         value = parseInt(value);
-        if (value >= 1 && value <= max) {
+        if (value >= max) {
+            return setError('Sản phẩm đã đạt số lượng tối đa');
+        }
+        if (value >= 1) {
             if (setQty) {
                 setQty(value);
             }
@@ -18,6 +22,7 @@ const NumberInput = ({ qty, max, setQty, productID, disabled }) => {
             }
             refInput.current.value = value;
         }
+        setError('');
     };
 
     return (
@@ -51,6 +56,8 @@ const NumberInput = ({ qty, max, setQty, productID, disabled }) => {
             >
                 <BiPlus className="icon" />
             </button>
+
+            {error && <div className="number-input-error text-danger">{error}</div>}
         </div>
     );
 };

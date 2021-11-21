@@ -1,4 +1,5 @@
 .number-input-group {
+    position: relative;
     width: 9.375rem !important;
 }
 
@@ -7,4 +8,36 @@
     outline: 0 !important;
     -webkit-box-shadow: none !important;
     box-shadow: none !important;
+}
+
+.number-input-error {
+    position: absolute;
+    font-size: 13px;
+    top: 45px;
+    left: 50%;
+    transform: translateX(-50%);
+    white-space: nowrap;
+}
+
+/*? X-Small devices (portrait phones, less than 576px) */
+@media (max-width: 575.98px) {
+    .number-input-error {
+        font-size: 8px;
+        top: -15px;
+    }
+}
+
+/*? Small devices (landscape phones, less than 768px) */
+@media (min-width: 576px) and (max-width: 767.98px) {
+    .number-input-error {
+        font-size: 10px;
+        top: -17px;
+    }
+}
+
+/*? Medium devices (tablets, less than 992px) */
+@media (min-width: 768px) and (max-width: 991.98px) {
+    .number-input-error {
+        font-size: 11px;
+    }
 }
