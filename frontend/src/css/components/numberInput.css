@@ -12,8 +12,8 @@
 
 .number-input-error {
     position: absolute;
-    font-size: 13px;
-    top: 45px;
+    font-size: 0.8125rem;
+    top: 2.8125rem;
     left: 50%;
     transform: translateX(-50%);
     white-space: nowrap;
@@ -22,22 +22,22 @@
 /*? X-Small devices (portrait phones, less than 576px) */
 @media (max-width: 575.98px) {
     .number-input-error {
-        font-size: 8px;
-        top: -15px;
+        font-size: 0.5rem;
+        top: -0.9375rem;
     }
 }
 
 /*? Small devices (landscape phones, less than 768px) */
 @media (min-width: 576px) and (max-width: 767.98px) {
     .number-input-error {
-        font-size: 10px;
-        top: -17px;
+        font-size: 0.625rem;
+        top: -1.0625rem;
     }
 }
 
 /*? Medium devices (tablets, less than 992px) */
 @media (min-width: 768px) and (max-width: 991.98px) {
     .number-input-error {
-        font-size: 11px;
+        font-size: 0.6875rem;
     }
 }

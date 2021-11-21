@@ -5,8 +5,6 @@ import { Provider } from 'react-redux';
 import store from './redux/store.js';
 // import reportWebVitals from './reportWebVitals';
 
-import './css/index.css';
-
 //* Components
 import './css/components/modal.css';
 import './css/components/cartItems.css';
@@ -37,6 +35,8 @@ import './css/pages/checkoutPage.css';
 import './css/pages/productDetailsPage.css';
 
 import 'bootstrap/dist/css/bootstrap.min.css';
+
+import './css/index.css';
 
 ReactDOM.render(
     <Provider store={store}>
