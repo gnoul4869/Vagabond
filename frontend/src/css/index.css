@@ -38,7 +38,6 @@ input[type='number']::-webkit-outer-spin-button {
 }
 
 /** Background */
-
 .bg-ired {
     background-color: var(--inspiring-red);
 }
@@ -51,7 +50,6 @@ input[type='number']::-webkit-outer-spin-button {
 }
 
 /** Text */
-
 .text-ired {
     color: var(--inspiring-red);
 }
@@ -72,7 +70,6 @@ input[type='number']::-webkit-outer-spin-button {
 }
 
 /** Button */
-
 .btn {
     box-shadow: none !important;
 }
@@ -116,7 +113,6 @@ input[type='number']::-webkit-outer-spin-button {
 }
 
 /** Link */
-
 .link-inherit {
     text-decoration: inherit;
     color: inherit;
@@ -141,7 +137,6 @@ input[type='number']::-webkit-outer-spin-button {
 }
 
 /** Form */
-
 .form-check-input {
     box-shadow: none !important;
 }
@@ -173,4 +168,17 @@ input[type='number']::-webkit-outer-spin-button {
 
 .divider-bottom {
     border-bottom: 0.0625rem solid #efefef;
+}
+
+/** Loading */
+@keyframes gradient {
+    0% {
+        background-position: 0% 50%;
+    }
+    50% {
+        background-position: 100% 50%;
+    }
+    100% {
+        background-position: 0% 50%;
+    }
 }

@@ -11,13 +11,23 @@ const ProductDetailsLoading = () => {
                                 <div className="row">
                                     <div className="product-details-loading-img-big bg-loading mx-auto"></div>
                                 </div>
-                                <div className="row mt-3 justify-content-center">
-                                    <div className="product-carousel-img-container col d-flex justify-content-center flex-wrap">
-                                        <div className="product-details-loading-img-small bg-loading me-1 mb-2"></div>
-                                        <div className="product-details-loading-img-small bg-loading me-1 mb-2"></div>
-                                        <div className="product-details-loading-img-small bg-loading me-1 mb-2"></div>
-                                        <div className="product-details-loading-img-small bg-loading me-1 mb-2"></div>
-                                        <div className="product-details-loading-img-small bg-loading me-1 mb-2"></div>
+                                <div className="row justify-content-center align-items-center mt-3 mx-lg-5">
+                                    <div className="col d-flex justify-content-center flex-wrap">
+                                        <div className="product-details-loading-img-container">
+                                            <div className="product-details-loading-img bg-loading"></div>
+                                        </div>
+                                        <div className="product-details-loading-img-container">
+                                            <div className="product-details-loading-img bg-loading"></div>
+                                        </div>
+                                        <div className="product-details-loading-img-container">
+                                            <div className="product-details-loading-img bg-loading"></div>
+                                        </div>
+                                        <div className="product-details-loading-img-container">
+                                            <div className="product-details-loading-img bg-loading"></div>
+                                        </div>
+                                        <div className="product-details-loading-img-container">
+                                            <div className="product-details-loading-img bg-loading"></div>
+                                        </div>
                                     </div>
                                 </div>
                             </div>

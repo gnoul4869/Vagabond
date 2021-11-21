@@ -3,24 +3,26 @@
     height: 18.75rem !important;
 }
 
-.product-details-loading-img-small {
-    width: 82px;
-    height: 82px;
+.product-details-loading-img-container {
+    width: 20% !important;
+    display: flex;
+    justify-content: center;
+    padding-right: 2px;
 }
 
-.product-details-loading-btn {
-    max-width: 12.5rem;
-    height: 3.125rem;
+.product-details-loading-img-container:last-child {
+    padding-right: 0;
 }
 
-@keyframes gradient {
-    0% {
-        background-position: 0% 50%;
-    }
-    50% {
-        background-position: 100% 50%;
-    }
-    100% {
-        background-position: 0% 50%;
+.product-details-loading-img {
+    width: 5.125rem !important;
+    height: 5.125rem !important;
+}
+
+/*? X-Small devices (portrait phones, less than 576px) */
+@media (max-width: 575.98px) {
+    .product-details-loading-img {
+        width: 4.125rem !important;
+        height: 3.825rem !important;
     }
 }
