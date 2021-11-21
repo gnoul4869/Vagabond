@@ -10,6 +10,7 @@ import GenderRadio from '../../components/GenderRadio';
 import SuccessModal from '../../components/modals/SuccessModal';
 import ProfileLoading from '../../components/loading/ProfileLoading';
 import { getUserDetails, updateUserDetails } from '../../redux/actions/userAction';
+import AddressInput from '../../components/AddressInput';
 
 const ProfilePage = () => {
     const history = useHistory();
@@ -207,28 +208,7 @@ const ProfilePage = () => {
                                         </div>
                                     </div>
                                 </div>
-                                <div className="row align-items-center mt-3">
-                                    <div className="profile-field-name">
-                                        <div className="fw-600 text-secondary text-end">
-                                            Địa chỉ
-                                        </div>
-                                    </div>
-                                    <div className="profile-field-value">
-                                        <div className="col-md-6">
-                                            <div className="fw-600 text-secondary text-start">
-                                                <input
-                                                    type="text"
-                                                    id="address"
-                                                    placeholder="Địa chỉ"
-                                                    className="form-control"
-                                                    onChange={(e) => setAddress(e.target.value)}
-                                                    disabled={isUpdating}
-                                                    value={address ? address : ''}
-                                                />
-                                            </div>
-                                        </div>
-                                    </div>
-                                </div>
+
                                 <div className="row align-items-center mt-3">
                                     <div className="profile-field-name">
                                         <div className="fw-600 text-secondary text-end">
@@ -251,6 +231,7 @@ const ProfilePage = () => {
                                         </div>
                                     </div>
                                 </div>
+
                                 <div className="row align-items-center mt-3">
                                     <div className="profile-field-name">
                                         <div className="fw-600 text-secondary text-end">
@@ -267,6 +248,7 @@ const ProfilePage = () => {
                                         </div>
                                     </div>
                                 </div>
+
                                 <div className="row align-items-center mt-3">
                                     <div className="profile-field-name">
                                         <div className="fw-600 text-secondary text-end">
@@ -283,6 +265,35 @@ const ProfilePage = () => {
                                         </div>
                                     </div>
                                 </div>
+
+                                <div className="row align-items-center mt-3">
+                                    <div className="profile-field-name">
+                                        <div className="fw-600 text-secondary text-end">
+                                            Địa chỉ
+                                        </div>
+                                    </div>
+                                    <div className="profile-field-value">
+                                        <div className="col-md-10">
+                                            {/* <div className="fw-600 text-secondary text-start">
+                                                <input
+                                                    type="text"
+                                                    id="address"
+                                                    placeholder="Địa chỉ"
+                                                    className="form-control"
+                                                    onChange={(e) => setAddress(e.target.value)}
+                                                    disabled={isUpdating}
+                                                    value={address ? address : ''}
+                                                />
+                                            </div> */}
+                                            <AddressInput
+                                                isLoading={isLoading}
+                                                address={address}
+                                                setAddress={setAddress}
+                                            />
+                                        </div>
+                                    </div>
+                                </div>
+
                                 <div className="row justify-content-center mt-4">
                                     <div className="col-auto">
                                         {(error || validationError) && (
