@@ -20,13 +20,13 @@ const addressSchema = new mongoose.Schema(
         },
         wardID: {
             type: Number,
-            required: [true, 'Hãy cung cấp mã Phường/Xã'],
+            required: [true, 'Hãy cung cấp mã phường/xã'],
         },
         wardName: {
             type: String,
-            required: [true, 'Hãy cung cấp tên Phường/Xã'],
+            required: [true, 'Hãy cung cấp tên phường/xã'],
         },
-        detailAddress: {
+        details: {
             type: String,
             required: [true, 'Hãy cung cấp địa chỉ cụ thể'],
         },
