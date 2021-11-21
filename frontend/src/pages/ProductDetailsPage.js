@@ -47,7 +47,7 @@ const ProductDetailsPage = () => {
 
     return (
         <>
-            {true ? (
+            {isLoading ? (
                 <ProductDetailsLoading />
             ) : (
                 product && (
