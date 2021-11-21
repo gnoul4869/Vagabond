@@ -116,6 +116,33 @@ input[type='number']::-webkit-outer-spin-button {
     pointer-events: none;
 }
 
+.btn-del {
+    color: var(--not-pure-white);
+    background-color: var(--inspiring-red);
+}
+
+.btn-del:hover {
+    background-color: brown;
+}
+
+.btn-del:active {
+    background-color: darksalmon;
+}
+
+.btn-purchase {
+    color: var(--inspiring-red);
+    border: 0.0625rem solid var(--inspiring-red);
+    background-color: linen;
+}
+
+.btn-purchase:hover {
+    background-color: snow;
+}
+
+.btn-purchase:active {
+    background-color: darksalmon;
+}
+
 /** Link */
 .link-inherit {
     text-decoration: inherit;

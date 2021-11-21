@@ -19,7 +19,7 @@ const ShippingDetails = ({ name, address, phoneNumber }) => {
                                     <span className="d-flex d-md-none">Tên</span>
                                 </div>
                                 <div className="col p-0">
-                                    <span>{name}</span>
+                                    <span className="text-sdark">{name}</span>
                                 </div>
                             </div>
                         </div>
@@ -30,7 +30,7 @@ const ShippingDetails = ({ name, address, phoneNumber }) => {
                                     <span className="d-flex d-md-none">Sđt</span>
                                 </div>
                                 <div className="col p-0">
-                                    <span>{phoneNumber}</span>
+                                    <span className="text-sdark">{phoneNumber}</span>
                                 </div>
                             </div>
                         </div>
@@ -41,7 +41,7 @@ const ShippingDetails = ({ name, address, phoneNumber }) => {
                             <span className="d-flex d-md-none">Địa chỉ</span>
                         </div>
                         <div className="col p-0">
-                            <span>{address}</span>
+                            <span className="text-sdark">{address}</span>
                         </div>
                     </div>
                 </div>
