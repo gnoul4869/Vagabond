@@ -4,7 +4,7 @@ const ProductDescription = ({ category, brand, description }) => {
     return (
         <>
             <div className="container bg-white mt-3 p-3">
-                <div className="product-label-bg container rounded mb-3">
+                <div className="bg-label container rounded mb-3">
                     <div className="product-description-label fs-4">Chi tiết sản phẩm</div>
                 </div>
                 <div className="container p-3">
@@ -27,7 +27,7 @@ const ProductDescription = ({ category, brand, description }) => {
                 </div>
             </div>
             <div className="container bg-white mt-3 p-3">
-                <div className="product-label-bg container rounded mb-3">
+                <div className="bg-label container rounded mb-3">
                     <div className="product-description-label fs-4">Mô tả sản phẩm</div>
                 </div>
                 <p className="container p-3">{description}</p>

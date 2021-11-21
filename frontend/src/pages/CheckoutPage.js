@@ -42,7 +42,7 @@ const CheckoutPage = () => {
                             </div>
                             <div className="container px-3">
                                 <div className="row mt-3">
-                                    <div className="col-12 col-md bg-info">
+                                    <div className="col-12 col-md">
                                         <div className="row">
                                             <div className="col-4 col-md-3 col-lg-4 text-secondary">
                                                 <span className="d-none d-md-flex">

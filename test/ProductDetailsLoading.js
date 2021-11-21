@@ -25,7 +25,7 @@ const ProductDetailsLoading = () => {
                                 </div>
                             </div>
                             <div className="row my-4">
-                                <div className="product-label-bg container rounded">
+                                <div className="bg-label container rounded">
                                     <div className="bg-loading rounded-pill"></div>
                                     <div className="ms-2">
                                         <div className="bg-loading rounded-pill"></div>

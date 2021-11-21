@@ -48,7 +48,7 @@ const ProductDetailsLoading = () => {
                                         <div className="bg-loading rounded-pill"></div>
                                     </div>
                                 </div>
-                                <div className="row my-4 product-label-bg">
+                                <div className="row my-4 bg-label">
                                     <div className="col-3">
                                         <div className="bg-loading rounded-pill"></div>
                                     </div>
@@ -81,7 +81,7 @@ const ProductDetailsLoading = () => {
                 </div>
             </div>
             <div className="container bg-white mt-3 p-3">
-                <div className="product-label-bg container rounded mb-3">
+                <div className="bg-label container rounded mb-3">
                     <div className="col-2 p-0 mb-5">
                         <div className="bg-loading rounded-pill"></div>
                     </div>
@@ -106,7 +106,7 @@ const ProductDetailsLoading = () => {
                 </div>
             </div>
             <div className="container bg-white mt-3 p-3">
-                <div className="product-label-bg container rounded mb-3">
+                <div className="bg-label container rounded mb-3">
                     <div className="col-2 p-0 mb-5">
                         <div className="bg-loading rounded-pill"></div>
                     </div>

@@ -88,7 +88,7 @@ const ProductDetailsPage = () => {
                                                 </div>
                                             </div>
                                             <div className="row my-4">
-                                                <div className="product-label-bg container rounded">
+                                                <div className="bg-label container rounded">
                                                     <span className="fs-3">Giá:</span>{' '}
                                                     <span className="text-ired fw-600 fs-2 ms-2">
                                                         <ProductPrice price={product.price} />
