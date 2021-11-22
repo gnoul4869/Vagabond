@@ -103,7 +103,7 @@ const AddressInput = ({ isLoading, address, setAddress }) => {
     return (
         <>
             <div className="row m-0">
-                <div className="col p-0 me-2">
+                <div className="col-12 p-0 me-2">
                     <label className="text-secondary">Tỉnh/Thành phố</label>
                     <select
                         value={provinceID}

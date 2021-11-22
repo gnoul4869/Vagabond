@@ -225,11 +225,11 @@ const RegisterPage = () => {
     return (
         <div className="container-fluid">
             <div className="row align-items-center g-0 py-5 mx-md-5">
-                <div className="col col-lg-7 text-center text-lg-start bg-info">
+                <div className="col col-lg-7 text-center text-lg-start">
                     <h1 className="display-5 fw-bold mb-3 text-ired">Đăng ký thành viên</h1>
                     <p className="col-lg-10 fs-2 ms-3 text-sdark">Bước đầu khám phá</p>
                 </div>
-                <div className="col-12 col-lg-5 mx-auto bg-dark">
+                <div className="col-12 col-lg-5 mx-auto">
                     <form
                         className="auth-form p-4 p-md-5 border rounded-3 bg-white"
                         onSubmit={submitHandler}
