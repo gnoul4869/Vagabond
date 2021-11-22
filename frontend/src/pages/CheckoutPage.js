@@ -1,4 +1,5 @@
-import React, { useEffect } from 'react';
+import {} from 'dotenv/config';
+import React, { useEffect, useState } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
 import { useHistory, useLocation } from 'react-router';
 import { getUserDetails } from '../redux/actions/userAction';
@@ -18,37 +19,64 @@ const CheckoutPage = () => {
     const { isLoading, userDetails, error } = useSelector((state) => state.user);
     const { cartItems } = useSelector((state) => state.cart);
 
+    const [shippingFee, setShippingFee] = useState(0);
+    const [isGettingFee, setIsGettingFee] = useState(false);
+
     const totalItemsPrice = cartItems.reduce((a, c) => a + c.price * c.qty, 0);
     const totalItemsWeight = cartItems.reduce((a, c) => a + c.weight * c.qty, 0);
-    const totalItemsHeight = totalItemsWeight / 100;
+    const totalItemsHeight = Math.round(totalItemsWeight / 100);
 
     useEffect(() => {
+        let mount = true;
+
         if (userDetails) {
             const getShippingFee = async () => {
-                const { data } = await axios.get(
-                    'https://online-gateway.ghn.vn/shiip/public-api/v2/shipping-order/fee',
-                    {
-                        headers: {
-                            token: process.env.REACT_APP_GHN_TOKEN,
-                            shop_id: process.env.REACT_APP_GHN_SHOP_ID,
-                        },
-                        params: {
-                            service_type_id: 2, // Standard
-                            insurance_value: totalItemsPrice,
-                            coupon: null,
-                            from_district_id: process.env.REACT_APP_GHN_SHOP_DISTRICT_ID,
-                            to_district_id: userDetails.addresses.districtID,
-                            to_ward_code: userDetails.addresses.wardID,
-                            weight: totalItemsWeight,
-                            height: totalItemsHeight,
-                            length: 15,
-                            width: 15,
-                        },
+                if (mount) {
+                    setIsGettingFee(true);
+                }
+                try {
+                    const { data } = await axios.get(
+                        'https://online-gateway.ghn.vn/shiip/public-api/v2/shipping-order/fee',
+                        {
+                            headers: {
+                                token: process.env.REACT_APP_GHN_TOKEN,
+                                shop_id: process.env.REACT_APP_GHN_SHOP_ID,
+                            },
+                            params: {
+                                service_type_id: 2, // Standard
+                                insurance_value: totalItemsPrice,
+                                coupon: null,
+                                from_district_id: process.env.REACT_APP_GHN_SHOP_DISTRICT_ID,
+                                to_district_id: userDetails.addresses.districtID,
+                                to_ward_code: userDetails.addresses.wardID,
+                                weight: totalItemsWeight,
+                                height: totalItemsHeight,
+                                length: 15,
+                                width: 15,
+                            },
+                        }
+                    );
+
+                    if (mount) {
+                        const roundedNumber = Math.ceil(data.data.service_fee / 1000) * 1000;
+                        setShippingFee(roundedNumber);
+                        setIsGettingFee(false);
                     }
-                );
+                } catch (error) {
+                    console.log(error.response.data.message);
+                    if (mount) {
+                        setIsGettingFee(false);
+                    }
+                }
+            };
+
+            getShippingFee();
+
+            return () => {
+                mount = false;
             };
         }
-    }, [userDetails]);
+    }, [totalItemsHeight, totalItemsPrice, totalItemsWeight, userDetails]);
 
     useEffect(() => {
         dispatch(getUserDetails());
@@ -69,7 +97,7 @@ const CheckoutPage = () => {
 
     return (
         <>
-            {isLoading ? (
+            {isLoading || isGettingFee ? (
                 <CheckoutLoading />
             ) : (
                 userDetails && (
@@ -176,7 +204,7 @@ const CheckoutPage = () => {
                                 </div>
                                 <div className="col fw-600 text-end">
                                     <div className="me-3">
-                                        <PriceFormat price={10000} />
+                                        <PriceFormat price={shippingFee} />
                                     </div>
                                 </div>
                             </div>
@@ -187,12 +215,7 @@ const CheckoutPage = () => {
                                 <div className="col text-end">
                                     <div className="me-3">
                                         <span className="text-ired fw-600 fs-3">
-                                            <PriceFormat
-                                                price={cartItems.reduce(
-                                                    (a, c) => a + c.price * c.qty,
-                                                    0
-                                                )}
-                                            />
+                                            <PriceFormat price={totalItemsPrice + shippingFee} />
                                         </span>
                                     </div>
                                 </div>

@@ -111,11 +111,10 @@ const AddressInput = ({
                     }
                 );
 
-                const sortedProvinces = data.data.sort((a, b) =>
-                    a.ProvinceName.localeCompare(b.ProvinceName)
-                );
-
                 if (mounted) {
+                    const sortedProvinces = data.data.sort((a, b) =>
+                        a.ProvinceName.localeCompare(b.ProvinceName)
+                    );
                     setProvinces(sortedProvinces);
                     setIsLoadingAddress(false);
                 }

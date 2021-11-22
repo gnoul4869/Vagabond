@@ -320,7 +320,7 @@ const ProfilePage = () => {
                                                 setProvinceName={setProvinceName}
                                                 districtID={districtID}
                                                 setDistrictID={setDistrictID}
-                                                districtName={districtName}
+                                                setDistrictName={setDistrictName}
                                                 wardID={wardID}
                                                 setWardID={setWardID}
                                                 setWardName={setWardName}
