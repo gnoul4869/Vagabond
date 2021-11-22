@@ -5,14 +5,26 @@ import GenderRadio from '../GenderRadio';
 
 const PersonalDetails = ({
     isLoading,
-    address,
-    setAddress,
     phoneNumber,
     setPhoneNumber,
     gender,
     setGender,
     birthDate,
     setBirthDate,
+    provinceID,
+    setProvinceID,
+    provinceName,
+    setProvinceName,
+    districtID,
+    setDistrictID,
+    districtName,
+    setDistrictName,
+    wardID,
+    setWardID,
+    wardName,
+    setWardName,
+    addressDetails,
+    setAddressDetails,
 }) => {
     return (
         <>
@@ -42,17 +54,23 @@ const PersonalDetails = ({
 
             <label htmlFor="input">Địa chỉ</label>
             <div className="mt-4 mt-md-0 mb-3">
-                {/* <input
-                    type="text"
-                    id="address"
-                    placeholder="Địa chỉ"
-                    className="form-control"
-                    value={address}
-                    onChange={(e) => setAddress(e.target.value)}
-                    disabled={isLoading}
-                /> */}
-
-                <AddressInput isLoading={isLoading} address={address} setAddress={setAddress} />
+                <AddressInput
+                    isLoading={isLoading}
+                    provinceID={provinceID}
+                    setProvinceID={setProvinceID}
+                    provinceName={provinceName}
+                    setProvinceName={setProvinceName}
+                    districtID={districtID}
+                    setDistrictID={setDistrictID}
+                    districtName={districtName}
+                    setDistrictName={setDistrictName}
+                    wardID={wardID}
+                    setWardID={setWardID}
+                    wardName={wardName}
+                    setWardName={setWardName}
+                    addressDetails={addressDetails}
+                    setAddressDetails={setAddressDetails}
+                />
             </div>
         </>
     );

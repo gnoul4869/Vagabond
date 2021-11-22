@@ -2,26 +2,46 @@ import {} from 'dotenv/config';
 import axios from 'axios';
 import React, { useEffect, useState } from 'react';
 
-const AddressInput = ({ isLoading, address, setAddress }) => {
+const AddressInput = ({
+    isLoading,
+    provinceID,
+    setProvinceID,
+    provinceName,
+    setProvinceName,
+    districtID,
+    setDistrictID,
+    districtName,
+    setDistrictName,
+    wardID,
+    setWardID,
+    wardName,
+    setWardName,
+    addressDetails,
+    setAddressDetails,
+}) => {
     const [isLoadingAddress, setIsLoadingAddress] = useState(false);
-
     const [provinces, setProvinces] = useState([]);
-    const [provinceID, setProvinceID] = useState('');
-
     const [districts, setDistricts] = useState([]);
-    const [districtID, setDistrictID] = useState('');
-
     const [wards, setWards] = useState([]);
-    const [wardID, setWardID] = useState('');
 
-    const provinceHandler = (value) => {
-        setProvinceID(value);
-        getDistricts(value);
+    const provinceHandler = (id, name) => {
+        if (id === 'DEFAULT') {
+            return;
+        }
+        setProvinceID(id);
+        setProvinceName(name);
+        getDistricts(id);
     };
 
-    const districtHandler = (value) => {
-        setDistrictID(value);
-        getWards(value);
+    const districtHandler = (id, name) => {
+        setDistrictID(id);
+        setDistrictName(name);
+        getWards(id);
+    };
+
+    const wardHandler = (id, name) => {
+        setWardID(id);
+        setWardName(name);
     };
 
     useEffect(() => {
@@ -38,8 +58,6 @@ const AddressInput = ({ isLoading, address, setAddress }) => {
                 );
 
                 setProvinces(sortedProvinces);
-
-                setProvinceID(sortedProvinces[0].ProvinceID);
 
                 setIsLoadingAddress(false);
             } catch (error) {
@@ -66,8 +84,8 @@ const AddressInput = ({ isLoading, address, setAddress }) => {
             );
 
             setDistricts(sortedDistricts);
-
             setDistrictID(sortedDistricts[0].DistrictID);
+            setDistrictName(sortedDistricts[0].DistrictName);
 
             setIsLoadingAddress(false);
         } catch (error) {
@@ -90,8 +108,8 @@ const AddressInput = ({ isLoading, address, setAddress }) => {
             const sortedWards = data.data.sort((a, b) => a.WardName.localeCompare(b.WardName));
 
             setWards(sortedWards);
-
             setWardID(sortedWards[0].WardCode);
+            setWardName(sortedWards[0].WardName);
 
             setIsLoadingAddress(false);
         } catch (error) {
@@ -106,11 +124,16 @@ const AddressInput = ({ isLoading, address, setAddress }) => {
                 <div className="col-12 p-0 me-2">
                     <label className="text-secondary ms-2">Tỉnh/Thành phố</label>
                     <select
-                        value={provinceID}
-                        onChange={(e) => provinceHandler(e.target.value)}
+                        value={provinceID || 'DEFAULT'}
+                        onChange={(e) =>
+                            provinceHandler(e.target.value, e.target.selectedOptions[0].text)
+                        }
                         disabled={isLoadingAddress}
                         className="form-select"
                     >
+                        <option value="DEFAULT" disabled>
+                            ---
+                        </option>
                         {provinces.map((item) => {
                             return (
                                 <option key={item.ProvinceID} value={item.ProvinceID}>
@@ -124,7 +147,9 @@ const AddressInput = ({ isLoading, address, setAddress }) => {
                     <label className="text-secondary ms-2">Quận/Huyện</label>
                     <select
                         value={districtID}
-                        onChange={(e) => districtHandler(e.target.value)}
+                        onChange={(e) =>
+                            districtHandler(e.target.value, e.target.selectedOptions[0].text)
+                        }
                         disabled={districts.length === 0 || isLoadingAddress}
                         className="form-select"
                     >
@@ -141,7 +166,9 @@ const AddressInput = ({ isLoading, address, setAddress }) => {
                     <label className="text-secondary ms-2">Phường/Xã</label>
                     <select
                         value={wardID}
-                        onChange={(e) => setWardID(e.target.value)}
+                        onChange={(e) =>
+                            wardHandler(e.target.value, e.target.selectedOptions[0].text)
+                        }
                         disabled={wards.length === 0 || isLoadingAddress}
                         className="form-select"
                     >
@@ -161,8 +188,8 @@ const AddressInput = ({ isLoading, address, setAddress }) => {
                     id="address"
                     placeholder="Địa chỉ cụ thể"
                     className="form-control"
-                    value={address}
-                    onChange={(e) => setAddress(e.target.value)}
+                    value={addressDetails}
+                    onChange={(e) => setAddressDetails(e.target.value)}
                     disabled={isLoading}
                 />
                 <label htmlFor="input">Địa chỉ cụ thể</label>

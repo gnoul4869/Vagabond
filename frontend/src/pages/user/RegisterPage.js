@@ -26,10 +26,18 @@ const RegisterPage = () => {
     const [name, setName] = useState('');
     const [email, setEmail] = useState('');
     const [otp, setOtp] = useState('');
-    const [address, setAddress] = useState('');
     const [phoneNumber, setPhoneNumber] = useState('');
     const [gender, setGender] = useState('');
     const [birthDate, setBirthDate] = useState(new Date());
+    // Addresses
+    const [provinceID, setProvinceID] = useState('');
+    const [provinceName, setProvinceName] = useState('');
+    const [districtID, setDistrictID] = useState('');
+    const [districtName, setDistrictName] = useState('');
+    const [wardID, setWardID] = useState('');
+    const [wardName, setWardName] = useState('');
+    const [addressDetails, setAddressDetails] = useState('');
+    //---------
     const [password, setPassword] = useState('');
     const [confirmPassword, setConfirmPassword] = useState('');
     const [validationError, setValidationError] = useState('');
@@ -87,7 +95,7 @@ const RegisterPage = () => {
                     return setStep(step + 1);
                 }
             case 2: {
-                if (!address) {
+                if (!addressDetails) {
                     return setValidationError('Hãy nhập địa chỉ của bạn');
                 }
 
@@ -143,7 +151,21 @@ const RegisterPage = () => {
                 }
                 setValidationError('');
                 return dispatch(
-                    register(email, password, name, address, phoneNumber, gender, birthDate)
+                    register(
+                        email,
+                        password,
+                        name,
+                        phoneNumber,
+                        gender,
+                        birthDate,
+                        provinceID,
+                        provinceName,
+                        districtID,
+                        districtName,
+                        wardID,
+                        wardName,
+                        addressDetails
+                    )
                 );
             }
             default:
@@ -178,14 +200,26 @@ const RegisterPage = () => {
             case 2:
                 return (
                     <PersonalDetails
-                        address={address}
-                        setAddress={setAddress}
                         phoneNumber={phoneNumber}
                         setPhoneNumber={setPhoneNumber}
                         gender={gender}
                         setGender={setGender}
                         birthDate={birthDate}
                         setBirthDate={setBirthDate}
+                        provinceID={provinceID}
+                        setProvinceID={setProvinceID}
+                        provinceName={provinceName}
+                        setProvinceName={setProvinceName}
+                        districtID={districtID}
+                        setDistrictID={setDistrictID}
+                        districtName={districtName}
+                        setDistrictName={setDistrictName}
+                        wardID={wardID}
+                        setWardID={setWardID}
+                        wardName={wardName}
+                        setWardName={setWardName}
+                        addressDetails={addressDetails}
+                        setAddressDetails={setAddressDetails}
                     />
                 );
             case 3:
