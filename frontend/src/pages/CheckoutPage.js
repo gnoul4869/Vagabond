@@ -115,9 +115,9 @@ const CheckoutPage = () => {
                                         <div className="col fw-normal text-secondary text-end">
                                             <ImTruck className="icon me-1" />
                                             <span className="d-none d-md-inline-flex">
-                                                Đơn vị vận chuyển
+                                                Đơn vị vận chuyển:
                                             </span>
-                                            <span className="d-inline-flex d-md-none">ĐVVC</span>
+                                            <span className="d-inline-flex d-md-none">ĐVVC:</span>
                                         </div>
                                         <div className="col-auto text-coral ms-2">
                                             <a
@@ -135,14 +135,10 @@ const CheckoutPage = () => {
                             <div className="divider-dash-bottom my-2"></div>
                             <div className="row text-secondary fw-600 g-0 d-flex justify-content-center px-md-2">
                                 <div className="col-auto d-none d-md-inline-flex align-items-center ms-auto">
-                                    <div>
-                                        Tổng số tiền (
-                                        <span className="text-ired">{cartItems.length}</span> Sản
-                                        phẩm):
-                                    </div>
+                                    <div>Tổng thanh toán:</div>
                                 </div>
                                 <div className="col-auto d-inline-flex d-md-none align-items-center">
-                                    Tổng tiền:
+                                    Tổng thanh toán:
                                 </div>
                                 <div className="col-auto d-flex align-items-center mx-2">
                                     <span className="text-ired fw-600 fs-5">

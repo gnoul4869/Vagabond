@@ -143,8 +143,6 @@ const ProfilePage = () => {
         );
     };
 
-    console.log(addressDetails);
-
     useEffect(() => {
         dispatch(getUserDetails());
     }, [dispatch, details]);

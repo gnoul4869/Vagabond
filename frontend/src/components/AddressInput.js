@@ -100,27 +100,41 @@ const AddressInput = ({
     };
 
     useEffect(() => {
+        let mounted = true;
+
         const getProvinces = async () => {
-            setIsLoadingAddress(true);
+            if (mounted) {
+                setIsLoadingAddress(true);
+            }
             try {
                 const { data } = await axios.get(
                     'https://online-gateway.ghn.vn/shiip/public-api/master-data/province',
-                    { headers: { token: process.env.REACT_APP_GHN_TOKEN } }
+                    {
+                        headers: { token: process.env.REACT_APP_GHN_TOKEN },
+                    }
                 );
 
                 const sortedProvinces = data.data.sort((a, b) =>
                     a.ProvinceName.localeCompare(b.ProvinceName)
                 );
 
-                setProvinces(sortedProvinces);
-
-                setIsLoadingAddress(false);
+                if (mounted) {
+                    setProvinces(sortedProvinces);
+                    setIsLoadingAddress(false);
+                }
             } catch (error) {
                 console.log(error.response.data.message);
-                setIsLoadingAddress(true);
+                if (mounted) {
+                    setIsLoadingAddress(false);
+                }
             }
         };
+
         getProvinces();
+
+        return () => {
+            mounted = false;
+        };
     }, []);
 
     useEffect(() => {
