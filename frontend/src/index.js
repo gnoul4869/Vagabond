@@ -29,7 +29,6 @@ import './css/components/loading/profileLoading.css';
 import './css/components/loading/productDetailsLoading.css';
 
 //* Pages
-import './css/pages/cartPage.css';
 import './css/pages/authPage.css';
 import './css/pages/errorPage.css';
 import './css/pages/profilePage.css';

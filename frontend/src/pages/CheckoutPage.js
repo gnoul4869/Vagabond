@@ -10,6 +10,7 @@ import ErrorPage from './error/ErrorPage';
 import PriceFormat from '../components/PriceFormat';
 import { ImTruck } from 'react-icons/im';
 import axios from 'axios';
+import { BiPurchaseTag } from 'react-icons/bi';
 
 const CheckoutPage = () => {
     const history = useHistory();
@@ -186,38 +187,48 @@ const CheckoutPage = () => {
                                 </div>
                             </div>
 
-                            <div className="divider-dash-bottom my-2"></div>
+                            <div className="divider-dash-bottom my-3"></div>
 
-                            <div className="row text-secondary g-0 mt-3">
-                                <div className="col offset-8 ps-5">
-                                    <div className="ps-4">Tổng tiền hàng:</div>
+                            <div className="row text-secondary g-0">
+                                <div className="col offset-md-5 offset-lg-7 offset-xl-8 ps-md-5">
+                                    <div className="ps-md-4">Tổng tiền hàng:</div>
                                 </div>
                                 <div className="col fw-600 text-end">
-                                    <div className="me-3">
+                                    <div className="me-md-3">
                                         <PriceFormat price={totalItemsPrice} />
                                     </div>
                                 </div>
                             </div>
                             <div className="row text-secondary g-0 mt-2">
-                                <div className="col offset-8 ps-5">
-                                    <div className="ps-4">Phí vận chuyển:</div>
+                                <div className="col offset-md-5 offset-lg-7 offset-xl-8 ps-md-5">
+                                    <div className="ps-md-4">Phí vận chuyển:</div>
                                 </div>
                                 <div className="col fw-600 text-end">
-                                    <div className="me-3">
+                                    <div className="me-md-3">
                                         <PriceFormat price={shippingFee} />
                                     </div>
                                 </div>
                             </div>
                             <div className="row align-items-center text-secondary g-0 mt-2">
-                                <div className="col offset-8 ps-5">
-                                    <div className="ps-4">Tổng thanh toán:</div>
+                                <div className="col offset-md-5 offset-lg-7 offset-xl-8 ps-md-5">
+                                    <div className="ps-md-4">Tổng thanh toán:</div>
                                 </div>
                                 <div className="col text-end">
-                                    <div className="me-3">
+                                    <div className="me-md-3">
                                         <span className="text-ired fw-600 fs-3">
                                             <PriceFormat price={totalItemsPrice + shippingFee} />
                                         </span>
                                     </div>
+                                </div>
+                            </div>
+
+                            <div className="divider-dash-bottom my-3"></div>
+
+                            <div className="row justify-content-center">
+                                <div className="col-8 col-sm-6 col-md-3 p-0 my-2 ms-md-auto me-md-4">
+                                    <button type="button" className="button-main btn-buy w-100">
+                                        <BiPurchaseTag className="icon" /> Đặt hàng
+                                    </button>
                                 </div>
                             </div>
                         </div>

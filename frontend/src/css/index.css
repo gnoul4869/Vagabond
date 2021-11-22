@@ -154,6 +154,14 @@ select:focus {
     background-color: darksalmon;
 }
 
+.button-main {
+    border: none;
+    padding: 0.5rem 1rem;
+    font-weight: 600;
+    box-shadow: rgba(0, 0, 0, 0.05) 0rem 0rem 0rem 0.0625rem;
+    transition: all 0.1s linear;
+}
+
 .btn-purchase {
     color: var(--inspiring-red);
     border: 0.0625rem solid var(--inspiring-red);
@@ -165,6 +173,33 @@ select:focus {
 }
 
 .btn-purchase:active {
+    background-color: darksalmon;
+}
+
+.btn-cart {
+    color: var(--inspiring-red);
+    border: 0.0625rem solid var(--inspiring-red);
+    background-color: linen;
+}
+
+.btn-cart:hover {
+    background-color: snow;
+}
+
+.btn-cart:active {
+    background-color: darksalmon;
+}
+
+.btn-buy {
+    color: white;
+    background-color: var(--inspiring-red);
+}
+
+.btn-buy:hover {
+    background-color: brown;
+}
+
+.btn-buy:active {
     background-color: darksalmon;
 }
 
