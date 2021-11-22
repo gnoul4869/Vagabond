@@ -104,7 +104,7 @@ const AddressInput = ({ isLoading, address, setAddress }) => {
         <>
             <div className="row m-0">
                 <div className="col-12 p-0 me-2">
-                    <label className="text-secondary">Tỉnh/Thành phố</label>
+                    <label className="text-secondary ms-2">Tỉnh/Thành phố</label>
                     <select
                         value={provinceID}
                         onChange={(e) => provinceHandler(e.target.value)}
@@ -121,7 +121,7 @@ const AddressInput = ({ isLoading, address, setAddress }) => {
                     </select>
                 </div>
                 <div className="col p-0 me-2">
-                    <label className="text-secondary">Quận/Huyện</label>
+                    <label className="text-secondary ms-2">Quận/Huyện</label>
                     <select
                         value={districtID}
                         onChange={(e) => districtHandler(e.target.value)}
@@ -138,7 +138,7 @@ const AddressInput = ({ isLoading, address, setAddress }) => {
                     </select>
                 </div>
                 <div className="col p-0">
-                    <label className="text-secondary">Phường/Xã</label>
+                    <label className="text-secondary ms-2">Phường/Xã</label>
                     <select
                         value={wardID}
                         onChange={(e) => setWardID(e.target.value)}
