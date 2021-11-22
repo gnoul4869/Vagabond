@@ -19,9 +19,10 @@ export const addToCart = (productID, qty, history) => async (dispatch, getState)
             payload: {
                 id: product._id,
                 name: product.name,
-                images: product.images,
                 price: product.price,
                 countInStock: product.countInStock,
+                weight: product.weight,
+                images: product.images,
                 qty,
             },
         });

@@ -19,6 +19,8 @@ const CheckoutPage = () => {
     const { cartItems } = useSelector((state) => state.cart);
 
     const totalItemsPrice = cartItems.reduce((a, c) => a + c.price * c.qty, 0);
+    const totalItemsWeight = cartItems.reduce((a, c) => a + c.weight * c.qty, 0);
+    const totalItemsHeight = totalItemsWeight / 100;
 
     useEffect(() => {
         if (userDetails) {
@@ -37,8 +39,8 @@ const CheckoutPage = () => {
                             from_district_id: process.env.REACT_APP_GHN_SHOP_DISTRICT_ID,
                             to_district_id: userDetails.addresses.districtID,
                             to_ward_code: userDetails.addresses.wardID,
-                            weight: 1000,
-                            height: 15,
+                            weight: totalItemsWeight,
+                            height: totalItemsHeight,
                             length: 15,
                             width: 15,
                         },

@@ -317,15 +317,12 @@ const ProfilePage = () => {
                                                 isUpdating={isUpdating}
                                                 provinceID={provinceID}
                                                 setProvinceID={setProvinceID}
-                                                provinceName={provinceName}
                                                 setProvinceName={setProvinceName}
                                                 districtID={districtID}
                                                 setDistrictID={setDistrictID}
                                                 districtName={districtName}
-                                                setDistrictName={setDistrictName}
                                                 wardID={wardID}
                                                 setWardID={setWardID}
-                                                wardName={wardName}
                                                 setWardName={setWardName}
                                                 addressDetails={addressDetails}
                                                 setAddressDetails={setAddressDetails}
