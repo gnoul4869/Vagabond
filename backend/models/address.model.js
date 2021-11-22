@@ -26,7 +26,7 @@ const addressSchema = new mongoose.Schema(
             type: String,
             required: [true, 'Hãy cung cấp tên phường/xã'],
         },
-        details: {
+        addressDetails: {
             type: String,
             required: [true, 'Hãy cung cấp địa chỉ cụ thể'],
         },

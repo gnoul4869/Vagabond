@@ -33,17 +33,37 @@ export const getUserDetails = () => async (dispatch, getState) => {
 };
 
 export const updateUserDetails =
-    (name, address, phoneNumber, gender, birthDate, imageFile) => async (dispatch, getState) => {
+    (
+        name,
+        phoneNumber,
+        gender,
+        birthDate,
+        provinceID,
+        provinceName,
+        districtID,
+        districtName,
+        wardID,
+        wardName,
+        addressDetails,
+        imageFile
+    ) =>
+    async (dispatch, getState) => {
         dispatch({ type: USER_UPDATE_DETAILS_REQUEST });
         try {
             const { userInfo } = getState().auth;
             const formData = new FormData();
 
             formData.append('name', name);
-            formData.append('address', address);
             formData.append('phoneNumber', phoneNumber);
             formData.append('gender', gender);
             formData.append('birthDate', birthDate);
+            formData.append('provinceID', provinceID);
+            formData.append('provinceName', provinceName);
+            formData.append('districtID', districtID);
+            formData.append('districtName', districtName);
+            formData.append('wardID', wardID);
+            formData.append('wardName', wardName);
+            formData.append('addressDetails', addressDetails);
             if (imageFile) {
                 formData.append('imageFile', imageFile);
             }

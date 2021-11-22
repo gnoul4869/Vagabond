@@ -37,17 +37,38 @@ export const login = (email, password) => async (dispatch) => {
 };
 
 export const register =
-    (email, password, name, address, phoneNumber, gender, birthDate) => async (dispatch) => {
+    (
+        email,
+        password,
+        name,
+        phoneNumber,
+        gender,
+        birthDate,
+        provinceID,
+        provinceName,
+        districtID,
+        districtName,
+        wardID,
+        wardName,
+        addressDetails
+    ) =>
+    async (dispatch) => {
         dispatch({ type: REGISTER_REQUEST });
         try {
             const { data } = await axios.post('/api/v1/auth/register', {
                 email,
                 password,
                 name,
-                address,
                 phoneNumber,
                 gender,
                 birthDate,
+                provinceID,
+                provinceName,
+                districtID,
+                districtName,
+                wardID,
+                wardName,
+                addressDetails,
             });
             const userInfo = {
                 name: data.userInfo.name,

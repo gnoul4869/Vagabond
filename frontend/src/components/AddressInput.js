@@ -3,7 +3,7 @@ import axios from 'axios';
 import React, { useEffect, useState } from 'react';
 
 const AddressInput = ({
-    isLoading,
+    isUpdating,
     provinceID,
     setProvinceID,
     provinceName,
@@ -28,6 +28,10 @@ const AddressInput = ({
         if (id !== 'DEFAULT') {
             setProvinceID(id);
             setProvinceName(name);
+            setDistrictID('');
+            setDistrictName('');
+            setWardID('');
+            setWardName('');
             getDistricts(id);
         }
     };
@@ -36,6 +40,8 @@ const AddressInput = ({
         if (id !== 'DEFAULT') {
             setDistrictID(id);
             setDistrictName(name);
+            setWardID('');
+            setWardName('');
             getWards(id);
         }
     };
@@ -46,30 +52,6 @@ const AddressInput = ({
             setWardName(name);
         }
     };
-
-    useEffect(() => {
-        const getProvinces = async () => {
-            setIsLoadingAddress(true);
-            try {
-                const { data } = await axios.get(
-                    'https://online-gateway.ghn.vn/shiip/public-api/master-data/province',
-                    { headers: { token: process.env.REACT_APP_GHN_TOKEN } }
-                );
-
-                const sortedProvinces = data.data.sort((a, b) =>
-                    a.ProvinceName.localeCompare(b.ProvinceName)
-                );
-
-                setProvinces(sortedProvinces);
-
-                setIsLoadingAddress(false);
-            } catch (error) {
-                console.log(error.response.data.message);
-                setIsLoadingAddress(true);
-            }
-        };
-        getProvinces();
-    }, []);
 
     const getDistricts = async (provinceID) => {
         setIsLoadingAddress(true);
@@ -117,6 +99,39 @@ const AddressInput = ({
         }
     };
 
+    useEffect(() => {
+        const getProvinces = async () => {
+            setIsLoadingAddress(true);
+            try {
+                const { data } = await axios.get(
+                    'https://online-gateway.ghn.vn/shiip/public-api/master-data/province',
+                    { headers: { token: process.env.REACT_APP_GHN_TOKEN } }
+                );
+
+                const sortedProvinces = data.data.sort((a, b) =>
+                    a.ProvinceName.localeCompare(b.ProvinceName)
+                );
+
+                setProvinces(sortedProvinces);
+
+                setIsLoadingAddress(false);
+            } catch (error) {
+                console.log(error.response.data.message);
+                setIsLoadingAddress(true);
+            }
+        };
+        getProvinces();
+    }, []);
+
+    useEffect(() => {
+        if (provinceID) {
+            getDistricts(provinceID);
+        }
+        if (districtID) {
+            getWards(districtID);
+        }
+    }, [districtID, provinceID]);
+
     return (
         <>
             <div className="row m-0">
@@ -127,7 +142,7 @@ const AddressInput = ({
                         onChange={(e) =>
                             provinceHandler(e.target.value, e.target.selectedOptions[0].text)
                         }
-                        disabled={isLoadingAddress}
+                        disabled={isLoadingAddress || isUpdating}
                         className="form-select"
                     >
                         <option value="DEFAULT" disabled>
@@ -149,7 +164,7 @@ const AddressInput = ({
                         onChange={(e) =>
                             districtHandler(e.target.value, e.target.selectedOptions[0].text)
                         }
-                        disabled={districts.length === 0 || isLoadingAddress}
+                        disabled={districts.length === 0 || isLoadingAddress || isUpdating}
                         className="form-select"
                     >
                         <option value="DEFAULT" disabled>
@@ -171,7 +186,7 @@ const AddressInput = ({
                         onChange={(e) =>
                             wardHandler(e.target.value, e.target.selectedOptions[0].text)
                         }
-                        disabled={wards.length === 0 || isLoadingAddress}
+                        disabled={wards.length === 0 || isLoadingAddress || isUpdating}
                         className="form-select"
                     >
                         <option value="DEFAULT" disabled>
@@ -195,7 +210,7 @@ const AddressInput = ({
                     className="form-control"
                     value={addressDetails}
                     onChange={(e) => setAddressDetails(e.target.value)}
-                    disabled={isLoading}
+                    disabled={isUpdating}
                 />
                 <label htmlFor="input">Địa chỉ cụ thể</label>
             </div>

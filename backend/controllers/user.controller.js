@@ -30,7 +30,7 @@ export const getUserDetails = async (req, res) => {
                 districtName: address.districtName,
                 wardID: address.wardID,
                 wardName: address.wardName,
-                addressDetails: address.details,
+                addressDetails: address.addressDetails,
             },
         },
     });
@@ -150,7 +150,11 @@ export const updateUserDetails = async (req, res) => {
 
     const address = await Address.findOneAndUpdate(
         { createdBy: req.user.id },
-        { provinceID, provinceName, districtID, districtName, wardID, wardName }
+        { provinceID, provinceName, districtID, districtName, wardID, wardName, addressDetails },
+        {
+            new: true,
+            runValidators: true,
+        }
     );
 
     res.status(StatusCodes.OK).json({
@@ -170,7 +174,7 @@ export const updateUserDetails = async (req, res) => {
                 districtName: address.districtName,
                 wardID: address.wardID,
                 wardName: address.wardName,
-                addressDetails: address.details,
+                addressDetails: address.addressDetails,
             },
         },
     });

@@ -22,7 +22,7 @@ const RegisterPage = () => {
     const history = useHistory();
     const dispatch = useDispatch();
 
-    const [step, setStep] = useState(2);
+    const [step, setStep] = useState(0);
     const [name, setName] = useState('');
     const [email, setEmail] = useState('');
     const [otp, setOtp] = useState('');
@@ -40,6 +40,7 @@ const RegisterPage = () => {
     //---------
     const [password, setPassword] = useState('');
     const [confirmPassword, setConfirmPassword] = useState('');
+
     const [validationError, setValidationError] = useState('');
 
     const auth = useSelector((state) => state.auth);

@@ -133,7 +133,7 @@ export const register = async (req, res) => {
         districtName,
         wardID,
         wardName,
-        details: addressDetails,
+        addressDetails,
         createdBy: user._id,
     });
     const token = await user.createJWT();
@@ -155,7 +155,7 @@ export const register = async (req, res) => {
                 districtName: address.districtName,
                 wardID: address.wardID,
                 wardName: address.wardName,
-                addressDetails: address.details,
+                addressDetails: address.addressDetails,
             },
         },
     });
@@ -200,7 +200,7 @@ export const login = async (req, res) => {
                 districtName: address.districtName,
                 wardID: address.wardID,
                 wardName: address.wardName,
-                addressDetails: address.details,
+                addressDetails: address.addressDetails,
             },
         },
     });

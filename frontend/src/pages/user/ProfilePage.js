@@ -26,12 +26,18 @@ const ProfilePage = () => {
     const [imageFile, setImageFile] = useState(null);
     const [image, setImage] = useState('/images/user_profile_picture.jpg');
     const [name, setName] = useState('');
-    const [address, setAddress] = useState('');
     const [phoneNumber, setPhoneNumber] = useState('');
     const [gender, setGender] = useState('');
     const [birthDate, setBirthDate] = useState(new Date());
-    const [validationError, setValidationError] = useState('');
+    const [provinceID, setProvinceID] = useState('');
+    const [provinceName, setProvinceName] = useState('');
+    const [districtID, setDistrictID] = useState('');
+    const [districtName, setDistrictName] = useState('');
+    const [wardID, setWardID] = useState('');
+    const [wardName, setWardName] = useState('');
+    const [addressDetails, setAddressDetails] = useState('');
 
+    const [validationError, setValidationError] = useState('');
     const [isModalShown, setIsModalShown] = useState(false);
 
     const imageInput = useRef();
@@ -74,10 +80,6 @@ const ProfilePage = () => {
             return setValidationError('Tên không thể có nhiều hơn 40 ký tự');
         }
 
-        if (!address) {
-            return setValidationError('Hãy nhập địa chỉ của bạn');
-        }
-
         if (!phoneNumber) {
             return setValidationError('Hãy nhập số điện thoại của bạn');
         }
@@ -106,9 +108,42 @@ const ProfilePage = () => {
             return setValidationError('Số tuổi không hợp lệ');
         }
 
+        if (!provinceID || !provinceName) {
+            return setValidationError('Hãy chọn tỉnh/thành phố');
+        }
+
+        if (!districtID || !districtName) {
+            return setValidationError('Hãy chọn quận/huyện');
+        }
+
+        if (!wardID || !wardName) {
+            return setValidationError('Hãy chọn phường/xã');
+        }
+
+        if (!addressDetails) {
+            return setValidationError('Hãy cung cấp địa chỉ cụ thể');
+        }
+
         setValidationError('');
-        dispatch(updateUserDetails(name, address, phoneNumber, gender, birthDate, imageFile));
+        dispatch(
+            updateUserDetails(
+                name,
+                phoneNumber,
+                gender,
+                birthDate,
+                provinceID,
+                provinceName,
+                districtID,
+                districtName,
+                wardID,
+                wardName,
+                addressDetails,
+                imageFile
+            )
+        );
     };
+
+    console.log(addressDetails);
 
     useEffect(() => {
         dispatch(getUserDetails());
@@ -118,10 +153,16 @@ const ProfilePage = () => {
         if (userDetails) {
             setImage(userDetails.image);
             setName(userDetails.name);
-            setAddress(userDetails.address);
             setPhoneNumber(userDetails.phoneNumber);
             setGender(userDetails.gender);
             setBirthDate(moment(userDetails.birthDate).toDate());
+            setProvinceID(userDetails.addresses.provinceID);
+            setProvinceName(userDetails.addresses.provinceName);
+            setDistrictID(userDetails.addresses.districtID);
+            setDistrictName(userDetails.addresses.districtName);
+            setWardID(userDetails.addresses.wardID);
+            setWardName(userDetails.addresses.wardName);
+            setAddressDetails(userDetails.addresses.addressDetails);
         }
     }, [userDetails]);
 
@@ -275,9 +316,21 @@ const ProfilePage = () => {
                                     <div className="profile-field-value">
                                         <div className="col-md-10">
                                             <AddressInput
-                                                isLoading={isLoading}
-                                                address={address}
-                                                setAddress={setAddress}
+                                                isUpdating={isUpdating}
+                                                provinceID={provinceID}
+                                                setProvinceID={setProvinceID}
+                                                provinceName={provinceName}
+                                                setProvinceName={setProvinceName}
+                                                districtID={districtID}
+                                                setDistrictID={setDistrictID}
+                                                districtName={districtName}
+                                                setDistrictName={setDistrictName}
+                                                wardID={wardID}
+                                                setWardID={setWardID}
+                                                wardName={wardName}
+                                                setWardName={setWardName}
+                                                addressDetails={addressDetails}
+                                                setAddressDetails={setAddressDetails}
                                             />
                                         </div>
                                     </div>
