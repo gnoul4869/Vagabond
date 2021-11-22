@@ -8,18 +8,45 @@ import CheckoutLoading from '../components/loading/CheckoutLoading';
 import ErrorPage from './error/ErrorPage';
 import PriceFormat from '../components/PriceFormat';
 import { ImTruck } from 'react-icons/im';
+import axios from 'axios';
 
 const CheckoutPage = () => {
     const history = useHistory();
     const location = useLocation();
     const dispatch = useDispatch();
     const { userInfo } = useSelector((state) => state.auth);
-    const { isLoading, isUpdating, isDone, userDetails, error } = useSelector(
-        (state) => state.user
-    );
+    const { isLoading, userDetails, error } = useSelector((state) => state.user);
     const { cartItems } = useSelector((state) => state.cart);
 
     const totalItemsPrice = cartItems.reduce((a, c) => a + c.price * c.qty, 0);
+
+    useEffect(() => {
+        if (userDetails) {
+            const getShippingFee = async () => {
+                const { data } = await axios.get(
+                    'https://online-gateway.ghn.vn/shiip/public-api/v2/shipping-order/fee',
+                    {
+                        headers: {
+                            token: process.env.REACT_APP_GHN_TOKEN,
+                            shop_id: process.env.REACT_APP_GHN_SHOP_ID,
+                        },
+                        params: {
+                            service_type_id: 2, // Standard
+                            insurance_value: totalItemsPrice,
+                            coupon: null,
+                            from_district_id: process.env.REACT_APP_GHN_SHOP_DISTRICT_ID,
+                            to_district_id: userDetails.addresses.districtID,
+                            to_ward_code: userDetails.addresses.wardID,
+                            weight: 1000,
+                            height: 15,
+                            length: 15,
+                            width: 15,
+                        },
+                    }
+                );
+            };
+        }
+    }, [userDetails]);
 
     useEffect(() => {
         dispatch(getUserDetails());

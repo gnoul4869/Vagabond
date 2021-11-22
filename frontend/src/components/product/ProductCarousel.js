@@ -23,8 +23,10 @@ const ProductCarousel = ({ images, name }) => {
 
     return (
         <div className="container mb-4 mb-lg-0">
-            <div className="row">
-                <img src={image} alt={name} className="product-carousel-img-big" />
+            <div className="row justify-content-center">
+                <div className="product-carousel-main-img-container">
+                    <img src={image} alt={name} className="product-carousel-main-img" />
+                </div>
             </div>
             <div
                 className={`row justify-content-center align-items-center mt-3 mx-md-2 ${
