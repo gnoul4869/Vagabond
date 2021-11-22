@@ -7,7 +7,6 @@ import ShippingDetails from '../components/checkout/ShippingDetails';
 import CheckoutLoading from '../components/loading/CheckoutLoading';
 import ErrorPage from './error/ErrorPage';
 import PriceFormat from '../components/PriceFormat';
-import { RiShoppingBag3Fill } from 'react-icons/ri';
 import { ImTruck } from 'react-icons/im';
 
 const CheckoutPage = () => {
@@ -19,6 +18,8 @@ const CheckoutPage = () => {
         (state) => state.user
     );
     const { cartItems } = useSelector((state) => state.cart);
+
+    const totalItemsPrice = cartItems.reduce((a, c) => a + c.price * c.qty, 0);
 
     useEffect(() => {
         dispatch(getUserDetails());
@@ -91,12 +92,7 @@ const CheckoutPage = () => {
                                 </div>
                                 <div className="col-auto d-flex align-items-center mx-2">
                                     <span className="text-ired fw-600 fs-5">
-                                        <PriceFormat
-                                            price={cartItems.reduce(
-                                                (a, c) => a + c.price * c.qty,
-                                                0
-                                            )}
-                                        />
+                                        <PriceFormat price={totalItemsPrice} />
                                     </span>
                                 </div>
                             </div>
@@ -132,28 +128,44 @@ const CheckoutPage = () => {
                                     </div>
                                 </div>
                             </div>
+
                             <div className="divider-dash-bottom my-2"></div>
-                            <div className="row text-secondary fw-600">
-                                <div className="col text-end">
-                                    <div>Tổng tiền hàng:</div>
+
+                            <div className="row text-secondary g-0 mt-3">
+                                <div className="col offset-8 ps-5">
+                                    <div className="ps-4">Tổng tiền hàng:</div>
+                                </div>
+                                <div className="col fw-600 text-end">
+                                    <div className="me-3">
+                                        <PriceFormat price={totalItemsPrice} />
+                                    </div>
                                 </div>
                             </div>
-                            <div className="row text-secondary fw-600 g-0 d-flex justify-content-center px-md-2">
-                                <div className="col-auto d-none d-md-inline-flex align-items-center ms-auto">
-                                    <div>Tổng thanh toán:</div>
+                            <div className="row text-secondary g-0 mt-2">
+                                <div className="col offset-8 ps-5">
+                                    <div className="ps-4">Phí vận chuyển:</div>
                                 </div>
-                                <div className="col-auto d-inline-flex d-md-none align-items-center">
-                                    Tổng thanh toán:
+                                <div className="col fw-600 text-end">
+                                    <div className="me-3">
+                                        <PriceFormat price={10000} />
+                                    </div>
                                 </div>
-                                <div className="col-auto d-flex align-items-center mx-2">
-                                    <span className="text-ired fw-600 fs-5">
-                                        <PriceFormat
-                                            price={cartItems.reduce(
-                                                (a, c) => a + c.price * c.qty,
-                                                0
-                                            )}
-                                        />
-                                    </span>
+                            </div>
+                            <div className="row align-items-center text-secondary g-0 mt-2">
+                                <div className="col offset-8 ps-5">
+                                    <div className="ps-4">Tổng thanh toán:</div>
+                                </div>
+                                <div className="col text-end">
+                                    <div className="me-3">
+                                        <span className="text-ired fw-600 fs-3">
+                                            <PriceFormat
+                                                price={cartItems.reduce(
+                                                    (a, c) => a + c.price * c.qty,
+                                                    0
+                                                )}
+                                            />
+                                        </span>
+                                    </div>
                                 </div>
                             </div>
                         </div>

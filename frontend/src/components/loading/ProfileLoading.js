@@ -106,7 +106,7 @@ const ProfileLoading = () => {
                         <div className="profile-field-value">
                             <div className="col-md-10">
                                 <div className="row m-0">
-                                    <div className="col p-0 me-2">
+                                    <div className="col-12 p-0 me-2 mb-2">
                                         <div className="bg-loading rounded-pill"></div>
                                     </div>
                                     <div className="col p-0 me-2">
