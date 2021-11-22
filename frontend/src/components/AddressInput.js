@@ -1,3 +1,4 @@
+import {} from 'dotenv/config';
 import axios from 'axios';
 import React, { useEffect, useState } from 'react';
 
@@ -29,7 +30,7 @@ const AddressInput = ({ isLoading, address, setAddress }) => {
             try {
                 const { data } = await axios.get(
                     'https://online-gateway.ghn.vn/shiip/public-api/master-data/province',
-                    { headers: { token: 'removed' } }
+                    { headers: { token: process.env.REACT_APP_GHN_TOKEN } }
                 );
 
                 const sortedProvinces = data.data.sort((a, b) =>
@@ -55,7 +56,7 @@ const AddressInput = ({ isLoading, address, setAddress }) => {
             const { data } = await axios.get(
                 'https://online-gateway.ghn.vn/shiip/public-api/master-data/district',
                 {
-                    headers: { token: 'removed' },
+                    headers: { token: process.env.REACT_APP_GHN_TOKEN },
                     params: { province_id: provinceID },
                 }
             );
@@ -81,7 +82,7 @@ const AddressInput = ({ isLoading, address, setAddress }) => {
             const { data } = await axios.get(
                 'https://online-gateway.ghn.vn/shiip/public-api/master-data/ward',
                 {
-                    headers: { token: 'removed' },
+                    headers: { token: process.env.REACT_APP_GHN_TOKEN },
                     params: { district_id: districtID },
                 }
             );
@@ -98,8 +99,6 @@ const AddressInput = ({ isLoading, address, setAddress }) => {
             setIsLoadingAddress(false);
         }
     };
-
-    console.log(provinceID, districtID, wardID);
 
     return (
         <>
