@@ -14,10 +14,6 @@ const productSchema = new mongoose.Schema(
             type: String,
             default: 'No brand',
         },
-        images: {
-            type: Array,
-            default: ['/images/product_picture.jpg'],
-        },
         price: {
             type: Number,
             required: [true, 'Hãy nhập giá của sản phẩm'],
@@ -26,6 +22,18 @@ const productSchema = new mongoose.Schema(
             type: Number,
             default: 1,
         },
+        weight: {
+            type: Number,
+            default: 1000,
+        },
+        description: {
+            type: String,
+            default: 'Không có miêu tả nào',
+        },
+        images: {
+            type: Array,
+            default: ['/images/product_picture.jpg'],
+        },
         rating: {
             type: Number,
             default: 0,
@@ -33,10 +41,6 @@ const productSchema = new mongoose.Schema(
         numReviews: {
             type: Number,
             default: 0,
-        },
-        description: {
-            type: String,
-            default: 'Không có miêu tả nào',
         },
         // createdBy: {
         //     type: mongoose.Types.ObjectId,

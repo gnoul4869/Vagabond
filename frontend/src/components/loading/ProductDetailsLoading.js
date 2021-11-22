@@ -103,6 +103,14 @@ const ProductDetailsLoading = () => {
                             <div className="bg-loading rounded-pill"></div>
                         </div>
                     </div>
+                    <div className="row mt-3">
+                        <div className="col-2 pe-5">
+                            <div className="bg-loading rounded-pill"></div>
+                        </div>
+                        <div className="col-1">
+                            <div className="bg-loading rounded-pill"></div>
+                        </div>
+                    </div>
                 </div>
             </div>
             <div className="container bg-white mt-3 p-3">

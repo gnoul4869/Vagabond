@@ -162,6 +162,7 @@ const ProductDetailsPage = () => {
                             <ProductDescription
                                 category={product.category}
                                 brand={product.brand}
+                                weight={product.weight}
                                 description={product.description}
                             />
                         </section>
