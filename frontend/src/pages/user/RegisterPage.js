@@ -22,7 +22,7 @@ const RegisterPage = () => {
     const history = useHistory();
     const dispatch = useDispatch();
 
-    const [step, setStep] = useState(0);
+    const [step, setStep] = useState(2);
     const [name, setName] = useState('');
     const [email, setEmail] = useState('');
     const [otp, setOtp] = useState('');
@@ -223,64 +223,70 @@ const RegisterPage = () => {
     }, [history, oldLocation, userInfo]);
 
     return (
-        <div className="row align-items-center g-lg-5 py-5 mx-md-5">
-            <div className="col-lg-7 text-center text-lg-start">
-                <h1 className="display-5 fw-bold mb-3 text-ired">Đăng ký thành viên</h1>
-                <p className="col-lg-10 fs-2 ms-3 text-sdark">Bước đầu khám phá</p>
-            </div>
-            <div className="col-md-10 col-lg-5 mx-auto">
-                <form
-                    className="auth-form p-4 p-md-5 border rounded-3 bg-white"
-                    onSubmit={submitHandler}
-                    noValidate
-                >
-                    {step > 0 && (
-                        <button type="button" className="auth-back-btn" onClick={backBtnHandler}>
-                            <MdArrowBack className="icon" />
-                        </button>
-                    )}
-                    {(error || validationError) && (
-                        <div className="auth-error-container mt-4 mt-md-0">
-                            <VscError className="icon text-ired" />
-                            <span className="ms-2">{error || validationError}</span>
-                        </div>
-                    )}
-                    {switchStep(step)}
-                    <button
-                        className={`w-100 btn btn-lg btn-ired ${
-                            isLoading || auth.isLoading ? 'btn-ired-loading' : ''
-                        }`}
-                        type="submit"
+        <div className="container-fluid">
+            <div className="row align-items-center g-0 py-5 mx-md-5">
+                <div className="col col-lg-7 text-center text-lg-start bg-info">
+                    <h1 className="display-5 fw-bold mb-3 text-ired">Đăng ký thành viên</h1>
+                    <p className="col-lg-10 fs-2 ms-3 text-sdark">Bước đầu khám phá</p>
+                </div>
+                <div className="col-12 col-lg-5 mx-auto bg-dark">
+                    <form
+                        className="auth-form p-4 p-md-5 border rounded-3 bg-white"
+                        onSubmit={submitHandler}
+                        noValidate
                     >
-                        {!isLoading && !auth.isLoading ? (
-                            'Tiếp theo'
-                        ) : (
-                            <BarLoader
-                                color="white"
-                                css="display: inherit; margin-bottom: .25rem;"
-                                width="3.125rem"
-                            />
+                        {step > 0 && (
+                            <button
+                                type="button"
+                                className="auth-back-btn"
+                                onClick={backBtnHandler}
+                            >
+                                <MdArrowBack className="icon" />
+                            </button>
                         )}
-                    </button>
-                    <hr className="my-4" />
-                    <div className="text-muted text-center">
-                        <span>Đã là thành viên?</span>{' '}
-                        <Link
-                            to={{
-                                pathname: '/user/login',
-                                state: {
-                                    oldLocation:
-                                        location.state && location.state.oldLocation
-                                            ? location.state.oldLocation
-                                            : location.pathname,
-                                },
-                            }}
-                            className="link-label"
+                        {(error || validationError) && (
+                            <div className="auth-error-container mt-4 mt-md-0">
+                                <VscError className="icon text-ired" />
+                                <span className="ms-2">{error || validationError}</span>
+                            </div>
+                        )}
+                        {switchStep(step)}
+                        <button
+                            className={`w-100 btn btn-lg btn-ired ${
+                                isLoading || auth.isLoading ? 'btn-ired-loading' : ''
+                            }`}
+                            type="submit"
                         >
-                            Đăng nhập
-                        </Link>
-                    </div>
-                </form>
+                            {!isLoading && !auth.isLoading ? (
+                                'Tiếp theo'
+                            ) : (
+                                <BarLoader
+                                    color="white"
+                                    css="display: inherit; margin-bottom: .25rem;"
+                                    width="3.125rem"
+                                />
+                            )}
+                        </button>
+                        <hr className="my-4" />
+                        <div className="text-muted text-center">
+                            <span>Đã là thành viên?</span>{' '}
+                            <Link
+                                to={{
+                                    pathname: '/user/login',
+                                    state: {
+                                        oldLocation:
+                                            location.state && location.state.oldLocation
+                                                ? location.state.oldLocation
+                                                : location.pathname,
+                                    },
+                                }}
+                                className="link-label"
+                            >
+                                Đăng nhập
+                            </Link>
+                        </div>
+                    </form>
+                </div>
             </div>
         </div>
     );
