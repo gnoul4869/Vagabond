@@ -1,7 +1,14 @@
 import React from 'react';
 import { MdPlace } from 'react-icons/md';
 
-const ShippingDetails = ({ name, address, phoneNumber }) => {
+const ShippingDetails = ({
+    name,
+    phoneNumber,
+    provinceName,
+    districtName,
+    wardName,
+    addressDetails,
+}) => {
     return (
         <div className="mt-3 bg-white">
             <div className="postcard-border"></div>
@@ -10,7 +17,7 @@ const ShippingDetails = ({ name, address, phoneNumber }) => {
                     <MdPlace className="icon me-1" />
                     Thông tin đặt hàng
                 </div>
-                <div className="container px-3">
+                <div className="container px-0 px-md-4">
                     <div className="row mt-3">
                         <div className="col-12 col-md">
                             <div className="row">
@@ -37,11 +44,22 @@ const ShippingDetails = ({ name, address, phoneNumber }) => {
                     </div>
                     <div className="row mt-3">
                         <div className="col-4 col-md-3 col-lg-2 text-secondary">
-                            <span className="d-none d-md-flex">Địa chỉ nhận hàng</span>
-                            <span className="d-flex d-md-none">Địa chỉ</span>
+                            <span className="d-none d-md-flex">Địa chỉ giao hàng</span>
+                            <span className="d-flex d-md-none">Giao tới</span>
                         </div>
                         <div className="col p-0">
-                            <span className="text-sdark">{address}</span>
+                            <span className="text-sdark">
+                                {wardName}, {districtName}, {provinceName}
+                            </span>
+                        </div>
+                    </div>
+                    <div className="row mt-3">
+                        <div className="col-4 col-md-3 col-lg-2 text-secondary">
+                            <span className="d-none d-md-flex">Địa chỉ chi tiết</span>
+                            <span className="d-flex d-md-none">Đ.chỉ chi tiết</span>
+                        </div>
+                        <div className="col p-0">
+                            <span className="text-sdark">{addressDetails}</span>
                         </div>
                     </div>
                 </div>

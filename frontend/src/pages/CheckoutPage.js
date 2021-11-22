@@ -45,8 +45,11 @@ const CheckoutPage = () => {
                     <>
                         <ShippingDetails
                             name={userDetails.name}
-                            address={userDetails.address}
                             phoneNumber={userDetails.phoneNumber}
+                            provinceName={userDetails.addresses.provinceName}
+                            districtName={userDetails.addresses.districtName}
+                            wardName={userDetails.addresses.wardName}
+                            addressDetails={userDetails.addresses.addressDetails}
                         />
 
                         <div className="container bg-white mt-3 p-4">
