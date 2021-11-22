@@ -2,7 +2,7 @@ import React, { useEffect, useState } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
 import { Link } from 'react-router-dom';
 import { listProducts } from '../../redux/actions/productActions';
-import ProductPrice from './ProductPrice';
+import PriceFormat from '../PriceFormat';
 import ProductListLoading from '../loading/ProductListLoading';
 import RatingStars from '../RatingStars';
 import ErrorPage from '../../pages/error/ErrorPage';
@@ -62,7 +62,7 @@ const ProductList = () => {
                                     <div className="product-bottom">
                                         <div className="product-info-container">
                                             <div className="product-price">
-                                                <ProductPrice price={item.price} />
+                                                <PriceFormat price={item.price} />
                                             </div>
                                             <div className="product-rating">
                                                 <RatingStars

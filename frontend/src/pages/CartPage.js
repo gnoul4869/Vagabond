@@ -3,7 +3,7 @@ import { useSelector } from 'react-redux';
 import { Link } from 'react-router-dom';
 import { RiShoppingBag3Fill } from 'react-icons/ri';
 import CartItems from '../components/CartItems';
-import ProductPrice from '../components/product/ProductPrice';
+import PriceFormat from '../components/PriceFormat';
 
 const CartPage = () => {
     const { loadingItems, cartItems } = useSelector((state) => state.cart);
@@ -64,7 +64,7 @@ const CartPage = () => {
                     </div>
                     <div className="col-auto d-flex align-items-center mx-2">
                         <span className="text-ired fw-600 fs-5">
-                            <ProductPrice
+                            <PriceFormat
                                 price={cartItems.reduce((a, c) => a + c.price * c.qty, 0)}
                             />
                         </span>

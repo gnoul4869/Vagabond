@@ -6,7 +6,7 @@ import CartItems from '../components/CartItems';
 import ShippingDetails from '../components/checkout/ShippingDetails';
 import CheckoutLoading from '../components/loading/CheckoutLoading';
 import ErrorPage from './error/ErrorPage';
-import ProductPrice from '../components/product/ProductPrice';
+import PriceFormat from '../components/PriceFormat';
 import { RiShoppingBag3Fill } from 'react-icons/ri';
 import { ImTruck } from 'react-icons/im';
 
@@ -91,7 +91,7 @@ const CheckoutPage = () => {
                                 </div>
                                 <div className="col-auto d-flex align-items-center mx-2">
                                     <span className="text-ired fw-600 fs-5">
-                                        <ProductPrice
+                                        <PriceFormat
                                             price={cartItems.reduce(
                                                 (a, c) => a + c.price * c.qty,
                                                 0
@@ -133,6 +133,11 @@ const CheckoutPage = () => {
                                 </div>
                             </div>
                             <div className="divider-dash-bottom my-2"></div>
+                            <div className="row text-secondary fw-600">
+                                <div className="col text-end">
+                                    <div>Tổng tiền hàng:</div>
+                                </div>
+                            </div>
                             <div className="row text-secondary fw-600 g-0 d-flex justify-content-center px-md-2">
                                 <div className="col-auto d-none d-md-inline-flex align-items-center ms-auto">
                                     <div>Tổng thanh toán:</div>
@@ -142,7 +147,7 @@ const CheckoutPage = () => {
                                 </div>
                                 <div className="col-auto d-flex align-items-center mx-2">
                                     <span className="text-ired fw-600 fs-5">
-                                        <ProductPrice
+                                        <PriceFormat
                                             price={cartItems.reduce(
                                                 (a, c) => a + c.price * c.qty,
                                                 0

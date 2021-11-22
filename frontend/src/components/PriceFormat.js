@@ -1,7 +1,7 @@
 import React from 'react';
 import NumberFormat from 'react-number-format';
 
-const ProductPrice = ({ price }) => {
+const PriceFormat = ({ price }) => {
     return (
         <NumberFormat
             value={price}
@@ -13,4 +13,4 @@ const ProductPrice = ({ price }) => {
     );
 };
 
-export default ProductPrice;
+export default PriceFormat;

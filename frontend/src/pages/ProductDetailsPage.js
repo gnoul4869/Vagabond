@@ -8,7 +8,7 @@ import { IoIosWarning } from 'react-icons/io';
 import ErrorPage from './error/ErrorPage';
 import NumberInput from '../components/NumberInput';
 import RatingStars from '../components/RatingStars';
-import ProductPrice from '../components/product/ProductPrice';
+import PriceFormat from '../components/PriceFormat';
 import ProductCarousel from '../components/product/ProductCarousel';
 import ProductDetailsLoading from '../components/loading/ProductDetailsLoading';
 import ProductDescription from '../components/product/ProductDescription';
@@ -91,7 +91,7 @@ const ProductDetailsPage = () => {
                                                 <div className="bg-label container rounded">
                                                     <span className="fs-3">Giá:</span>{' '}
                                                     <span className="text-ired fw-600 fs-2 ms-2">
-                                                        <ProductPrice price={product.price} />
+                                                        <PriceFormat price={product.price} />
                                                     </span>
                                                 </div>
                                             </div>

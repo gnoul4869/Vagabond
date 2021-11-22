@@ -5,7 +5,7 @@ import { MdDeleteForever } from 'react-icons/md';
 import { removeFromCart } from '../redux/actions/cartActions';
 import EmptyCart from './EmptyCart';
 import NumberInput from './NumberInput';
-import ProductPrice from './product/ProductPrice';
+import PriceFormat from './PriceFormat';
 
 const CartProducts = ({ loadingItems, cartItems, options }) => {
     const dispatch = useDispatch();
@@ -35,7 +35,7 @@ const CartProducts = ({ loadingItems, cartItems, options }) => {
                                 </div>
                                 <div className="col-6 col-md">
                                     <div className="text-sdark fw-600 text-center">
-                                        <ProductPrice price={item.price} />
+                                        <PriceFormat price={item.price} />
                                     </div>
                                 </div>
                                 <div className="col-6 col-md">
@@ -59,7 +59,7 @@ const CartProducts = ({ loadingItems, cartItems, options }) => {
                                 </div>
                                 <div className="col d-none d-md-block">
                                     <div className="text-sdark fw-600 text-center">
-                                        <ProductPrice price={item.price * item.qty} />
+                                        <PriceFormat price={item.price * item.qty} />
                                     </div>
                                 </div>
                                 {options.deleteBtn && (
