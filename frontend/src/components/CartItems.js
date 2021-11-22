@@ -65,7 +65,7 @@ const CartProducts = ({ loadingItems, cartItems, options }) => {
                                 {options.deleteBtn && (
                                     <div className="col-12 col-md-1 mt-2 mt-md-0 d-flex justify-content-end justify-content-md-center">
                                         <button
-                                            className="cart-btn btn-del"
+                                            className="button-main btn-del"
                                             onClick={() => dispatch(removeFromCart(item.id))}
                                         >
                                             <MdDeleteForever className="icon" /> Xoá
