@@ -73,7 +73,7 @@ const CartProducts = ({ loadingItems, cartItems, options }) => {
                                     </div>
                                 )}
                             </div>
-                            <div className="divider my-3"></div>
+                            <div className="divider-bottom my-3"></div>
                         </div>
                     );
                 })

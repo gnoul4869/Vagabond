@@ -70,6 +70,23 @@ select:focus {
     color: var(--dark-slate-gray);
 }
 
+.text-coral {
+    color: coral;
+}
+
+/** Font */
+.fsr-2 {
+    font-size: 16px;
+}
+
+.fsr-3 {
+    font-size: 20px;
+}
+
+.fsr-4 {
+    font-size: 25px;
+}
+
 .fw-600 {
     font-weight: 600;
 }
@@ -157,6 +174,11 @@ select:focus {
     color: inherit;
 }
 
+.link-inherit:hover {
+    text-decoration: inherit;
+    color: inherit;
+}
+
 .link-label {
     text-decoration: none;
     color: var(--inspiring-red);
@@ -207,6 +229,19 @@ select:focus {
 
 .divider-bottom {
     border-bottom: 0.0625rem solid #efefef;
+}
+
+.divider-dash {
+    border-top: 1px dashed rgba(0, 0, 0, 0.09);
+    border-bottom: 1px dashed rgba(0, 0, 0, 0.09);
+}
+
+.divider-dash-top {
+    border-top: 1px dashed rgba(0, 0, 0, 0.09);
+}
+
+.divider-dash-bottom {
+    border-bottom: 1px dashed rgba(0, 0, 0, 0.09);
 }
 
 .postcard-border {
@@ -297,4 +332,35 @@ select:focus {
     100% {
         background-position: 0% 50%;
     }
+}
+
+/** Breakpoints */
+/*? X-Small devices (portrait phones, less than 576px) */
+@media (max-width: 575.98px) {
+    .fsr-2 {
+        font-size: 9px;
+    }
+    .fsr-3 {
+        font-size: 10px;
+    }
+    .fsr-4 {
+        font-size: 12px;
+    }
+}
+
+/*? Small devices (landscape phones, less than 768px) */
+@media (min-width: 576px) and (max-width: 767.98px) {
+    .fsr-2 {
+        font-size: 14px;
+    }
+    .fsr-3 {
+        font-size: 16px;
+    }
+    .fsr-4 {
+        font-size: 18px;
+    }
+}
+
+/*? Medium devices (tablets, less than 992px) */
+@media (min-width: 768px) and (max-width: 991.98px) {
 }
