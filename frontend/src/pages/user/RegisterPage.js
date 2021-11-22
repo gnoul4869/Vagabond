@@ -95,10 +95,6 @@ const RegisterPage = () => {
                     return setStep(step + 1);
                 }
             case 2: {
-                if (!addressDetails) {
-                    return setValidationError('Hãy nhập địa chỉ của bạn');
-                }
-
                 if (!phoneNumber) {
                     return setValidationError('Hãy nhập số điện thoại của bạn');
                 }
@@ -125,6 +121,22 @@ const RegisterPage = () => {
                 }
                 if (age > 125) {
                     return setValidationError('Số tuổi không hợp lệ');
+                }
+
+                if (!provinceID || !provinceName) {
+                    return setValidationError('Hãy chọn tỉnh/thành phố');
+                }
+
+                if (!districtID || !districtName) {
+                    return setValidationError('Hãy chọn quận/huyện');
+                }
+
+                if (!wardID || !wardName) {
+                    return setValidationError('Hãy chọn phường/xã');
+                }
+
+                if (!addressDetails) {
+                    return setValidationError('Hãy cung cấp địa chỉ cụ thể');
                 }
 
                 setValidationError('');

@@ -25,23 +25,26 @@ const AddressInput = ({
     const [wards, setWards] = useState([]);
 
     const provinceHandler = (id, name) => {
-        if (id === 'DEFAULT') {
-            return;
+        if (id !== 'DEFAULT') {
+            setProvinceID(id);
+            setProvinceName(name);
+            getDistricts(id);
         }
-        setProvinceID(id);
-        setProvinceName(name);
-        getDistricts(id);
     };
 
     const districtHandler = (id, name) => {
-        setDistrictID(id);
-        setDistrictName(name);
-        getWards(id);
+        if (id !== 'DEFAULT') {
+            setDistrictID(id);
+            setDistrictName(name);
+            getWards(id);
+        }
     };
 
     const wardHandler = (id, name) => {
-        setWardID(id);
-        setWardName(name);
+        if (id !== 'DEFAULT') {
+            setWardID(id);
+            setWardName(name);
+        }
     };
 
     useEffect(() => {
@@ -84,8 +87,6 @@ const AddressInput = ({
             );
 
             setDistricts(sortedDistricts);
-            setDistrictID(sortedDistricts[0].DistrictID);
-            setDistrictName(sortedDistricts[0].DistrictName);
 
             setIsLoadingAddress(false);
         } catch (error) {
@@ -108,8 +109,6 @@ const AddressInput = ({
             const sortedWards = data.data.sort((a, b) => a.WardName.localeCompare(b.WardName));
 
             setWards(sortedWards);
-            setWardID(sortedWards[0].WardCode);
-            setWardName(sortedWards[0].WardName);
 
             setIsLoadingAddress(false);
         } catch (error) {
@@ -146,13 +145,16 @@ const AddressInput = ({
                 <div className="col p-0 me-2">
                     <label className="text-secondary ms-2">Quận/Huyện</label>
                     <select
-                        value={districtID}
+                        value={districtID || 'DEFAULT'}
                         onChange={(e) =>
                             districtHandler(e.target.value, e.target.selectedOptions[0].text)
                         }
                         disabled={districts.length === 0 || isLoadingAddress}
                         className="form-select"
                     >
+                        <option value="DEFAULT" disabled>
+                            ---
+                        </option>
                         {districts.map((item) => {
                             return (
                                 <option key={item.DistrictID} value={item.DistrictID}>
@@ -165,13 +167,16 @@ const AddressInput = ({
                 <div className="col p-0">
                     <label className="text-secondary ms-2">Phường/Xã</label>
                     <select
-                        value={wardID}
+                        value={wardID || 'DEFAULT'}
                         onChange={(e) =>
                             wardHandler(e.target.value, e.target.selectedOptions[0].text)
                         }
                         disabled={wards.length === 0 || isLoadingAddress}
                         className="form-select"
                     >
+                        <option value="DEFAULT" disabled>
+                            ---
+                        </option>
                         {wards.map((item) => {
                             return (
                                 <option key={item.WardCode} value={item.WardCode}>
