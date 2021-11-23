@@ -30,7 +30,12 @@ const NavigationBar = () => {
                             const { id, url, icon } = socialLink;
                             return (
                                 <li key={id}>
-                                    <a href={url} className="navbar-link mx-1">
+                                    <a
+                                        target="_blank"
+                                        rel="noopener noreferrer"
+                                        href={url}
+                                        className="navbar-link mx-1"
+                                    >
                                         {icon}
                                     </a>
                                 </li>

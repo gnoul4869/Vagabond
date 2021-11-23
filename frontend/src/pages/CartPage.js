@@ -10,7 +10,11 @@ const CartPage = () => {
 
     return (
         <>
-            <div className="container bg-white mt-4 p-3 d-none d-md-flex">
+            <div
+                className={`container bg-white mt-4 p-3 d-none d-md-flex ${
+                    cartItems.length === 0 && 'd-md-none'
+                }`}
+            >
                 <div className="container">
                     <div className="row g-0">
                         {/* <div className="col-auto"> //? This is for another time
@@ -51,7 +55,7 @@ const CartPage = () => {
                     />
                 </div>
             </div>
-            <div className="container bg-white mt-2 p-3">
+            <div className={`container bg-white mt-2 p-3 ${cartItems.length === 0 && 'd-none'}`}>
                 <div className="row text-secondary fw-600 g-0 d-flex justify-content-center px-md-2">
                     <div className="col-auto d-none d-md-inline-flex align-items-center ms-auto">
                         <div>
