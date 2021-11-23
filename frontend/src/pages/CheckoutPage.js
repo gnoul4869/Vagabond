@@ -30,8 +30,26 @@ const CheckoutPage = () => {
 
     const orderHandler = async () => {
         try {
-            const { data } = await axios.post();
-        } catch (error) {}
+            const products = cartItems.map((item) => {
+                return { productID: item.id, orderedQty: item.qty };
+            });
+            const { data } = await axios.post(
+                '/api/v1/orders',
+                { products, shippingFee },
+                {
+                    headers: {
+                        Authorization: `Bearer ${userInfo.token}`,
+                    },
+                }
+            );
+            console.log(data);
+        } catch (error) {
+            setLocalError(
+                error.response && error.response.data.message
+                    ? error.response.data.message
+                    : 'Đã có lỗi xảy ra. Bạn vui lòng thử lại sau ít phút nữa'
+            );
+        }
     };
 
     useEffect(() => {
@@ -99,8 +117,8 @@ const CheckoutPage = () => {
         }
     }, [history, location.pathname, userInfo]);
 
-    if (error) {
-        return <ErrorPage error={error} />;
+    if (error || localError) {
+        return <ErrorPage error={error || localError} />;
     }
 
     return (

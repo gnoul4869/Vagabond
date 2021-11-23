@@ -10,7 +10,7 @@ const NumberInput = ({ qty, max, setQty, productID, disabled }) => {
 
     const inputHandler = (value) => {
         value = parseInt(value);
-        if (value >= max) {
+        if (value > max) {
             return setError('Sản phẩm đã đạt số lượng tối đa');
         }
         if (value >= 1) {

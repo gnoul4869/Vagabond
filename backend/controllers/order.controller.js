@@ -1,6 +1,6 @@
 import { StatusCodes } from 'http-status-codes';
-import { BadRequestError } from '../errors/custom-api-error';
-import Order from '../models/order.model';
+import { BadRequestError } from '../errors/custom-api-error.js';
+import Order from '../models/order.model.js';
 
 export const createOrder = async (req, res) => {
     const { products, shippingFee } = req.body;
