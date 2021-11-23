@@ -35,6 +35,7 @@ const initialState = {
             ? JSON.parse(localStorage.getItem('cartItems'))
             : [],
         isDone: false,
+        error: '',
     },
     productList: {
         isLoading: false,

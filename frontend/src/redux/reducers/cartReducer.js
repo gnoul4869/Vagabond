@@ -1,11 +1,15 @@
 import {
+    CART_ADD_ITEM_FAIL,
     CART_ADD_ITEM_REQUEST,
     CART_ADD_ITEM_SUCCESS,
     CART_REMOVE_ITEM,
     CART_STATE_REFRESH,
 } from '../constants/cartConstants';
 
-export const cart = (state = { loadingItems: [], cartItems: [], isDone: false }, action) => {
+export const cart = (
+    state = { loadingItems: [], cartItems: [], isDone: false, error: '' },
+    action
+) => {
     switch (action.type) {
         case CART_ADD_ITEM_REQUEST:
             return {
@@ -29,6 +33,13 @@ export const cart = (state = { loadingItems: [], cartItems: [], isDone: false },
                 loadingItems: state.loadingItems.filter((x) => x !== item.id),
                 cartItems: newItems,
                 isDone: true,
+            };
+        case CART_ADD_ITEM_FAIL:
+            return {
+                ...state,
+                loadingItems: state.loadingItems.filter((x) => x !== item.id),
+                isDone: true,
+                error: action.payload,
             };
         case CART_REMOVE_ITEM:
             return {
