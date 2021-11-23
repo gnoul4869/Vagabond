@@ -26,7 +26,7 @@ const orderSchema = new mongoose.Schema({
     ],
     shippingFee: {
         type: Number,
-        required: [true, 'Hãy cung cấp chi phí vận chuyển'],
+        required: [true, 'Hãy cung cấp phí vận chuyển'],
     },
 });
 

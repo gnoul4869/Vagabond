@@ -22,6 +22,7 @@ const CheckoutPage = () => {
 
     const [shippingFee, setShippingFee] = useState(0);
     const [isUpdating, setIsUpdating] = useState(false);
+    const [localError, setLocalError] = useState('');
 
     const totalItemsPrice = cartItems.reduce((a, c) => a + c.price * c.qty, 0);
     const totalItemsWeight = cartItems.reduce((a, c) => a + c.weight * c.qty, 0);
@@ -29,6 +30,7 @@ const CheckoutPage = () => {
 
     const orderHandler = async () => {
         try {
+            const { data } = await axios.post();
         } catch (error) {}
     };
 
