@@ -5,8 +5,8 @@ import { RiShoppingBag3Fill } from 'react-icons/ri';
 import { updateCart } from '../redux/actions/cartActions';
 import CartItems from '../components/CartItems';
 import PriceFormat from '../components/PriceFormat';
-import CartItemsLoading from '../components/loading/CartItemsLoading';
 import ErrorPage from './error/ErrorPage';
+import CartPageLoading from '../components/loading/CartPageLoading';
 
 const CartPage = () => {
     const dispatch = useDispatch();
@@ -23,7 +23,7 @@ const CartPage = () => {
     return (
         <>
             {isLoading ? (
-                <CartItemsLoading options={{ deleteBtn: true }} />
+                <CartPageLoading />
             ) : (
                 <>
                     <div
@@ -68,6 +68,7 @@ const CartPage = () => {
                     </div> */}
                         </div>
                     </div>
+
                     <div className="container bg-white mt-2 p-3">
                         <div className="container">
                             <CartItems
@@ -77,6 +78,7 @@ const CartPage = () => {
                             />
                         </div>
                     </div>
+
                     <div
                         className={`container bg-white mt-2 p-3 ${
                             cartItems.length === 0 && 'd-none'

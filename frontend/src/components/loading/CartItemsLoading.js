@@ -25,7 +25,7 @@ const CartItemsLoading = ({ options }) => {
                         <div className="bg-loading rounded-pill"></div>
                     </div>
                     {options.deleteBtn && (
-                        <div className="col-12 col-md-1 mt-2 mt-md-0 d-flex justify-content-end justify-content-md-center">
+                        <div className="col-12 col-md-1 mt-2 mt-md-0">
                             <div className="bg-loading rounded-pill"></div>
                         </div>
                     )}
