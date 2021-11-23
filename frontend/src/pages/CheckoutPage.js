@@ -21,19 +21,24 @@ const CheckoutPage = () => {
     const { cartItems } = useSelector((state) => state.cart);
 
     const [shippingFee, setShippingFee] = useState(0);
-    const [isGettingFee, setIsGettingFee] = useState(false);
+    const [isUpdating, setIsUpdating] = useState(false);
 
     const totalItemsPrice = cartItems.reduce((a, c) => a + c.price * c.qty, 0);
     const totalItemsWeight = cartItems.reduce((a, c) => a + c.weight * c.qty, 0);
     const totalItemsHeight = Math.round(totalItemsWeight / 100);
 
+    const orderHandler = async () => {
+        try {
+        } catch (error) {}
+    };
+
     useEffect(() => {
-        let mount = true;
+        let mounted = true;
 
         if (userDetails) {
             const getShippingFee = async () => {
-                if (mount) {
-                    setIsGettingFee(true);
+                if (mounted) {
+                    setIsUpdating(true);
                 }
                 try {
                     const { data } = await axios.get(
@@ -58,15 +63,15 @@ const CheckoutPage = () => {
                         }
                     );
 
-                    if (mount) {
+                    if (mounted) {
                         const roundedNumber = Math.ceil(data.data.service_fee / 1000) * 1000;
                         setShippingFee(roundedNumber);
-                        setIsGettingFee(false);
+                        setIsUpdating(false);
                     }
                 } catch (error) {
                     console.log(error.response.data.message);
-                    if (mount) {
-                        setIsGettingFee(false);
+                    if (mounted) {
+                        setIsUpdating(false);
                     }
                 }
             };
@@ -74,7 +79,7 @@ const CheckoutPage = () => {
             getShippingFee();
 
             return () => {
-                mount = false;
+                mounted = false;
             };
         }
     }, [totalItemsHeight, totalItemsPrice, totalItemsWeight, userDetails]);
@@ -98,7 +103,7 @@ const CheckoutPage = () => {
 
     return (
         <>
-            {true || isGettingFee ? (
+            {isLoading || isUpdating ? (
                 <CheckoutLoading />
             ) : (
                 userDetails && (
@@ -226,7 +231,11 @@ const CheckoutPage = () => {
 
                             <div className="row justify-content-center">
                                 <div className="col-8 col-sm-6 col-md-3 p-0 my-2 ms-md-auto me-md-4">
-                                    <button type="button" className="button-main btn-buy w-100">
+                                    <button
+                                        type="button"
+                                        className="button-main btn-buy w-100"
+                                        onClick={orderHandler}
+                                    >
                                         <BiPurchaseTag className="icon" /> Đặt hàng
                                     </button>
                                 </div>

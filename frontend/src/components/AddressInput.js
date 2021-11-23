@@ -15,6 +15,7 @@ const AddressInput = ({
     setWardName,
     addressDetails,
     setAddressDetails,
+    setComponentError,
 }) => {
     const [isLoadingAddress, setIsLoadingAddress] = useState(false);
     const [provinces, setProvinces] = useState([]);
@@ -69,8 +70,8 @@ const AddressInput = ({
 
             setIsLoadingAddress(false);
         } catch (error) {
-            console.log(error.response.data.message);
             setIsLoadingAddress(false);
+            setComponentError('Đã có lỗi xảy ra, hãy thử lại sau');
         }
     };
 
@@ -91,8 +92,8 @@ const AddressInput = ({
 
             setIsLoadingAddress(false);
         } catch (error) {
-            console.log(error.response.data.message);
             setIsLoadingAddress(false);
+            setComponentError('Đã có lỗi xảy ra, hãy thử lại sau');
         }
     };
 
@@ -119,9 +120,9 @@ const AddressInput = ({
                     setIsLoadingAddress(false);
                 }
             } catch (error) {
-                console.log(error.response.data.message);
                 if (mounted) {
                     setIsLoadingAddress(false);
+                    setComponentError('Đã có lỗi xảy ra, hãy thử lại sau');
                 }
             }
         };
@@ -131,7 +132,7 @@ const AddressInput = ({
         return () => {
             mounted = false;
         };
-    }, []);
+    }, [setComponentError]);
 
     useEffect(() => {
         if (provinceID) {
@@ -140,6 +141,7 @@ const AddressInput = ({
         if (districtID) {
             getWards(districtID);
         }
+        // eslint-disable-next-line react-hooks/exhaustive-deps
     }, [districtID, provinceID]);
 
     return (

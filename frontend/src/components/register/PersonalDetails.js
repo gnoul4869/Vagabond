@@ -25,6 +25,7 @@ const PersonalDetails = ({
     setWardName,
     addressDetails,
     setAddressDetails,
+    setComponentError,
 }) => {
     return (
         <>
@@ -67,6 +68,7 @@ const PersonalDetails = ({
                     setWardName={setWardName}
                     addressDetails={addressDetails}
                     setAddressDetails={setAddressDetails}
+                    setComponentError={setComponentError}
                 />
             </div>
         </>

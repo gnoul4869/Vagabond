@@ -16,6 +16,7 @@ import EmailVerification from '../../components/register/EmailVerification';
 import PersonalDetails from '../../components/register/PersonalDetails';
 import Confirmation from '../../components/register/Confirmation';
 import { register } from '../../redux/actions/authActions';
+import ErrorPage from '../error/ErrorPage';
 
 const RegisterPage = () => {
     const location = useLocation();
@@ -42,6 +43,7 @@ const RegisterPage = () => {
     const [confirmPassword, setConfirmPassword] = useState('');
 
     const [validationError, setValidationError] = useState('');
+    const [componentError, setComponentError] = useState('');
 
     const auth = useSelector((state) => state.auth);
     const userInfo = auth.userInfo;
@@ -233,6 +235,7 @@ const RegisterPage = () => {
                         setWardName={setWardName}
                         addressDetails={addressDetails}
                         setAddressDetails={setAddressDetails}
+                        setComponentError={setComponentError}
                     />
                 );
             case 3:
@@ -268,6 +271,10 @@ const RegisterPage = () => {
             history.push(oldLocation);
         }
     }, [history, oldLocation, userInfo]);
+
+    if (componentError) {
+        return <ErrorPage error={componentError} />;
+    }
 
     return (
         <div className="container-fluid">

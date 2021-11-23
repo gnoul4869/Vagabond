@@ -22,6 +22,7 @@ const ProfilePage = () => {
     );
 
     const [details] = useState(userDetails);
+    const [componentError, setComponentError] = useState('');
 
     const [imageFile, setImageFile] = useState(null);
     const [image, setImage] = useState('/images/user_profile_picture.jpg');
@@ -173,8 +174,8 @@ const ProfilePage = () => {
         }
     }, [history, location.pathname, userInfo]);
 
-    if (!userDetails && error) {
-        return <ErrorPage error={error} />;
+    if ((!userDetails && error) || componentError) {
+        return <ErrorPage error={error || componentError} />;
     }
 
     return (
@@ -326,6 +327,7 @@ const ProfilePage = () => {
                                                 setWardName={setWardName}
                                                 addressDetails={addressDetails}
                                                 setAddressDetails={setAddressDetails}
+                                                setComponentError={setComponentError}
                                             />
                                         </div>
                                     </div>
