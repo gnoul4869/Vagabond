@@ -5,7 +5,7 @@ import { useHistory, useLocation } from 'react-router';
 import { getUserDetails } from '../redux/actions/userAction';
 import CartItems from '../components/CartItems';
 import ShippingDetails from '../components/checkout/ShippingDetails';
-import CheckoutLoading from '../components/loading/checkoutLoading/CheckoutLoading';
+import CheckoutPageLoading from '../components/loading/checkoutLoading/CheckoutPageLoading';
 import ErrorPage from './error/ErrorPage';
 import PriceFormat from '../components/PriceFormat';
 import { ImTruck } from 'react-icons/im';
@@ -124,7 +124,7 @@ const CheckoutPage = () => {
     return (
         <>
             {isLoading || isUpdating ? (
-                <CheckoutLoading />
+                <CheckoutPageLoading />
             ) : (
                 userDetails && (
                     <>

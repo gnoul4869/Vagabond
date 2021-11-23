@@ -1,6 +1,6 @@
 import React from 'react';
 
-const ProductDetailsLoading = () => {
+const ProductDetailsPageLoading = () => {
     return (
         <>
             <div className="container bg-white mt-5">
@@ -132,4 +132,4 @@ const ProductDetailsLoading = () => {
     );
 };
 
-export default ProductDetailsLoading;
+export default ProductDetailsPageLoading;

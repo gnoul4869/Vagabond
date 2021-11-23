@@ -8,7 +8,7 @@ import ErrorPage from '../error/ErrorPage';
 import DateInput from '../../components/DateInput';
 import GenderRadio from '../../components/GenderRadio';
 import SuccessModal from '../../components/modals/SuccessModal';
-import ProfileLoading from '../../components/loading/ProfileLoading';
+import ProfilePageLoading from '../../components/loading/ProfilePageLoading';
 import { getUserDetails, updateUserDetails } from '../../redux/actions/userAction';
 import AddressInput from '../../components/AddressInput';
 
@@ -181,7 +181,7 @@ const ProfilePage = () => {
     return (
         <>
             {isLoading ? (
-                <ProfileLoading />
+                <ProfilePageLoading />
             ) : (
                 userDetails && (
                     <div className="container bg-white mt-3">

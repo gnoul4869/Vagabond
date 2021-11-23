@@ -2,7 +2,7 @@ import React from 'react';
 import ProductCarouselLoading from './ProductCarouselLoading';
 import ProductDescriptionLoading from './ProductDescriptionLoading';
 
-const ProductDetailsLoading = () => {
+const ProductDetailsPageLoading = () => {
     return (
         <section>
             <div className="container bg-white">
@@ -62,4 +62,4 @@ const ProductDetailsLoading = () => {
     );
 };
 
-export default ProductDetailsLoading;
+export default ProductDetailsPageLoading;

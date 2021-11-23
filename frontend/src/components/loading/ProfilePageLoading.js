@@ -1,6 +1,6 @@
 import React from 'react';
 
-const ProfileLoading = () => {
+const ProfilePageLoading = () => {
     return (
         <div className="container bg-white mt-3">
             <div className="container py-3">
@@ -134,4 +134,4 @@ const ProfileLoading = () => {
     );
 };
 
-export default ProfileLoading;
+export default ProfilePageLoading;

@@ -10,7 +10,7 @@ import {
     REGISTER_SUCCESS,
 } from '../constants/authConstants';
 
-export const auth = (state = { isLoading: false, userInfo: null, error: '' }, action) => {
+export const auth = (state = { userInfo: null, isLoading: false, error: '' }, action) => {
     switch (action.type) {
         case LOGIN_REQUEST:
             return {

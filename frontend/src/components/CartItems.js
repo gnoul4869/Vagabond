@@ -7,7 +7,7 @@ import EmptyCart from './EmptyCart';
 import NumberInput from './NumberInput';
 import PriceFormat from './PriceFormat';
 
-const CartProducts = ({ loadingItems, cartItems, options }) => {
+const CartItems = ({ cartItems, loadingItems, options }) => {
     const dispatch = useDispatch();
     return (
         <>
@@ -16,13 +16,13 @@ const CartProducts = ({ loadingItems, cartItems, options }) => {
             ) : (
                 cartItems.map((item) => {
                     return (
-                        <div key={item.id}>
+                        <div key={item._id}>
                             <div className="row d-flex align-items-center g-0">
                                 {/* <div className="col-auto"> //? This is for another time
                                             <input type="checkbox" className="form-check-input" />
                                         </div> */}
                                 <div className="col-12 col-md-4">
-                                    <Link to={`/product/${item.id}`} className="link-inherit">
+                                    <Link to={`/product/${item._id}`} className="link-inherit">
                                         <div className="d-flex">
                                             <img
                                                 src={item.images[0]}
@@ -44,9 +44,9 @@ const CartProducts = ({ loadingItems, cartItems, options }) => {
                                             <NumberInput
                                                 qty={item.qty}
                                                 max={item.countInStock}
-                                                productID={item.id}
+                                                productID={item._id}
                                                 disabled={
-                                                    loadingItems && loadingItems.includes(item.id)
+                                                    loadingItems && loadingItems.includes(item._id)
                                                 }
                                             />
                                         </div>
@@ -66,7 +66,7 @@ const CartProducts = ({ loadingItems, cartItems, options }) => {
                                     <div className="col-12 col-md-1 mt-2 mt-md-0 d-flex justify-content-end justify-content-md-center">
                                         <button
                                             className="button-main btn-del"
-                                            onClick={() => dispatch(removeFromCart(item.id))}
+                                            onClick={() => dispatch(removeFromCart(item._id))}
                                         >
                                             <MdDeleteForever className="icon" /> Xoá
                                         </button>
@@ -82,4 +82,4 @@ const CartProducts = ({ loadingItems, cartItems, options }) => {
     );
 };
 
-export default CartProducts;
+export default CartItems;

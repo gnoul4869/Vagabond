@@ -8,11 +8,10 @@ import { productList, productDetails } from './reducers/productReducer';
 
 const initialState = {
     auth: {
-        isLoading: false,
         userInfo: localStorage.getItem('userInfo')
             ? JSON.parse(localStorage.getItem('userInfo'))
             : null,
-        userDetails: null,
+        isLoading: false,
         error: '',
     },
     user: {
@@ -35,6 +34,7 @@ const initialState = {
             ? JSON.parse(localStorage.getItem('cartItems'))
             : [],
         isDone: false,
+        isLoading: false,
         error: '',
     },
     productList: {

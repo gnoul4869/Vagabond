@@ -9,7 +9,7 @@ import {
 } from '../constants/userConstants';
 
 export const user = (
-    state = { isLoading: false, isUpdating: false, isDone: false, userDetails: null, error: '' },
+    state = { userDetails: null, isLoading: false, isUpdating: false, isDone: false, error: '' },
     action
 ) => {
     switch (action.type) {

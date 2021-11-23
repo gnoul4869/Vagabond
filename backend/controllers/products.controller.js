@@ -3,7 +3,7 @@ import { NotFoundError } from '../errors/custom-api-error.js';
 import { StatusCodes } from 'http-status-codes';
 
 export const getAllProducts = async (req, res) => {
-    const productIDs = req.body.productIDs;
+    const { productIDs } = req.query;
     const products = productIDs
         ? await Product.find({ _id: { $in: productIDs } })
         : await Product.find({});

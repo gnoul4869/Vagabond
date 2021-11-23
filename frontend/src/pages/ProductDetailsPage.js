@@ -10,7 +10,7 @@ import NumberInput from '../components/NumberInput';
 import RatingStars from '../components/RatingStars';
 import PriceFormat from '../components/PriceFormat';
 import ProductCarousel from '../components/product/ProductCarousel';
-import ProductDetailsLoading from '../components/loading/ProductDetailsLoading';
+import ProductDetailsPageLoading from '../components/loading/ProductDetailsPageLoading';
 import ProductDescription from '../components/product/ProductDescription';
 import BreadCrumbs from '../components/BreadCrumbs';
 import { addToCart } from '../redux/actions/cartActions';
@@ -50,7 +50,7 @@ const ProductDetailsPage = () => {
     return (
         <>
             {isLoading ? (
-                <ProductDetailsLoading />
+                <ProductDetailsPageLoading />
             ) : (
                 product && (
                     <>

@@ -2,7 +2,7 @@ import React from 'react';
 import CartItemsLoading from '../CartItemsLoading';
 import ShippingDetailsLoading from './ShippingDetailsLoading';
 
-const CheckoutLoading = () => {
+const CheckoutPageLoading = () => {
     return (
         <>
             <ShippingDetailsLoading />
@@ -109,4 +109,4 @@ const CheckoutLoading = () => {
     );
 };
 
-export default CheckoutLoading;
+export default CheckoutPageLoading;
