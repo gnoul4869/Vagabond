@@ -27,3 +27,10 @@
         -webkit-box-orient: vertical;
     }
 }
+
+/** Loading  */
+
+.cart-item-img-loading {
+    width: 5.125rem !important;
+    height: 5.125rem !important;
+}
