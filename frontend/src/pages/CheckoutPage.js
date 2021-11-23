@@ -11,6 +11,7 @@ import PriceFormat from '../components/PriceFormat';
 import { ImTruck } from 'react-icons/im';
 import axios from 'axios';
 import { BiPurchaseTag } from 'react-icons/bi';
+import { updateCart } from '../redux/actions/cartActions';
 
 const CheckoutPage = () => {
     const history = useHistory();
@@ -18,19 +19,19 @@ const CheckoutPage = () => {
     const dispatch = useDispatch();
     const { userInfo } = useSelector((state) => state.auth);
     const { isLoading, userDetails, error } = useSelector((state) => state.user);
-    const { cartItems } = useSelector((state) => state.cart);
+    const cart = useSelector((state) => state.cart);
 
     const [shippingFee, setShippingFee] = useState(0);
-    const [isUpdating, setIsUpdating] = useState(false);
+    const [isGettingShippingFee, setIsGettingShippingFee] = useState(false);
     const [localError, setLocalError] = useState('');
 
-    const totalItemsPrice = cartItems.reduce((a, c) => a + c.price * c.qty, 0);
-    const totalItemsWeight = cartItems.reduce((a, c) => a + c.weight * c.qty, 0);
+    const totalItemsPrice = cart.cartItems.reduce((a, c) => a + c.price * c.qty, 0);
+    const totalItemsWeight = cart.cartItems.reduce((a, c) => a + c.weight * c.qty, 0);
     const totalItemsHeight = Math.round(totalItemsWeight / 100);
 
     const orderHandler = async () => {
         try {
-            const products = cartItems.map((item) => {
+            const products = cart.cartItems.map((item) => {
                 return { productID: item.id, orderedQty: item.qty };
             });
             const { data } = await axios.post(
@@ -58,7 +59,7 @@ const CheckoutPage = () => {
         if (userDetails) {
             const getShippingFee = async () => {
                 if (mounted) {
-                    setIsUpdating(true);
+                    setIsGettingShippingFee(true);
                 }
                 try {
                     const { data } = await axios.get(
@@ -86,12 +87,12 @@ const CheckoutPage = () => {
                     if (mounted) {
                         const roundedNumber = Math.ceil(data.data.service_fee / 1000) * 1000;
                         setShippingFee(roundedNumber);
-                        setIsUpdating(false);
+                        setIsGettingShippingFee(false);
                     }
                 } catch (error) {
                     console.log(error.response.data.message);
                     if (mounted) {
-                        setIsUpdating(false);
+                        setIsGettingShippingFee(false);
                     }
                 }
             };
@@ -106,6 +107,7 @@ const CheckoutPage = () => {
 
     useEffect(() => {
         dispatch(getUserDetails());
+        dispatch(updateCart());
     }, [dispatch]);
 
     useEffect(() => {
@@ -123,7 +125,7 @@ const CheckoutPage = () => {
 
     return (
         <>
-            {isLoading || isUpdating ? (
+            {isLoading || cart.isLoading || isGettingShippingFee ? (
                 <CheckoutPageLoading />
             ) : (
                 userDetails && (
@@ -158,7 +160,7 @@ const CheckoutPage = () => {
                             </div>
 
                             <CartItems
-                                cartItems={cartItems}
+                                cartItems={cart.cartItems}
                                 options={{ numberInput: false, deleteBtn: false }}
                             />
 
@@ -166,8 +168,8 @@ const CheckoutPage = () => {
                                 <div className="col-auto d-none d-md-inline-flex align-items-center ms-auto">
                                     <div>
                                         Tổng số tiền (
-                                        <span className="text-ired">{cartItems.length}</span> Sản
-                                        phẩm):
+                                        <span className="text-ired">{cart.cartItems.length}</span>{' '}
+                                        Sản phẩm):
                                     </div>
                                 </div>
                                 <div className="col-auto d-inline-flex d-md-none align-items-center">

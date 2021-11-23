@@ -57,7 +57,7 @@ const NumberInput = ({ qty, max, setQty, productID, disabled }) => {
                 <BiPlus className="icon" />
             </button>
 
-            {error && <div className="number-input-error text-danger">{error}</div>}
+            {error && <div className="number-input-error text-danger fw-600">{error}</div>}
         </div>
     );
 };
