@@ -7,6 +7,7 @@ import { purchaseLabels } from '../../data/purchaseLabels';
 import OrdersLoading from '../../components/loading/OrdersLoading';
 import PriceFormat from '../../components/PriceFormat';
 import ErrorPage from '../error/ErrorPage';
+import EmptyPurchase from '../../components/EmptyPurchase';
 
 const PurchasePage = () => {
     const dispatch = useDispatch();
@@ -17,6 +18,18 @@ const PurchasePage = () => {
     useEffect(() => {
         if (activeID === 0) {
             return dispatch(listOrders());
+        }
+        if (activeID === 1) {
+            return dispatch(listOrders('pending'));
+        }
+        if (activeID === 2) {
+            return dispatch(listOrders('shipping'));
+        }
+        if (activeID === 3) {
+            return dispatch(listOrders('delivered'));
+        }
+        if (activeID === 4) {
+            return dispatch(listOrders('cancelled'));
         }
     }, [activeID, dispatch]);
 
@@ -46,6 +59,8 @@ const PurchasePage = () => {
 
             {isLoading ? (
                 <OrdersLoading />
+            ) : orderList.length === 0 ? (
+                <EmptyPurchase />
             ) : (
                 orderList.map((order) => {
                     const totalItemsPrice = order.products.reduce((a, c) => a + c.price * c.qty, 0);

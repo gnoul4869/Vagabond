@@ -1,9 +1,7 @@
 import React from 'react';
-import { Link } from 'react-router-dom';
-import { RiShoppingBag3Fill } from 'react-icons/ri';
 import emptyImage from '../images/empty.png';
 
-const EmptyCart = () => {
+const EmptyPurchase = () => {
     return (
         <section className="container mb-5 text-center">
             <div className="row d-flex justify-content-center">
@@ -15,18 +13,11 @@ const EmptyCart = () => {
             </div>
             <div className="row">
                 <div className="col">
-                    <span className="fs-3">Giỏ hàng của bạn còn trống</span>
-                </div>
-            </div>
-            <div className="row">
-                <div className="col">
-                    <Link to="/" className="btn btn-ired mt-5 px-2 pt-2 fs-5">
-                        <RiShoppingBag3Fill className="icon" /> Mua ngay
-                    </Link>
+                    <span className="fs-3">Bạn chưa có đơn hàng nào cả</span>
                 </div>
             </div>
         </section>
     );
 };
 
-export default EmptyCart;
+export default EmptyPurchase;
