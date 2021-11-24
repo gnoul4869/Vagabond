@@ -42,7 +42,7 @@ const ProductList = () => {
 
     return (
         <>
-            <section className="container d-flex flex-wrap">
+            <section className="container d-flex flex-wrap p-0">
                 {isLoading ? (
                     <ProductListLoading />
                 ) : (
