@@ -29,12 +29,12 @@ const NavbarDropdown = ({ cartBadge, search, isDropdownShown }) => {
                 {userInfo ? (
                     <>
                         <li>
-                            <Link to="/user/register" className="nav-link">
+                            <Link to="/user/profile" className="nav-link">
                                 <span className="navbar-link">Tài khoản của tôi</span>
                             </Link>
                         </li>
                         <li>
-                            <Link to="/user/login" className="nav-link">
+                            <Link to="/user/purchase" className="nav-link">
                                 <span className="navbar-link">Đơn mua</span>
                             </Link>
                         </li>

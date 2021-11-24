@@ -25,7 +25,7 @@ const NavBarUserSubmenu = ({ isSubmenuShown, setIsSubmenuShown, targetWidth }) =
                     <Link to="/user/profile">Tài khoản của tôi</Link>
                 </div>
                 <div className="row submenu-item">
-                    <Link to="#">Đơn mua</Link>
+                    <Link to="/user/purchase">Đơn mua</Link>
                 </div>
                 <div className="row submenu-item">
                     <Link to="#logout" onClick={logoutHandler}>
