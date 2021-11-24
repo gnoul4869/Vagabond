@@ -11,7 +11,7 @@ import PriceFormat from '../components/PriceFormat';
 import { ImTruck } from 'react-icons/im';
 import axios from 'axios';
 import { BiPurchaseTag } from 'react-icons/bi';
-import { updateCart } from '../redux/actions/cartActions';
+import { removeAllFromCart, updateCart } from '../redux/actions/cartActions';
 
 const CheckoutPage = () => {
     const history = useHistory();
@@ -40,7 +40,7 @@ const CheckoutPage = () => {
                     qty: item.qty,
                 };
             });
-            const { data } = await axios.post(
+            await axios.post(
                 '/api/v1/orders',
                 { products, shippingFee },
                 {
@@ -49,7 +49,8 @@ const CheckoutPage = () => {
                     },
                 }
             );
-            console.log(data);
+            dispatch(removeAllFromCart());
+            history.push('/user/purchase');
         } catch (error) {
             setLocalError(
                 error.response && error.response.data.message

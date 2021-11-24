@@ -3,6 +3,7 @@ import {
     CART_ADD_ITEM_FAIL,
     CART_ADD_ITEM_REQUEST,
     CART_ADD_ITEM_SUCCESS,
+    CART_REMOVE_ALL_ITEMS,
     CART_REMOVE_ITEM,
     CART_STATE_REFRESH,
     CART_UPDATE_FAIL,
@@ -86,4 +87,10 @@ export const removeFromCart = (productID) => (dispatch, getState) => {
     dispatch({ type: CART_REMOVE_ITEM, payload: productID });
 
     localStorage.setItem('cartItems', JSON.stringify(getState().cart.cartItems));
+};
+
+export const removeAllFromCart = () => (dispatch, getState) => {
+    dispatch({ type: CART_REMOVE_ALL_ITEMS });
+
+    localStorage.removeItem('cartItems');
 };

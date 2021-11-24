@@ -2,6 +2,7 @@ import {
     CART_ADD_ITEM_FAIL,
     CART_ADD_ITEM_REQUEST,
     CART_ADD_ITEM_SUCCESS,
+    CART_REMOVE_ALL_ITEMS,
     CART_REMOVE_ITEM,
     CART_STATE_REFRESH,
     CART_UPDATE_FAIL,
@@ -66,12 +67,17 @@ export const cart = (
                 isLoading: false,
                 error: action.payload,
             };
-        //*
+        //* CART_REMOVE
         case CART_REMOVE_ITEM:
             return {
                 ...state,
                 loadingItems: state.loadingItems.filter((x) => x !== action.payload),
                 cartItems: state.cartItems.filter((x) => x._id !== action.payload),
+            };
+        case CART_REMOVE_ALL_ITEMS:
+            return {
+                ...state,
+                cartItems: [],
             };
         case CART_STATE_REFRESH:
             return {

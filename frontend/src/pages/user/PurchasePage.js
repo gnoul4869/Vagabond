@@ -1,7 +1,6 @@
 import React, { useEffect, useState } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
 import { Link } from 'react-router-dom';
-import { FiClock } from 'react-icons/fi';
 import { listOrders } from '../../redux/actions/orderActions';
 import { purchaseLabels } from '../../data/purchaseLabels';
 import OrdersLoading from '../../components/loading/OrdersLoading';
