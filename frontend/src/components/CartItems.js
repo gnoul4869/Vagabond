@@ -33,12 +33,12 @@ const CartItems = ({ cartItems, loadingItems, options }) => {
                                         </div>
                                     </Link>
                                 </div>
-                                <div className="col-6 col-md">
+                                <div className="col-6 col-md mt-2">
                                     <div className="text-sdark fw-600 text-center">
                                         <PriceFormat price={item.price} />
                                     </div>
                                 </div>
-                                <div className="col-6 col-md">
+                                <div className="col-6 col-md mt-2">
                                     {options.numberInput ? (
                                         <div className="text-secondary fw-600 d-flex justify-content-center">
                                             <NumberInput
@@ -63,7 +63,7 @@ const CartItems = ({ cartItems, loadingItems, options }) => {
                                     </div>
                                 </div>
                                 {options.deleteBtn && (
-                                    <div className="col-12 col-md-1 mt-2 mt-md-0 d-flex justify-content-end justify-content-md-center">
+                                    <div className="col-12 col-md-1 mt-3 mt-md-0 d-flex justify-content-end justify-content-md-center">
                                         <button
                                             className="button-main btn-del"
                                             onClick={() => dispatch(removeFromCart(item._id))}
