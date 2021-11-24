@@ -20,17 +20,21 @@ const ProductDetailsPage = () => {
     const dispatch = useDispatch();
     const history = useHistory();
     const { id } = useParams();
-    const [qty, setQty] = useState(1);
     const { isLoading, product, error } = useSelector((state) => state.productDetails);
-    const isDone = useSelector((state) => state.cart.isDone);
+    const cart = useSelector((state) => state.cart);
+
+    const [qty, setQty] = useState(1);
     const [isModalShown, setIsModalShown] = useState(false);
+    const [cartError, setCartError] = useState('');
 
     useEffect(() => {
         dispatch(detailProduct(id));
     }, [dispatch, id]);
 
     useEffect(() => {
-        if (isDone === true) {
+        if (cart.error) {
+            setCartError(cart.error);
+        } else if (cart.isDone === true) {
             setIsModalShown(true);
         }
         if (isModalShown === true) {
@@ -39,10 +43,10 @@ const ProductDetailsPage = () => {
                 clearTimeout(modalTimeout);
             };
         }
-    }, [isDone, isModalShown]);
+    }, [cart.error, cart.isDone, isModalShown]);
 
-    if (error) {
-        return <ErrorPage error={error} />;
+    if (error || cartError) {
+        return <ErrorPage error={error || cartError} />;
     }
 
     return (

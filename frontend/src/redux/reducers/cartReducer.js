@@ -37,9 +37,9 @@ export const cart = (
         case CART_ADD_ITEM_FAIL:
             return {
                 ...state,
-                loadingItems: state.loadingItems.filter((x) => x !== item._id),
+                loadingItems: state.loadingItems.filter((x) => x !== action.payload.productID),
                 isDone: true,
-                error: action.payload,
+                error: action.payload.error,
             };
         //* CART_UPDATE
         case CART_UPDATE_REQUEST:

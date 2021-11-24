@@ -42,10 +42,13 @@ export const addToCart = (productID, qty, history) => async (dispatch, getState)
         } catch (error) {
             dispatch({
                 type: CART_ADD_ITEM_FAIL,
-                payload:
-                    error.response && error.response.data.message
-                        ? error.response.data.message
-                        : errorMessage,
+                payload: {
+                    productID,
+                    error:
+                        error.response && error.response.data.message
+                            ? error.response.data.message
+                            : errorMessage,
+                },
             });
         }
     }

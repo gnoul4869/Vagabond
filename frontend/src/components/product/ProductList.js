@@ -13,12 +13,15 @@ import SuccessModal from '../modals/SuccessModal';
 const ProductList = () => {
     const dispatch = useDispatch();
     const { isLoading, products, error } = useSelector((state) => state.productList);
+    const cart = useSelector((state) => state.cart);
 
-    const isDone = useSelector((state) => state.cart.isDone);
     const [isModalShown, setIsModalShown] = useState(false);
+    const [cartError, setCartError] = useState('');
 
     useEffect(() => {
-        if (isDone === true) {
+        if (cart.error) {
+            setCartError(cart.error);
+        } else if (cart.isDone === true) {
             setIsModalShown(true);
         }
         if (isModalShown === true) {
@@ -27,14 +30,14 @@ const ProductList = () => {
                 clearTimeout(modalTimeout);
             };
         }
-    }, [isDone, isModalShown]);
+    }, [cart.error, cart.isDone, isModalShown]);
 
     useEffect(() => {
         dispatch(listProducts());
     }, [dispatch]);
 
-    if (error) {
-        return <ErrorPage error={error} />;
+    if (error || cartError) {
+        return <ErrorPage error={error || cartError} />;
     }
 
     return (
