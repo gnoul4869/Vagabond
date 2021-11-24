@@ -79,12 +79,28 @@ select:focus {
     color: coral;
 }
 
+.text-maroon {
+    color: maroon;
+}
+
+.text-pinker {
+    color: #db0477;
+}
+
+.text-steelblue {
+    color: steelblue;
+}
+
 .text-mediumaqua {
     color: mediumaquamarine;
 }
 
-.text-maroon {
-    color: maroon;
+.text-lightseagreen {
+    color: lightseagreen;
+}
+
+.text-darkturquoise {
+    color: turquoise;
 }
 
 /** Font */

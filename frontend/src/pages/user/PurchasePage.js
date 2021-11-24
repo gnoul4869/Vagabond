@@ -79,7 +79,7 @@ const PurchasePage = () => {
                                                         {label.text}
                                                     </div>
                                                     {label.code === 'pending' && (
-                                                        <button className="button-main btn-cancel fsr-3">
+                                                        <button className="button-main btn-cancel fsr-3 p-0">
                                                             Hủy
                                                         </button>
                                                     )}
