@@ -56,8 +56,9 @@ export const cart = (
             });
             return {
                 ...state,
-                isLoading: false,
                 cartItems: updatedItems,
+                isLoading: false,
+                error: '',
             };
         case CART_UPDATE_FAIL:
             return {
@@ -75,7 +76,9 @@ export const cart = (
         case CART_STATE_REFRESH:
             return {
                 ...state,
+                isLoading: false,
                 isDone: false,
+                error: '',
             };
         default:
             return state;

@@ -65,8 +65,7 @@ export const updateCart = () => async (dispatch, getState) => {
             dispatch({ type: CART_UPDATE_SUCCESS, payload: products });
         } else {
             dispatch({
-                type: CART_UPDATE_FAIL,
-                payload: 'Giỏ hàng của bạn còn trống',
+                type: CART_STATE_REFRESH,
             });
         }
     } catch (error) {

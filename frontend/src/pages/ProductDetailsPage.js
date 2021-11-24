@@ -41,8 +41,6 @@ const ProductDetailsPage = () => {
         }
     }, [isDone, isModalShown]);
 
-    console.log(isDone);
-
     if (error) {
         return <ErrorPage error={error} />;
     }
