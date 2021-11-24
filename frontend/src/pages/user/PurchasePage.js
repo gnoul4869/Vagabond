@@ -95,9 +95,9 @@ const PurchasePage = () => {
                             {order.products.map((product, index) => {
                                 return (
                                     <React.Fragment key={product._id}>
-                                        <div className="container m-3">
+                                        <div className="container p-3">
                                             <div className="row align-items-center">
-                                                <div className="col-12 col-md-8">
+                                                <div className="col-12 col-md-8 ms-0 ms-md-3">
                                                     <Link
                                                         to={`/product/${product._id}`}
                                                         className="link-inherit"
@@ -116,7 +116,7 @@ const PurchasePage = () => {
                                                 </div>
 
                                                 <div className="col-6 col-md mt-2 mt-md-0">
-                                                    <div className="text-sdark fw-600">
+                                                    <div className="text-sdark fw-600 text-center text-md-start">
                                                         <span className="d-none d-md-inline-block text-secondary fsr-1 me-2">
                                                             Số lượng:
                                                         </span>
@@ -128,7 +128,7 @@ const PurchasePage = () => {
                                                 </div>
 
                                                 <div className="col mt-2 mt-md-0">
-                                                    <div className="text-sdark fw-600">
+                                                    <div className="text-sdark fw-600 text-end text-md-start">
                                                         <span className="d-none d-md-inline-block text-secondary fsr-1 me-2">
                                                             Số tiền:
                                                         </span>

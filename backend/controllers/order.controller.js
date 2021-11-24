@@ -20,7 +20,9 @@ export const createOrder = async (req, res) => {
 
 export const getAllOrders = async (req, res) => {
     const { status } = req.query;
-    const orders = status ? await Order.find({ status }) : await Order.find({});
+    const orders = status
+        ? await Order.find({ status })
+        : await Order.find({}).sort({ createdAt: 'desc' });
 
     if (!orders) {
         throw new NotFoundError('Không tìm thấy đơn hàng nào');
