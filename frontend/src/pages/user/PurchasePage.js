@@ -39,7 +39,7 @@ const PurchasePage = () => {
     return (
         <>
             <div className="container bg-white mt-3 mx-auto">
-                <div className="row fsr-2 text-sdark">
+                <div className="row fsr-2 text-sdark text-center">
                     {purchaseLabels.map((item) => {
                         return (
                             <div
