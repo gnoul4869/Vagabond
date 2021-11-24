@@ -32,6 +32,7 @@ import './css/components/loading/productDetailsPageLoading.css';
 import './css/pages/authPage.css';
 import './css/pages/errorPage.css';
 import './css/pages/profilePage.css';
+import './css/pages/purchasePage.css';
 import './css/pages/checkoutPage.css';
 import './css/pages/productDetailsPage.css';
 
