@@ -32,7 +32,13 @@ const CheckoutPage = () => {
     const orderHandler = async () => {
         try {
             const products = cart.cartItems.map((item) => {
-                return { productID: item.id, orderedQty: item.qty };
+                return {
+                    _id: item._id,
+                    name: item.name,
+                    price: item.price,
+                    image: item.images[0],
+                    qty: item.qty,
+                };
             });
             const { data } = await axios.post(
                 '/api/v1/orders',

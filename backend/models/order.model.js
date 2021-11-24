@@ -8,17 +8,29 @@ const orderSchema = new mongoose.Schema({
     },
     status: {
         type: String,
-        enum: ['pending', 'shipping', 'completed', 'cancelled'],
+        enum: ['pending', 'shipping', 'delivered', 'cancelled'],
         default: 'pending',
     },
     products: [
         {
-            productID: {
+            _id: {
                 type: mongoose.Types.ObjectId,
                 ref: 'Product',
                 required: [true, 'Hãy cung cấp mã sản phẩm'],
             },
-            orderedQty: {
+            name: {
+                type: String,
+                required: [true, 'Hãy cung cấp tên sản phẩm'],
+            },
+            price: {
+                type: Number,
+                required: [true, 'Hãy cung cấp giá sản phẩm'],
+            },
+            image: {
+                type: String,
+                required: [true, 'Hãy cung cấp hình ảnh sản phẩm'],
+            },
+            qty: {
                 type: Number,
                 required: [true, 'Hãy cung cấp số lượng sản phẩm'],
             },

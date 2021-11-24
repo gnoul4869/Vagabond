@@ -17,7 +17,7 @@ const CartItems = ({ cartItems, loadingItems, options }) => {
                 cartItems.map((item) => {
                     return (
                         <div key={item._id}>
-                            <div className="row d-flex align-items-center g-0">
+                            <div className="row align-items-center g-0">
                                 {/* <div className="col-auto"> //? This is for another time
                                             <input type="checkbox" className="form-check-input" />
                                         </div> */}
@@ -33,11 +33,13 @@ const CartItems = ({ cartItems, loadingItems, options }) => {
                                         </div>
                                     </Link>
                                 </div>
-                                <div className="col-6 col-md mt-2">
+
+                                <div className="col-6 col-md mt-2 mt-md-0">
                                     <div className="text-sdark fw-600 text-center">
                                         <PriceFormat price={item.price} />
                                     </div>
                                 </div>
+
                                 <div className="col-6 col-md mt-2">
                                     {options.numberInput ? (
                                         <div className="text-secondary fw-600 d-flex justify-content-center">
@@ -57,11 +59,13 @@ const CartItems = ({ cartItems, loadingItems, options }) => {
                                         </div>
                                     )}
                                 </div>
+
                                 <div className="col d-none d-md-block">
                                     <div className="text-sdark fw-600 text-center">
                                         <PriceFormat price={item.price * item.qty} />
                                     </div>
                                 </div>
+
                                 {options.deleteBtn && (
                                     <div className="col-12 col-md-1 mt-3 mt-md-0 d-flex justify-content-end justify-content-md-center">
                                         <button
@@ -73,6 +77,7 @@ const CartItems = ({ cartItems, loadingItems, options }) => {
                                     </div>
                                 )}
                             </div>
+
                             <div className="divider-bottom my-3"></div>
                         </div>
                     );

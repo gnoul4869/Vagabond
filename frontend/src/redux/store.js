@@ -5,6 +5,7 @@ import { user } from './reducers/userReducer';
 import { cart } from './reducers/cartReducer';
 import { verification } from './reducers/verificationReducer';
 import { productList, productDetails } from './reducers/productReducer';
+import { order } from './reducers/orderReducer';
 
 const initialState = {
     auth: {
@@ -47,6 +48,11 @@ const initialState = {
         product: null,
         error: '',
     },
+    order: {
+        orderList: [],
+        isLoading: false,
+        error: '',
+    },
 };
 
 const reducer = combineReducers({
@@ -56,6 +62,7 @@ const reducer = combineReducers({
     cart,
     productList,
     productDetails,
+    order,
 });
 
 const composeEnhancer = window.__REDUX_DEVTOOLS_EXTENSION_COMPOSE__ || compose;
