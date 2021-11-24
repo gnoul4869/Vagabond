@@ -16,7 +16,7 @@ const CartPage = () => {
         dispatch(updateCart());
     }, [dispatch]);
 
-    if (error) {
+    if (error && cartItems.length > 0) {
         return <ErrorPage error={error} />;
     }
 
