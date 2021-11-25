@@ -1,6 +1,7 @@
 import React, { useEffect, useState } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
 import { Link } from 'react-router-dom';
+import { useHistory, useLocation } from 'react-router';
 import { listOrders } from '../../redux/actions/orderActions';
 import { purchaseLabels } from '../../data/purchaseLabels';
 import OrdersLoading from '../../components/loading/OrdersLoading';
@@ -9,10 +10,13 @@ import ErrorPage from '../error/ErrorPage';
 import EmptyPurchase from '../../components/EmptyPurchase';
 
 const PurchasePage = () => {
+    const history = useHistory();
+    const location = useLocation();
     const dispatch = useDispatch();
-    const [activeID, setActiveID] = useState(0);
-
+    const { userInfo } = useSelector((state) => state.auth);
     const { orderList, isLoading, error } = useSelector((state) => state.order);
+
+    const [activeID, setActiveID] = useState(0);
 
     useEffect(() => {
         if (activeID === 0) {
@@ -31,6 +35,15 @@ const PurchasePage = () => {
             return dispatch(listOrders('cancelled'));
         }
     }, [activeID, dispatch]);
+
+    useEffect(() => {
+        if (!userInfo) {
+            history.push({
+                pathname: '/user/login',
+                state: { oldLocation: location.pathname },
+            });
+        }
+    }, [history, location.pathname, userInfo]);
 
     if (error) {
         return <ErrorPage error={error} />;

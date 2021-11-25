@@ -29,7 +29,7 @@ const PersonalDetails = ({
 }) => {
     return (
         <>
-            <div className="form-floating mb-3">
+            <div className="form-floating mt-4 mt-md-0 mb-3">
                 <input
                     type="tel"
                     id="tel"
@@ -54,7 +54,7 @@ const PersonalDetails = ({
             </div>
 
             <label htmlFor="input">Địa chỉ</label>
-            <div className="mt-4 mt-md-0 mb-3">
+            <div className="mb-3">
                 <AddressInput
                     isLoading={isLoading}
                     provinceID={provinceID}
