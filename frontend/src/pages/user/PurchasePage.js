@@ -6,7 +6,6 @@ import InfiniteScroll from 'react-infinite-scroll-component';
 import HashLoader from 'react-spinners/HashLoader';
 import { listOrders } from '../../redux/actions/orderActions';
 import { purchaseLabels } from '../../data/purchaseLabels';
-import OrdersLoading from '../../components/loading/OrdersLoading';
 import PriceFormat from '../../components/PriceFormat';
 import ErrorPage from '../error/ErrorPage';
 import EmptyPurchase from '../../components/EmptyPurchase';
