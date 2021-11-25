@@ -77,11 +77,11 @@ const CheckoutPage = () => {
                                 shopid: process.env.REACT_APP_GHN_SHOP_ID,
                             },
                             params: {
-                                service_typeid: 2, // Standard
+                                service_type_id: 2, // Standard
                                 insurance_value: totalItemsPrice,
                                 coupon: null,
-                                from_districtid: process.env.REACT_APP_GHN_SHOP_DISTRICT_ID,
-                                to_districtid: userDetails.addresses.districtID,
+                                from_district_id: process.env.REACT_APP_GHN_SHOP_DISTRICT_ID,
+                                to_district_id: userDetails.addresses.districtID,
                                 to_ward_code: userDetails.addresses.wardID,
                                 weight: totalItemsWeight,
                                 height: totalItemsHeight,
