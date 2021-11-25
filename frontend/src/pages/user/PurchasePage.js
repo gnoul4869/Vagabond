@@ -4,7 +4,7 @@ import { Link } from 'react-router-dom';
 import { useHistory, useLocation } from 'react-router';
 import InfiniteScroll from 'react-infinite-scroll-component';
 import HashLoader from 'react-spinners/HashLoader';
-import { listOrders } from '../../redux/actions/orderActions';
+import { listOrders, resetOrders } from '../../redux/actions/orderActions';
 import { purchaseLabels } from '../../data/purchaseLabels';
 import PriceFormat from '../../components/PriceFormat';
 import ErrorPage from '../error/ErrorPage';
@@ -17,46 +17,28 @@ const PurchasePage = () => {
     const { userInfo } = useSelector((state) => state.auth);
     const { orderList, totalCount, isDone, error } = useSelector((state) => state.order);
 
-    const [initialLoad, setInitialLoad] = useState(true);
+    const [isInitialLoad, setIsInitialLoad] = useState(true);
     const [activeID, setActiveID] = useState(0);
+    const [status, setStatus] = useState('');
     const [page, setPage] = useState(1);
 
-    const status = purchaseLabels.find((label) => label.id === activeID).code;
-
-    const getData = () => {
-        dispatch(listOrders(status, page));
-        setPage(page + 1);
-    };
-
-    // useEffect(() => {
-    //     if (activeID === 0) {
-    //         return dispatch(listOrders());
-    //     }
-    //     if (activeID === 1) {
-    //         return dispatch(listOrders('pending'));
-    //     }
-    //     if (activeID === 2) {
-    //         return dispatch(listOrders('shipping'));
-    //     }
-    //     if (activeID === 3) {
-    //         return dispatch(listOrders('delivered'));
-    //     }
-    //     if (activeID === 4) {
-    //         return dispatch(listOrders('cancelled'));
-    //     }
-    // }, [activeID, dispatch]);
+    useEffect(() => {
+        dispatch(resetOrders());
+        setPage(1);
+        setStatus(purchaseLabels.find((label) => label.id === activeID).status);
+        setIsInitialLoad(true);
+    }, [activeID, dispatch]);
 
     useEffect(() => {
-        if (isDone && initialLoad) {
-            setInitialLoad(false);
+        if (isInitialLoad && isDone && !error) {
+            setIsInitialLoad(false);
         }
-        // eslint-disable-next-line react-hooks/exhaustive-deps
-    }, [isDone]);
+    }, [isInitialLoad, isDone, error]);
 
     useEffect(() => {
-        getData();
-        // eslint-disable-next-line react-hooks/exhaustive-deps
-    }, []);
+        console.log(status, page);
+        dispatch(listOrders(status, page));
+    }, [dispatch, page, status]);
 
     useEffect(() => {
         if (!userInfo) {
@@ -91,7 +73,7 @@ const PurchasePage = () => {
                 </div>
             </div>
 
-            {initialLoad ? (
+            {isInitialLoad ? (
                 <HashLoader
                     color="#c73434"
                     css="display: inherit; margin: 12rem auto 30rem;"
@@ -102,7 +84,7 @@ const PurchasePage = () => {
             ) : (
                 <InfiniteScroll
                     dataLength={orderList.length}
-                    next={getData}
+                    next={() => setPage(page + 1)}
                     hasMore={orderList.length < totalCount}
                     loader={
                         <HashLoader
@@ -124,7 +106,7 @@ const PurchasePage = () => {
                                     <div className="d-flex align-items-center px-1">
                                         {purchaseLabels.map((label) => {
                                             return (
-                                                label.code === order.status && (
+                                                label.status === order.status && (
                                                     <React.Fragment key={label.id}>
                                                         <div
                                                             className={`fw-600 fsr-3 me-auto ${label.color}`}
@@ -132,7 +114,7 @@ const PurchasePage = () => {
                                                             <span>{label.icon}</span>
                                                             {label.text}
                                                         </div>
-                                                        {label.code === 'pending' && (
+                                                        {label.status === 'pending' && (
                                                             <button className="button-main btn-cancel fsr-3 p-0">
                                                                 Hủy
                                                             </button>

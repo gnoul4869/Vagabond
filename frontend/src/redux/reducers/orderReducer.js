@@ -1,6 +1,7 @@
 import {
     ORDER_LIST_FAIL,
     ORDER_LIST_REQUEST,
+    ORDER_LIST_REFRESH,
     ORDER_LIST_SUCCESS,
 } from '../constants/orderConstants';
 
@@ -25,10 +26,19 @@ export const order = (
             };
         case ORDER_LIST_FAIL:
             return {
+                ...state,
                 error: action.payload,
                 isDone: true,
                 isLoading: false,
             };
+        case ORDER_LIST_REFRESH: {
+            return {
+                ...state,
+                orderList: [],
+                isDone: false,
+                isLoading: false,
+            };
+        }
         default:
             return state;
     }

@@ -21,7 +21,7 @@ export const createOrder = async (req, res) => {
 export const getUserOrders = async (req, res) => {
     const status = req.query.status;
     const page = Number(req.query.page) || 1;
-    const limit = Number(req.query.limit) || 1;
+    const limit = Number(req.query.limit) || 2;
 
     const skip = (page - 1) * limit;
     const query = {};
@@ -37,7 +37,7 @@ export const getUserOrders = async (req, res) => {
         throw new NotFoundError('Không tìm thấy đơn hàng nào');
     }
 
-    const total = await Order.estimatedDocumentCount(query);
+    const total = await Order.countDocuments(query);
 
     res.status(StatusCodes.OK).json({ total, orders });
 };
