@@ -49,6 +49,7 @@ const initialState = {
         error: '',
     },
     order: {
+        totalCount: 0,
         orderList: [],
         isLoading: false,
         error: '',

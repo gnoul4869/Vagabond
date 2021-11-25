@@ -7,7 +7,7 @@ export const purchaseLabels = [
     {
         id: 0,
         name: 'Tất cả',
-        code: 'all',
+        code: '',
     },
     {
         id: 1,

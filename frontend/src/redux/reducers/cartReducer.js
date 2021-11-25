@@ -19,6 +19,7 @@ export const cart = (
         case CART_ADD_ITEM_REQUEST:
             return {
                 ...state,
+                error: '',
                 loadingItems: [...state.loadingItems, action.payload],
                 isDone: false,
             };
@@ -46,6 +47,7 @@ export const cart = (
         case CART_UPDATE_REQUEST:
             return {
                 ...state,
+                error: '',
                 isLoading: true,
             };
         case CART_UPDATE_SUCCESS:
@@ -59,7 +61,6 @@ export const cart = (
                 ...state,
                 cartItems: updatedItems,
                 isLoading: false,
-                error: '',
             };
         case CART_UPDATE_FAIL:
             return {

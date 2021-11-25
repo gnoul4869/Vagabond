@@ -19,16 +19,27 @@ export const createOrder = async (req, res) => {
 };
 
 export const getUserOrders = async (req, res) => {
-    const { status } = req.query;
-    const orders = status
-        ? await Order.find({ createdBy: req.user.id, status })
-        : await Order.find({ createdBy: req.user.id }).sort({ createdAt: 'desc' });
+    const status = req.query.status;
+    const page = Number(req.query.page) || 1;
+    const limit = Number(req.query.limit) || 1;
+
+    const skip = (page - 1) * limit;
+    const query = {};
+
+    query.createdBy = req.user.id;
+    if (status) {
+        query.status = status;
+    }
+
+    const orders = await Order.find(query).sort({ createdAt: 'desc' }).limit(limit).skip(skip);
 
     if (!orders) {
         throw new NotFoundError('Không tìm thấy đơn hàng nào');
     }
 
-    res.status(StatusCodes.OK).json({ orders });
+    const total = await Order.estimatedDocumentCount(query);
+
+    res.status(StatusCodes.OK).json({ total, orders });
 };
 
 export const getAllOrders = async (req, res) => {

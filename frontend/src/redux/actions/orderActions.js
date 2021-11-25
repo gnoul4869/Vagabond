@@ -7,7 +7,7 @@ import {
 
 const errorMessage = 'Đã có lỗi xảy ra. Bạn vui lòng thử lại sau ít phút nữa';
 
-export const listOrders = (status) => async (dispatch, getState) => {
+export const listOrders = (status, page, limit) => async (dispatch, getState) => {
     dispatch({ type: ORDER_LIST_REQUEST });
 
     try {
@@ -18,12 +18,14 @@ export const listOrders = (status) => async (dispatch, getState) => {
             },
             params: {
                 status,
+                page,
+                limit,
             },
         });
-        const { orders } = data;
-
-        dispatch({ type: ORDER_LIST_SUCCESS, payload: orders });
+        const { total, orders } = data;
+        dispatch({ type: ORDER_LIST_SUCCESS, payload: { total, orders } });
     } catch (error) {
+        console.log(error);
         dispatch({
             type: ORDER_LIST_FAIL,
             payload:
