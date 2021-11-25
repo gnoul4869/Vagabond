@@ -36,7 +36,6 @@ const PurchasePage = () => {
     }, [isInitialLoad, isDone, error]);
 
     useEffect(() => {
-        console.log(status, page);
         dispatch(listOrders(status, page));
     }, [dispatch, page, status]);
 

@@ -97,7 +97,11 @@ const CheckoutPage = () => {
                         setIsGettingShippingFee(false);
                     }
                 } catch (error) {
-                    console.log(error.response.data.message);
+                    setLocalError(
+                        error.response && error.response.data.message
+                            ? error.response.data.message
+                            : 'Đã có lỗi xảy ra. Bạn vui lòng thử lại sau ít phút nữa'
+                    );
                     if (mounted) {
                         setIsGettingShippingFee(false);
                     }
