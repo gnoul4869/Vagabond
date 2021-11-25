@@ -33,7 +33,7 @@ const CheckoutPage = () => {
         try {
             const products = cart.cartItems.map((item) => {
                 return {
-                    _id: item._id,
+                    id: item.id,
                     name: item.name,
                     price: item.price,
                     image: item.images[0],
@@ -74,14 +74,14 @@ const CheckoutPage = () => {
                         {
                             headers: {
                                 token: process.env.REACT_APP_GHN_TOKEN,
-                                shop_id: process.env.REACT_APP_GHN_SHOP_ID,
+                                shopid: process.env.REACT_APP_GHN_SHOP_ID,
                             },
                             params: {
-                                service_type_id: 2, // Standard
+                                service_typeid: 2, // Standard
                                 insurance_value: totalItemsPrice,
                                 coupon: null,
-                                from_district_id: process.env.REACT_APP_GHN_SHOP_DISTRICT_ID,
-                                to_district_id: userDetails.addresses.districtID,
+                                from_districtid: process.env.REACT_APP_GHN_SHOP_DISTRICT_ID,
+                                to_districtid: userDetails.addresses.districtID,
                                 to_ward_code: userDetails.addresses.wardID,
                                 weight: totalItemsWeight,
                                 height: totalItemsHeight,

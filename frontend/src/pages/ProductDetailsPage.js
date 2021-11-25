@@ -131,7 +131,7 @@ const ProductDetailsPage = () => {
                                                                 className="product-details-btn btn-cart"
                                                                 onClick={() =>
                                                                     dispatch(
-                                                                        addToCart(product._id, qty)
+                                                                        addToCart(product.id, qty)
                                                                     )
                                                                 }
                                                             >
@@ -145,7 +145,7 @@ const ProductDetailsPage = () => {
                                                                 onClick={() =>
                                                                     dispatch(
                                                                         addToCart(
-                                                                            product._id,
+                                                                            product.id,
                                                                             qty,
                                                                             history
                                                                         )

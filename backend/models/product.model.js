@@ -53,6 +53,16 @@ const productSchema = new mongoose.Schema(
     }
 );
 
+productSchema.options.toJSON = {
+    // eslint-disable-next-line no-unused-vars
+    transform: function (doc, ret, options) {
+        ret.id = ret._id;
+        delete ret._id;
+        delete ret.__v;
+        return ret;
+    },
+};
+
 const Product = mongoose.model('Product', productSchema);
 
 export default Product;

@@ -41,6 +41,16 @@ const addressSchema = new mongoose.Schema(
     }
 );
 
+addressSchema.options.toJSON = {
+    // eslint-disable-next-line no-unused-vars
+    transform: function (doc, ret, options) {
+        ret.id = ret._id;
+        delete ret._id;
+        delete ret.__v;
+        return ret;
+    },
+};
+
 const Address = mongoose.model('Address', addressSchema);
 
 export default Address;

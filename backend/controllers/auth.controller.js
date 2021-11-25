@@ -134,7 +134,7 @@ export const register = async (req, res) => {
         wardID,
         wardName,
         addressDetails,
-        createdBy: user._id,
+        createdBy: user.id,
     });
     const token = await user.createJWT();
     res.status(StatusCodes.CREATED).json({
@@ -178,7 +178,7 @@ export const login = async (req, res) => {
         throw new AuthenticationError('Email hoặc mật khẩu của bạn không đúng');
     }
 
-    const address = await Address.findOne({ createdBy: user._id });
+    const address = await Address.findOne({ createdBy: user.id });
 
     const token = user.createJWT();
 

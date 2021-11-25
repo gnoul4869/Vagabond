@@ -100,7 +100,7 @@ const PurchasePage = () => {
                         );
 
                         return (
-                            <div key={order._id} className="bg-white mt-3 mx-auto">
+                            <div key={order.id} className="bg-white mt-3 mx-auto">
                                 <div className="container p-4">
                                     <div className="d-flex align-items-center px-1">
                                         {purchaseLabels.map((label) => {
@@ -129,12 +129,12 @@ const PurchasePage = () => {
 
                                 {order.products.map((product, index) => {
                                     return (
-                                        <React.Fragment key={product._id}>
+                                        <React.Fragment key={product.id}>
                                             <div className="container p-3">
                                                 <div className="row align-items-center">
                                                     <div className="col-12 col-md-8 ms-0 ms-md-3">
                                                         <Link
-                                                            to={`/product/${product._id}`}
+                                                            to={`/product/${product.id}`}
                                                             className="link-inherit"
                                                         >
                                                             <div className="d-flex">

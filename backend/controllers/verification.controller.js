@@ -67,6 +67,6 @@ export const confirmEmail = async (req, res) => {
     if (!verificationInfo) {
         throw new AuthenticationError('Mã OTP không đúng');
     }
-    await Verification.findOneAndDelete({ _id: verificationInfo._id });
+    await Verification.findOneAndDelete({ _id: verificationInfo.id });
     res.status(StatusCodes.OK).json({ message: `Email ${email} đã xác thực thành công` });
 };

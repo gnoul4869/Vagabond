@@ -49,9 +49,9 @@ const ProductList = () => {
                     products &&
                     products.map((item) => {
                         return (
-                            <div key={item._id} className="product-wrapper">
+                            <div key={item.id} className="product-wrapper">
                                 <div className="product-container">
-                                    <Link to={`/product/${item._id}`} className="link-inherit">
+                                    <Link to={`/product/${item.id}`} className="link-inherit">
                                         <div className="product-image-container">
                                             <img
                                                 src={item.images[0]}
@@ -80,7 +80,7 @@ const ProductList = () => {
                                         <button
                                             type="button"
                                             className="product-cart-btn"
-                                            onClick={() => dispatch(addToCart(item._id, 1))}
+                                            onClick={() => dispatch(addToCart(item.id, 1))}
                                         >
                                             <FaCartPlus className="icon" />
                                         </button>

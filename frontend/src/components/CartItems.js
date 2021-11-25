@@ -16,13 +16,13 @@ const CartItems = ({ cartItems, loadingItems, options }) => {
             ) : (
                 cartItems.map((item) => {
                     return (
-                        <div key={item._id}>
+                        <div key={item.id}>
                             <div className="row align-items-center g-0">
                                 {/* <div className="col-auto"> //? This is for another time
                                             <input type="checkbox" className="form-check-input" />
                                         </div> */}
                                 <div className="col-12 col-md-4">
-                                    <Link to={`/product/${item._id}`} className="link-inherit">
+                                    <Link to={`/product/${item.id}`} className="link-inherit">
                                         <div className="d-flex">
                                             <img
                                                 src={item.images[0]}
@@ -46,9 +46,9 @@ const CartItems = ({ cartItems, loadingItems, options }) => {
                                             <NumberInput
                                                 qty={item.qty}
                                                 max={item.countInStock}
-                                                productID={item._id}
+                                                productID={item.id}
                                                 disabled={
-                                                    loadingItems && loadingItems.includes(item._id)
+                                                    loadingItems && loadingItems.includes(item.id)
                                                 }
                                             />
                                         </div>
@@ -70,7 +70,7 @@ const CartItems = ({ cartItems, loadingItems, options }) => {
                                     <div className="col-12 col-md-1 mt-3 mt-md-0 d-flex justify-content-end justify-content-md-center">
                                         <button
                                             className="button-main btn-del"
-                                            onClick={() => dispatch(removeFromCart(item._id))}
+                                            onClick={() => dispatch(removeFromCart(item.id))}
                                         >
                                             <MdDeleteForever className="icon" /> Xoá
                                         </button>

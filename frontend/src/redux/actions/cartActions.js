@@ -25,7 +25,7 @@ export const addToCart = (productID, qty, history) => async (dispatch, getState)
             dispatch({
                 type: CART_ADD_ITEM_SUCCESS,
                 payload: {
-                    _id: product._id,
+                    id: product.id,
                     name: product.name,
                     price: product.price,
                     countInStock: product.countInStock,
@@ -62,7 +62,7 @@ export const updateCart = () => async (dispatch, getState) => {
 
     try {
         const cartItems = getState().cart.cartItems;
-        const productIDs = cartItems.map((item) => item._id);
+        const productIDs = cartItems.map((item) => item.id);
         if (productIDs.length !== 0) {
             const { data } = await axios.get('/api/v1/products', { params: { productIDs } });
             const { products } = data;

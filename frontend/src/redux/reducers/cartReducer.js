@@ -25,14 +25,14 @@ export const cart = (
             };
         case CART_ADD_ITEM_SUCCESS:
             const item = action.payload;
-            const existItem = state.cartItems.find((x) => x._id === item._id);
+            const existItem = state.cartItems.find((x) => x.id === item.id);
             const newItems = existItem
-                ? state.cartItems.map((x) => (x._id === item._id ? item : x))
+                ? state.cartItems.map((x) => (x.id === item.id ? item : x))
                 : [...state.cartItems, item];
 
             return {
                 ...state,
-                loadingItems: state.loadingItems.filter((x) => x !== item._id),
+                loadingItems: state.loadingItems.filter((x) => x !== item.id),
                 cartItems: newItems,
                 isDone: true,
             };
@@ -53,7 +53,7 @@ export const cart = (
         case CART_UPDATE_SUCCESS:
             let updatedItems = [];
             action.payload.forEach((x) => {
-                const item = state.cartItems.find((y) => y._id === x._id);
+                const item = state.cartItems.find((y) => y.id === x.id);
                 x = { ...x, qty: item.qty };
                 updatedItems.push(x);
             });
@@ -73,7 +73,7 @@ export const cart = (
             return {
                 ...state,
                 loadingItems: state.loadingItems.filter((x) => x !== action.payload),
-                cartItems: state.cartItems.filter((x) => x._id !== action.payload),
+                cartItems: state.cartItems.filter((x) => x.id !== action.payload),
             };
         case CART_REMOVE_ALL_ITEMS:
             return {
