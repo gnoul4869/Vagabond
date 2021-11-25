@@ -1,6 +1,6 @@
 import {} from 'dotenv/config';
 import axios from 'axios';
-import React, { useEffect, useState } from 'react';
+import React, { useCallback, useEffect, useState } from 'react';
 
 const AddressInput = ({
     isUpdating,
@@ -51,51 +51,57 @@ const AddressInput = ({
         }
     };
 
-    const getDistricts = async (provinceID) => {
-        setIsLoadingAddress(true);
-        try {
-            const { data } = await axios.get(
-                'https://online-gateway.ghn.vn/shiip/public-api/master-data/district',
-                {
-                    headers: { token: process.env.REACT_APP_GHN_TOKEN },
-                    params: { province_id: provinceID },
-                }
-            );
+    const getDistricts = useCallback(
+        async (provinceID) => {
+            setIsLoadingAddress(true);
+            try {
+                const { data } = await axios.get(
+                    'https://online-gateway.ghn.vn/shiip/public-api/master-data/district',
+                    {
+                        headers: { token: process.env.REACT_APP_GHN_TOKEN },
+                        params: { province_id: provinceID },
+                    }
+                );
 
-            const sortedDistricts = data.data.sort((a, b) =>
-                a.DistrictName.localeCompare(b.DistricteName)
-            );
+                const sortedDistricts = data.data.sort((a, b) =>
+                    a.DistrictName.localeCompare(b.DistricteName)
+                );
 
-            setDistricts(sortedDistricts);
+                setDistricts(sortedDistricts);
 
-            setIsLoadingAddress(false);
-        } catch (error) {
-            setIsLoadingAddress(false);
-            setComponentError('Đã có lỗi xảy ra, hãy thử lại sau');
-        }
-    };
+                setIsLoadingAddress(false);
+            } catch (error) {
+                setIsLoadingAddress(false);
+                setComponentError('Đã có lỗi xảy ra, hãy thử lại sau');
+            }
+        },
+        [setComponentError]
+    );
 
-    const getWards = async (districtID) => {
-        setIsLoadingAddress(true);
-        try {
-            const { data } = await axios.get(
-                'https://online-gateway.ghn.vn/shiip/public-api/master-data/ward',
-                {
-                    headers: { token: process.env.REACT_APP_GHN_TOKEN },
-                    params: { district_id: districtID },
-                }
-            );
+    const getWards = useCallback(
+        async (districtID) => {
+            setIsLoadingAddress(true);
+            try {
+                const { data } = await axios.get(
+                    'https://online-gateway.ghn.vn/shiip/public-api/master-data/ward',
+                    {
+                        headers: { token: process.env.REACT_APP_GHN_TOKEN },
+                        params: { district_id: districtID },
+                    }
+                );
 
-            const sortedWards = data.data.sort((a, b) => a.WardName.localeCompare(b.WardName));
+                const sortedWards = data.data.sort((a, b) => a.WardName.localeCompare(b.WardName));
 
-            setWards(sortedWards);
+                setWards(sortedWards);
 
-            setIsLoadingAddress(false);
-        } catch (error) {
-            setIsLoadingAddress(false);
-            setComponentError('Đã có lỗi xảy ra, hãy thử lại sau');
-        }
-    };
+                setIsLoadingAddress(false);
+            } catch (error) {
+                setIsLoadingAddress(false);
+                setComponentError('Đã có lỗi xảy ra, hãy thử lại sau');
+            }
+        },
+        [setComponentError]
+    );
 
     useEffect(() => {
         let mounted = true;
@@ -141,8 +147,7 @@ const AddressInput = ({
         if (districtID) {
             getWards(districtID);
         }
-        // eslint-disable-next-line react-hooks/exhaustive-deps
-    }, [districtID, provinceID]);
+    }, [districtID, getDistricts, getWards, provinceID]);
 
     return (
         <>
