@@ -5,7 +5,7 @@ import HomePage from './pages/HomePage';
 import RegisterPage from './pages/user/RegisterPage';
 import LoginPage from './pages/user/LoginPage';
 import ProfilePage from './pages/user/ProfilePage';
-import Error404Page from './pages/error/Error404Page';
+import NotFoundPage from './pages/error/NotFoundPage';
 import ProductDetailsPage from './pages/ProductDetailsPage';
 import CartPage from './pages/CartPage';
 import CheckoutPage from './pages/CheckoutPage.js';
@@ -47,7 +47,7 @@ const App = () => {
                         <CheckoutPage />
                     </Route>
                     <Route path="*">
-                        <Error404Page />
+                        <NotFoundPage />
                     </Route>
                 </Switch>
             </div>

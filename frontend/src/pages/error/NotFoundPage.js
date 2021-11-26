@@ -3,7 +3,7 @@ import error404Image from '../../images/error404.png';
 import { Link } from 'react-router-dom';
 import { ImHome } from 'react-icons/im';
 
-const ErrorNotFoundPage = () => {
+const NotFoundPage = () => {
     return (
         <section className="container pb-5 text-center">
             <div className="row d-flex justify-content-center">
@@ -33,4 +33,4 @@ const ErrorNotFoundPage = () => {
     );
 };
 
-export default ErrorNotFoundPage;
+export default NotFoundPage;
