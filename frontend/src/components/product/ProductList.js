@@ -9,6 +9,7 @@ import ErrorPage from '../../pages/error/ErrorPage';
 import { FaCartPlus } from 'react-icons/fa';
 import { addToCart } from '../../redux/actions/cartActions';
 import SuccessModal from '../modals/SuccessModal';
+import ErrorModal from '../modals/ErrorModal';
 
 const ProductList = () => {
     const dispatch = useDispatch();
@@ -17,6 +18,13 @@ const ProductList = () => {
 
     const [isModalShown, setIsModalShown] = useState(false);
     const [cartError, setCartError] = useState('');
+    const [modalError, setModalError] = useState('');
+
+    useEffect(() => {
+        if (cart.modalError) {
+            setModalError(cart.modalError);
+        }
+    }, [cart.modalError]);
 
     useEffect(() => {
         if (cart.error) {
@@ -27,6 +35,7 @@ const ProductList = () => {
         if (isModalShown === true) {
             const modalTimeout = setTimeout(() => setIsModalShown(false), 2000);
             return () => {
+                setModalError('');
                 clearTimeout(modalTimeout);
             };
         }
@@ -91,7 +100,12 @@ const ProductList = () => {
                     })
                 )}
             </section>
-            {isModalShown && <SuccessModal message={'Sản phẩm đã được thêm vào giỏ hàng'} />}
+            {isModalShown &&
+                (modalError ? (
+                    <ErrorModal message={modalError} />
+                ) : (
+                    <SuccessModal message={'Sản phẩm đã được thêm vào giỏ hàng'} />
+                ))}
         </>
     );
 };

@@ -11,7 +11,14 @@ import {
 } from '../constants/cartConstants';
 
 export const cart = (
-    state = { loadingItems: [], cartItems: [], isDone: false, isLoading: false, error: '' },
+    state = {
+        loadingItems: [],
+        cartItems: [],
+        isDone: false,
+        isLoading: false,
+        error: '',
+        modalError: '',
+    },
     action
 ) => {
     switch (action.type) {
@@ -20,6 +27,7 @@ export const cart = (
             return {
                 ...state,
                 error: '',
+                modalError: '',
                 loadingItems: [...state.loadingItems, action.payload],
                 isDone: false,
             };
@@ -37,17 +45,20 @@ export const cart = (
                 isDone: true,
             };
         case CART_ADD_ITEM_FAIL:
+            console.log('ok');
             return {
                 ...state,
                 loadingItems: state.loadingItems.filter((x) => x !== action.payload.productID),
                 isDone: true,
                 error: action.payload.error,
+                modalError: action.payload.modalError,
             };
         //* CART_UPDATE
         case CART_UPDATE_REQUEST:
             return {
                 ...state,
                 error: '',
+                modalError: '',
                 isLoading: true,
             };
         case CART_UPDATE_SUCCESS:
@@ -86,6 +97,7 @@ export const cart = (
                 isLoading: false,
                 isDone: false,
                 error: '',
+                modalError: '',
             };
         default:
             return state;

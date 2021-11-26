@@ -11,6 +11,7 @@ import CartPage from './pages/CartPage';
 import CheckoutPage from './pages/CheckoutPage.js';
 import Footer from './components/Footer.js';
 import PurchasePage from './pages/user/PurchasePage.js';
+import ControlPage from './pages/ControlPage.js';
 
 const App = () => {
     return (
@@ -32,6 +33,9 @@ const App = () => {
                     </Route>
                     <Route path="/user/purchase">
                         <PurchasePage />
+                    </Route>
+                    <Route path="/control">
+                        <ControlPage />
                     </Route>
                     <Route path="/product/:id">
                         <ProductDetailsPage />

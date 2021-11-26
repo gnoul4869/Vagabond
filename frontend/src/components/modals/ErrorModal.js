@@ -1,12 +1,12 @@
 import React from 'react';
-import { BsFillCheckCircleFill } from 'react-icons/bs';
+import { MdCancel } from 'react-icons/md';
 
-const SuccessModal = ({ message }) => {
+const ErrorModal = ({ message }) => {
     return (
         <div className="modal-container">
             <div className="row text-center">
-                <span className="icon fs-1 text-success">
-                    <BsFillCheckCircleFill />
+                <span className="icon fs-1 text-danger">
+                    <MdCancel />
                 </span>
             </div>
             <div className="row mt-4 text-center mb-2">
@@ -16,4 +16,4 @@ const SuccessModal = ({ message }) => {
     );
 };
 
-export default SuccessModal;
+export default ErrorModal;

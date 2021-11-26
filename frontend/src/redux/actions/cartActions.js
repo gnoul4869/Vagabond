@@ -22,23 +22,33 @@ export const addToCart = (productID, qty, history) => async (dispatch, getState)
             const { data } = await axios.get(`/api/v1/products/${productID}`);
             const { product } = data;
 
-            dispatch({
-                type: CART_ADD_ITEM_SUCCESS,
-                payload: {
-                    id: product.id,
-                    name: product.name,
-                    price: product.price,
-                    countInStock: product.countInStock,
-                    weight: product.weight,
-                    images: product.images,
-                    qty,
-                },
-            });
+            if (product.countInStock === 0) {
+                dispatch({
+                    type: CART_ADD_ITEM_FAIL,
+                    payload: {
+                        productID,
+                        modalError: 'Sản phẩm tạm hết',
+                    },
+                });
+            } else {
+                dispatch({
+                    type: CART_ADD_ITEM_SUCCESS,
+                    payload: {
+                        id: product.id,
+                        name: product.name,
+                        price: product.price,
+                        countInStock: product.countInStock,
+                        weight: product.weight,
+                        images: product.images,
+                        qty,
+                    },
+                });
 
-            localStorage.setItem('cartItems', JSON.stringify(getState().cart.cartItems));
+                localStorage.setItem('cartItems', JSON.stringify(getState().cart.cartItems));
 
-            if (history) {
-                history.push('/cart');
+                if (history) {
+                    history.push('/cart');
+                }
             }
         } catch (error) {
             dispatch({

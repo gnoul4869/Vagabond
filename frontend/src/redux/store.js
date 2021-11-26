@@ -37,6 +37,7 @@ const initialState = {
         isDone: false,
         isLoading: false,
         error: '',
+        modalError: '',
     },
     productList: {
         isLoading: false,
