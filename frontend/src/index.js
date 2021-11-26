@@ -35,6 +35,7 @@ import './css/pages/profilePage.css';
 import './css/pages/purchasePage.css';
 import './css/pages/checkoutPage.css';
 import './css/pages/productDetailsPage.css';
+import './css/pages/controlPage.css';
 
 import './css/index.css';
 

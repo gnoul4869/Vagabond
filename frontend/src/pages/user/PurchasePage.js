@@ -113,7 +113,7 @@ const PurchasePage = () => {
                                                 label.status === order.status && (
                                                     <React.Fragment key={label.id}>
                                                         <div
-                                                            className={`fw-600 fsr-3 me-auto ${label.color}`}
+                                                            className={` fw-600 fsr-3 me-auto ${label.color}`}
                                                         >
                                                             <span>{label.icon}</span>
                                                             {label.text}

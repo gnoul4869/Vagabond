@@ -87,8 +87,20 @@ select:focus {
     color: #db0477;
 }
 
+.text-teal {
+    color: teal;
+}
+
+.text-dodgerblue {
+    color: dodgerblue;
+}
+
 .text-steelblue {
     color: steelblue;
+}
+
+.text-turquoise {
+    color: turquoise;
 }
 
 .text-mediumaqua {
@@ -97,10 +109,6 @@ select:focus {
 
 .text-lightseagreen {
     color: lightseagreen;
-}
-
-.text-darkturquoise {
-    color: turquoise;
 }
 
 /** Font */
@@ -296,6 +304,18 @@ select:focus {
 }
 
 /** Border */
+.border-ired {
+    border-color: var(--inspiring-red) !important;
+}
+
+.border-coral {
+    border-color: coral !important;
+}
+
+.border-steelblue {
+    border-color: steelblue !important;
+}
+
 .separator {
     border-right: 0.0625rem solid hsla(0, 0%, 100%, 0.4);
     height: 0.8125rem;
@@ -326,6 +346,19 @@ select:focus {
 
 .divider-dash-bottom {
     border-bottom: 0.0625rem dashed rgba(0, 0, 0, 0.09);
+}
+
+.divider-medium {
+    border-top: 0.0625rem solid rgba(0, 0, 0, 0.2);
+    border-bottom: 0.0625rem solid rgba(0, 0, 0, 0.2);
+}
+
+.divider-medium-top {
+    border-top: 0.0625rem solid rgba(0, 0, 0, 0.2);
+}
+
+.divider-medium-bottom {
+    border-bottom: 0.0625rem solid rgba(0, 0, 0, 0.2);
 }
 
 .divider-strong {
