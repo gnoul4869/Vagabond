@@ -240,6 +240,8 @@ select:focus {
     color: var(--inspiring-red);
     background-color: transparent;
     box-shadow: none;
+    border: none;
+    outline-style: none;
 }
 
 .btn-cancel:hover {

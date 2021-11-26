@@ -24,20 +24,20 @@ export const getUserOrders = async (req, res) => {
     const limit = Number(req.query.limit) || 2;
 
     const skip = (page - 1) * limit;
-    const query = {};
+    const queryObj = {};
 
-    query.createdBy = req.user.id;
+    queryObj.createdBy = req.user.id;
     if (status) {
-        query.status = status;
+        queryObj.status = status;
     }
 
-    const orders = await Order.find(query).sort({ createdAt: 'desc' }).limit(limit).skip(skip);
+    const orders = await Order.find(queryObj).sort({ updatedAt: -1 }).limit(limit).skip(skip);
 
     if (!orders) {
         throw new NotFoundError('Không tìm thấy đơn hàng nào');
     }
 
-    const total = await Order.countDocuments(query);
+    const total = await Order.countDocuments(queryObj);
 
     res.status(StatusCodes.OK).json({ total, orders });
 };
@@ -46,14 +46,58 @@ export const getAllOrders = async (req, res) => {
     if (req.user.role !== 'admin') {
         throw new AuthenticationError('Không đủ quyền thực hiện');
     }
-    const { status } = req.query;
-    const orders = status
-        ? await Order.find({ status })
-        : await Order.find({}).sort({ createdAt: 'desc' });
+    const status = req.query.status;
+    const page = Number(req.query.page) || 1;
+    const limit = Number(req.query.limit) || 2;
+
+    const skip = (page - 1) * limit;
+    const queryObj = {};
+
+    if (status) {
+        queryObj.status = status;
+    }
+
+    const orders = await Order.find(queryObj).sort({ updatedAt: -1 }).limit(limit).skip(skip);
 
     if (!orders) {
         throw new NotFoundError('Không tìm thấy đơn hàng nào');
     }
 
-    res.status(StatusCodes.OK).json({ orders });
+    const total = await Order.countDocuments(queryObj);
+
+    res.status(StatusCodes.OK).json({ total, orders });
+};
+
+export const updateOrder = async (req, res) => {
+    const { orderID, status } = req.body;
+
+    if (!orderID) {
+        throw new BadRequestError('Hay cung cấp mã đơn hàng');
+    }
+
+    if (!status) {
+        throw new BadRequestError('Hãy cung cấp trạng thái đơn hàng');
+    }
+
+    const queryObj = {};
+    queryObj._id = orderID;
+
+    if (req.user.role !== 'admin') {
+        queryObj.createdBy = req.user.id;
+    }
+
+    const order = await Order.findOneAndUpdate(
+        queryObj,
+        { status },
+        {
+            new: true,
+            runValidators: true,
+        }
+    );
+
+    if (!order) {
+        throw new NotFoundError('Không tìm thấy đơn hàng nào');
+    }
+
+    res.status(StatusCodes.OK).json({ order });
 };

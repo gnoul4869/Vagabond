@@ -4,7 +4,7 @@ import { Link } from 'react-router-dom';
 import { useHistory, useLocation } from 'react-router';
 import InfiniteScroll from 'react-infinite-scroll-component';
 import HashLoader from 'react-spinners/HashLoader';
-import { listOrders, resetOrders } from '../../redux/actions/orderActions';
+import { listOrders, refreshOrders, updateOrder } from '../../redux/actions/orderActions';
 import { purchaseLabels } from '../../data/purchaseLabels';
 import PriceFormat from '../../components/PriceFormat';
 import ErrorPage from '../error/ErrorPage';
@@ -22,8 +22,12 @@ const PurchasePage = () => {
     const [status, setStatus] = useState('');
     const [page, setPage] = useState(1);
 
+    const cancleOrder = (id) => {
+        dispatch(updateOrder(id, 'cancelled'));
+    };
+
     useEffect(() => {
-        dispatch(resetOrders());
+        dispatch(refreshOrders());
         setPage(1);
         setStatus(purchaseLabels.find((label) => label.id === activeID).status);
         setIsInitialLoad(true);
@@ -114,7 +118,12 @@ const PurchasePage = () => {
                                                             {label.text}
                                                         </div>
                                                         {label.status === 'pending' && (
-                                                            <button className="button-main btn-cancel fsr-3 p-0">
+                                                            <button
+                                                                className="button-main btn-cancel fsr-3 p-0"
+                                                                onClick={() =>
+                                                                    cancleOrder(order.id)
+                                                                }
+                                                            >
                                                                 Hủy
                                                             </button>
                                                         )}
