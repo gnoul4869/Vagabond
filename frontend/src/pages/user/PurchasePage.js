@@ -22,6 +22,8 @@ const PurchasePage = () => {
     const [status, setStatus] = useState('');
     const [page, setPage] = useState(1);
 
+    const isAdmin = userInfo && userInfo.role === 'admin' && location.pathname === '/control';
+
     const cancleOrder = (id) => {
         dispatch(updateOrder(id, 'cancelled'));
     };
@@ -40,8 +42,8 @@ const PurchasePage = () => {
     }, [isInitialLoad, isDone, error]);
 
     useEffect(() => {
-        dispatch(listOrders(status, page));
-    }, [dispatch, page, status]);
+        dispatch(listOrders(status, page, isAdmin));
+    }, [dispatch, isAdmin, page, status]);
 
     useEffect(() => {
         if (!userInfo) {

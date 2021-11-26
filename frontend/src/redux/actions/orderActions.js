@@ -11,7 +11,7 @@ import {
 
 const errorMessage = 'Đã có lỗi xảy ra. Bạn vui lòng thử lại sau ít phút nữa';
 
-export const listOrders = (status, page) => async (dispatch, getState) => {
+export const listOrders = (status, page, isAdmin) => async (dispatch, getState) => {
     dispatch({ type: ORDER_LIST_REQUEST });
 
     try {
@@ -23,6 +23,7 @@ export const listOrders = (status, page) => async (dispatch, getState) => {
             params: {
                 status,
                 page,
+                isAdmin,
             },
         });
         const { total, orders } = data;

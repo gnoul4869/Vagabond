@@ -14,6 +14,7 @@ const Sidebar = ({ title, labelList, activeID, setActiveID }) => {
                         {labelList.map((label) => {
                             return (
                                 <div
+                                    key={label.id}
                                     onClick={() => setActiveID(label.id)}
                                     className={`sidebar-label d-flex justify-content-center justify-content-md-start py-2 ${
                                         activeID === label.id && 'sidebar-label-active'

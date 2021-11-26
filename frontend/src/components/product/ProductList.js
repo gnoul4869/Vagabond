@@ -8,8 +8,7 @@ import RatingStars from '../RatingStars';
 import ErrorPage from '../../pages/error/ErrorPage';
 import { FaCartPlus } from 'react-icons/fa';
 import { addToCart } from '../../redux/actions/cartActions';
-import SuccessModal from '../modals/SuccessModal';
-import ErrorModal from '../modals/ErrorModal';
+import InfoModal from '../modals/InfoModal';
 
 const ProductList = () => {
     const dispatch = useDispatch();
@@ -20,26 +19,25 @@ const ProductList = () => {
     const [cartError, setCartError] = useState('');
     const [modalError, setModalError] = useState('');
 
-    useEffect(() => {
-        if (cart.modalError) {
-            setModalError(cart.modalError);
+    const cartBtnHandler = (productID) => {
+        if (!cart.isLoading) {
+            dispatch(addToCart(productID, 1));
         }
-    }, [cart.modalError]);
+    };
 
     useEffect(() => {
-        if (cart.error) {
+        if (cart.isDone === true) {
             setCartError(cart.error);
-        } else if (cart.isDone === true) {
             setIsModalShown(true);
+            setModalError(cart.modalError);
         }
         if (isModalShown === true) {
             const modalTimeout = setTimeout(() => setIsModalShown(false), 2000);
             return () => {
-                setModalError('');
                 clearTimeout(modalTimeout);
             };
         }
-    }, [cart.error, cart.isDone, isModalShown]);
+    }, [cart.error, cart.isDone, cart.modalError, isModalShown]);
 
     useEffect(() => {
         dispatch(listProducts());
@@ -89,7 +87,7 @@ const ProductList = () => {
                                         <button
                                             type="button"
                                             className="product-cart-btn"
-                                            onClick={() => dispatch(addToCart(item.id, 1))}
+                                            onClick={() => cartBtnHandler(item.id)}
                                         >
                                             <FaCartPlus className="icon" />
                                         </button>
@@ -100,12 +98,12 @@ const ProductList = () => {
                     })
                 )}
             </section>
-            {isModalShown &&
-                (modalError ? (
-                    <ErrorModal message={modalError} />
-                ) : (
-                    <SuccessModal message={'Sản phẩm đã được thêm vào giỏ hàng'} />
-                ))}
+            {isModalShown && (
+                <InfoModal
+                    message={modalError ? modalError : 'Sản phẩm đã được thêm vào giỏ hàng'}
+                    isError={modalError}
+                />
+            )}
         </>
     );
 };

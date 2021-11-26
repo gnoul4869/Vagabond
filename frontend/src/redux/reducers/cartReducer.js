@@ -30,6 +30,7 @@ export const cart = (
                 modalError: '',
                 loadingItems: [...state.loadingItems, action.payload],
                 isDone: false,
+                isLoading: true,
             };
         case CART_ADD_ITEM_SUCCESS:
             const item = action.payload;
@@ -43,6 +44,7 @@ export const cart = (
                 loadingItems: state.loadingItems.filter((x) => x !== item.id),
                 cartItems: newItems,
                 isDone: true,
+                isLoading: false,
             };
         case CART_ADD_ITEM_FAIL:
             return {
@@ -51,6 +53,7 @@ export const cart = (
                 isDone: true,
                 error: action.payload.error,
                 modalError: action.payload.modalError,
+                isLoading: false,
             };
         //* CART_UPDATE
         case CART_UPDATE_REQUEST:

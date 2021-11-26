@@ -4,12 +4,12 @@ import moment from 'moment';
 import BarLoader from 'react-spinners/BarLoader';
 import { VscError } from 'react-icons/vsc';
 import { useHistory, useLocation } from 'react-router';
+import { getUserDetails, updateUserDetails } from '../../redux/actions/userAction';
 import ErrorPage from '../error/ErrorPage';
 import DateInput from '../../components/DateInput';
 import GenderRadio from '../../components/GenderRadio';
-import SuccessModal from '../../components/modals/SuccessModal';
+import InfoModal from '../../components/modals/InfoModal';
 import ProfilePageLoading from '../../components/loading/ProfilePageLoading';
-import { getUserDetails, updateUserDetails } from '../../redux/actions/userAction';
 import AddressInput from '../../components/AddressInput';
 
 const ProfilePage = () => {
@@ -370,7 +370,7 @@ const ProfilePage = () => {
                     </div>
                 )
             )}
-            {isModalShown && <SuccessModal message={'Cập nhật hồ sơ thành công'} />}
+            {isModalShown && <InfoModal message={'Cập nhật hồ sơ thành công'} />}
         </>
     );
 };

@@ -128,6 +128,14 @@ select:focus {
     font-size: 1.5625rem;
 }
 
+.fsr-5 {
+    font-size: 1.875rem;
+}
+
+.fsr-6 {
+    font-size: 2.1875rem;
+}
+
 .fw-600 {
     font-weight: 600;
 }
@@ -477,7 +485,13 @@ select:focus {
         font-size: 0.8125rem;
     }
     .fsr-4 {
-        font-size: 0.875rem;
+        font-size: 0.9375rem;
+    }
+    .fsr-5 {
+        font-size: 1rem;
+    }
+    .fsr-6 {
+        font-size: 1.0625rem;
     }
 }
 
@@ -494,6 +508,12 @@ select:focus {
     }
     .fsr-4 {
         font-size: 1.25rem;
+    }
+    .fsr-5 {
+        font-size: 1.375rem;
+    }
+    .fsr-6 {
+        font-size: 1.5rem;
     }
 }
 

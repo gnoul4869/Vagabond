@@ -14,7 +14,7 @@ import ProductDetailsPageLoading from '../components/loading/ProductDetailsPageL
 import ProductDescription from '../components/product/ProductDescription';
 import BreadCrumbs from '../components/BreadCrumbs';
 import { addToCart } from '../redux/actions/cartActions';
-import SuccessModal from '../components/modals/SuccessModal';
+import InfoModal from '../components/modals/InfoModal';
 
 const ProductDetailsPage = () => {
     const dispatch = useDispatch();
@@ -26,16 +26,29 @@ const ProductDetailsPage = () => {
     const [qty, setQty] = useState(1);
     const [isModalShown, setIsModalShown] = useState(false);
     const [cartError, setCartError] = useState('');
+    const [modalError, setModalError] = useState('');
+
+    const cartBtnHandler = (productID, qty) => {
+        if (!cart.isLoading) {
+            dispatch(addToCart(productID, qty));
+        }
+    };
+
+    const buyBtnHandler = (productID, qty) => {
+        if (!cart.isLoading) {
+            dispatch(addToCart(productID, qty, history));
+        }
+    };
 
     useEffect(() => {
         dispatch(detailProduct(id));
     }, [dispatch, id]);
 
     useEffect(() => {
-        if (cart.error) {
+        if (cart.isDone === true) {
             setCartError(cart.error);
-        } else if (cart.isDone === true) {
             setIsModalShown(true);
+            setModalError(cart.modalError);
         }
         if (isModalShown === true) {
             const modalTimeout = setTimeout(() => setIsModalShown(false), 2000);
@@ -43,7 +56,7 @@ const ProductDetailsPage = () => {
                 clearTimeout(modalTimeout);
             };
         }
-    }, [cart.error, cart.isDone, isModalShown]);
+    }, [cart.error, cart.isDone, cart.modalError, isModalShown]);
 
     if (error || cartError) {
         return <ErrorPage error={error || cartError} />;
@@ -130,9 +143,7 @@ const ProductDetailsPage = () => {
                                                                 type="button"
                                                                 className="product-details-btn btn-cart"
                                                                 onClick={() =>
-                                                                    dispatch(
-                                                                        addToCart(product.id, qty)
-                                                                    )
+                                                                    cartBtnHandler(product.id, qty)
                                                                 }
                                                             >
                                                                 <FaCartPlus className="icon" /> Thêm
@@ -143,13 +154,7 @@ const ProductDetailsPage = () => {
                                                             <button
                                                                 className="product-details-btn btn-buy"
                                                                 onClick={() =>
-                                                                    dispatch(
-                                                                        addToCart(
-                                                                            product.id,
-                                                                            qty,
-                                                                            history
-                                                                        )
-                                                                    )
+                                                                    buyBtnHandler(product.id, qty)
                                                                 }
                                                             >
                                                                 <RiShoppingBag3Fill className="icon" />{' '}
@@ -171,7 +176,12 @@ const ProductDetailsPage = () => {
                             />
                         </section>
                         {isModalShown && (
-                            <SuccessModal message={'Sản phẩm đã được thêm vào giỏ hàng'} />
+                            <InfoModal
+                                message={
+                                    modalError ? modalError : 'Sản phẩm đã được thêm vào giỏ hàng'
+                                }
+                                isError={modalError}
+                            />
                         )}
                     </>
                 )
