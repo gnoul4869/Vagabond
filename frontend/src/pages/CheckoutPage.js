@@ -29,8 +29,6 @@ const CheckoutPage = () => {
     const totalItemsWeight = cart.cartItems.reduce((a, c) => a + c.weight * c.qty, 0);
     const totalItemsHeight = Math.round(totalItemsWeight / 100);
 
-    console.log(totalItemsHeight, totalItemsWeight, totalItemsPrice);
-
     const orderHandler = async () => {
         try {
             const products = cart.cartItems.map((item) => {

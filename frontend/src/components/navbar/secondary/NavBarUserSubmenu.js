@@ -3,7 +3,7 @@ import { useDispatch } from 'react-redux';
 import { Link } from 'react-router-dom';
 import { logout } from '../../../redux/actions/authActions';
 
-const NavBarUserSubmenu = ({ isSubmenuShown, setIsSubmenuShown, targetWidth }) => {
+const NavBarUserSubmenu = ({ isSubmenuShown, setIsSubmenuShown, targetWidth, isAdmin }) => {
     const submenuContainer = useRef();
     const dispatch = useDispatch();
 
@@ -24,9 +24,11 @@ const NavBarUserSubmenu = ({ isSubmenuShown, setIsSubmenuShown, targetWidth }) =
                 <div className="row submenu-item">
                     <Link to="/user/profile">Tài khoản của tôi</Link>
                 </div>
-                <div className="row submenu-item">
-                    <Link to="/user/profile">Quản lý</Link>
-                </div>
+                {isAdmin && (
+                    <div className="row submenu-item">
+                        <Link to="/control">Quản lý</Link>
+                    </div>
+                )}
                 <div className="row submenu-item">
                     <Link to="/user/purchase">Đơn mua</Link>
                 </div>

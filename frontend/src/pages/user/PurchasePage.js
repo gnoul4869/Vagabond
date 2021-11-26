@@ -56,8 +56,6 @@ const PurchasePage = () => {
         return <ErrorPage error={error} />;
     }
 
-    console.log(isInitialLoad, totalCount, isDone, orderList.length);
-
     return (
         <>
             <div className="container bg-white mt-3 mx-auto">

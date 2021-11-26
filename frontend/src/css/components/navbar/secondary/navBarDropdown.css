@@ -50,10 +50,22 @@
     max-height: 12.625rem;
 }
 
+.navbar-dropdown-active-height-242 {
+    /** Height for auth=true, control, cart badge, social links */
+    /** 2.5rem + 2.5rem + 2.5rem + 3.125rem + 2rem = 12.625rem */
+    max-height: 242px;
+}
+
 .navbar-dropdown-active-height-205 {
     /** Height for auth=true, search box, social links */
     /** 2.5rem + 2.5rem + 2.5rem + 3.3125rem + 2rem = 12.8125rem */
     max-height: 12.8125rem;
+}
+
+.navbar-dropdown-active-height-245 {
+    /** Height for auth=true, control, search box, social links */
+    /** 2.5rem + 2.5rem + 2.5rem + 3.3125rem + 2rem = 12.8125rem */
+    max-height: 15.3125rem;
 }
 
 .navbar-dropdown-active-height-215 {

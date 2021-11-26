@@ -4,7 +4,7 @@ import { HiMenu } from 'react-icons/hi';
 import SearchBox from '../SearchBox';
 import NavbarDropdown from './NavbarDropdown';
 
-const CartBar = ({ path, isDropdownShown, setIsDropdownShown }) => {
+const CartBar = ({ path, isDropdownShown, setIsDropdownShown, isAdmin }) => {
     let title = 'Welcome';
     if (path === '/cart') {
         title = 'Giỏ Hàng';
@@ -46,7 +46,7 @@ const CartBar = ({ path, isDropdownShown, setIsDropdownShown }) => {
                     </button>
                 </div>
             </div>
-            <NavbarDropdown auth={false} search={true} isDropdownShown={isDropdownShown} />
+            <NavbarDropdown isDropdownShown={isDropdownShown} auth={false} search={true} />
         </section>
     );
 };

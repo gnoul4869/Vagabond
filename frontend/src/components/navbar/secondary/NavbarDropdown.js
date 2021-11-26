@@ -12,7 +12,7 @@ const NavbarDropdown = ({ cartBadge, search, isDropdownShown }) => {
     const { userInfo } = useSelector((state) => state.auth);
 
     useEffect(() => {
-        const userHeight = userInfo ? 40 : 0;
+        const userHeight = userInfo ? (userInfo.role === 'admin' ? 80 : 40) : 0;
         const cartHeight = cartBadge ? 50 : 0;
         const searchHeight = search ? 53 : 0;
         setDropdownHeight(112 + userHeight + cartHeight + searchHeight);
@@ -33,6 +33,13 @@ const NavbarDropdown = ({ cartBadge, search, isDropdownShown }) => {
                                 <span className="navbar-link">Tài khoản của tôi</span>
                             </Link>
                         </li>
+                        {userInfo.role === 'admin' && (
+                            <li>
+                                <Link to="/control" className="nav-link">
+                                    <span className="navbar-link">Quản lý</span>
+                                </Link>
+                            </li>
+                        )}
                         <li>
                             <Link to="/user/purchase" className="nav-link">
                                 <span className="navbar-link">Đơn mua</span>

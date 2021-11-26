@@ -45,7 +45,6 @@ export const cart = (
                 isDone: true,
             };
         case CART_ADD_ITEM_FAIL:
-            console.log('ok');
             return {
                 ...state,
                 loadingItems: state.loadingItems.filter((x) => x !== action.payload.productID),
