@@ -12,14 +12,13 @@ const ControlPage = () => {
         <>
             <div className="container p-0">
                 <div className="row g-0">
-                    <div className="col-2 me-1 me-md-2">
-                        <Sidebar
-                            title={'Quản lý'}
-                            labelList={controlLabels}
-                            activeID={activeID}
-                            setActiveID={setActiveID}
-                        />
-                    </div>
+                    <Sidebar
+                        title={'Quản lý'}
+                        labelList={controlLabels}
+                        activeID={activeID}
+                        setActiveID={setActiveID}
+                    />
+
                     <div className="col">
                         {activeID === 0 && (
                             <div className="container bg-white text-center fsr-3 mt-3 p-3">
