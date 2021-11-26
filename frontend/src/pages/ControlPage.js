@@ -26,7 +26,7 @@ const ControlPage = () => {
 
     return (
         <>
-            {userInfo.role !== 'admin' ? (
+            {userInfo && userInfo.role !== 'admin' ? (
                 <NotFoundPage />
             ) : (
                 <div className="container p-0">
