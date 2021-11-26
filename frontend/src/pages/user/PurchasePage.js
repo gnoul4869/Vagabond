@@ -56,6 +56,8 @@ const PurchasePage = () => {
         return <ErrorPage error={error} />;
     }
 
+    console.log(isInitialLoad, totalCount, isDone, orderList.length);
+
     return (
         <>
             <div className="container bg-white mt-3 mx-auto">
@@ -82,7 +84,7 @@ const PurchasePage = () => {
                     css="display: inherit; margin: 12rem auto 30rem;"
                     width="3.125rem"
                 />
-            ) : orderList.length === 0 ? (
+            ) : totalCount === 0 && orderList.length === 0 ? (
                 <EmptyPurchase />
             ) : (
                 <InfiniteScroll

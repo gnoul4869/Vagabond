@@ -29,6 +29,8 @@ const CheckoutPage = () => {
     const totalItemsWeight = cart.cartItems.reduce((a, c) => a + c.weight * c.qty, 0);
     const totalItemsHeight = Math.round(totalItemsWeight / 100);
 
+    console.log(totalItemsHeight, totalItemsWeight, totalItemsPrice);
+
     const orderHandler = async () => {
         try {
             const products = cart.cartItems.map((item) => {
@@ -61,6 +63,10 @@ const CheckoutPage = () => {
     };
 
     useEffect(() => {
+        if (totalItemsWeight === 0) {
+            return setShippingFee(0);
+        }
+
         let mounted = true;
 
         if (userDetails) {

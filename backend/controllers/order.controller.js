@@ -31,7 +31,10 @@ export const getUserOrders = async (req, res) => {
         queryObj.status = status;
     }
 
-    const orders = await Order.find(queryObj).sort({ updatedAt: -1 }).limit(limit).skip(skip);
+    const orders = await Order.find(queryObj)
+        .sort({ status: -1, updatedAt: -1 })
+        .limit(limit)
+        .skip(skip);
 
     if (!orders) {
         throw new NotFoundError('Không tìm thấy đơn hàng nào');
