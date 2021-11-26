@@ -2,16 +2,17 @@ import {} from 'dotenv/config';
 import React, { useEffect, useState } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
 import { useHistory, useLocation } from 'react-router';
+import axios from 'axios';
+import { ImTruck } from 'react-icons/im';
+import { BiPurchaseTag } from 'react-icons/bi';
+import BarLoader from 'react-spinners/BarLoader';
 import { getUserDetails } from '../redux/actions/userAction';
+import { removeAllFromCart, updateCart } from '../redux/actions/cartActions';
 import CartItems from '../components/CartItems';
 import ShippingDetails from '../components/checkout/ShippingDetails';
 import CheckoutPageLoading from '../components/loading/checkoutLoading/CheckoutPageLoading';
 import ErrorPage from './error/ErrorPage';
 import PriceFormat from '../components/PriceFormat';
-import { ImTruck } from 'react-icons/im';
-import axios from 'axios';
-import { BiPurchaseTag } from 'react-icons/bi';
-import { removeAllFromCart, updateCart } from '../redux/actions/cartActions';
 
 const CheckoutPage = () => {
     const history = useHistory();
@@ -23,6 +24,7 @@ const CheckoutPage = () => {
 
     const [shippingFee, setShippingFee] = useState(0);
     const [isGettingShippingFee, setIsGettingShippingFee] = useState(false);
+    const [isOrdering, setIsOrdering] = useState(false);
     const [localError, setLocalError] = useState('');
 
     const totalItemsPrice = cart.cartItems.reduce((a, c) => a + c.price * c.qty, 0);
@@ -30,6 +32,7 @@ const CheckoutPage = () => {
     const totalItemsHeight = Math.round(totalItemsWeight / 100);
 
     const orderHandler = async () => {
+        setIsOrdering(true);
         try {
             const products = cart.cartItems.map((item) => {
                 return {
@@ -50,6 +53,7 @@ const CheckoutPage = () => {
                 }
             );
             dispatch(removeAllFromCart());
+            setIsOrdering(false);
             history.push('/user/purchase');
         } catch (error) {
             setLocalError(
@@ -270,10 +274,22 @@ const CheckoutPage = () => {
                                 <div className="col-8 col-sm-6 col-md-3 p-0 my-2 ms-md-auto me-md-4">
                                     <button
                                         type="button"
-                                        className="button-main btn-buy w-100"
+                                        className={`button-main btn-buy w-100 ${
+                                            isOrdering ? 'btn-ired-loading' : ''
+                                        }`}
                                         onClick={orderHandler}
                                     >
-                                        <BiPurchaseTag className="icon" /> Đặt hàng
+                                        {!isOrdering ? (
+                                            <span>
+                                                <BiPurchaseTag className="icon" /> Đặt hàng
+                                            </span>
+                                        ) : (
+                                            <BarLoader
+                                                color="white"
+                                                css="display: inherit; margin-bottom: .25rem;"
+                                                width="3.125rem"
+                                            />
+                                        )}
                                     </button>
                                 </div>
                             </div>

@@ -1,6 +1,7 @@
 import { StatusCodes } from 'http-status-codes';
 import { AuthenticationError, BadRequestError, NotFoundError } from '../errors/custom-api-error.js';
 import Order from '../models/order.model.js';
+import { generateInfoEmail } from '../utils/generate-info-email.js';
 
 export const createOrder = async (req, res) => {
     const { products, shippingFee } = req.body;
@@ -15,6 +16,11 @@ export const createOrder = async (req, res) => {
 
     const order = await Order.create({ createdBy: req.user.id, products, shippingFee });
 
+    const title = 'Thông báo có đơn hàng mới';
+    const message =
+        'Có đơn hàng mới đang chờ được xác nhận. Hãy vào trang quản lý để cập nhật trạng thái đơn hàng.';
+    await generateInfoEmail(process.env.OWNER_MAIL, title, message);
+
     res.status(StatusCodes.CREATED).json({ order });
 };
 
@@ -27,9 +33,10 @@ export const getOrders = async (req, res) => {
     const skip = (page - 1) * limit;
     const queryObj = {};
 
-    if (isAdmin && req.user.role !== 'admin') {
+    if (isAdmin === 'true' && req.user.role !== 'admin') {
         throw new AuthenticationError('Không đủ quyền thực hiện');
-    } else {
+    }
+    if (isAdmin === 'false') {
         queryObj.createdBy = req.user.id;
     }
 

@@ -1,4 +1,4 @@
-export const emailTemplate = (name, otp) => {
+export const infoEmailTemplate = (title, message) => {
     return `
         <body>
             <center>
@@ -116,35 +116,10 @@ export const emailTemplate = (name, otp) => {
                                                                                             letter-spacing: 2px;
                                                                                         "
                                                                                     >
-                                                                                        Mã OTP của bạn
-                                                                                        là
+                                                                                        ${title}
                                                                                     </div>
                                                                                 </td>
-                                                                            </tr>
-                                                                            <tr>
-                                                                                <td
-                                                                                    width="100%"
-                                                                                    height="50"
-                                                                                    style="
-                                                                                        line-height: 1px;
-                                                                                        font-size: 1px;
-                                                                                    "
-                                                                                >
-                                                                                    <div
-                                                                                        style="
-                                                                                            font-family: sans-serif;
-                                                                                            color: #202020;
-                                                                                            text-align: center;
-                                                                                            font-size: 26px;
-                                                                                            line-height: 32px;
-                                                                                            line-height: 100%;
-                                                                                            letter-spacing: 2px;
-                                                                                        "
-                                                                                    >
-                                                                                        ${otp}
-                                                                                    </div>
-                                                                                </td>
-                                                                            </tr>
+                                                                            </tr>                                                                          
                                                                         </tbody>
                                                                     </table>
                                                                     <table
@@ -201,7 +176,7 @@ export const emailTemplate = (name, otp) => {
                                                         letter-spacing: 0.5px;
                                                     "
                                                 >
-                                                    Xin chào ${name},
+                                                    Thông báo,
                                                     <br /><br />
                                                 </td>
                                                 <td width="50">&nbsp;</td>
@@ -219,9 +194,7 @@ export const emailTemplate = (name, otp) => {
                                                         letter-spacing: 0.5px;
                                                     "
                                                 >
-                                                    Cảm ơn bạn đã đăng ký thành viên. Để tiếp tục, bạn
-                                                    vui lòng sử dụng mã OTP trên để tiến hành xác minh
-                                                    email.
+                                                    ${message}
                                                     <br /><br />
                                                 </td>
                                                 <td width="50">&nbsp;</td>

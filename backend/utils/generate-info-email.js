@@ -1,9 +1,8 @@
 import {} from 'dotenv/config.js';
 import nodemailer from 'nodemailer';
-import otpGenerator from 'otp-generator';
-import { emailTemplate } from './email-template.js';
+import { infoEmailTemplate } from './info-email-template.js';
 
-const generateMail = async (name, email) => {
+export const generateInfoEmail = async (email, title, message) => {
     let transporter = nodemailer.createTransport({
         host: 'smtp.gmail.com',
         port: 465,
@@ -18,25 +17,17 @@ const generateMail = async (name, email) => {
         },
     });
 
-    const otp = otpGenerator.generate(6, {
-        alphabets: false,
-        upperCase: false,
-        specialChars: false,
-    });
-
-    const template = emailTemplate(name, otp);
+    const template = infoEmailTemplate(title, message);
 
     let info = await transporter
         .sendMail({
             from: 'megafunxofficial@gmail.com',
             to: email,
-            subject: 'Mã xác thực OTP trên Vagabond',
-            text: `Mã OTP của bạn là: ${otp}`,
+            subject: title,
+            text: message,
             html: template,
         })
         .catch();
 
-    return { otp, info };
+    return { info };
 };
-
-export default generateMail;

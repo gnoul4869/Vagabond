@@ -1,8 +1,8 @@
 import { StatusCodes } from 'http-status-codes';
 import { AuthenticationError, BadRequestError } from '../errors/custom-api-error.js';
+import { generateOTPEmail } from '../utils/generate-otp-email.js';
 import User from '../models/user.model.js';
 import Verification from '../models/verification.model.js';
-import generateMail from '../utils/generate-email.js';
 
 export const verifyEmail = async (req, res) => {
     const { name, email } = req.body;
@@ -42,7 +42,7 @@ export const verifyEmail = async (req, res) => {
             status: 'EMAIL_ALREADY_SENT',
         });
     } else {
-        const { otp } = await generateMail(name, email);
+        const { otp } = await generateOTPEmail(name, email);
         await Verification.create({ email, otp });
         res.status(StatusCodes.OK).json({
             message: `Hệ thống đã gửi mã xác nhận OTP tới địa chỉ email ${email}`,
