@@ -89,6 +89,7 @@ const PurchasePage = () => {
                     dataLength={orderList.length}
                     next={() => setPage(page + 1)}
                     hasMore={orderList.length < totalCount}
+                    scrollThreshold={0.7}
                     loader={
                         <HashLoader
                             color="#c73434"

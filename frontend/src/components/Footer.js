@@ -5,10 +5,10 @@ const Footer = () => {
         <section className="footer-container mt-4">
             <div className="container text-sdark mt-5">
                 <div>
-                    <div className="fw-bold fs-4 my-2">
+                    <div className="fw-bold fsr-4 my-2">
                         VAGABOND - GÌ CŨNG CÓ, MUA HẾT Ở VAGABOND
                     </div>
-                    <p>
+                    <p className="fsr-2">
                         Vagabond - ứng dụng mua sắm trực tuyến thú vị, tin cậy, an toàn và miễn phí!
                         Vagabond là nền tảng giao dịch trực tuyến hàng đầu ở Việt Nam. Với sự đảm
                         bảo của Vagabond, bạn sẽ mua hàng trực tuyến an tâm và nhanh chóng hơn bao
@@ -16,10 +16,10 @@ const Footer = () => {
                     </p>
                 </div>
                 <div>
-                    <div className="fw-bold fs-4 my-2">
+                    <div className="fw-bold fsr-4 my-2">
                         MUA SẮM ONLINE ĐƠN GIẢN, NHANH CHÓNG VÀ AN TOÀN
                     </div>
-                    <p>
+                    <p className="fsr-2">
                         Nếu bạn đang tìm kiếm một trang web để mua hàng trực tuyến thì
                         vagabond-shop.cf là một sự lựa chọn tuyệt vời dành cho bạn. Bản chất của
                         Vagabond là một E-commerce platform - nền tảng trang web thương mại điện tử
@@ -29,10 +29,10 @@ const Footer = () => {
                     </p>
                 </div>
                 <div>
-                    <div className="fw-bold fs-4 my-2">
+                    <div className="fw-bold fsr-4 my-2">
                         MUA HÀNG CHÍNH HÃNG TỪ CÁC THƯƠNG HIỆU LỚN VỚI VAGABOND
                     </div>
-                    <p>
+                    <p className="fsr-2">
                         Mua hàng trên Vagabond luôn là một trải nghiệm ấn tượng. Dù bạn đang có nhu
                         cầu mua bất kỳ mặt hàng thời trang nam, Thời Trang Nữ, đồng hồ, điện thoại,
                         nước rửa tay khô hay khẩu trang N95 thì Vagabond cũng sẽ đảm bảo cung cấp
@@ -50,7 +50,7 @@ const Footer = () => {
                         Vagabond, đặc biệt là Vagabond Mall đều là những sản phẩm chính hãng, đầy đủ
                         tem nhãn, bảo hành từ nhà bán hàng.
                     </p>
-                    <p>
+                    <p className="fsr-2">
                         Đến với Vagabond ngay hôm nay để mua hàng online giá rẻ và trải nghiệm dịch
                         vụ chăm sóc khách hàng tuyệt vời tại đây. Hãy truy cập ngay vagabond-shop.cf
                         ngay hôm nay!
