@@ -1,29 +1,33 @@
-import React, { useState } from 'react';
-import { controlLabels } from '../data/controlLabels';
+import React from 'react';
+import { MdOutlineArrowLeft } from 'react-icons/md';
 
-const Sidebar = () => {
-    const [activeID, setActiveID] = useState(0);
-
+const Sidebar = ({ title, labelList, activeID, setActiveID }) => {
     return (
-        <div className="container sidebar">
-            <div className="container p-3">
-                <div className="fsr-4">Quản lý</div>
+        <div className="container sticky-top bg-white mt-3 p-0 p-md-3">
+            <div className="col fw-600">
+                <div className="fsr-4 text-center text-md-start py-2">{title}</div>
 
-                <div className="divider-medium-bottom mt-3 mb-4"></div>
+                <div className="divider-medium-bottom"></div>
 
-                {controlLabels.map((label) => {
-                    return (
-                        <div
-                            onClick={() => setActiveID(label.id)}
-                            className={`control-label py-1 ${
-                                activeID === label.id && 'control-label-active'
-                            }`}
-                        >
-                            {label.icon}
-                            <span className="d-none d-md-inline-block">{label.name}</span>
-                        </div>
-                    );
-                })}
+                <div className="container py-3">
+                    {labelList.map((label) => {
+                        return (
+                            <div
+                                onClick={() => setActiveID(label.id)}
+                                className={`sidebar-label d-flex justify-content-center justify-content-md-start py-2 ${
+                                    activeID === label.id && 'sidebar-label-active'
+                                }`}
+                            >
+                                {label.icon}
+                                <span className="d-none d-md-block ms-2">{label.name}</span>
+
+                                {activeID === label.id && (
+                                    <MdOutlineArrowLeft className="d-block d-md-none" />
+                                )}
+                            </div>
+                        );
+                    })}
+                </div>
             </div>
         </div>
     );

@@ -1,4 +1,30 @@
-.sidebar {
-    position: fixed;
-    width: 10%;
+.sidebar-label {
+    display: flex;
+    align-items: center;
+    cursor: pointer;
+    transition: all 0.1s linear;
+}
+
+.sidebar-label:hover {
+    color: var(--inspiring-red);
+}
+
+.sidebar-label-active {
+    color: var(--inspiring-red);
+}
+
+/*? X-Small devices (portrait phones, less than 576px) */
+@media (max-width: 575.98px) {
+    .sidebar-label {
+        font-size: 1.5625rem !important;
+        padding: 0.9375rem 0 !important;
+    }
+}
+
+/*? Small devices (landscape phones, less than 768px) */
+@media (min-width: 576px) and (max-width: 767.98px) {
+    .sidebar-label {
+        font-size: 1.5625rem !important;
+        padding: 0.9375rem 0 !important;
+    }
 }
