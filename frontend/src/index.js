@@ -9,8 +9,9 @@ import 'bootstrap/dist/css/bootstrap.min.css';
 
 //* Components
 import './css/components/modal.css';
-import './css/components/cartItems.css';
 import './css/components/footer.css';
+import './css/components/sidebar.css';
+import './css/components/cartItems.css';
 import './css/components/dateInput.css';
 import './css/components/ratingStar.css';
 import './css/components/numberInput.css';

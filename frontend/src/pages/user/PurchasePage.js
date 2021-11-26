@@ -58,8 +58,8 @@ const PurchasePage = () => {
 
     return (
         <>
-            <div className="container bg-white mt-3 mx-auto">
-                <div className="row fsr-2 text-sdark text-center">
+            <div className="container bg-white mt-3 p-0">
+                <div className="d-flex fsr-2 text-sdark text-center">
                     {purchaseLabels.map((item) => {
                         return (
                             <div
@@ -113,7 +113,7 @@ const PurchasePage = () => {
                                                 label.status === order.status && (
                                                     <React.Fragment key={label.id}>
                                                         <div
-                                                            className={` fw-600 fsr-3 me-auto ${label.color}`}
+                                                            className={`fw-600 fsr-3 me-auto ${label.color}`}
                                                         >
                                                             <span>{label.icon}</span>
                                                             {label.text}

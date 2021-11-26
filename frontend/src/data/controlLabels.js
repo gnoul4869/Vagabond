@@ -6,16 +6,16 @@ export const controlLabels = [
     {
         id: 0,
         name: 'Trang chính',
-        icon: <ImHome className="icon fsr-3 text-dodgerblue me-2" />,
+        icon: <ImHome className="icon text-dodgerblue" />,
     },
     {
         id: 1,
         name: 'Đơn hàng',
-        icon: <FaClipboardList className="icon fsr-3 text-coral me-2" />,
+        icon: <FaClipboardList className="icon text-coral" />,
     },
     {
         id: 2,
         name: 'Khác',
-        icon: <FiPackage className="icon fsr-3 text-ired me-2" />,
+        icon: <FiPackage className="icon text-ired" />,
     },
 ];

@@ -13,7 +13,7 @@ const EmptyPurchase = () => {
             </div>
             <div className="row">
                 <div className="col">
-                    <span className="fs-3">Bạn chưa có đơn hàng nào cả</span>
+                    <span className="fs-3">Không có đơn hàng nào</span>
                 </div>
             </div>
         </section>

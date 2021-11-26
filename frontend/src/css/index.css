@@ -113,19 +113,19 @@ select:focus {
 
 /** Font */
 .fsr-1 {
-    font-size: 14px;
+    font-size: 0.875rem;
 }
 
 .fsr-2 {
-    font-size: 16px;
+    font-size: 1rem;
 }
 
 .fsr-3 {
-    font-size: 20px;
+    font-size: 1.25rem;
 }
 
 .fsr-4 {
-    font-size: 25px;
+    font-size: 1.5625rem;
 }
 
 .fw-600 {
@@ -468,32 +468,32 @@ select:focus {
 /*? X-Small devices (portrait phones, less than 576px) */
 @media (max-width: 575.98px) {
     .fsr-1 {
-        font-size: 11px;
+        font-size: 0.6875rem;
     }
     .fsr-2 {
-        font-size: 12px;
+        font-size: 0.75rem;
     }
     .fsr-3 {
-        font-size: 13px;
+        font-size: 0.8125rem;
     }
     .fsr-4 {
-        font-size: 14px;
+        font-size: 0.875rem;
     }
 }
 
 /*? Small devices (landscape phones, less than 768px) */
 @media (min-width: 576px) and (max-width: 767.98px) {
     .fsr-1 {
-        font-size: 14px;
+        font-size: 0.875rem;
     }
     .fsr-2 {
-        font-size: 16px;
+        font-size: 1rem;
     }
     .fsr-3 {
-        font-size: 18px;
+        font-size: 1.125rem;
     }
     .fsr-4 {
-        font-size: 20px;
+        font-size: 1.25rem;
     }
 }
 
