@@ -1,11 +1,10 @@
-import React, { useRef, useState } from 'react';
+import React, { useState } from 'react';
 import { BiMinus, BiPlus } from 'react-icons/bi';
 import { useDispatch } from 'react-redux';
 import { addToCart } from '../redux/actions/cartActions';
 
-const NumberInput = ({ qty, max, setQty, productID, disabled }) => {
+const NumberInput = ({ qty, max, productID, disabled }) => {
     const dispatch = useDispatch();
-    const refInput = useRef(null);
     const [error, setError] = useState('');
 
     const inputHandler = (value) => {
@@ -14,13 +13,9 @@ const NumberInput = ({ qty, max, setQty, productID, disabled }) => {
             return setError('Sản phẩm đã đạt số lượng tối đa');
         }
         if (value >= 1) {
-            if (setQty) {
-                setQty(value);
-            }
             if (productID) {
                 dispatch(addToCart(productID, value));
             }
-            refInput.current.value = value;
         }
         setError('');
     };
@@ -44,7 +39,6 @@ const NumberInput = ({ qty, max, setQty, productID, disabled }) => {
                 max={max}
                 onChange={(e) => inputHandler(e.target.value)}
                 onWheel={(e) => e.target.blur()}
-                ref={refInput}
                 disabled={disabled}
             />
 

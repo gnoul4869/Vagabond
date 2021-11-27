@@ -14,6 +14,7 @@ export const cart = (
     state = {
         loadingItems: [],
         cartItems: [],
+        isUpdated: false,
         isDone: false,
         isLoading: false,
         error: '',
@@ -61,6 +62,7 @@ export const cart = (
                 ...state,
                 error: '',
                 modalError: '',
+                isUpdated: false,
                 isLoading: true,
             };
         case CART_UPDATE_SUCCESS:
@@ -73,11 +75,13 @@ export const cart = (
             return {
                 ...state,
                 cartItems: updatedItems,
+                isUpdated: true,
                 isLoading: false,
             };
         case CART_UPDATE_FAIL:
             return {
                 ...state,
+                isUpdated: false,
                 isLoading: false,
                 error: action.payload,
             };

@@ -10,7 +10,10 @@ import CartPageLoading from '../components/loading/CartPageLoading';
 
 const CartPage = () => {
     const dispatch = useDispatch();
-    const { cartItems, loadingItems, isLoading, error } = useSelector((state) => state.cart);
+
+    const { cartItems, loadingItems, isUpdated, isLoading, error } = useSelector(
+        (state) => state.cart
+    );
 
     useEffect(() => {
         dispatch(updateCart());
@@ -22,7 +25,7 @@ const CartPage = () => {
 
     return (
         <>
-            {isLoading ? (
+            {!isUpdated && isLoading ? (
                 <CartPageLoading />
             ) : (
                 <>
