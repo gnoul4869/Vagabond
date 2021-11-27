@@ -9,6 +9,7 @@ import PriceFormat from './PriceFormat';
 
 const CartItems = ({ cartItems, loadingItems, options }) => {
     const dispatch = useDispatch();
+
     return (
         <>
             {cartItems.length === 0 ? (

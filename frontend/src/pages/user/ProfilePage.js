@@ -184,7 +184,7 @@ const ProfilePage = () => {
                 <ProfilePageLoading />
             ) : (
                 userDetails && (
-                    <div className="container bg-white mt-3">
+                    <div className="container bg-white fsr-2 mt-3">
                         <div className="container text-center py-3">
                             <span className="text-sdark fs-4 fw-600">Hồ sơ của tôi</span>
                         </div>
@@ -240,7 +240,7 @@ const ProfilePage = () => {
                                                 type="text"
                                                 id="name"
                                                 placeholder="Tên"
-                                                className="form-control"
+                                                className="form-control fsr-2"
                                                 value={name ? name : ''}
                                                 onChange={(e) => setName(e.target.value)}
                                                 disabled={isUpdating}
@@ -262,7 +262,7 @@ const ProfilePage = () => {
                                                     type="tel"
                                                     id="tel"
                                                     placeholder="Số điện thoại"
-                                                    className="form-control"
+                                                    className="form-control fsr-2"
                                                     onChange={(e) => setPhoneNumber(e.target.value)}
                                                     disabled={isUpdating}
                                                     value={phoneNumber ? phoneNumber : ''}

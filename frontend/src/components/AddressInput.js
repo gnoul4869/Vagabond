@@ -160,7 +160,7 @@ const AddressInput = ({
                             provinceHandler(e.target.value, e.target.selectedOptions[0].text)
                         }
                         disabled={isLoadingAddress || isUpdating}
-                        className="form-select"
+                        className="form-select fsr-2"
                     >
                         <option value="DEFAULT" disabled>
                             ---
@@ -182,7 +182,7 @@ const AddressInput = ({
                             districtHandler(e.target.value, e.target.selectedOptions[0].text)
                         }
                         disabled={districts.length === 0 || isLoadingAddress || isUpdating}
-                        className="form-select"
+                        className="form-select fsr-2"
                     >
                         <option value="DEFAULT" disabled>
                             ---
@@ -204,7 +204,7 @@ const AddressInput = ({
                             wardHandler(e.target.value, e.target.selectedOptions[0].text)
                         }
                         disabled={wards.length === 0 || isLoadingAddress || isUpdating}
-                        className="form-select"
+                        className="form-select fsr-2"
                     >
                         <option value="DEFAULT" disabled>
                             ---
@@ -224,7 +224,7 @@ const AddressInput = ({
                     type="text"
                     id="address"
                     placeholder="Địa chỉ cụ thể"
-                    className="form-control"
+                    className="form-control fsr-2"
                     value={addressDetails}
                     onChange={(e) => setAddressDetails(e.target.value)}
                     disabled={isUpdating}

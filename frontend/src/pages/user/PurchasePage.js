@@ -110,8 +110,16 @@ const PurchasePage = () => {
 
                         return (
                             <div key={order.id} className="bg-white mt-3 mx-auto">
-                                <div className="container p-4">
-                                    <div className="d-flex align-items-center px-1">
+                                {true && (
+                                    <div className="container bg-label px-2 fsr-2">
+                                        <span className="text-secondary">Mã đơn hàng:</span>
+                                        <span className="text-steelblue fw-600 ms-2">
+                                            {order.id.toUpperCase()}
+                                        </span>
+                                    </div>
+                                )}
+                                <div className="container p-2 p-md-3">
+                                    <div className="d-flex align-items-center">
                                         {purchaseLabels.map((label) => {
                                             return (
                                                 label.status === order.status && (
@@ -157,7 +165,7 @@ const PurchasePage = () => {
                                                 to={`/product/${product.id}`}
                                                 className="link-inherit"
                                             >
-                                                <div className="container p-3">
+                                                <div className="container fsr-2 p-3">
                                                     <div className="row align-items-center">
                                                         <div className="col-12 col-md-8 ms-0 ms-md-3">
                                                             <div className="d-flex">
@@ -174,7 +182,7 @@ const PurchasePage = () => {
 
                                                         <div className="col-6 col-md mt-2 mt-md-0">
                                                             <div className="text-sdark fw-600 text-center text-md-start">
-                                                                <span className="d-none d-md-inline-block text-secondary fsr-1 me-2">
+                                                                <span className="d-none d-md-inline-block text-secondary me-2">
                                                                     Số lượng:
                                                                 </span>
                                                                 <span className="d-inline-block d-md-none">
@@ -186,7 +194,7 @@ const PurchasePage = () => {
 
                                                         <div className="col mt-2 mt-md-0">
                                                             <div className="text-sdark fw-600 text-end text-md-start">
-                                                                <span className="d-none d-md-inline-block text-secondary fsr-1 me-2">
+                                                                <span className="d-none d-md-inline-block text-secondary me-2">
                                                                     Số tiền:
                                                                 </span>
                                                                 <PriceFormat
@@ -207,7 +215,7 @@ const PurchasePage = () => {
 
                                 <div className="divider-strong-bottom"></div>
 
-                                <div className="p-3 bg-warm">
+                                <div className="p-2 p-md-3 bg-warm">
                                     <PurchaseDetails
                                         totalItemsPrice={totalItemsPrice}
                                         shippingFee={order.shippingFee}

@@ -2,7 +2,7 @@ import React from 'react';
 
 const ShippingDetailsLoading = () => {
     return (
-        <div className="mt-3 bg-white">
+        <div className="bg-white">
             <div className="postcard-border"></div>
             <div className="container p-4">
                 <div className="bg-loading rounded-pill w-30"></div>

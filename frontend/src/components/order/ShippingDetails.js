@@ -10,14 +10,14 @@ const ShippingDetails = ({
     addressDetails,
 }) => {
     return (
-        <div className="mt-3 bg-white">
+        <div className="bg-white">
             <div className="postcard-border"></div>
-            <div className="container p-4">
-                <div className="text-ired fw-600 fs-5">
+            <div className="container p-2 p-md-4">
+                <div className="text-ired fw-600 fsr-3">
                     <MdPlace className="icon me-1" />
                     Thông tin đặt hàng
                 </div>
-                <div className="container px-0 px-md-4">
+                <div className="container px-0 px-md-4 fsr-2">
                     <div className="row mt-3">
                         <div className="col-12 col-md">
                             <div className="row">

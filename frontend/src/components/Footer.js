@@ -29,26 +29,12 @@ const Footer = () => {
                     </p>
                 </div>
                 <div>
-                    <div className="fw-bold fsr-4 my-2">
-                        MUA HÀNG CHÍNH HÃNG TỪ CÁC THƯƠNG HIỆU LỚN VỚI VAGABOND
-                    </div>
+                    <div className="fw-bold fsr-4 my-2">MUA HÀNG CHÍNH HÃNG VỚI VAGABOND</div>
                     <p className="fsr-2">
-                        Mua hàng trên Vagabond luôn là một trải nghiệm ấn tượng. Dù bạn đang có nhu
-                        cầu mua bất kỳ mặt hàng thời trang nam, Thời Trang Nữ, đồng hồ, điện thoại,
-                        nước rửa tay khô hay khẩu trang N95 thì Vagabond cũng sẽ đảm bảo cung cấp
-                        cho bạn những sản phẩm ưng ý. Bên cạnh đó, Vagabond cũng có sự tham gia của
-                        các thương hiệu hàng đầu thế giới ở đa dạng nhiều lĩnh vực khác nhau. Trong
-                        đó có thể kể đến Samsung, OPPO, Xiaomi, Innisfree, Unilever, P&G,
-                        Biti’s,...Các thương hiệu này hiện cũng đã có cửa hàng chính thức trên
-                        Vagabond Mall với hàng trăm mặt hàng chính hãng, được cập nhập liên tục. Là
-                        một kênh bán hàng uy tín, Vagabond luôn cam kết mang lại cho khách hàng
-                        những trải nghiệm mua sắm online giá rẻ, an toàn và tin cậy. Mọi thông tin
-                        về người bán và người mua đều được bảo mật tuyệt đối. Các hoạt động giao
-                        dịch thanh toán tại Vagabond luôn được đảm bảo diễn ra nhanh chóng, an toàn.
-                        Một vấn đề nữa khiến cho các khách hàng luôn quan tâm đó chính là mua hàng
-                        trên Vagabond có đảm bảo không. Vagabond luôn cam kết mọi sản phẩm trên
-                        Vagabond, đặc biệt là Vagabond Mall đều là những sản phẩm chính hãng, đầy đủ
-                        tem nhãn, bảo hành từ nhà bán hàng.
+                        Là một kênh bán hàng uy tín, Vagabond luôn cam kết mang lại cho khách hàng
+                        những trải nghiệm mua sắm online giá rẻ, an toàn và tin cậy. Vagabond luôn
+                        cam kết mọi sản phẩm trên Vagabond đều là những sản phẩm chính hãng, đầy đủ
+                        tem nhãn, bảo hành...
                     </p>
                     <p className="fsr-2">
                         Đến với Vagabond ngay hôm nay để mua hàng online giá rẻ và trải nghiệm dịch

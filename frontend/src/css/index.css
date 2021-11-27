@@ -487,6 +487,7 @@ select:focus {
 /** Breakpoints */
 /*? X-Small devices (portrait phones, less than 576px) */
 @media (max-width: 575.98px) {
+    /** Font */
     .fsr-1 {
         font-size: 0.6875rem;
     }
@@ -505,10 +506,12 @@ select:focus {
     .fsr-6 {
         font-size: 1.0625rem;
     }
+    /** Input  */
 }
 
 /*? Small devices (landscape phones, less than 768px) */
 @media (min-width: 576px) and (max-width: 767.98px) {
+    /** Font */
     .fsr-1 {
         font-size: 0.875rem;
     }
