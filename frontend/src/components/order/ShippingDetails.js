@@ -17,7 +17,7 @@ const ShippingDetails = ({
                     <MdPlace className="icon me-1" />
                     Thông tin đặt hàng
                 </div>
-                <div className="container px-0 px-md-4 fsr-2">
+                <div className="container fsr-2">
                     <div className="row mt-3">
                         <div className="col-12 col-md">
                             <div className="row">

@@ -118,7 +118,7 @@ const PurchasePage = () => {
                                         </span>
                                     </div>
                                 )}
-                                <div className="container p-2 p-md-3">
+                                <div className="container px-2 py-3 p-md-4">
                                     <div className="d-flex align-items-center">
                                         {purchaseLabels.map((label) => {
                                             return (
