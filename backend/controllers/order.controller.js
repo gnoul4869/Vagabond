@@ -25,7 +25,7 @@ export const createOrder = async (req, res) => {
     const order = await Order.create({ user, products, shippingFee });
 
     const title = 'Thông báo có đơn hàng mới';
-    const message = `Có đơn hàng mới đang chờ được xác nhận (Mã ĐH: ${order.id}). Hãy vào trang quản lý để cập nhật trạng thái đơn hàng.`;
+    const message = `Có đơn hàng mới (Mã ĐH: ${order.id.toUpperCase()}) đang chờ xác nhận. Hãy vào trang quản lý để cập nhật trạng thái đơn hàng.`;
     await generateInfoEmail(process.env.OWNER_MAIL, title, message);
 
     res.status(StatusCodes.CREATED).json({ order });

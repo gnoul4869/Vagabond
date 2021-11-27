@@ -9,6 +9,8 @@ import { purchaseLabels } from '../../data/purchaseLabels';
 import PriceFormat from '../../components/PriceFormat';
 import ErrorPage from '../error/ErrorPage';
 import EmptyPurchase from '../../components/EmptyPurchase';
+import ShippingDetails from '../../components/order/ShippingDetails';
+import PurchaseDetails from '../../components/order/PurchaseDetails';
 
 const PurchasePage = () => {
     const history = useHistory();
@@ -137,16 +139,14 @@ const PurchasePage = () => {
                                     </div>
                                 </div>
 
-                                <div className="divider-strong-bottom"></div>
-
-                                <div className="container bg-label py-2 px-3">
-                                    <div className="row">
-                                        <div className="col">
-                                            <span className="text-secondary">Mã đơn hàng:</span>
-                                            <span className="ms-2">{order.id.toUpperCase()}</span>
-                                        </div>
-                                    </div>
-                                </div>
+                                <ShippingDetails
+                                    name={order.user.name}
+                                    phoneNumber={order.user.phoneNumber}
+                                    provinceName={order.user.address.provinceName}
+                                    districtName={order.user.address.districtName}
+                                    wardName={order.user.address.wardName}
+                                    addressDetails={order.user.address.addressDetails}
+                                />
 
                                 <div className="divider-strong-bottom"></div>
 
@@ -208,40 +208,10 @@ const PurchasePage = () => {
                                 <div className="divider-strong-bottom"></div>
 
                                 <div className="p-3 bg-warm">
-                                    <div className="row text-secondary g-0">
-                                        <div className="col offset-md-5 offset-lg-7 offset-xl-8 ps-md-5">
-                                            <div className="ps-md-4">Tổng tiền hàng:</div>
-                                        </div>
-                                        <div className="col fw-600 text-end">
-                                            <div className="me-md-3">
-                                                <PriceFormat price={totalItemsPrice} />
-                                            </div>
-                                        </div>
-                                    </div>
-                                    <div className="row text-secondary g-0 mt-2">
-                                        <div className="col offset-md-5 offset-lg-7 offset-xl-8 ps-md-5">
-                                            <div className="ps-md-4">Phí vận chuyển:</div>
-                                        </div>
-                                        <div className="col fw-600 text-end">
-                                            <div className="me-md-3">
-                                                <PriceFormat price={order.shippingFee} />
-                                            </div>
-                                        </div>
-                                    </div>
-                                    <div className="row align-items-center text-secondary g-0 mt-2">
-                                        <div className="col offset-md-5 offset-lg-7 offset-xl-8 ps-md-5">
-                                            <div className="ps-md-4">Tổng thanh toán:</div>
-                                        </div>
-                                        <div className="col text-end">
-                                            <div className="me-md-3">
-                                                <span className="text-ired fw-600 fs-3">
-                                                    <PriceFormat
-                                                        price={totalItemsPrice + order.shippingFee}
-                                                    />
-                                                </span>
-                                            </div>
-                                        </div>
-                                    </div>
+                                    <PurchaseDetails
+                                        totalItemsPrice={totalItemsPrice}
+                                        shippingFee={order.shippingFee}
+                                    />
                                 </div>
                             </div>
                         );

@@ -394,6 +394,18 @@ select:focus {
     );
 }
 
+.postcard-border-sm {
+    height: 0.1875rem;
+    width: 100%;
+    background-image: repeating-linear-gradient(
+        45deg,
+        steelblue 0 1.875rem,
+        transparent 1.875rem 2.8125rem,
+        coral 2.8125rem 4.6875rem,
+        transparent 4.6875rem 5.625rem
+    );
+}
+
 /** Sizing */
 .w-5 {
     width: 5% !important;
