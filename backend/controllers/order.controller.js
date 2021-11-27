@@ -8,8 +8,6 @@ export const createOrder = async (req, res) => {
 
     const user = { ...req.body.user, id: req.user.id };
 
-    console.log(user);
-
     if (!user) {
         throw new BadRequestError('Hãy cung cấp thông tin người đặt hàng');
     }
@@ -80,7 +78,7 @@ export const updateOrder = async (req, res) => {
     queryObj._id = orderID;
 
     if (req.user.role !== 'admin') {
-        queryObj.createdBy = req.user.id;
+        queryObj['user.id'] = req.user.id;
     }
 
     const order = await Order.findOneAndUpdate(
