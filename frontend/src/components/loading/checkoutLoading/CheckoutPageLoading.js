@@ -5,9 +5,7 @@ import ShippingDetailsLoading from './ShippingDetailsLoading';
 const CheckoutPageLoading = () => {
     return (
         <>
-            <div className="mt-3">
-                <ShippingDetailsLoading />
-            </div>
+            <ShippingDetailsLoading />
 
             <div className="container bg-white mt-2 p-4">
                 <div className="row g-0 mb-3 d-none d-md-flex">

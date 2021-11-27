@@ -3,7 +3,7 @@ import React from 'react';
 const ProductDescriptionLoading = () => {
     return (
         <>
-            <div className="container bg-white mt-3 p-3">
+            <div className="container bg-white p-3">
                 <div className="bg-label container rounded mb-3">
                     <div className="product-description-label fs-4">
                         <div className="bg-loading rounded-pill"></div>

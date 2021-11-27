@@ -184,7 +184,7 @@ const ProfilePage = () => {
                 <ProfilePageLoading />
             ) : (
                 userDetails && (
-                    <div className="container bg-white fsr-2 mt-3">
+                    <div className="container bg-white fsr-2">
                         <div className="container text-center py-3">
                             <span className="text-sdark fs-4 fw-600">Hồ sơ của tôi</span>
                         </div>

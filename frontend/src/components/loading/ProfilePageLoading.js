@@ -2,7 +2,7 @@ import React from 'react';
 
 const ProfilePageLoading = () => {
     return (
-        <div className="container bg-white mt-3">
+        <div className="container bg-white">
             <div className="container py-3">
                 <div className="col-3 mx-auto">
                     <div className="bg-loading rounded-pill"></div>

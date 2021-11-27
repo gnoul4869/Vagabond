@@ -26,8 +26,6 @@ const PurchasePage = () => {
 
     const isAdmin = userInfo && userInfo.role === 'admin' && location.pathname === '/control';
 
-    console.log(isAdmin);
-
     const cancleOrder = (id) => {
         dispatch(updateOrder(id, 'cancelled'));
     };
@@ -64,18 +62,18 @@ const PurchasePage = () => {
 
     return (
         <>
-            <div className="container bg-white mt-3 p-0">
+            <div className="container bg-white p-0">
                 <div className="d-flex fsr-2 text-sdark text-center">
-                    {purchaseLabels.map((item) => {
+                    {purchaseLabels.map((label) => {
                         return (
                             <div
-                                key={item.id}
-                                onClick={() => setActiveID(item.id)}
+                                key={label.id}
+                                onClick={() => setActiveID(label.id)}
                                 className={`purchase-label col py-3 ${
-                                    activeID === item.id && 'purchase-label-active'
+                                    activeID === label.id && 'purchase-label-active'
                                 }`}
                             >
-                                {item.name}
+                                {label.name}
                             </div>
                         );
                     })}

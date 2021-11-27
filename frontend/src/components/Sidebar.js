@@ -4,7 +4,7 @@ import { MdOutlineArrowLeft } from 'react-icons/md';
 const Sidebar = ({ title, labelList, activeID, setActiveID }) => {
     return (
         <div className="col-auto me-1 me-md-2">
-            <div className="container sticky-top bg-white mt-3 px-1 px-md-3">
+            <div className="container sticky-top bg-white px-1 px-md-3">
                 <div className="col fw-600">
                     <div className="fsr-4 text-center text-md-start py-2">{title}</div>
 

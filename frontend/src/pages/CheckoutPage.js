@@ -161,16 +161,14 @@ const CheckoutPage = () => {
             ) : (
                 userDetails && (
                     <>
-                        <div className="mt-3">
-                            <ShippingDetails
-                                name={userDetails.name}
-                                phoneNumber={userDetails.phoneNumber}
-                                provinceName={userDetails.address.provinceName}
-                                districtName={userDetails.address.districtName}
-                                wardName={userDetails.address.wardName}
-                                addressDetails={userDetails.address.addressDetails}
-                            />
-                        </div>
+                        <ShippingDetails
+                            name={userDetails.name}
+                            phoneNumber={userDetails.phoneNumber}
+                            provinceName={userDetails.address.provinceName}
+                            districtName={userDetails.address.districtName}
+                            wardName={userDetails.address.wardName}
+                            addressDetails={userDetails.address.addressDetails}
+                        />
 
                         <div className="container bg-white mt-2 p-4">
                             <div className="row g-0 mb-3 d-none d-md-flex">
