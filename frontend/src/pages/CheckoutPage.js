@@ -34,18 +34,29 @@ const CheckoutPage = () => {
     const orderHandler = async () => {
         setIsOrdering(true);
         try {
-            const products = cart.cartItems.map((item) => {
+            const user = {
+                name: userDetails.name,
+                phoneNumber: userDetails.phoneNumber,
+                address: {
+                    provinceName: userDetails.address.provinceName,
+                    districtName: userDetails.address.districtName,
+                    wardName: userDetails.address.wardName,
+                    addressDetails: userDetails.address.addressDetails,
+                },
+            };
+
+            const products = cart.cartItems.map((product) => {
                 return {
-                    id: item.id,
-                    name: item.name,
-                    price: item.price,
-                    image: item.images[0],
-                    qty: item.qty,
+                    id: product.id,
+                    name: product.name,
+                    price: product.price,
+                    image: product.images[0],
+                    qty: product.qty,
                 };
             });
             await axios.post(
                 '/api/v1/orders',
-                { products, shippingFee },
+                { user, products, shippingFee },
                 {
                     headers: {
                         Authorization: `Bearer ${userInfo.token}`,
@@ -89,8 +100,8 @@ const CheckoutPage = () => {
                                 insurance_value: totalItemsPrice,
                                 coupon: null,
                                 from_district_id: process.env.REACT_APP_GHN_SHOP_DISTRICT_ID,
-                                to_district_id: userDetails.addresses.districtID,
-                                to_ward_code: userDetails.addresses.wardID,
+                                to_district_id: userDetails.address.districtID,
+                                to_ward_code: userDetails.address.wardID,
                                 weight: totalItemsWeight,
                                 height: totalItemsHeight,
                                 length: 15,
@@ -152,10 +163,10 @@ const CheckoutPage = () => {
                         <ShippingDetails
                             name={userDetails.name}
                             phoneNumber={userDetails.phoneNumber}
-                            provinceName={userDetails.addresses.provinceName}
-                            districtName={userDetails.addresses.districtName}
-                            wardName={userDetails.addresses.wardName}
-                            addressDetails={userDetails.addresses.addressDetails}
+                            provinceName={userDetails.address.provinceName}
+                            districtName={userDetails.address.districtName}
+                            wardName={userDetails.address.wardName}
+                            addressDetails={userDetails.address.addressDetails}
                         />
 
                         <div className="container bg-white mt-2 p-4">

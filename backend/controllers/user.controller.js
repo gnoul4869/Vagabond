@@ -17,13 +17,12 @@ export const getUserDetails = async (req, res) => {
         userDetails: {
             email: hiddenEmail,
             name: user.name,
-            address: user.address,
             phoneNumber: user.phoneNumber,
             gender: user.gender,
             birthDate: user.birthDate,
             role: user.role,
             image: user.image,
-            addresses: {
+            address: {
                 provinceID: address.provinceID,
                 provinceName: address.provinceName,
                 districtID: address.districtID,
@@ -161,13 +160,12 @@ export const updateUserDetails = async (req, res) => {
         userDetails: {
             email: hiddenEmail,
             name: user.name,
-            address: user.address,
             phoneNumber: user.phoneNumber,
             gender: user.gender,
             birthDate: user.birthDate,
             role: user.role,
             image: user.image,
-            addresses: {
+            address: {
                 provinceID: address.provinceID,
                 provinceName: address.provinceName,
                 districtID: address.districtID,

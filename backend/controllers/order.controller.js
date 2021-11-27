@@ -6,6 +6,14 @@ import { generateInfoEmail } from '../utils/generate-info-email.js';
 export const createOrder = async (req, res) => {
     const { products, shippingFee } = req.body;
 
+    const user = { ...req.body.user, id: req.user.id };
+
+    console.log(user);
+
+    if (!user) {
+        throw new BadRequestError('Hãy cung cấp thông tin người đặt hàng');
+    }
+
     if (products.length === 0) {
         throw new BadRequestError('Giỏ hàng không được trống');
     }
@@ -14,11 +22,10 @@ export const createOrder = async (req, res) => {
         throw new BadRequestError('Hãy cung cấp phí vận chuyển');
     }
 
-    const order = await Order.create({ createdBy: req.user.id, products, shippingFee });
+    const order = await Order.create({ user, products, shippingFee });
 
     const title = 'Thông báo có đơn hàng mới';
-    const message =
-        'Có đơn hàng mới đang chờ được xác nhận. Hãy vào trang quản lý để cập nhật trạng thái đơn hàng.';
+    const message = `Có đơn hàng mới đang chờ được xác nhận (Mã ĐH: ${order.id}). Hãy vào trang quản lý để cập nhật trạng thái đơn hàng.`;
     await generateInfoEmail(process.env.OWNER_MAIL, title, message);
 
     res.status(StatusCodes.CREATED).json({ order });

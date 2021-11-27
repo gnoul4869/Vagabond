@@ -139,6 +139,17 @@ const PurchasePage = () => {
 
                                 <div className="divider-strong-bottom"></div>
 
+                                <div className="container bg-label py-2 px-3">
+                                    <div className="row">
+                                        <div className="col">
+                                            <span className="text-secondary">Mã đơn hàng:</span>
+                                            <span className="ms-2">{order.id.toUpperCase()}</span>
+                                        </div>
+                                    </div>
+                                </div>
+
+                                <div className="divider-strong-bottom"></div>
+
                                 {order.products.map((product, index) => {
                                     return (
                                         <React.Fragment key={product.id}>

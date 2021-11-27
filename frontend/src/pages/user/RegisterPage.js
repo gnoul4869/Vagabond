@@ -30,7 +30,7 @@ const RegisterPage = () => {
     const [phoneNumber, setPhoneNumber] = useState('');
     const [gender, setGender] = useState('');
     const [birthDate, setBirthDate] = useState(new Date());
-    // Addresses
+    // Address
     const [provinceID, setProvinceID] = useState('');
     const [provinceName, setProvinceName] = useState('');
     const [districtID, setDistrictID] = useState('');

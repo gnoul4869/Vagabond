@@ -64,6 +64,7 @@ const NavigationBar = () => {
                                     isSubmenuShown={isSubmenuShown}
                                     setIsSubmenuShown={setIsSubmenuShown}
                                     targetWidth={targetWidth}
+                                    isAdmin={userInfo.role === 'admin'}
                                 />
                             </li>
                         ) : (

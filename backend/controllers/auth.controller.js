@@ -141,14 +141,13 @@ export const register = async (req, res) => {
         userInfo: {
             email: user.email,
             name: user.name,
-            address: user.address,
             phoneNumber: user.phoneNumber,
             gender: user.gender,
             birthDate: user.birthDate,
             role: user.role,
             image: user.image,
             token: token,
-            addresses: {
+            address: {
                 provinceID: address.provinceID,
                 provinceName: address.provinceName,
                 districtID: address.districtID,
@@ -186,14 +185,13 @@ export const login = async (req, res) => {
         userInfo: {
             email: user.email,
             name: user.name,
-            address: user.address,
             phoneNumber: user.phoneNumber,
             gender: user.gender,
             birthDate: user.birthDate,
             role: user.role,
             image: user.image,
             token: token,
-            addresses: {
+            address: {
                 provinceID: address.provinceID,
                 provinceName: address.provinceName,
                 districtID: address.districtID,
