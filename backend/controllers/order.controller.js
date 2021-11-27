@@ -44,7 +44,7 @@ export const getOrders = async (req, res) => {
         throw new AuthenticationError('Không đủ quyền thực hiện');
     }
     if (isAdmin === 'false') {
-        queryObj.createdBy = req.user.id;
+        queryObj['user.id'] = req.user.id;
     }
 
     if (status) {
