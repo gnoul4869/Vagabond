@@ -26,6 +26,8 @@ const PurchasePage = () => {
 
     const isAdmin = userInfo && userInfo.role === 'admin' && location.pathname === '/control';
 
+    console.log(isAdmin);
+
     const cancleOrder = (id) => {
         dispatch(updateOrder(id, 'cancelled'));
     };
@@ -110,7 +112,7 @@ const PurchasePage = () => {
 
                         return (
                             <div key={order.id} className="bg-white mt-3 mx-auto">
-                                {true && (
+                                {isAdmin && (
                                     <div className="container bg-label px-2 fsr-2">
                                         <span className="text-secondary">Mã đơn hàng:</span>
                                         <span className="text-steelblue fw-600 ms-2">
