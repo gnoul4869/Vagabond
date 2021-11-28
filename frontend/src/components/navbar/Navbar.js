@@ -22,7 +22,7 @@ const NavigationBar = () => {
     }, [userInfo]);
 
     return (
-        <header className="bg-ired">
+        <header className="bg-ired mb-3">
             <div className="container">
                 <nav className="navbar navbar-expand d-none d-md-flex pt-0 pb-1 mx-3">
                     <ul className="navbar-nav d-flex me-auto">
