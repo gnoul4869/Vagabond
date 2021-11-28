@@ -75,8 +75,8 @@ const orderSchema = new mongoose.Schema(
             required: [true, 'Hãy cung cấp phí vận chuyển'],
         },
         priority: {
-            type: Boolean,
-            default: true,
+            type: Number,
+            default: 0,
         },
     },
     {

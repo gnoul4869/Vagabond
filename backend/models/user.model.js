@@ -73,6 +73,10 @@ userSchema.methods.createJWT = function () {
     });
 };
 
+userSchema.pre('deleteMany', function (next) {
+    this.model('address').deleteOne({ createdBy: this._id }, next);
+});
+
 userSchema.options.toJSON = {
     // eslint-disable-next-line no-unused-vars
     transform: function (doc, ret, options) {

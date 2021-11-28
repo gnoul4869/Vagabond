@@ -50,7 +50,7 @@ export const getOrders = async (req, res) => {
     }
 
     const orders = await Order.find(queryObj)
-        .sort({ priority: -1, updatedAt: -1 })
+        .sort({ priority: 1, updatedAt: -1 })
         .limit(limit)
         .skip(skip);
 
@@ -65,7 +65,8 @@ export const getOrders = async (req, res) => {
 
 export const updateOrder = async (req, res) => {
     const { orderID, status } = req.body;
-    const priority = status === 'pending' ? true : false;
+    const priority =
+        status === 'pending' ? 0 : status === 'shipping' ? 1 : status === 'delivered' ? 2 : 3;
 
     if (!orderID) {
         throw new BadRequestError('Hay cung cấp mã đơn hàng');
