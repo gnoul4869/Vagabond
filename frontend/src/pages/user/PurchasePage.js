@@ -17,7 +17,7 @@ const PurchasePage = () => {
     const location = useLocation();
     const dispatch = useDispatch();
     const { userInfo } = useSelector((state) => state.auth);
-    const { orderList, totalCount, isDone, isLoading, error } = useSelector((state) => state.order);
+    const { orderList, totalCount, isDone, error } = useSelector((state) => state.order);
 
     const [isInitialLoad, setIsInitialLoad] = useState(true);
     const [activeID, setActiveID] = useState(0);

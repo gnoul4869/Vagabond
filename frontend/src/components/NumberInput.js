@@ -3,7 +3,7 @@ import { BiMinus, BiPlus } from 'react-icons/bi';
 import { useDispatch } from 'react-redux';
 import { addToCart } from '../redux/actions/cartActions';
 
-const NumberInput = ({ qty, max, productID, disabled }) => {
+const NumberInput = ({ qty, setQty, max, productID, disabled }) => {
     const dispatch = useDispatch();
     const [error, setError] = useState('');
 
@@ -13,6 +13,9 @@ const NumberInput = ({ qty, max, productID, disabled }) => {
             return setError('Sản phẩm đã đạt số lượng tối đa');
         }
         if (value >= 1) {
+            if (setQty) {
+                setQty(value);
+            }
             if (productID) {
                 dispatch(addToCart(productID, value));
             }
