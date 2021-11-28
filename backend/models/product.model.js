@@ -12,7 +12,7 @@ const productSchema = new mongoose.Schema(
         },
         brand: {
             type: String,
-            default: 'No brand',
+            default: 'Noname',
         },
         price: {
             type: Number,

@@ -17,7 +17,7 @@ const PurchasePage = () => {
     const location = useLocation();
     const dispatch = useDispatch();
     const { userInfo } = useSelector((state) => state.auth);
-    const { orderList, totalCount, isDone, error } = useSelector((state) => state.order);
+    const { orderList, totalCount, isDone, isLoading, error } = useSelector((state) => state.order);
 
     const [isInitialLoad, setIsInitialLoad] = useState(true);
     const [activeID, setActiveID] = useState(0);
@@ -26,8 +26,8 @@ const PurchasePage = () => {
 
     const isAdmin = userInfo && userInfo.role === 'admin' && location.pathname === '/control';
 
-    const cancleOrder = (id) => {
-        dispatch(updateOrder(id, 'cancelled'));
+    const orderHandler = (id, status) => {
+        dispatch(updateOrder(id, status));
     };
 
     useEffect(() => {
@@ -128,17 +128,56 @@ const PurchasePage = () => {
                                                             className={`fw-600 fsr-3 me-auto ${label.color}`}
                                                         >
                                                             <span>{label.icon}</span>
-                                                            {label.text}
+                                                            <span>
+                                                                {isAdmin
+                                                                    ? label.textAlt
+                                                                        ? label.textAlt
+                                                                        : label.text
+                                                                    : label.text}
+                                                            </span>
                                                         </div>
-                                                        {label.status === 'pending' && (
-                                                            <button
-                                                                className="button-main btn-cancel fsr-3 p-0"
-                                                                onClick={() =>
-                                                                    cancleOrder(order.id)
-                                                                }
-                                                            >
-                                                                Hủy
-                                                            </button>
+                                                        {label.status === 'pending' ? (
+                                                            <>
+                                                                {isAdmin && (
+                                                                    <button
+                                                                        className="button-main btn-accept fsr-3 p-0 me-3"
+                                                                        onClick={() =>
+                                                                            orderHandler(
+                                                                                order.id,
+                                                                                'shipping'
+                                                                            )
+                                                                        }
+                                                                    >
+                                                                        Chấp nhận
+                                                                    </button>
+                                                                )}
+                                                                <button
+                                                                    className="button-main btn-cancel fsr-3 p-0 me-1"
+                                                                    onClick={() =>
+                                                                        orderHandler(
+                                                                            order.id,
+                                                                            'cancelled'
+                                                                        )
+                                                                    }
+                                                                >
+                                                                    Hủy
+                                                                </button>
+                                                            </>
+                                                        ) : (
+                                                            label.status === 'shipping' &&
+                                                            isAdmin && (
+                                                                <button
+                                                                    className="button-main btn-complete fsr-3 p-0"
+                                                                    onClick={() =>
+                                                                        orderHandler(
+                                                                            order.id,
+                                                                            'delivered'
+                                                                        )
+                                                                    }
+                                                                >
+                                                                    Đã nhận hàng
+                                                                </button>
+                                                            )
                                                         )}
                                                     </React.Fragment>
                                                 )

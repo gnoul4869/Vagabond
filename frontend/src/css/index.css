@@ -252,6 +252,22 @@ select:focus {
     background-color: darksalmon;
 }
 
+.btn-accept {
+    color: lightseagreen;
+    background-color: transparent;
+    box-shadow: none;
+    border: none;
+    outline-style: none;
+}
+
+.btn-accept:hover {
+    color: teal;
+}
+
+.btn-accept:active {
+    color: darkseagreen;
+}
+
 .btn-cancel {
     color: var(--inspiring-red);
     background-color: transparent;
@@ -266,6 +282,22 @@ select:focus {
 
 .btn-cancel:active {
     color: darksalmon;
+}
+
+.btn-complete {
+    color: tomato;
+    background-color: transparent;
+    box-shadow: none;
+    border: none;
+    outline-style: none;
+}
+
+.btn-complete:hover {
+    color: chocolate;
+}
+
+.btn-complete:active {
+    color: brown;
 }
 
 /** Link */
@@ -493,6 +525,18 @@ select:focus {
     }
     .fsr-6 {
         font-size: 1.0625rem;
+    }
+    /** Border */
+    .postcard-border {
+        height: 0.1875rem;
+        width: 100%;
+        background-image: repeating-linear-gradient(
+            45deg,
+            steelblue 0 20px,
+            transparent 20px 30px,
+            coral 30px 50px,
+            transparent 50px 60px
+        );
     }
 }
 

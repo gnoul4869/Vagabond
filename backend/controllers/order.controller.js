@@ -50,7 +50,7 @@ export const getOrders = async (req, res) => {
     }
 
     const orders = await Order.find(queryObj)
-        .sort({ status: -1, updatedAt: -1 })
+        .sort({ priority: -1, updatedAt: -1 })
         .limit(limit)
         .skip(skip);
 
@@ -65,6 +65,7 @@ export const getOrders = async (req, res) => {
 
 export const updateOrder = async (req, res) => {
     const { orderID, status } = req.body;
+    const priority = status === 'pending' ? true : false;
 
     if (!orderID) {
         throw new BadRequestError('Hay cung cấp mã đơn hàng');
@@ -72,6 +73,10 @@ export const updateOrder = async (req, res) => {
 
     if (!status) {
         throw new BadRequestError('Hãy cung cấp trạng thái đơn hàng');
+    }
+
+    if (status !== 'cancelled' && req.user.role !== 'admin') {
+        throw new AuthenticationError('Không đủ quyền thực hiện');
     }
 
     const queryObj = {};
@@ -83,7 +88,7 @@ export const updateOrder = async (req, res) => {
 
     const order = await Order.findOneAndUpdate(
         queryObj,
-        { status },
+        { status, priority },
         {
             new: true,
             runValidators: true,
