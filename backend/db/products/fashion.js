@@ -7,7 +7,7 @@ export const fashion = [
         brand: 'Jack & Jones',
         weight: 550,
         description:
-            'Bạn cần một thứ thiết yếu bình thường? Chọn bộ đồ nam yêu thích mới của bạn từ JACK & JONES tại Suit Direct ngay hôm nay. \n\nĐược làm từ chất liệu vải cotton mềm mại để tạo sự thoải mái tinh khiết, áo có in logo thương hiệu đặc trưng trên nền màu đen tuyền. \n\nĐược thành lập và có trụ sở tại Đan Mạch, JACK & JONES cung cấp cho người tiêu dùng hiện đại những bộ sưu tập dành cho mọi dịp và xu hướng thời trang. Ban đầu được thành lập như một thương hiệu quần jean, JACK & JONES giờ đây cũng cung cấp các sản phẩm may đo, quần áo thể thao đô thị, giày dép và phụ kiện.',
+            'Bạn cần một thứ thiết yếu bình thường? Chọn bộ đồ nam yêu thích mới của bạn từ JACK & JONES tại Suit Direct ngay hôm nay. </br></br>Được làm từ chất liệu vải cotton mềm mại để tạo sự thoải mái tinh khiết, áo có in logo thương hiệu đặc trưng trên nền màu đen tuyền. </br></br>Được thành lập và có trụ sở tại Đan Mạch, JACK & JONES cung cấp cho người tiêu dùng hiện đại những bộ sưu tập dành cho mọi dịp và xu hướng thời trang. Ban đầu được thành lập như một thương hiệu quần jean, JACK & JONES giờ đây cũng cung cấp các sản phẩm may đo, quần áo thể thao đô thị, giày dép và phụ kiện.',
         images: [
             'https://i.ibb.co/ggCcCsr/jack-jones-black-logo-hoody-01.jpg',
             'https://i.ibb.co/w0Vp6Kw/jack-jones-black-logo-hoody-02.jpg',
@@ -25,7 +25,7 @@ export const fashion = [
         brand: 'Jett Banks',
         weight: 250,
         description:
-            'Kỹ thuật thủ công của Jeff Banks bao gồm cả phong cách sartorial và sự thoải mái tuyệt vời. Mua sắm của bạn ngay bây giờ tại Suit Direct. \n\nĐược làm thủ công cẩn thận, chiếc áo liền quần cổ chữ V này được làm từ bông tinh khiết cho cảm giác sang trọng, mềm mại khi chạm vào. Với thương hiệu mảng bám kim loại cổ điển ở bên cạnh, chiếc áo liền quần này được thiết kế để tạo sự thoải mái và bền bỉ. \n\nMỗi tác phẩm của Jeff Banks đều được chế tác tỉ mỉ dành cho nam giới. Mặc của bạn với niềm tự hào.',
+            'Kỹ thuật thủ công của Jeff Banks bao gồm cả phong cách sartorial và sự thoải mái tuyệt vời. Mua sắm của bạn ngay bây giờ tại Suit Direct. </br></br>Được làm thủ công cẩn thận, chiếc áo liền quần cổ chữ V này được làm từ bông tinh khiết cho cảm giác sang trọng, mềm mại khi chạm vào. Với thương hiệu mảng bám kim loại cổ điển ở bên cạnh, chiếc áo liền quần này được thiết kế để tạo sự thoải mái và bền bỉ. </br></br>Mỗi tác phẩm của Jeff Banks đều được chế tác tỉ mỉ dành cho nam giới. Mặc của bạn với niềm tự hào.',
         images: [
             'https://i.ibb.co/yQ4cr6N/jeff-banks-v-neck-jumper-01.jpg',
             'https://i.ibb.co/F0q4kBt/jeff-banks-v-neck-jumper-02.jpg',
@@ -42,7 +42,7 @@ export const fashion = [
         brand: 'Jett Banks',
         weight: 200,
         description:
-            'Kỹ thuật thủ công của Jeff Banks bao gồm cả phong cách sartorial và sự thoải mái tuyệt vời. Được làm từ 100% viscose, chiếc áo sơ mi giản dị này mang đến một sự bổ sung lý tưởng cho tủ quần áo của bất kỳ người đàn ông nào. \n\nVới họa tiết in hoa nhiệt đới với chút hồng đậm hoàn hảo cho mùa hè, mẫu áo này được tạo kiểu với cổ áo tôn dáng và có thể dễ dàng kết hợp với quần chinos nam hoặc quần tây nam. Mua sắm của bạn ngay bây giờ tại Suit Direct.',
+            'Kỹ thuật thủ công của Jeff Banks bao gồm cả phong cách sartorial và sự thoải mái tuyệt vời. Được làm từ 100% viscose, chiếc áo sơ mi giản dị này mang đến một sự bổ sung lý tưởng cho tủ quần áo của bất kỳ người đàn ông nào. </br></br>Với họa tiết in hoa nhiệt đới với chút hồng đậm hoàn hảo cho mùa hè, mẫu áo này được tạo kiểu với cổ áo tôn dáng và có thể dễ dàng kết hợp với quần chinos nam hoặc quần tây nam. Mua sắm của bạn ngay bây giờ tại Suit Direct.',
         images: [
             ' https://i.ibb.co/rMhzJGM/jeff-banks-viscose-floral-print-shirt-01.jpg',
             ' https://i.ibb.co/sJ6nCKy/jeff-banks-viscose-floral-print-shirt-02.jpg',
@@ -58,7 +58,7 @@ export const fashion = [
         brand: 'Limehaus',
         weight: 1250,
         description:
-            'Một bộ vest đỏ burgundy thời trang dành cho nam của Limehaus - với chất liệu vải mềm mại và ve áo màu đen, phong cách, độc đáo và linh hoạt. \n\nBộ quần áo mỏng vừa vặn này là một nhà thiết kế xu hướng thực sự, với một điểm nhấn là độ giãn rộng rãi và phối màu đỏ đậm, tạo nên một nét độc đáo cho những bộ lễ phục truyền thống hoặc bộ đồ dạ tiệc. \n\nMột bộ đồ hai mảnh sành điệu cho bất kỳ dịp nào, với ảnh hưởng của di sản kết hợp với sự đổi mới và thoải mái hiện đại - lý tưởng cho các bữa tiệc Giáng sinh và hơn thế nữa.',
+            'Một bộ vest đỏ burgundy thời trang dành cho nam của Limehaus - với chất liệu vải mềm mại và ve áo màu đen, phong cách, độc đáo và linh hoạt. </br></br>Bộ quần áo mỏng vừa vặn này là một nhà thiết kế xu hướng thực sự, với một điểm nhấn là độ giãn rộng rãi và phối màu đỏ đậm, tạo nên một nét độc đáo cho những bộ lễ phục truyền thống hoặc bộ đồ dạ tiệc. </br></br>Một bộ đồ hai mảnh sành điệu cho bất kỳ dịp nào, với ảnh hưởng của di sản kết hợp với sự đổi mới và thoải mái hiện đại - lý tưởng cho các bữa tiệc Giáng sinh và hơn thế nữa.',
         images: [
             'https://i.ibb.co/8gB9Vrg/limehaus-burgundy-texture-slim-suit-01.jpg',
             'https://i.ibb.co/Sv5wy08/limehaus-burgundy-texture-slim-suit-02.jpg',
@@ -78,7 +78,7 @@ export const fashion = [
         brand: 'Limehaus',
         weight: 1350,
         description:
-            'Limehaus là một người đi đầu trong xu hướng thời trang nam giới, với những bộ suit được cắt may mỏng hơn bình thường. Chúng tôi khuyên bạn nên thay đổi kích thước để có được sự phù hợp hoàn hảo. \n\nLý tưởng cho các quy tắc ăn mặc trang trọng, bộ vest nam ba mảnh này tự hào với chất liệu vải panama để đảm bảo sự thoải mái trong mọi thời tiết, với dáng ôm vừa vặn thoải mái và phối màu hải quân trơn chuyên nghiệp. \n\nĐược cắt theo khung và được thiết kế để tạo ra một hình bóng đơn giản, sắc nét, bộ vest truyền thống này là lựa chọn hoàn hảo để người chuyên nghiệp tạo ấn tượng vào bất kỳ dịp nào - cho dù là trang phục hàng ngày ở văn phòng hay sự kiện trang trọng - và có thể giặt bằng máy, khiến nó trở nên linh hoạt và dễ chăm sóc. \n\nMang dấu ấn chất lượng của Limehaus, bộ vest vừa vặn, thoải mái được thiết kế riêng này tự hào với nét hiện đại của phong cách truyền thống, với nét tinh tế tự nhiên, hoàn hảo cho bất kỳ dịp nào.',
+            'Limehaus là một người đi đầu trong xu hướng thời trang nam giới, với những bộ suit được cắt may mỏng hơn bình thường. Chúng tôi khuyên bạn nên thay đổi kích thước để có được sự phù hợp hoàn hảo. </br></br>Lý tưởng cho các quy tắc ăn mặc trang trọng, bộ vest nam ba mảnh này tự hào với chất liệu vải panama để đảm bảo sự thoải mái trong mọi thời tiết, với dáng ôm vừa vặn thoải mái và phối màu hải quân trơn chuyên nghiệp. </br></br>Được cắt theo khung và được thiết kế để tạo ra một hình bóng đơn giản, sắc nét, bộ vest truyền thống này là lựa chọn hoàn hảo để người chuyên nghiệp tạo ấn tượng vào bất kỳ dịp nào - cho dù là trang phục hàng ngày ở văn phòng hay sự kiện trang trọng - và có thể giặt bằng máy, khiến nó trở nên linh hoạt và dễ chăm sóc. </br></br>Mang dấu ấn chất lượng của Limehaus, bộ vest vừa vặn, thoải mái được thiết kế riêng này tự hào với nét hiện đại của phong cách truyền thống, với nét tinh tế tự nhiên, hoàn hảo cho bất kỳ dịp nào.',
         images: [
             'https://i.ibb.co/QPCvRYZ/limehaus-plain-blue-panama-slim-fit-jacket-01.jpg',
             'https://i.ibb.co/Z85752L/limehaus-plain-blue-panama-slim-fit-jacket-02.jpg',
@@ -100,7 +100,7 @@ export const fashion = [
         brand: 'Melka',
         weight: 120,
         description:
-            'Sơ mi vải đôi để biến hóa tủ quần áo của bạn - phong cách Melka. giới thiệu Karlskrona độc đáo, một chiếc áo sơ mi cotton nhẹ với sự khác biệt, với tay áo dài, túi ngực vá và cài cúc xuống, cổ áo cổ điển lấy cảm hứng từ kiểu dáng Oxford truyền thống của chúng tôi. \n\nVới chất liệu vải nhẹ, hai mặt, chiếc cúc áo màu xanh nước biển này có lớp vải trơn màu xanh nước biển được xếp trên một lớp vải bên trong đã được kiểm tra theo gam màu Melka tự nhiên - tạo ra một bộ quần áo có họa tiết độc đáo với nhiều kích thước và chi tiết hơn. \n\nMột biến thể cho bất kỳ tủ quần áo nào - áo sơ mi cotton sang trọng của nam giới, với vải cotton thương mại công bằng và nhãn hiệu Melka tab. Karlskrona là chiếc áo thể hiện hoàn hảo đặc tính Melka. consectetur adipisicing elit. Sed quis impedit corrupti sequi culpa illum iste dolor tempore alias ipsa atque dolorem, suscipit voluptatibus magnam voluptates aliquam nobis. Non, harum?',
+            'Sơ mi vải đôi để biến hóa tủ quần áo của bạn - phong cách Melka. giới thiệu Karlskrona độc đáo, một chiếc áo sơ mi cotton nhẹ với sự khác biệt, với tay áo dài, túi ngực vá và cài cúc xuống, cổ áo cổ điển lấy cảm hứng từ kiểu dáng Oxford truyền thống của chúng tôi. </br></br>Với chất liệu vải nhẹ, hai mặt, chiếc cúc áo màu xanh nước biển này có lớp vải trơn màu xanh nước biển được xếp trên một lớp vải bên trong đã được kiểm tra theo gam màu Melka tự nhiên - tạo ra một bộ quần áo có họa tiết độc đáo với nhiều kích thước và chi tiết hơn. </br></br>Một biến thể cho bất kỳ tủ quần áo nào - áo sơ mi cotton sang trọng của nam giới, với vải cotton thương mại công bằng và nhãn hiệu Melka tab. Karlskrona là chiếc áo thể hiện hoàn hảo đặc tính Melka. consectetur adipisicing elit. Sed quis impedit corrupti sequi culpa illum iste dolor tempore alias ipsa atque dolorem, suscipit voluptatibus magnam voluptates aliquam nobis. Non, harum?',
         images: [
             'https://i.ibb.co/XDmp854/melka-karlskrona-double-face-shirt-01.jpg',
             'https://i.ibb.co/F3LWB1J/melka-karlskrona-double-face-shirt-02.jpg',
@@ -135,7 +135,7 @@ export const fashion = [
         brand: 'Racing Green',
         weight: 1800,
         description:
-            'Chiếc áo khoác len pha trộn màu xám đậm này là một cách độc đáo để tạo phong cách cho bất kỳ tủ quần áo nào - một chiếc áo khoác hàng đầu dành cho nam giới lấy cảm hứng từ cách may cổ điển của Anh. \n\nVới ve áo xẻ rãnh, thắt nút ba buton ở ngực duy nhất, vừa vặn được thiết kế riêng và nhiều không gian túi, chiếc áo khoác len nam này lý tưởng cho mọi tủ quần áo. \n\nÁo khoác nam màu xám đậm cổ điển dành cho mọi dịp của Racing Green. Lý tưởng cho một người đàn ông khi di chuyển, bộ sưu tập Racing Green dựa trên hiệu suất. Độ bền, đường cắt kiểu cách và sự vừa vặn, tinh tế đã làm cho cái tên trở thành huyền thoại trong những bộ vest đương đại, tinh tế, lý tưởng để tạo ấn tượng, cân bằng với phong cách Anh Quốc không bao giờ lỗi mốt.',
+            'Chiếc áo khoác len pha trộn màu xám đậm này là một cách độc đáo để tạo phong cách cho bất kỳ tủ quần áo nào - một chiếc áo khoác hàng đầu dành cho nam giới lấy cảm hứng từ cách may cổ điển của Anh. </br></br>Với ve áo xẻ rãnh, thắt nút ba buton ở ngực duy nhất, vừa vặn được thiết kế riêng và nhiều không gian túi, chiếc áo khoác len nam này lý tưởng cho mọi tủ quần áo. </br></br>Áo khoác nam màu xám đậm cổ điển dành cho mọi dịp của Racing Green. Lý tưởng cho một người đàn ông khi di chuyển, bộ sưu tập Racing Green dựa trên hiệu suất. Độ bền, đường cắt kiểu cách và sự vừa vặn, tinh tế đã làm cho cái tên trở thành huyền thoại trong những bộ vest đương đại, tinh tế, lý tưởng để tạo ấn tượng, cân bằng với phong cách Anh Quốc không bao giờ lỗi mốt.',
         images: [
             'https://i.ibb.co/0Zyj5Mk/racing-green-charcoal-melton-overcoat-01.jpg',
             'https://i.ibb.co/SyD9SRG/racing-green-charcoal-melton-overcoat-02.jpg',
@@ -152,7 +152,7 @@ export const fashion = [
         brand: 'Scott By The Label',
         weight: 1300,
         description:
-            'Một chiếc áo khoác len nam pha trộn màu xanh hải quân đầy phong cách của Scott by the Label, với kiểu dáng cổ điển, linh hoạt. \n\nTự hào với ve áo, lỗ thông hơi bên hông và hai cúc cài, chiếc áo khoác màu xanh đậm này là một món đồ cổ điển ngay lập tức cho bất kỳ tủ quần áo trang trọng nào. \n\nMột tác phẩm kinh điển của Scott by the Label.',
+            'Một chiếc áo khoác len nam pha trộn màu xanh hải quân đầy phong cách của Scott by the Label, với kiểu dáng cổ điển, linh hoạt. </br></br>Tự hào với ve áo, lỗ thông hơi bên hông và hai cúc cài, chiếc áo khoác màu xanh đậm này là một món đồ cổ điển ngay lập tức cho bất kỳ tủ quần áo trang trọng nào. </br></br>Một tác phẩm kinh điển của Scott by the Label.',
         images: [
             'https://i.ibb.co/0GXJ2SC/scott-by-the-label-navy-blazer-02.jpg',
             ' https://i.ibb.co/ygr4yGQ/scott-by-the-label-navy-blazer-01.jpg',
@@ -166,7 +166,7 @@ export const fashion = [
         brand: 'Scott & Taylor',
         weight: 1450,
         description:
-            'Bộ lễ phục phong cách này là bộ vest đen Dresswear tinh túy dành cho một người đàn ông đang tìm kiếm ấn tượng tích cực trong một cuộc tình với cà vạt đen. \n\nĐược thiết kế theo phong cách may đo truyền thống, bộ tuxedo hai mảnh này tự hào với sự vừa vặn thoải mái, ve áo tương phản trong thiết kế khăn choàng và kiểu dáng sắc nét kết hợp giữa phong cách Tuxedo truyền thống và kiểu dáng Gatsby mang tính biểu tượng với sự thoải mái và linh hoạt hiện đại. \n\nScott và Taylor là bộ đồ thiết thực dành cho các quý ông hiện đại, và đối với những người muốn gây ấn tượng trong các buổi tụ họp với bạn bè và gia đình, thương hiệu Nhân dịp của họ là một người bạn đồng hành ấn tượng. Hoàn hảo cho các bữa tiệc Giáng sinh!',
+            'Bộ lễ phục phong cách này là bộ vest đen Dresswear tinh túy dành cho một người đàn ông đang tìm kiếm ấn tượng tích cực trong một cuộc tình với cà vạt đen. </br></br>Được thiết kế theo phong cách may đo truyền thống, bộ tuxedo hai mảnh này tự hào với sự vừa vặn thoải mái, ve áo tương phản trong thiết kế khăn choàng và kiểu dáng sắc nét kết hợp giữa phong cách Tuxedo truyền thống và kiểu dáng Gatsby mang tính biểu tượng với sự thoải mái và linh hoạt hiện đại. </br></br>Scott và Taylor là bộ đồ thiết thực dành cho các quý ông hiện đại, và đối với những người muốn gây ấn tượng trong các buổi tụ họp với bạn bè và gia đình, thương hiệu Nhân dịp của họ là một người bạn đồng hành ấn tượng. Hoàn hảo cho các bữa tiệc Giáng sinh!',
         images: [
             'https://i.ibb.co/y0XGp5J/scott-taylor-satin-shawl-lapel-regular-fit-dresswear-jacket-01.jpg',
             'https://i.ibb.co/FsZxZRH/scott-taylor-satin-shawl-lapel-regular-fit-dresswear-jacket-02.jpg',
