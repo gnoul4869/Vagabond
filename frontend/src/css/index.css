@@ -46,6 +46,10 @@ select:focus {
     border-color: lightslategray !important;
 }
 
+p {
+    white-space: pre-line;
+}
+
 /** Background */
 .bg-ired {
     background-color: var(--inspiring-red);

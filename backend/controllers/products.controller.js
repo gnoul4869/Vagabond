@@ -6,7 +6,7 @@ export const getAllProducts = async (req, res) => {
     const { productIDs } = req.query;
     const products = productIDs
         ? await Product.find({ _id: { $in: productIDs } })
-        : await Product.find({});
+        : await Product.find({}).sort({ updatedAt: -1 });
 
     if (products.length === 0) {
         throw new NotFoundError('Không tìm thấy sản phẩm nào');
