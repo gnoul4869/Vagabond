@@ -3,6 +3,7 @@ import connectDB from './connect.js';
 import User from '../models/user.model.js';
 import Product from '../models/product.model.js';
 import data from './data.js';
+import { products } from './products.js';
 
 const populateUsers = async () => {
     try {
@@ -21,7 +22,7 @@ const populateProducts = async () => {
     try {
         await connectDB(process.env.MONGODB_URI);
         await Product.deleteMany({});
-        await Product.create(data.products);
+        await Product.create(products.fashion);
         console.log('Products data added to the database...');
         process.exit(0);
     } catch (error) {
