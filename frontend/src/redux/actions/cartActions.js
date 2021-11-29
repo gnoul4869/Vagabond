@@ -76,6 +76,7 @@ export const updateCart = () => async (dispatch, getState) => {
         if (productIDs.length !== 0) {
             const { data } = await axios.get('/api/v1/products', { params: { productIDs } });
             const { products } = data;
+
             dispatch({ type: CART_UPDATE_SUCCESS, payload: products });
         } else {
             dispatch({
@@ -83,13 +84,27 @@ export const updateCart = () => async (dispatch, getState) => {
             });
         }
     } catch (error) {
-        dispatch({
-            type: CART_UPDATE_FAIL,
-            payload:
-                error.response && error.response.data.message
-                    ? error.response.data.message
-                    : errorMessage,
-        });
+        if (
+            error.response &&
+            error.response.data.message &&
+            error.response.data.message === 'Không tìm thấy sản phẩm nào'
+        ) {
+            dispatch({ type: CART_REMOVE_ALL_ITEMS });
+
+            localStorage.removeItem('cartItems');
+
+            dispatch({
+                type: CART_STATE_REFRESH,
+            });
+        } else {
+            dispatch({
+                type: CART_UPDATE_FAIL,
+                payload:
+                    error.response && error.response.data.message
+                        ? error.response.data.message
+                        : errorMessage,
+            });
+        }
     }
 };
 
