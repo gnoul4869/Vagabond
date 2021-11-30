@@ -23,6 +23,7 @@ export const purchaseLabels = [
         name: 'Đang giao',
         status: 'shipping',
         text: 'Đơn hàng đang được giao',
+        textAlt: 'ĐH đang được giao',
         color: 'text-lightseagreen',
         icon: <ImTruck className="icon me-2" />,
     },

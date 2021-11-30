@@ -4,7 +4,7 @@ import { StatusCodes } from 'http-status-codes';
 
 export const getAllProducts = async (req, res) => {
     const { productIDs } = req.query;
-    console.log(productIDs);
+
     const products = productIDs
         ? await Product.find({ _id: { $in: productIDs } })
         : await Product.find({}).sort({ updatedAt: -1 });

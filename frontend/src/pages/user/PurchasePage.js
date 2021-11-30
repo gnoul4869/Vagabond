@@ -136,48 +136,50 @@ const PurchasePage = () => {
                                                                     : label.text}
                                                             </span>
                                                         </div>
-                                                        {label.status === 'pending' ? (
-                                                            <>
-                                                                {isAdmin && (
-                                                                    <button
-                                                                        className="button-main btn-accept fsr-3 p-0 me-3"
-                                                                        onClick={() =>
-                                                                            orderHandler(
-                                                                                order.id,
-                                                                                'shipping'
-                                                                            )
-                                                                        }
-                                                                    >
-                                                                        Chấp nhận
-                                                                    </button>
-                                                                )}
-                                                                <button
-                                                                    className="button-main btn-cancel fsr-3 p-0 me-1"
-                                                                    onClick={() =>
-                                                                        orderHandler(
-                                                                            order.id,
-                                                                            'cancelled'
-                                                                        )
-                                                                    }
-                                                                >
-                                                                    Hủy
-                                                                </button>
-                                                            </>
-                                                        ) : (
-                                                            label.status === 'shipping' &&
-                                                            isAdmin && (
-                                                                <button
-                                                                    className="button-main btn-complete fsr-3 p-0"
-                                                                    onClick={() =>
-                                                                        orderHandler(
-                                                                            order.id,
-                                                                            'delivered'
-                                                                        )
-                                                                    }
-                                                                >
-                                                                    Đã nhận hàng
-                                                                </button>
-                                                            )
+
+                                                        {label.status === 'pending'
+                                                            ? isAdmin && (
+                                                                  <button
+                                                                      className="button-main btn-accept fsr-3 p-0"
+                                                                      onClick={() =>
+                                                                          orderHandler(
+                                                                              order.id,
+                                                                              'shipping'
+                                                                          )
+                                                                      }
+                                                                  >
+                                                                      Chấp nhận
+                                                                  </button>
+                                                              )
+                                                            : label.status === 'shipping' &&
+                                                              isAdmin && (
+                                                                  <button
+                                                                      className="button-main btn-complete fsr-3 p-0"
+                                                                      onClick={() =>
+                                                                          orderHandler(
+                                                                              order.id,
+                                                                              'delivered'
+                                                                          )
+                                                                      }
+                                                                  >
+                                                                      Đã nhận hàng
+                                                                  </button>
+                                                              )}
+
+                                                        {(label.status === 'pending' ||
+                                                            (label.status === 'shipping' &&
+                                                                isAdmin)) && (
+                                                            <button
+                                                                className="button-main btn-cancel fsr-3 p-0 ms-3 me-1"
+                                                                onClick={() =>
+                                                                    orderHandler(
+                                                                        order.id,
+                                                                        'cancelled'
+                                                                    )
+                                                                }
+                                                            >
+                                                                Hủy
+                                                            </button>
                                                         )}
                                                     </React.Fragment>
                                                 )

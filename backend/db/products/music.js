@@ -7,7 +7,7 @@ export const music = [
         brand: 'Alice',
         weight: 100,
         description:
-            'Sản phẩm dây guitar Classic Alice AC139 được tạo ra bởi công nghệ làm dây hiện đại của ALICE. Dây đai bằng đồng 85/15 được làm bằng thủ tục kết hợp công nghệ truyền thống và công nghệ cao hiện đại.\n\n- với 3 dây bass là dây đồng mạ bạc được đo chuẩn bằng laser máy tính quấn quanh các lõi dây nilon, 3 dây streble được thiết kế màu tím trong suốt cực đẹp và êm ái \n\n-Có khả năng chống oxy hóa mạnh mẽ\n\n- Cảm giác thoải mái, tạo ra một giai điệu phong phú và tươi sáng. \n\n-AC-139 với chất âm tuyệt vời phù hợp mọi yêu cầu của bạn\n\n-AC-139 là sự chọn lựa đúng đắn với giá thành và chất lượng tuyệt vời cho quý khách\n\n- Chất lượng bền bỉ , có khả năng giữ độ bền màu cực tốt!',
+            'Sản phẩm dây guitar Classic Alice AC139 được tạo ra bởi công nghệ làm dây hiện đại của ALICE. Dây đai bằng đồng 85/15 được làm bằng thủ tục kết hợp công nghệ truyền thống và công nghệ cao hiện đại.\n\n- Với 3 dây bass là dây đồng mạ bạc được đo chuẩn bằng laser máy tính quấn quanh các lõi dây nilon, 3 dây streble được thiết kế màu tím trong suốt cực đẹp và êm ái \n\n- Có khả năng chống oxy hóa mạnh mẽ\n\n- Cảm giác thoải mái, tạo ra một giai điệu phong phú và tươi sáng. \n\n- AC-139 với chất âm tuyệt vời phù hợp mọi yêu cầu của bạn\n\n- AC-139 là sự chọn lựa đúng đắn với giá thành và chất lượng tuyệt vời cho quý khách\n\n- Chất lượng bền bỉ , có khả năng giữ độ bền màu cực tốt!',
         images: [
             'https://i.ibb.co/sJt1MXS/alice-ac139-03.jpg',
             'https://i.ibb.co/cYvLKxs/alice-ac139-01.jpg',
