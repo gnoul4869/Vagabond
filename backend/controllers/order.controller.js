@@ -81,12 +81,6 @@ export const updateOrder = async (req, res) => {
         throw new AuthenticationError('Không đủ quyền thực hiện');
     }
 
-    const order = await Order.findById({ _id: orderID });
-
-    if (!order) {
-        throw new NotFoundError('Không tìm thấy đơn hàng nào');
-    }
-
     const queryObj = {};
     queryObj._id = orderID;
 
@@ -94,14 +88,17 @@ export const updateOrder = async (req, res) => {
         queryObj['user.id'] = req.user.id;
     }
 
-    const newOrder = await Order.findOneAndUpdate(
+    const order = await Order.findOneAndUpdate(
         queryObj,
         { status, priority },
         {
-            new: true,
             runValidators: true,
         }
     );
+
+    if (!order) {
+        throw new NotFoundError('Không tìm thấy đơn hàng nào');
+    }
 
     const reduceCount =
         order.status === 'pending' && status === 'shipping'
@@ -119,8 +116,20 @@ export const updateOrder = async (req, res) => {
                     runValidators: true,
                 }
             );
+            3;
         }
     }
 
-    res.status(StatusCodes.OK).json({ newOrder });
+    res.status(StatusCodes.OK).json({
+        order: {
+            user: order.user,
+            id: order.id,
+            status: status,
+            products: order.products,
+            shippingFee: order.shippingFee,
+            priority: priority,
+            createdAt: order.createdAt,
+            updatedAt: order.updatedAt,
+        },
+    });
 };
