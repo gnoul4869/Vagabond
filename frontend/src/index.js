@@ -15,6 +15,7 @@ import './css/components/cartItems.css';
 import './css/components/dateInput.css';
 import './css/components/ratingStar.css';
 import './css/components/numberInput.css';
+import './css/components/pagination.css';
 import './css/components/breadCrumbs.css';
 import './css/components/passwordStrength.css';
 import './css/components/navbar/navBar.css';

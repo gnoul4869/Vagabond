@@ -9,6 +9,7 @@ import ErrorPage from '../../pages/error/ErrorPage';
 import { FaCartPlus } from 'react-icons/fa';
 import { addToCart } from '../../redux/actions/cartActions';
 import InfoModal from '../modals/InfoModal';
+import { FiChevronDown } from 'react-icons/fi';
 
 const ProductList = () => {
     const dispatch = useDispatch();
@@ -49,7 +50,29 @@ const ProductList = () => {
 
     return (
         <>
-            <section className="container d-flex flex-wrap p-0">
+            <div className="container bg-white p-2">
+                <div className="container d-flex">
+                    <div className="d-flex align-items-center">
+                        <div className="text-secondary fw-600 me-4">Sắp xếp theo</div>
+                        <div className="option-btn me-3">Liên quan</div>
+                        <div className="option-btn option-btn-active me-3">Mới nhất</div>
+                        <div className="option-btn me-3">Bán chạy</div>
+                        <div className="option-select">
+                            Giá thấp đến cao
+                            <FiChevronDown className="ms-2" />
+                        </div>
+                    </div>
+
+                    <div className="d-inline-flex align-items-center ms-auto">
+                        <div className="text-secondary fw-600 me-4">Danh mục</div>
+                        <div className="option-select">
+                            Tất cả <FiChevronDown className="ms-2" />
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <section className="container d-flex flex-wrap p-0 pt-1">
                 {isLoading ? (
                     <ProductListLoading />
                 ) : (

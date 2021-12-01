@@ -1,0 +1,27 @@
+.option-btn {
+    cursor: pointer;
+    padding: 0.5rem 1rem;
+    font-weight: 600;
+    color: var(--dark-slate-gray);
+    background-color: rgb(240, 240, 240);
+    border: none;
+    box-shadow: rgba(0, 0, 0, 0.05) 0rem 0rem 0rem 0.0625rem;
+    transition: all 0.1s linear;
+}
+
+.option-btn:hover {
+    box-shadow: rgba(0, 0, 0, 0.05) 0px 0px 0px 1px, var(--inspiring-red) 0px 0px 0px 1px inset;
+}
+
+.option-btn-active {
+    color: var(--not-pure-white);
+    background-color: var(--inspiring-red);
+}
+
+.option-select {
+    cursor: pointer;
+    padding: 0.5rem 1rem;
+    color: var(--dark-slate-gray);
+    font-weight: 600;
+    background-color: rgb(240, 240, 240);
+}
