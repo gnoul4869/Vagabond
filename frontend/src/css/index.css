@@ -50,6 +50,11 @@ p {
     white-space: pre-line;
 }
 
+/** Utils */
+.outline-none {
+    outline-style: none;
+}
+
 /** Background */
 .bg-ired {
     background-color: var(--inspiring-red);

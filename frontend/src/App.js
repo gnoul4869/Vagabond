@@ -12,10 +12,12 @@ import CheckoutPage from './pages/CheckoutPage.js';
 import Footer from './components/Footer.js';
 import PurchasePage from './pages/user/PurchasePage.js';
 import ControlPage from './pages/ControlPage.js';
+import ScrollToTop from './utils/ScrollToTop.js';
 
 const App = () => {
     return (
         <Router>
+            <ScrollToTop />
             <NavBar />
             <div className="container px-2">
                 <Switch>
