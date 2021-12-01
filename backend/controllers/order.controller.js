@@ -1,6 +1,7 @@
 import { StatusCodes } from 'http-status-codes';
-import { AuthenticationError, BadRequestError, NotFoundError } from '../errors/custom-api-error.js';
 import Order from '../models/order.model.js';
+import Product from '../models/product.model.js';
+import { AuthenticationError, BadRequestError, NotFoundError } from '../errors/custom-api-error.js';
 import { generateInfoEmail } from '../utils/generate-info-email.js';
 
 export const createOrder = async (req, res) => {
@@ -80,6 +81,12 @@ export const updateOrder = async (req, res) => {
         throw new AuthenticationError('Không đủ quyền thực hiện');
     }
 
+    const order = await Order.findById({ _id: orderID });
+
+    if (!order) {
+        throw new NotFoundError('Không tìm thấy đơn hàng nào');
+    }
+
     const queryObj = {};
     queryObj._id = orderID;
 
@@ -87,7 +94,7 @@ export const updateOrder = async (req, res) => {
         queryObj['user.id'] = req.user.id;
     }
 
-    const order = await Order.findOneAndUpdate(
+    const newOrder = await Order.findOneAndUpdate(
         queryObj,
         { status, priority },
         {
@@ -96,9 +103,24 @@ export const updateOrder = async (req, res) => {
         }
     );
 
-    if (!order) {
-        throw new NotFoundError('Không tìm thấy đơn hàng nào');
+    const reduceCount =
+        order.status === 'pending' && status === 'shipping'
+            ? -1
+            : order.status === 'shipping' && status === 'cancelled'
+            ? 1
+            : 0;
+
+    if (reduceCount !== 0) {
+        for (const product of order.products) {
+            await Product.findByIdAndUpdate(
+                { _id: product.id },
+                { $inc: { countInStock: product.qty * reduceCount } },
+                {
+                    runValidators: true,
+                }
+            );
+        }
     }
 
-    res.status(StatusCodes.OK).json({ order });
+    res.status(StatusCodes.OK).json({ newOrder });
 };

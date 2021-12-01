@@ -4,7 +4,7 @@ import { StatusCodes } from 'http-status-codes';
 const errorHandler = (err, req, res, next) => {
     let customError = {
         statusCode: err.statusCode || StatusCodes.INTERNAL_SERVER_ERROR,
-        message: err.message || 'Đã có lỗi xảy ra, hãy thử lại sau',
+        // message: err.message || 'Đã có lỗi xảy ra, hãy thử lại sau',
     };
 
     if (err.code && err.code === 11000) {

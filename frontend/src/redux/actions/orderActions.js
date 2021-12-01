@@ -58,8 +58,8 @@ export const updateOrder = (orderID, status) => async (dispatch, getState) => {
             }
         );
 
-        const { order } = data;
-        dispatch({ type: ORDER_UPDATE_SUCCESS, payload: order });
+        const { newOrder } = data;
+        dispatch({ type: ORDER_UPDATE_SUCCESS, payload: newOrder });
     } catch (error) {
         dispatch({
             type: ORDER_UPDATE_FAIL,
