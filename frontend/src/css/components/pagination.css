@@ -1,4 +1,4 @@
-.option-btn {
+.pagination-button {
     cursor: pointer;
     padding: 0.5rem 1rem;
     font-weight: 600;
@@ -9,16 +9,16 @@
     transition: all 0.1s linear;
 }
 
-.option-btn:hover {
+.pagination-button:hover {
     box-shadow: rgba(0, 0, 0, 0.05) 0px 0px 0px 1px, var(--inspiring-red) 0px 0px 0px 1px inset;
 }
 
-.option-btn-active {
+.pagination-button-active {
     color: var(--not-pure-white);
     background-color: var(--inspiring-red);
 }
 
-.option-select {
+.pagination-category {
     display: flex;
     align-items: center;
     cursor: pointer;

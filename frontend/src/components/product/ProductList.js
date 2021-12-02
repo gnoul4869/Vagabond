@@ -37,7 +37,7 @@ const ProductList = () => {
         query.sort = value;
 
         history.push({
-            pathname: '/q',
+            pathname: '/',
             search: queryString.stringify(query),
         });
     };
