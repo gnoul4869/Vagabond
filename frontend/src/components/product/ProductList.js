@@ -1,6 +1,7 @@
 import React, { useEffect, useState } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
-import { Link } from 'react-router-dom';
+import { useParams, useHistory, useLocation, Link } from 'react-router-dom';
+import queryString from 'query-string';
 import { listProducts } from '../../redux/actions/productActions';
 import PriceFormat from '../PriceFormat';
 import ProductListLoading from '../loading/ProductListLoading';
@@ -9,16 +10,39 @@ import ErrorPage from '../../pages/error/ErrorPage';
 import { FaCartPlus } from 'react-icons/fa';
 import { addToCart } from '../../redux/actions/cartActions';
 import InfoModal from '../modals/InfoModal';
-import { FiChevronDown } from 'react-icons/fi';
+import Pagination from '../Pagination';
+import {
+    paginationButtons,
+    paginationCategories,
+    paginationSelections,
+} from '../../data/paginationData';
 
 const ProductList = () => {
     const dispatch = useDispatch();
+    const location = useLocation();
+    const history = useHistory();
     const { isLoading, products, error } = useSelector((state) => state.productList);
     const cart = useSelector((state) => state.cart);
 
     const [isModalShown, setIsModalShown] = useState(false);
     const [cartError, setCartError] = useState('');
     const [modalError, setModalError] = useState('');
+
+    const search = queryString.parse(location.search);
+    const [sort, setSort] = useState(search.sort ? search.sort : 'relevance');
+
+    console.log(sort);
+
+    const addSort = (value) => {
+        setSort(value);
+        const query = {};
+        query.sort = value;
+
+        history.push({
+            pathname: '/q',
+            search: queryString.stringify(query),
+        });
+    };
 
     const cartBtnHandler = (productID) => {
         if (!cart.isLoading) {
@@ -50,28 +74,13 @@ const ProductList = () => {
 
     return (
         <>
-            <div className="container bg-white p-2">
-                <div className="container d-flex">
-                    <div className="d-flex align-items-center">
-                        <div className="text-secondary fw-600 me-4">Sắp xếp theo</div>
-                        <div className="option-btn me-3">Liên quan</div>
-                        <div className="option-btn option-btn-active me-3">Mới nhất</div>
-                        <div className="option-btn me-3">Bán chạy</div>
-                        <div className="option-select">
-                            Giá thấp đến cao
-                            <FiChevronDown className="ms-2" />
-                        </div>
-                    </div>
-
-                    <div className="d-inline-flex align-items-center ms-auto">
-                        <div className="text-secondary fw-600 me-4">Danh mục</div>
-                        <div className="option-select">
-                            Tất cả <FiChevronDown className="ms-2" />
-                        </div>
-                    </div>
-                </div>
-            </div>
-
+            <Pagination
+                buttons={paginationButtons}
+                selections={paginationSelections}
+                categories={paginationCategories}
+                sort={sort}
+                addSort={addSort}
+            />
             <section className="container d-flex flex-wrap p-0 pt-1">
                 {isLoading ? (
                     <ProductListLoading />
