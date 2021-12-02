@@ -37,20 +37,20 @@ export const getOrders = async (req, res) => {
     const limit = Number(req.query.limit) || 2;
 
     const skip = (page - 1) * limit;
-    const queryObj = {};
+    const query = {};
 
     if (isAdmin === 'true' && req.user.role !== 'admin') {
         throw new AuthenticationError('Không đủ quyền thực hiện');
     }
     if (isAdmin === 'false') {
-        queryObj['user.id'] = req.user.id;
+        query['user.id'] = req.user.id;
     }
 
     if (status) {
-        queryObj.status = status;
+        query.status = status;
     }
 
-    const orders = await Order.find(queryObj)
+    const orders = await Order.find(query)
         .sort({ priority: 1, updatedAt: -1 })
         .limit(limit)
         .skip(skip);
@@ -59,7 +59,7 @@ export const getOrders = async (req, res) => {
         throw new NotFoundError('Không tìm thấy đơn hàng nào');
     }
 
-    const total = await Order.countDocuments(queryObj);
+    const total = await Order.countDocuments(query);
 
     res.status(StatusCodes.OK).json({ total, orders });
 };
@@ -81,15 +81,15 @@ export const updateOrder = async (req, res) => {
         throw new AuthenticationError('Không đủ quyền thực hiện');
     }
 
-    const queryObj = {};
-    queryObj._id = orderID;
+    const query = {};
+    query._id = orderID;
 
     if (req.user.role !== 'admin') {
-        queryObj['user.id'] = req.user.id;
+        query['user.id'] = req.user.id;
     }
 
     const order = await Order.findOneAndUpdate(
-        queryObj,
+        query,
         { status, priority },
         {
             runValidators: true,

@@ -13,6 +13,7 @@ import InfoModal from '../modals/InfoModal';
 import Pagination from '../pagination/Pagination';
 import { paginationButtons, paginationSelections } from '../../data/paginationData';
 import PaginationLoading from '../loading/PaginationLoading';
+import axios from 'axios';
 
 const ProductList = () => {
     const dispatch = useDispatch();
@@ -24,6 +25,7 @@ const ProductList = () => {
     const [isModalShown, setIsModalShown] = useState(false);
     const [cartError, setCartError] = useState('');
     const [modalError, setModalError] = useState('');
+    const [localError, setLocalError] = useState('');
 
     const search = queryString.parse(location.search);
     const [sort, setSort] = useState(search.sort ? search.sort : 'relevance');
@@ -37,7 +39,7 @@ const ProductList = () => {
         if (sortValue) {
             setSort(sortValue);
         }
-        if (categoryValue) {
+        if (categoryValue && categoryValue !== 'all') {
             setCategory(categoryValue);
         }
 
@@ -47,6 +49,11 @@ const ProductList = () => {
         }
         if (categoryValue || category) {
             query.category = categoryValue || category;
+        }
+
+        if (categoryValue === 'all') {
+            delete query.category;
+            setCategory('');
         }
 
         history.push({
@@ -63,15 +70,23 @@ const ProductList = () => {
 
     useEffect(() => {
         if (isInitialLoad) {
-            setproductCategories([]);
+            const getProductCategories = async () => {
+                try {
+                    const { data } = await axios.get('/api/v1/products/categories');
+                    const { categories } = data;
+                    setproductCategories(categories);
+                } catch (error) {
+                    setLocalError(
+                        error.response && error.response.data.message
+                            ? error.response.data.message
+                            : 'Đã có lỗi xảy ra. Bạn vui lòng thử lại sau ít phút nữa'
+                    );
+                }
+            };
+
+            getProductCategories();
         }
     }, [isInitialLoad]);
-
-    useEffect(() => {
-        if (products && productCategories.length === 0) {
-            setproductCategories([...new Set(products.map((item) => item.category))]);
-        }
-    }, [productCategories.length, products]);
 
     useEffect(() => {
         if (cart.isDone === true) {
@@ -91,8 +106,8 @@ const ProductList = () => {
         dispatch(listProducts(sort, category));
     }, [category, dispatch, sort]);
 
-    if (error || cartError) {
-        return <ErrorPage error={error || cartError} />;
+    if (error || cartError || localError) {
+        return <ErrorPage error={error || cartError || localError} />;
     }
 
     return (

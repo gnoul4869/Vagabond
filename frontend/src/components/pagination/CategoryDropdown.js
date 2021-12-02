@@ -46,7 +46,9 @@ const CategoryDropdown = ({ dropdownTitle, dropdownOptions, category, queryHandl
                             return (
                                 <div
                                     key={index}
-                                    onClick={() => queryHandler('', item === category ? '' : item)}
+                                    onClick={() =>
+                                        queryHandler('', item === category ? 'all' : item)
+                                    }
                                     className="pagination-dropdown-item d-flex align-items-center"
                                 >
                                     <span className="me-2">{item}</span>
