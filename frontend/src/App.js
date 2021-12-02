@@ -21,7 +21,7 @@ const App = () => {
             <NavBar />
             <div className="container px-2">
                 <Switch>
-                    <Route exact path="/:query?">
+                    <Route exact path="/:q?">
                         <HomePage />
                     </Route>
                     <Route path="/user/register">

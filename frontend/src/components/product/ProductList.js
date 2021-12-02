@@ -1,6 +1,6 @@
 import React, { useEffect, useState } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
-import { useParams, useHistory, useLocation, Link } from 'react-router-dom';
+import { useHistory, useLocation, Link } from 'react-router-dom';
 import queryString from 'query-string';
 import { listProducts } from '../../redux/actions/productActions';
 import PriceFormat from '../PriceFormat';
@@ -30,8 +30,6 @@ const ProductList = () => {
 
     const search = queryString.parse(location.search);
     const [sort, setSort] = useState(search.sort ? search.sort : 'relevance');
-
-    console.log(sort);
 
     const addSort = (value) => {
         setSort(value);
@@ -65,8 +63,8 @@ const ProductList = () => {
     }, [cart.error, cart.isDone, cart.modalError, isModalShown]);
 
     useEffect(() => {
-        dispatch(listProducts());
-    }, [dispatch]);
+        dispatch(listProducts(sort));
+    }, [dispatch, sort]);
 
     if (error || cartError) {
         return <ErrorPage error={error || cartError} />;

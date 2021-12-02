@@ -3,15 +3,25 @@ import { NotFoundError } from '../errors/custom-api-error.js';
 import { StatusCodes } from 'http-status-codes';
 
 export const getAllProducts = async (req, res) => {
-    const { productIDs } = req.query;
+    const { productIDs, sort } = req.query;
+
+    const sortValue =
+        sort === 'relevance'
+            ? 'name'
+            : sort === 'newest'
+            ? 'createdAt'
+            : sort === 'sales'
+            ? 'numReivews'
+            : '';
 
     const products = productIDs
         ? await Product.find({ _id: { $in: productIDs } })
-        : await Product.find({}).sort({ updatedAt: -1 });
+        : await Product.find({}).sort(sortValue);
 
     if (products.length === 0) {
         throw new NotFoundError('Không tìm thấy sản phẩm nào');
     }
+
     res.status(StatusCodes.OK).json({ products });
 };
 

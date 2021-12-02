@@ -15,7 +15,7 @@ export const electronic = [
         ],
     },
     {
-        name: ' Loa bluetooth ANKER SoundCore Stereo - A3102',
+        name: 'Loa bluetooth ANKER SoundCore Stereo - A3102',
         category: 'Điện tử',
         price: 1200000,
         countInStock: 220,
