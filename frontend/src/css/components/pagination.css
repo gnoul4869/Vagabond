@@ -19,6 +19,8 @@
 }
 
 .option-select {
+    display: flex;
+    align-items: center;
     cursor: pointer;
     padding: 0.5rem 1rem;
     color: var(--dark-slate-gray);

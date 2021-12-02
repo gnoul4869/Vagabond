@@ -21,19 +21,19 @@ export const paginationButtons = [
 
 export const paginationSelections = [
     {
-        id: -1,
+        id: 0,
         name: 'Giá',
         type: 'default',
     },
     {
-        id: 0,
+        id: 1,
         name: 'Giá thấp đến cao',
         sort: 'price',
         order: 'asc',
         type: 'select',
     },
     {
-        id: 1,
+        id: 2,
         name: 'Giá cao đến thấp',
         sort: 'price',
         order: 'desc',
@@ -43,7 +43,7 @@ export const paginationSelections = [
 
 export const paginationCategories = [
     {
-        id: -1,
+        id: 0,
         name: 'Tất cả',
         type: 'default',
     },
