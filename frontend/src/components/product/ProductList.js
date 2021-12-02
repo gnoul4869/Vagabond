@@ -10,12 +10,9 @@ import ErrorPage from '../../pages/error/ErrorPage';
 import { FaCartPlus } from 'react-icons/fa';
 import { addToCart } from '../../redux/actions/cartActions';
 import InfoModal from '../modals/InfoModal';
-import Pagination from '../Pagination';
-import {
-    paginationButtons,
-    paginationCategories,
-    paginationSelections,
-} from '../../data/paginationData';
+import Pagination from '../pagination/Pagination';
+import { paginationButtons, paginationSelections } from '../../data/paginationData';
+import PaginationLoading from '../loading/PaginationLoading';
 
 const ProductList = () => {
     const dispatch = useDispatch();
@@ -30,11 +27,27 @@ const ProductList = () => {
 
     const search = queryString.parse(location.search);
     const [sort, setSort] = useState(search.sort ? search.sort : 'relevance');
+    const [category, setCategory] = useState(search.category ? search.category : '');
 
-    const addSort = (value) => {
-        setSort(value);
+    const [productCategories, setproductCategories] = useState([]);
+
+    const isInitialLoad = true;
+
+    const queryHandler = (sortValue, categoryValue) => {
+        if (sortValue) {
+            setSort(sortValue);
+        }
+        if (categoryValue) {
+            setCategory(categoryValue);
+        }
+
         const query = {};
-        query.sort = value;
+        if (sortValue || sort) {
+            query.sort = sortValue || sort;
+        }
+        if (categoryValue || category) {
+            query.category = categoryValue || category;
+        }
 
         history.push({
             pathname: '/',
@@ -47,6 +60,18 @@ const ProductList = () => {
             dispatch(addToCart(productID, 1));
         }
     };
+
+    useEffect(() => {
+        if (isInitialLoad) {
+            setproductCategories([]);
+        }
+    }, [isInitialLoad]);
+
+    useEffect(() => {
+        if (products && productCategories.length === 0) {
+            setproductCategories([...new Set(products.map((item) => item.category))]);
+        }
+    }, [productCategories.length, products]);
 
     useEffect(() => {
         if (cart.isDone === true) {
@@ -63,8 +88,8 @@ const ProductList = () => {
     }, [cart.error, cart.isDone, cart.modalError, isModalShown]);
 
     useEffect(() => {
-        dispatch(listProducts(sort));
-    }, [dispatch, sort]);
+        dispatch(listProducts(sort, category));
+    }, [category, dispatch, sort]);
 
     if (error || cartError) {
         return <ErrorPage error={error || cartError} />;
@@ -72,13 +97,18 @@ const ProductList = () => {
 
     return (
         <>
-            <Pagination
-                buttons={paginationButtons}
-                selections={paginationSelections}
-                categories={paginationCategories}
-                sort={sort}
-                addSort={addSort}
-            />
+            {productCategories.length === 0 ? (
+                <PaginationLoading buttons={paginationButtons} selection={true} category={true} />
+            ) : (
+                <Pagination
+                    buttons={paginationButtons}
+                    selections={paginationSelections}
+                    categories={productCategories}
+                    sort={sort}
+                    category={category}
+                    queryHandler={queryHandler}
+                />
+            )}
             <section className="container d-flex flex-wrap p-0 pt-1">
                 {isLoading ? (
                     <ProductListLoading />

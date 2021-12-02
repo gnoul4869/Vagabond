@@ -20,19 +20,14 @@ export const paginationSelections = {
     title: 'Giá',
     options: [
         {
-            id: 1,
+            id: 0,
             name: 'Giá thấp đến cao',
             sort: 'price-asc',
         },
         {
-            id: 2,
+            id: 1,
             name: 'Giá cao đến thấp',
             sort: 'price-desc',
         },
     ],
-};
-
-export const paginationCategories = {
-    title: 'Tất cả',
-    options: [],
 };

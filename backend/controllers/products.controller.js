@@ -12,6 +12,10 @@ export const getAllProducts = async (req, res) => {
             ? 'createdAt'
             : sort === 'sales'
             ? 'numReivews'
+            : sort === 'price-asc'
+            ? 'price'
+            : sort === 'price-desc'
+            ? '-price'
             : '';
 
     const products = productIDs
