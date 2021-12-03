@@ -33,7 +33,8 @@ const ProductList = () => {
 
     const [productCategories, setproductCategories] = useState([]);
 
-    const isInitialLoad = true;
+    // const isInitialLoad = true;
+    const [isInitialLoad, setIsInitialLoad] = useState(true);
 
     const queryHandler = (sortValue, categoryValue) => {
         if (sortValue) {
@@ -90,6 +91,12 @@ const ProductList = () => {
     }, [isInitialLoad]);
 
     useEffect(() => {
+        if (products) {
+            setIsInitialLoad(false);
+        }
+    }, [products]);
+
+    useEffect(() => {
         if (cart.isDone === true) {
             setCartError(cart.error);
             setIsModalShown(true);
@@ -113,7 +120,7 @@ const ProductList = () => {
 
     return (
         <>
-            {productCategories.length === 0 ? (
+            {productCategories.length === 0 || (!products && isInitialLoad) ? (
                 <PaginationLoading buttons={paginationButtons} selection={true} category={true} />
             ) : (
                 <Pagination
@@ -126,7 +133,7 @@ const ProductList = () => {
                 />
             )}
             <section className="container d-flex flex-wrap p-0 pt-1">
-                {isLoading ? (
+                {isLoading || !products ? (
                     <ProductListLoading />
                 ) : (
                     products &&

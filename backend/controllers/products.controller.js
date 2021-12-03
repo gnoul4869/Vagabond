@@ -46,7 +46,7 @@ export const getSingleProduct = async (req, res) => {
 };
 
 export const getProductCategories = async (req, res) => {
-    const categories = await Product.distinct('category').sort;
+    const categories = await Product.distinct('category');
     if (!categories) {
         throw new NotFoundError('Không có danh mục nào');
     }
