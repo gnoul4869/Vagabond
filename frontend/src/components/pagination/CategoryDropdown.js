@@ -31,7 +31,7 @@ const CategoryDropdown = ({ dropdownTitle, dropdownOptions, category, queryHandl
                 style={{ width: `${optionWidth}px` }}
             >
                 {dropdownOptions.find((item) => item === category) ? (
-                    <span className="me-2">
+                    <span className="me-2 text-ired">
                         {dropdownOptions.find((item) => item === category)}
                     </span>
                 ) : (

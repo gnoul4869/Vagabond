@@ -74,7 +74,8 @@ const ProductList = () => {
                 try {
                     const { data } = await axios.get('/api/v1/products/categories');
                     const { categories } = data;
-                    setproductCategories(categories);
+
+                    setproductCategories(categories.sort((a, b) => a.localeCompare(b)));
                 } catch (error) {
                     setLocalError(
                         error.response && error.response.data.message

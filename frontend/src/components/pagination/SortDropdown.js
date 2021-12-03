@@ -29,7 +29,7 @@ const PaginationDropdown = ({ dropdownTitle, dropdownOptions, sort, queryHandler
                 style={{ width: `${optionWidth}px` }}
             >
                 {dropdownOptions.find((item) => item.sort === sort) ? (
-                    <span className="me-2">
+                    <span className="me-2 text-ired">
                         {dropdownOptions.find((item) => item.sort === sort).name}
                     </span>
                 ) : (
