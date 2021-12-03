@@ -542,10 +542,10 @@ p {
         width: 100%;
         background-image: repeating-linear-gradient(
             45deg,
-            steelblue 0 20px,
-            transparent 20px 30px,
-            coral 30px 50px,
-            transparent 50px 60px
+            steelblue 0 1.25rem,
+            transparent 1.25rem 1.875rem,
+            coral 1.875rem 3.125rem,
+            transparent 3.125rem 3.75rem
         );
     }
 }

@@ -3,7 +3,7 @@ import { BsCaretLeftFill, BsCaretRightFill } from 'react-icons/bs';
 
 const PaginationPaging = () => {
     return (
-        <div className="container d-inline-flex align-items-center justify-content-center fsr-5 mt-3">
+        <div className="container d-inline-flex align-items-center justify-content-center fsr-4 mt-3">
             <button className="pagination-paging-btn">
                 <BsCaretLeftFill />
             </button>

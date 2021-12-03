@@ -10,7 +10,8 @@
 }
 
 .pagination-button:hover {
-    box-shadow: rgba(0, 0, 0, 0.05) 0px 0px 0px 1px, var(--inspiring-red) 0px 0px 0px 1px inset;
+    box-shadow: rgba(0, 0, 0, 0.05) 0rem 0rem 0rem 0.0625rem,
+        var(--inspiring-red) 0rem 0rem 0rem 0.0625rem inset;
 }
 
 .pagination-button.active {
@@ -75,7 +76,9 @@
 
 .pagination-paging-item {
     color: var(--dark-slate-gray);
-    padding: 0 1.5rem;
+    padding: 0 1rem;
+    margin: 0 1rem;
+    border-radius: 7%;
 }
 
 .pagination-paging-item.active {
