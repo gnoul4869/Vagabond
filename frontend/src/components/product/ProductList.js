@@ -10,7 +10,7 @@ import ErrorPage from '../../pages/error/ErrorPage';
 import { FaCartPlus } from 'react-icons/fa';
 import { addToCart } from '../../redux/actions/cartActions';
 import InfoModal from '../modals/InfoModal';
-import Pagination from '../pagination/Pagination';
+import Pagination from '../pagination/PaginationOptions';
 import { paginationButtons, paginationSelections } from '../../data/paginationData';
 import PaginationLoading from '../loading/PaginationLoading';
 import axios from 'axios';
@@ -68,6 +68,15 @@ const ProductList = () => {
             dispatch(addToCart(productID, 1));
         }
     };
+
+    useEffect(() => {
+        if (!search.sort) {
+            setSort('relevance');
+        }
+        if (!search.category) {
+            setCategory('');
+        }
+    }, [search]);
 
     useEffect(() => {
         let mounted = true;

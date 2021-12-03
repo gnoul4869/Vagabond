@@ -2,7 +2,7 @@ import React from 'react';
 import SortDropdown from './SortDropdown';
 import CategoryDropdown from './CategoryDropdown';
 
-const Pagination = ({ buttons, selections, categories, sort, category, queryHandler }) => {
+const PaginationOptions = ({ buttons, selections, categories, sort, category, queryHandler }) => {
     return (
         <>
             <div className="container bg-white p-2">
@@ -46,4 +46,4 @@ const Pagination = ({ buttons, selections, categories, sort, category, queryHand
     );
 };
 
-export default Pagination;
+export default PaginationOptions;
