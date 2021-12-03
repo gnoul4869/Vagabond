@@ -70,7 +70,7 @@ const PurchasePage = () => {
                                 key={label.id}
                                 onClick={() => setActiveID(label.id)}
                                 className={`purchase-label col py-3 ${
-                                    activeID === label.id && 'purchase-label-active'
+                                    activeID === label.id && 'active'
                                 }`}
                             >
                                 {label.name}

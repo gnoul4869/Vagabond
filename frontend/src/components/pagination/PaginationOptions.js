@@ -15,7 +15,7 @@ const PaginationOptions = ({ buttons, selections, categories, sort, category, qu
                                     key={index}
                                     onClick={() => queryHandler(item.sort, '')}
                                     className={`pagination-button me-3 ${
-                                        sort === item.sort && 'pagination-button-active'
+                                        sort === item.sort && 'active'
                                     }`}
                                 >
                                     {item.name}

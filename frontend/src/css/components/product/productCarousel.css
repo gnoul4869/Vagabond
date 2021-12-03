@@ -34,7 +34,7 @@
     border: 0.125rem solid var(--inspiring-red);
 }
 
-.product-carousel-img-small-active {
+.product-carousel-img-small.active {
     border: 0.125rem solid var(--inspiring-red);
 }
 

@@ -14,6 +14,7 @@ import Pagination from '../pagination/PaginationOptions';
 import { paginationButtons, paginationSelections } from '../../data/paginationData';
 import PaginationLoading from '../loading/PaginationLoading';
 import axios from 'axios';
+import PaginationPaging from '../pagination/PaginationPaging';
 
 const ProductList = () => {
     const dispatch = useDispatch();
@@ -200,6 +201,7 @@ const ProductList = () => {
                     })
                 )}
             </section>
+            <PaginationPaging />
             {isModalShown && (
                 <InfoModal
                     message={modalError ? modalError : 'Sản phẩm đã được thêm vào giỏ hàng'}

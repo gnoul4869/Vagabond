@@ -12,7 +12,7 @@
     color: var(--inspiring-red);
 }
 
-.purchase-label-active {
+.purchase-label.active {
     color: var(--inspiring-red);
     border-bottom: 0.125rem solid var(--inspiring-red);
 }

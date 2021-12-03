@@ -21,8 +21,7 @@ const NavbarDropdown = ({ cartBadge, search, isDropdownShown }) => {
     return (
         <div
             className={`container d-block d-md-none navbar-dropdown ${
-                isDropdownShown &&
-                `navbar-dropdown-active navbar-dropdown-active-height-${dropdownHeight}`
+                isDropdownShown && `active active-height-${dropdownHeight}`
             }`}
         >
             <ul className="navbar-nav text-center">

@@ -53,7 +53,7 @@ const ProductCarousel = ({ images, name }) => {
                                     src={item}
                                     alt={name}
                                     className={`product-carousel-img-small ${
-                                        index === imageNo && `product-carousel-img-small-active`
+                                        index === imageNo && `active`
                                     }`}
                                     onClick={() => setImageNo(index)}
                                 />

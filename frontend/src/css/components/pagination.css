@@ -13,7 +13,7 @@
     box-shadow: rgba(0, 0, 0, 0.05) 0px 0px 0px 1px, var(--inspiring-red) 0px 0px 0px 1px inset;
 }
 
-.pagination-button-active {
+.pagination-button.active {
     color: var(--not-pure-white);
     background-color: var(--inspiring-red);
 }
@@ -54,4 +54,31 @@
 
 .pagination-dropdown-item:hover {
     color: var(--inspiring-red);
+}
+
+.pagination-paging-btn {
+    display: flex;
+    align-items: center;
+    border: none;
+    background: transparent;
+    color: var(--inspiring-red);
+    outline-style: none;
+}
+
+.pagination-paging-btn:hover {
+    color: #630606;
+}
+
+.pagination-paging-btn:active {
+    color: darksalmon;
+}
+
+.pagination-paging-item {
+    color: var(--dark-slate-gray);
+    padding: 0 1.5rem;
+}
+
+.pagination-paging-item.active {
+    color: var(--not-pure-white);
+    background-color: var(--inspiring-red);
 }

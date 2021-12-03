@@ -9,7 +9,7 @@
     color: var(--inspiring-red);
 }
 
-.sidebar-label-active {
+.sidebar-label.active {
     color: var(--inspiring-red);
 }
 

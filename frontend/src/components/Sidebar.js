@@ -17,7 +17,7 @@ const Sidebar = ({ title, labelList, activeID, setActiveID }) => {
                                     key={label.id}
                                     onClick={() => setActiveID(label.id)}
                                     className={`sidebar-label d-flex justify-content-center justify-content-md-start py-2 ${
-                                        activeID === label.id && 'sidebar-label-active'
+                                        activeID === label.id && 'active'
                                     }`}
                                 >
                                     {label.icon}
