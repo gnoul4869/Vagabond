@@ -78,10 +78,23 @@
     color: var(--dark-slate-gray);
     padding: 0 1rem;
     margin: 0 1rem;
-    border-radius: 7%;
+    transition: all 0.2s linear;
+    cursor: pointer;
+}
+
+.pagination-paging-item:hover {
+    color: var(--inspiring-red);
 }
 
 .pagination-paging-item.active {
     color: var(--not-pure-white);
     background-color: var(--inspiring-red);
+    border-radius: 7%;
+}
+
+.pagination-paging-dots {
+    color: var(--dark-slate-gray);
+    padding: 0 1rem;
+    margin: 0 1rem;
+    cursor: default;
 }

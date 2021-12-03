@@ -28,7 +28,9 @@ export const getAllProducts = async (req, res) => {
             ? '-price'
             : '';
 
-    const products = await Product.find(query).sort(sortValue);
+    const limit = Number(req.query.limit) || 20;
+
+    const products = await Product.find(query).sort(sortValue).limit(limit);
 
     if (products.length === 0) {
         throw new NotFoundError('Không tìm thấy sản phẩm nào');

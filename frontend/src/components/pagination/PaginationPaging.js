@@ -12,7 +12,7 @@ const PaginationPaging = () => {
             <div className="pagination-paging-item active">3</div>
             <div className="pagination-paging-item">4</div>
             <div className="pagination-paging-item">5</div>
-            <div className="pagination-paging-item">...</div>
+            <div className="pagination-paging-dots">...</div>
             <button className="pagination-paging-btn">
                 <BsCaretRightFill />
             </button>
