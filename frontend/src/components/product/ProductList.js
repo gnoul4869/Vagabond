@@ -97,6 +97,12 @@ const ProductList = () => {
     }, [products]);
 
     useEffect(() => {
+        if (productCategories.length === 0 && !isInitialLoad) {
+            setIsInitialLoad(true);
+        }
+    }, [isInitialLoad, productCategories.length]);
+
+    useEffect(() => {
         if (cart.isDone === true) {
             setCartError(cart.error);
             setIsModalShown(true);
@@ -117,6 +123,8 @@ const ProductList = () => {
     if (error || cartError || localError) {
         return <ErrorPage error={error || cartError || localError} />;
     }
+
+    console.log(productCategories.length, products, isInitialLoad);
 
     return (
         <>
