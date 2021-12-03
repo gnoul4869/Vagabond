@@ -42,7 +42,8 @@ const initialState = {
     },
     productList: {
         isLoading: false,
-        products: null,
+        total: 0,
+        products: [],
         error: '',
     },
     productDetails: {

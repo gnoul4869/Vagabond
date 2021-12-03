@@ -7,12 +7,19 @@ import {
     PRODUCT_LIST_SUCCESS,
 } from '../constants/productConstants';
 
-export const productList = (state = { isLoading: false, products: [], error: '' }, action) => {
+export const productList = (
+    state = { isLoading: false, total: 0, products: [], error: '' },
+    action
+) => {
     switch (action.type) {
         case PRODUCT_LIST_REQUEST:
             return { isLoading: true };
         case PRODUCT_LIST_SUCCESS:
-            return { isLoading: false, products: action.payload };
+            return {
+                isLoading: false,
+                total: action.payload.total,
+                products: action.payload.products,
+            };
         case PRODUCT_LIST_FAIL:
             return { isLoading: false, error: action.payload };
         default:

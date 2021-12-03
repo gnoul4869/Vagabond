@@ -28,13 +28,9 @@ const ErrorPage = ({ error }) => {
             <div className="row">
                 <div className="col">
                     {location.pathname === '/' ? (
-                        <button
-                            type="button"
-                            className="btn btn-primary mt-5 px-2 pt-2 fs-5"
-                            onClick={() => window.location.reload()}
-                        >
+                        <a href="/" className="btn btn-primary mt-5 px-2 pt-2 fs-5">
                             <ImHome className="icon" /> Trở về trang chủ
-                        </button>
+                        </a>
                     ) : (
                         <Link to="/" className="btn btn-primary mt-5 px-2 pt-2 fs-5">
                             <ImHome className="icon" /> Trở về trang chủ

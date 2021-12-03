@@ -10,14 +10,14 @@ import {
 
 const errorMessage = 'Đã có lỗi xảy ra. Bạn vui lòng thử lại sau ít phút nữa';
 
-export const listProducts = (sort, category) => async (dispatch) => {
+export const listProducts = (sort, category, page, limit) => async (dispatch) => {
     dispatch({ type: PRODUCT_LIST_REQUEST });
     try {
         const { data } = await axios.get('/api/v1/products', {
-            params: { sort, category },
+            params: { sort, category, page, limit },
         });
-        const { products } = data;
-        dispatch({ type: PRODUCT_LIST_SUCCESS, payload: products });
+        const { total, products } = data;
+        dispatch({ type: PRODUCT_LIST_SUCCESS, payload: { total, products } });
     } catch (error) {
         dispatch({
             type: PRODUCT_LIST_FAIL,

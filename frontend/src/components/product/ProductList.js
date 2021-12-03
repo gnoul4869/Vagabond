@@ -2,25 +2,24 @@ import React, { useEffect, useState } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
 import { useHistory, useLocation, Link } from 'react-router-dom';
 import queryString from 'query-string';
+import axios from 'axios';
+import { FaCartPlus } from 'react-icons/fa';
 import { listProducts } from '../../redux/actions/productActions';
 import PriceFormat from '../PriceFormat';
-import ProductListLoading from '../loading/ProductListLoading';
 import RatingStars from '../RatingStars';
-import ErrorPage from '../../pages/error/ErrorPage';
-import { FaCartPlus } from 'react-icons/fa';
 import { addToCart } from '../../redux/actions/cartActions';
 import InfoModal from '../modals/InfoModal';
-import Pagination from '../pagination/PaginationOptions';
-import { paginationButtons, paginationSelections } from '../../data/paginationData';
-import PaginationLoading from '../loading/PaginationLoading';
-import axios from 'axios';
+import PaginationOptions from '../pagination/PaginationOptions';
 import PaginationPaging from '../pagination/PaginationPaging';
+import { paginationButtons, paginationSelections } from '../../data/paginationData';
+import ProductListLoading from '../loading/ProductListLoading';
+import ErrorPage from '../../pages/error/ErrorPage';
 
 const ProductList = () => {
     const dispatch = useDispatch();
     const location = useLocation();
     const history = useHistory();
-    const { isLoading, products, error } = useSelector((state) => state.productList);
+    const { isLoading, total, products, error } = useSelector((state) => state.productList);
     const cart = useSelector((state) => state.cart);
 
     const [isModalShown, setIsModalShown] = useState(false);
@@ -31,18 +30,22 @@ const ProductList = () => {
     const search = queryString.parse(location.search);
     const [sort, setSort] = useState(search.sort ? search.sort : 'relevance');
     const [category, setCategory] = useState(search.category ? search.category : '');
+    const [page, setPage] = useState(search.page ? search.page : 1);
+    const limit = 15;
 
     const [productCategories, setproductCategories] = useState([]);
 
-    // const isInitialLoad = true;
     const [isInitialLoad, setIsInitialLoad] = useState(true);
 
-    const queryHandler = (sortValue, categoryValue) => {
+    const queryHandler = (sortValue, categoryValue, pageValue) => {
         if (sortValue) {
             setSort(sortValue);
         }
         if (categoryValue && categoryValue !== 'all') {
             setCategory(categoryValue);
+        }
+        if (pageValue) {
+            setPage(pageValue);
         }
 
         const query = {};
@@ -52,10 +55,18 @@ const ProductList = () => {
         if (categoryValue || category) {
             query.category = categoryValue || category;
         }
+        if (pageValue || page) {
+            query.page = pageValue || page;
+        }
 
         if (categoryValue === 'all') {
             delete query.category;
             setCategory('');
+        }
+
+        if (sortValue || categoryValue) {
+            delete query.page;
+            setPage(1);
         }
 
         history.push({
@@ -76,6 +87,9 @@ const ProductList = () => {
         }
         if (!search.category) {
             setCategory('');
+        }
+        if (!search.page) {
+            setPage(1);
         }
     }, [search]);
 
@@ -131,8 +145,8 @@ const ProductList = () => {
     }, [cart.error, cart.isDone, cart.modalError, isModalShown]);
 
     useEffect(() => {
-        dispatch(listProducts(sort, category));
-    }, [category, dispatch, sort]);
+        dispatch(listProducts(sort, category, page, limit));
+    }, [category, dispatch, page, sort]);
 
     if (error || cartError || localError) {
         return <ErrorPage error={error || cartError || localError} />;
@@ -140,18 +154,16 @@ const ProductList = () => {
 
     return (
         <>
-            {isInitialLoad ? (
-                <PaginationLoading buttons={paginationButtons} selection={true} category={true} />
-            ) : (
-                <Pagination
-                    buttons={paginationButtons}
-                    selections={paginationSelections}
-                    categories={productCategories}
-                    sort={sort}
-                    category={category}
-                    queryHandler={queryHandler}
-                />
-            )}
+            <PaginationOptions
+                buttons={paginationButtons}
+                selections={paginationSelections}
+                categories={productCategories}
+                sort={sort}
+                category={category}
+                queryHandler={queryHandler}
+                isLoading={isLoading}
+            />
+
             <section className="container d-flex flex-wrap p-0 pt-1">
                 {isLoading || !products ? (
                     <ProductListLoading />
@@ -201,7 +213,15 @@ const ProductList = () => {
                     })
                 )}
             </section>
-            <PaginationPaging />
+
+            <PaginationPaging
+                total={total}
+                page={page}
+                queryHandler={queryHandler}
+                limit={limit}
+                isLoading={isLoading}
+            />
+
             {isModalShown && (
                 <InfoModal
                     message={modalError ? modalError : 'Sản phẩm đã được thêm vào giỏ hàng'}
