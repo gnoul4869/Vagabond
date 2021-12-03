@@ -70,37 +70,41 @@ const ProductList = () => {
     };
 
     useEffect(() => {
+        let mounted = true;
+
         if (isInitialLoad) {
             const getProductCategories = async () => {
                 try {
                     const { data } = await axios.get('/api/v1/products/categories');
                     const { categories } = data;
 
-                    setproductCategories(categories.sort((a, b) => a.localeCompare(b)));
+                    if (mounted) {
+                        setproductCategories(categories.sort((a, b) => a.localeCompare(b)));
+                    }
                 } catch (error) {
-                    setLocalError(
-                        error.response && error.response.data.message
-                            ? error.response.data.message
-                            : 'Đã có lỗi xảy ra. Bạn vui lòng thử lại sau ít phút nữa'
-                    );
+                    if (mounted) {
+                        setLocalError(
+                            error.response && error.response.data.message
+                                ? error.response.data.message
+                                : 'Đã có lỗi xảy ra. Bạn vui lòng thử lại sau ít phút nữa'
+                        );
+                    }
                 }
             };
 
             getProductCategories();
         }
+
+        return () => {
+            mounted = false;
+        };
     }, [isInitialLoad]);
 
     useEffect(() => {
-        if (products) {
+        if (productCategories.length !== 0 && !isLoading) {
             setIsInitialLoad(false);
         }
-    }, [products]);
-
-    useEffect(() => {
-        if (productCategories.length === 0 && !isInitialLoad) {
-            setIsInitialLoad(true);
-        }
-    }, [isInitialLoad, productCategories.length]);
+    }, [isLoading, productCategories.length, products]);
 
     useEffect(() => {
         if (cart.isDone === true) {
@@ -124,11 +128,9 @@ const ProductList = () => {
         return <ErrorPage error={error || cartError || localError} />;
     }
 
-    console.log(productCategories.length, products, isInitialLoad);
-
     return (
         <>
-            {productCategories.length === 0 || (!products && isInitialLoad) ? (
+            {isInitialLoad ? (
                 <PaginationLoading buttons={paginationButtons} selection={true} category={true} />
             ) : (
                 <Pagination
