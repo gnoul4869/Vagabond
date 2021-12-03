@@ -51,7 +51,11 @@ const ProductList = () => {
 
         const query = {};
 
-        query.search = search;
+        if (search) {
+            query.search = search;
+        } else {
+            delete query.search;
+        }
 
         if (sortValue || sort) {
             query.sort = sortValue || sort;
