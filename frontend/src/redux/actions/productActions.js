@@ -10,11 +10,11 @@ import {
 
 const errorMessage = 'Đã có lỗi xảy ra. Bạn vui lòng thử lại sau ít phút nữa';
 
-export const listProducts = (sort, category, page, limit) => async (dispatch) => {
+export const listProducts = (search, sort, category, page, limit) => async (dispatch) => {
     dispatch({ type: PRODUCT_LIST_REQUEST });
     try {
         const { data } = await axios.get('/api/v1/products', {
-            params: { sort, category, page, limit },
+            params: { search, sort, category, page, limit },
         });
         const { total, products } = data;
         dispatch({ type: PRODUCT_LIST_SUCCESS, payload: { total, products } });

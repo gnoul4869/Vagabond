@@ -3,12 +3,21 @@ import { NotFoundError } from '../errors/custom-api-error.js';
 import { StatusCodes } from 'http-status-codes';
 
 export const getAllProducts = async (req, res) => {
-    const { productIDs, sort, category } = req.query;
+    const { productIDs, search, sort, category } = req.query;
 
     const query = {};
 
     if (productIDs) {
         query._id = { $in: productIDs };
+    }
+
+    if (search) {
+        const searchRegExp = new RegExp(search, 'i');
+        query.$or = [
+            { name: searchRegExp },
+            { brand: searchRegExp },
+            { description: searchRegExp },
+        ];
     }
 
     if (category) {

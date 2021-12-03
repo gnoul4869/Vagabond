@@ -4,7 +4,7 @@ import { ImHome } from 'react-icons/im';
 import { useLocation } from 'react-router';
 import { Link } from 'react-router-dom';
 
-const ErrorPage = ({ error }) => {
+const ErrorPage = ({ error, hasButton }) => {
     const location = useLocation();
 
     return (
@@ -25,19 +25,21 @@ const ErrorPage = ({ error }) => {
                     <span className="fs-3">{error}</span>
                 </div>
             </div>
-            <div className="row">
-                <div className="col">
-                    {location.pathname === '/' ? (
-                        <a href="/" className="btn btn-primary mt-5 px-2 pt-2 fs-5">
-                            <ImHome className="icon" /> Trở về trang chủ
-                        </a>
-                    ) : (
-                        <Link to="/" className="btn btn-primary mt-5 px-2 pt-2 fs-5">
-                            <ImHome className="icon" /> Trở về trang chủ
-                        </Link>
-                    )}
+            {hasButton && (
+                <div className="row">
+                    <div className="col">
+                        {location.pathname === '/' ? (
+                            <a href="/" className="btn btn-primary mt-5 px-2 pt-2 fs-5">
+                                <ImHome className="icon" /> Trở về trang chủ
+                            </a>
+                        ) : (
+                            <Link to="/" className="btn btn-primary mt-5 px-2 pt-2 fs-5">
+                                <ImHome className="icon" /> Trở về trang chủ
+                            </Link>
+                        )}
+                    </div>
                 </div>
-            </div>
+            )}
         </section>
     );
 };

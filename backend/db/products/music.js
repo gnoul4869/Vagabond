@@ -74,7 +74,7 @@ export const music = [
         images: ['https://i.ibb.co/D5pb8td/dan-chong-xuoc-dan-guitar-01.jpg'],
     },
     {
-        name: 'Fender CN-60S Black',
+        name: 'Đàn Guitar Fender CN-60S Black',
         category: 'Âm nhạc',
         price: 5950000,
         countInStock: 60,
@@ -85,7 +85,7 @@ export const music = [
         images: ['https://i.ibb.co/hCd7NCJ/fender-cn-60s-black-01.jpg'],
     },
     {
-        name: 'Fender Vintera Road Worn 50s Telecaster',
+        name: 'Đàn Guitar Fender Vintera Road Worn 50s Telecaster',
         category: 'Âm nhạc',
         price: 29400000,
         countInStock: 10,

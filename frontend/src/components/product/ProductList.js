@@ -27,10 +27,11 @@ const ProductList = () => {
     const [modalError, setModalError] = useState('');
     const [localError, setLocalError] = useState('');
 
-    const search = queryString.parse(location.search);
-    const [sort, setSort] = useState(search.sort ? search.sort : 'relevance');
-    const [category, setCategory] = useState(search.category ? search.category : '');
-    const [page, setPage] = useState(search.page ? search.page : 1);
+    const searchQuery = queryString.parse(location.search);
+    const [search, setSearch] = useState(searchQuery.search ? searchQuery.search : '');
+    const [sort, setSort] = useState(searchQuery.sort ? searchQuery.sort : 'relevance');
+    const [category, setCategory] = useState(searchQuery.category ? searchQuery.category : '');
+    const [page, setPage] = useState(searchQuery.page ? searchQuery.page : 1);
     const limit = 15;
 
     const [productCategories, setproductCategories] = useState([]);
@@ -49,6 +50,9 @@ const ProductList = () => {
         }
 
         const query = {};
+
+        query.search = search;
+
         if (sortValue || sort) {
             query.sort = sortValue || sort;
         }
@@ -82,16 +86,17 @@ const ProductList = () => {
     };
 
     useEffect(() => {
-        if (!search.sort) {
+        setSearch(searchQuery.search ? searchQuery.search : '');
+        if (!searchQuery.sort) {
             setSort('relevance');
         }
-        if (!search.category) {
+        if (!searchQuery.category) {
             setCategory('');
         }
-        if (!search.page) {
+        if (!searchQuery.page) {
             setPage(1);
         }
-    }, [search]);
+    }, [searchQuery]);
 
     useEffect(() => {
         let mounted = true;
@@ -145,12 +150,8 @@ const ProductList = () => {
     }, [cart.error, cart.isDone, cart.modalError, isModalShown]);
 
     useEffect(() => {
-        dispatch(listProducts(sort, category, page, limit));
-    }, [category, dispatch, page, sort]);
-
-    if (error || cartError || localError) {
-        return <ErrorPage error={error || cartError || localError} />;
-    }
+        dispatch(listProducts(search, sort, category, page, limit));
+    }, [dispatch, search, sort, category, page]);
 
     return (
         <>
@@ -161,72 +162,83 @@ const ProductList = () => {
                 sort={sort}
                 category={category}
                 queryHandler={queryHandler}
-                isLoading={isLoading}
+                isLoading={isInitialLoad}
             />
 
-            <section className="container d-flex flex-wrap p-0 pt-1">
-                {isLoading || !products ? (
-                    <ProductListLoading />
-                ) : (
-                    products &&
-                    products.map((item) => {
-                        return (
-                            <div key={item.id} className="product-wrapper">
-                                <div className="product-container">
-                                    <Link to={`/product/${item.id}`} className="link-inherit">
-                                        <div className="product-image-container">
-                                            <img
-                                                src={item.images[0]}
-                                                alt={item.name}
-                                                className="product-image"
-                                            />
-                                        </div>
-                                        <div className="product-name line-clamp-2">{item.name}</div>
-                                    </Link>
+            {error || cartError || localError ? (
+                <ErrorPage error={error || cartError || localError} hasButton={false} />
+            ) : (
+                <>
+                    <section className="container d-flex flex-wrap p-0 pt-1">
+                        {isLoading || !products ? (
+                            <ProductListLoading />
+                        ) : (
+                            products &&
+                            products.map((item) => {
+                                return (
+                                    <div key={item.id} className="product-wrapper">
+                                        <div className="product-container">
+                                            <Link
+                                                to={`/product/${item.id}`}
+                                                className="link-inherit"
+                                            >
+                                                <div className="product-image-container">
+                                                    <img
+                                                        src={item.images[0]}
+                                                        alt={item.name}
+                                                        className="product-image"
+                                                    />
+                                                </div>
+                                                <div className="product-name line-clamp-2">
+                                                    {item.name}
+                                                </div>
+                                            </Link>
 
-                                    <div className="product-bottom">
-                                        <div className="product-info-container">
-                                            <div className="product-price">
-                                                <PriceFormat price={item.price} />
-                                            </div>
-                                            <div className="product-rating">
-                                                <RatingStars
-                                                    rating={item.rating}
-                                                    numReviews={item.numReviews}
-                                                />
-                                                <span className="text-secondary">
-                                                    | {`${item.numReviews} lượt đánh giá`}
-                                                </span>
+                                            <div className="product-bottom">
+                                                <div className="product-info-container">
+                                                    <div className="product-price">
+                                                        <PriceFormat price={item.price} />
+                                                    </div>
+                                                    <div className="product-rating">
+                                                        <RatingStars
+                                                            rating={item.rating}
+                                                            numReviews={item.numReviews}
+                                                        />
+                                                        <span className="text-secondary">
+                                                            | {`${item.numReviews} lượt đánh giá`}
+                                                        </span>
+                                                    </div>
+                                                </div>
+                                                <button
+                                                    type="button"
+                                                    className="product-cart-btn"
+                                                    onClick={() => cartBtnHandler(item.id)}
+                                                >
+                                                    <FaCartPlus className="icon" />
+                                                </button>
                                             </div>
                                         </div>
-                                        <button
-                                            type="button"
-                                            className="product-cart-btn"
-                                            onClick={() => cartBtnHandler(item.id)}
-                                        >
-                                            <FaCartPlus className="icon" />
-                                        </button>
                                     </div>
-                                </div>
-                            </div>
-                        );
-                    })
-                )}
-            </section>
+                                );
+                            })
+                        )}
+                    </section>
 
-            <PaginationPaging
-                total={total}
-                page={page}
-                queryHandler={queryHandler}
-                limit={limit}
-                isLoading={isLoading}
-            />
+                    <PaginationPaging
+                        total={total}
+                        page={page}
+                        queryHandler={queryHandler}
+                        limit={limit}
+                        isLoading={isLoading}
+                    />
 
-            {isModalShown && (
-                <InfoModal
-                    message={modalError ? modalError : 'Sản phẩm đã được thêm vào giỏ hàng'}
-                    isError={modalError}
-                />
+                    {isModalShown && (
+                        <InfoModal
+                            message={modalError ? modalError : 'Sản phẩm đã được thêm vào giỏ hàng'}
+                            isError={modalError}
+                        />
+                    )}
+                </>
             )}
         </>
     );
