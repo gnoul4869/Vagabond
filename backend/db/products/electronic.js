@@ -30,7 +30,71 @@ export const electronic = [
         ],
     },
     {
-        name: 'Tay Cầm PS5 Sony DualSense Controller Play Station 5',
+        name: 'Vòng đeo tay thông minh Mi Band 6',
+        category: 'Điện tử',
+        price: 990000,
+        countInStock: 140,
+        brand: 'Xiaomi',
+        weight: 650,
+        description:
+            'Vòng đeo tay thông minh Mi Band 6 là phiên bản đáng mong đợi của nhà Xiaomi với thiết kế màn hình tràn viền cho bạn góc nhìn tốt hơn. Mặt kính cường lực chống trầy xước tốt cùng dây đeo cao su với thiết kế ôm trọn cổ tay, không thấm nước khi đeo, mang lại cho bạn cảm giác dễ chịu cả ngày dài.\n\nMàn hình cảm ứng AMOLED và độ sáng tối đa được tăng cường lên ngưỡng 450 nits, điều này giúp nâng cao chất lượng hình ảnh đầu ra từ các vị trí góc nhìn mở rộng, cho khả năng hiển thị ngoài trời được tốt hơn. Mặt kính cường lực bảo vệ đồng hồ khi va đập và trầy xước, tăng độ bền cho thiết bị.\nMàn hình 1.56 inch cùng độ phân giải là 152 x 486 pixels, lớn hơn khoảng 50% so với Mi Band 5 (Mi Band 5 có màn hình 1.1 inch). Mật độ điểm ảnh trên Mi Band 6 được nâng cấp lên đến 326ppi, giúp cho các chi tiết trên màn hình được hiển thị sắc nét hơn.\n\nThêm một điểm mới nổi bật nữa thu hút người dùng trên Mi Band 6 đó là kho giao diện mặt đồng hồ với số lượng hơn 130 giao diện màn hình, tha hồ để bạn lựa chọn theo sở thích cá nhân.\n\nSử dụng công nghệ Bluetooth 5.0, có khả năng kết nối điện thoại qua ứng dụng Mifit ở cả hai hệ điều hành Android và iOS, người dùng có thể cài đặt chế độ tùy chỉnh cho phép đồng hồ hiển thị tin nhắn, cuộc gọi, các thông báo ứng dụng (Zalo, Messenger, Gmail,…) vô cùng tiện lợi khi đang lái xe, không tiện mở điện thoại ra xem, tránh bỏ lỡ các thông báo quan trọng.\n\nVòng đeo tay thông minh này được trang bị viên pin 125 mAh cho thời lượng pin sử dụng khá tốt lên đến 15 ngày. Bạn chỉ cần khoảng 1.5 giờ để sạc đầy với đế sạc nam châm, người dùng không cần phải sạc pin mỗi ngày, cho bạn thoải mái trải nghiệm và tận hưởng.\n\nMi Band 6 với chức năng theo dõi nhịp tim người dùng 24/7 với độ chính xác cao. Đồng thời, thiết bị cũng mang đến cho bạn khả năng theo dõi giấc ngủ, đưa ra các chỉ số đánh giá chất lượng giấc ngủ, từ đó cho bạn những lời khuyên giúp cải thiện và nâng cao chất lượng của giấc ngủ.\nNgoài ra vòng đeo tay thông minh này còn có chức năng theo dõi chu kì kinh nguyệt, hướng đến những người dùng là phái nữ, giúp chăm sóc sức khỏe của bạn tốt hơn.',
+        images: [
+            'https://i.ibb.co/3vxN1FH/mi-band-6-01.jpg',
+            'https://i.ibb.co/MSwb4Gp/mi-band-6-02.jpg',
+            'https://i.ibb.co/Qc8gWny/mi-band-6-03.jpg',
+            'https://i.ibb.co/pvbyJ7M/mi-band-6-04.jpg',
+            'https://i.ibb.co/QJG77Pf/mi-band-6-05.jpg',
+        ],
+    },
+    {
+        name: 'Đèn led treo màn hình máy tính Mijia MJGJD01YL',
+        category: 'Điện tử',
+        price: 850000,
+        countInStock: 100,
+        brand: 'Mijia',
+        weight: 1300,
+        description:
+            'Đèn led treo màn hình máy tính Mijia MJGJD01YL là sản phẩm không thể thiếu nếu bạn thường xuyên làm việc với máy tính mà muốn bảo vệ mắt, tăng tập trung để nâng cao hiệu quả.\nNếu bạn thường xuyên sử dụng máy tính (và laptop), ánh sáng môi trường sẽ ảnh hưởng rất nhiều đến sự tập trung và đặc biệt là rất hại mắt.\n\nĐèn treo màn hình Mijia light bar là một ứng cử viên sáng giá với nhiều tính năng nổi bật như núm điều khiển xoay hiện đại, kẹp từ tính chắc chắc, điều khiển qua app cho độ chính xác cao, đặc biệt đèn Led cho dải nhiệt độ màu rộng từ 2700 – 6500K.\n\nĐèn treo màn hình bảo vệ mắt Mijia MJGJD01YL có tác dụng chiếu sáng phạm vi hẹp gồm màn hình và bàn làm việc mang đến không gian làm việc thoải mái cho người sử dụng đồng thời không ảnh hưởng đến mọi người xung quanh.\n\nVới thiết kế dạng treo thông minh và tiện dụng , Mijia MJGJD01YL có thể được treo gọn lên trên màn hình. Thiết kế này vừa giúp tăng hiệu quả chiếu sáng vừa tiết kiệm không gian bàn làm việc.\n\nĐèn treo màn hình bảo vệ mắt Mijia có kích thước thân đèn: ø23x448mm từ tính dễ dàng lắp đặt.',
+        images: [
+            'https://i.ibb.co/Zh6FJtf/mijia-mjgjd01yl-01.jpg',
+            'https://i.ibb.co/xgpQbSt/mijia-mjgjd01yl-02.jpg',
+        ],
+    },
+    {
+        name: 'Máy chơi game Nintendo Switch OLED Model Neon Set',
+        category: 'Điện tử',
+        price: 9990000,
+        countInStock: 80,
+        brand: 'Nintendo',
+        weight: 1450,
+        description:
+            'Nintendo Switch OLED Model Neon Set trình làng với những cải tiến mới hướng đến nâng cao trải nghiệm cho người chơi. Máy không chỉ được trang bị màn hình tốt hơn, lớn hơn, mà còn có thiết kế lại kiểu dáng chân dựng, loa, thêm tính năng cho Dock... Máy Nintendo Switch đã tốt, Nintendo Switch OLED Model còn tốt hơn.\n\nMáy Nintendo Switch phiên bản mới nhất 2021 OLED Model, với nâng cấp mới màn hình OLED 7 inch rực rỡ, chân đế Stan có thể điều chỉnh, đế cắm Dock với cổng LAN có dây, bộ nhớ trong 64 GB và âm thanh nâng cao.\n\nTận mắt chứng kiến ​​màu sắc sống động và độ tương phản rõ nét khi bạn chơi khi đang di chuyển. Xem sự khác biệt mà màn hình sống động tạo ra, cho dù bạn đang chạy đua ở tốc độ cao nhất hay đối đầu với kẻ thù.\n\nHệ thống Nintendo Switch và Nintendo Switch (OLED Model) được thiết kế để phù hợp với cuộc sống của bạn, chuyển đổi từ bảng điều khiển gia đình sang hệ thống di động chỉ trong tích tắc!',
+        images: [
+            'https://i.ibb.co/Q9f2HN2/nintendo-switch-oled-model-neon-set-01.webp',
+            'https://i.ibb.co/hfbJ4Sj/nintendo-switch-oled-model-neon-set-02.webp',
+            'https://i.ibb.co/DrkmMJ4/nintendo-switch-oled-model-neon-set-03.webp',
+            'https://i.ibb.co/S6tWV1G/nintendo-switch-oled-model-neon-set-04.webp',
+        ],
+    },
+    {
+        name: 'Máy chơi game Sony Playstation 5 (PS5) Standard Edition',
+        category: 'Điện tử',
+        price: 19000000,
+        countInStock: 60,
+        brand: 'Sony',
+        weight: 4000,
+        description:
+            'Chiếc máy chơi game thế hệ mới của Sony được thiết kế với những đường cong mềm mại, không góc cạnh giống như những phiên bản tiền nhiệm, tạo nên sự sang trọng tinh tế, và vẫn mang được chất Gaming của chiếc máy.\n\nTrải nghiệm tốc độ siêu nhanh đến từ ổ cứng SSD tốc độ cao. Đắm chìm vào game với những trải nghiệm đến từ âm thanh 3D* siêu thực cùng thế hệ trò chơi PlayStation® hoàn toàn mới.\n\nTối đa hóa các phiên chơi của bạn với thời gian tải gần như tức thì cho các trò chơi PS5 ™ đã cài đặt.\n\nViệc tích hợp tùy chỉnh các hệ thống của bảng điều khiển PS5 cho phép người sáng tạo lấy dữ liệu từ SSD nhanh đến mức họ có thể thiết kế trò chơi theo những cách chưa từng có trước đây.\n\nNgạc nhiên trước đồ họa đáng kinh ngạc và trải nghiệm các tính năng mới của PS5.\n\nĐắm mình trong thế giới với mức độ hiện thực mới khi các tia sáng được mô phỏng riêng biệt, tạo ra bóng và phản chiếu chân thực trong các trò chơi PS5 được hỗ trợ.\n\nChơi các game yêu thích của bạn với độ phân giải 4k cực nét trên TV\n\nTận hưởng trải nghiệm chơi trò chơi tốc độ khung hình cao mượt mà và trôi chảy ở tốc độ lên đến 120 khung hình / giây cho các trò chơi tương thích, với hỗ trợ đầu ra 120Hz trên màn hình 4K.\n\nVới TV HDR, các trò chơi PS5 được hỗ trợ hiển thị dải màu sắc sống động và chân thực đến khó tin.\n\nPS5 hỗ trợ Đầu ra 8K, vì vậy bạn có thể chơi trò chơi trên màn hình độ phân giải 4320p của mình.\n\nTay cầm thế hệ mới của PS5 với khả năng đem lại cảm giác phản hồi tốt hơn, kèm theo đó là micro được tích hợp với nút bật tắt vô cùng tiện lợi\n\nTrải nghiệm phản hồi xúc giác qua bộ điều khiển không dây DualSense trong các tựa game PS5 được chọn và cảm nhận hiệu ứng và tác động của các hành động trong trò chơi của bạn thông qua phản hồi cảm giác động.\n\nNắm bắt rõ các trình kích hoạt thích ứng nhập vai, có các mức độ kháng động mô phỏng tác động vật lý của các hoạt động trong trò chơi trong một số trò chơi PS5.\n\nCấu hình mạnh mẽ, cùng với đó là kho game AAA độc quyền, chắc chắn sẽ làm hài lòng bất cứ game thủ nào!',
+        images: [
+            'https://i.ibb.co/44QnGd8/playstation-5-01.jpg',
+            'https://i.ibb.co/K6yJTz9/playstation-5-02.jpg',
+            'https://i.ibb.co/zPqxFHj/playstation-5-03.jpg',
+            'https://i.ibb.co/dt3QN8F/playstation-5-04.png',
+            'https://i.ibb.co/r0pn8r0/playstation-5-05.jpg',
+        ],
+    },
+    {
+        name: 'Tay Cầm PS5 Sony DualSense Controller Playstation 5',
         category: 'Điện tử',
         price: 1200000,
         countInStock: 120,
@@ -42,6 +106,22 @@ export const electronic = [
             'https://i.ibb.co/GV7283X/ps5-controller-01.jpg',
             'https://i.ibb.co/z52XKZ9/ps5-controller-02.jpg',
             'https://i.ibb.co/DpT1mzT/ps5-controller-03.png',
+        ],
+    },
+    {
+        name: 'Tay nghe Redmi AirDots 3 Pro',
+        category: 'Điện tử',
+        price: 1250000,
+        countInStock: 70,
+        brand: 'Xiaomi',
+        weight: 500,
+        description:
+            'Phiên bản Pro lần này mang tới một sự thay đổi hoàn toàn về thiết kế. Nếu như Redmi AirDots 3 bản tiêu chuẩn có thiết kế tương đối phổ thông và giống với đa số các mẫu tai nghe không dây TWS trên thị trường thì bản Pro đi theo một phong cách riêng khá mới mẻ.\n\nNgoại hình của Redmi AirDots 3 Pro khá giống với mẫu tai nghe không dây TWS Pixel Buds tới từ Google. Chiếc tai nghe này đi kèm driver âm thanh 9mm cùng 3 microphone thu âm hỗ trợ tối ưu hoá chất giọng của người nói cũng như hỗ trợ cho khả năng chống ồn chủ động ANC. Theo Redmi quảng cáo, AirDots 3 Pro cho khả năng khử ồn tới 35dB.\n\nRedmi AirDots 3 Pro hỗ trợ công nghệ Bluetooth 5.2 mới cho phép kết nối tới nhiều thiết bị cùng lúc, được tối ưu hoá khi sử dụng cùng với các thiết bị smartphone chạy MIUI, giảm thiểu độ trễ khi sử dụng với các thiết bị của Xiaomi.\n\nRedmi AirDots 3 Pro trang bị viên pin dung lượng 35mAh cho mỗi tai, cho phép người dùng có thể nghe nhạc liên tục trong vòng 6 giờ liên tục, hoặc 3 giờ liên tục nếu có bật chống ồn ANC. Đây là một thời lượng pin ở mức trung bình khá. Ngoài ra, case sạc của tai nghe có viên pin 470mAh có thể cung cấp tổng cộng 28 giờ nghe nhạc liên tục. Sản phẩm sử dụng cổng sạc USB-C và có hỗ trợ sạc không dây chuẩn Qi, tương thích với công nghệ sạc ngược không dây hiện có trên nhiều smartphone hiện nay.',
+        images: [
+            'https://i.ibb.co/YPd08k7/redmi-airdots-3-pro-01.jpg',
+            'https://i.ibb.co/zX1jXmC/redmi-airdots-3-pro-02.jpg',
+            'https://i.ibb.co/q0RsgDx/redmi-airdots-3-pro-03.jpg',
+            'https://i.ibb.co/CJFJbpV/redmi-airdots-3-pro-04.jpg',
         ],
     },
     {
