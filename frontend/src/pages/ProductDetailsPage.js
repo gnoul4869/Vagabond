@@ -72,10 +72,10 @@ const ProductDetailsPage = () => {
                     <>
                         <BreadCrumbs category={product.category} name={product.name} />
                         <section>
-                            <div className="container bg-white">
+                            <div className="container bg-white px-0 px-lg-2">
                                 <div className="container p-3">
-                                    <div className="row h-3">
-                                        <div className="col-12 col-md-6 mx-auto">
+                                    <div className="row">
+                                        <div className="col-12 col-md-6 mx-auto px-0 d-flex align-items-center">
                                             <ProductCarousel
                                                 images={product.images}
                                                 name={product.name}

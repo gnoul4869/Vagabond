@@ -1,5 +1,5 @@
 import React, { useEffect, useState } from 'react';
-import { MdChevronRight, MdChevronLeft } from 'react-icons/md';
+import { HiOutlineChevronLeft, HiOutlineChevronRight } from 'react-icons/hi';
 
 const ProductCarousel = ({ images, name }) => {
     const [imageArray, setImageArray] = useState(5);
@@ -22,7 +22,7 @@ const ProductCarousel = ({ images, name }) => {
     }, [newImages, imageNo]);
 
     return (
-        <div className="container mb-4 mb-lg-0">
+        <div className="container mb-4 mb-lg-0 px-1 px-lg-4">
             <div className="row justify-content-center">
                 <div className="product-carousel-main-img-container">
                     <img src={image} alt={name} className="product-carousel-main-img" />
@@ -40,7 +40,7 @@ const ProductCarousel = ({ images, name }) => {
                             className="product-carousel-btn p-0"
                             onClick={() => imageButtonHandler(imageNo - 1)}
                         >
-                            <MdChevronLeft className="icon" />
+                            <HiOutlineChevronLeft className="icon" />
                         </button>
                     </div>
                 )}
@@ -68,7 +68,7 @@ const ProductCarousel = ({ images, name }) => {
                             className="product-carousel-btn p-0"
                             onClick={() => imageButtonHandler(imageNo + 1)}
                         >
-                            <MdChevronRight className="icon" />
+                            <HiOutlineChevronRight className="icon" />
                         </button>
                     </div>
                 )}

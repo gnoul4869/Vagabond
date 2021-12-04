@@ -5,11 +5,11 @@ const ProductDescription = ({ category, brand, weight, description }) => {
         <>
             <div className="container bg-white mt-3 p-3">
                 <div className="bg-label container rounded mb-3">
-                    <div className="product-description-label fs-4">Chi tiết sản phẩm</div>
+                    <div className="fw-600 fsr-4">Chi tiết sản phẩm</div>
                 </div>
-                <div className="container p-3">
+                <div className="container fsr-2 p-3">
                     <div className="row">
-                        <div className="col-4 col-md-3 col-lg-2 text-secondary product-description-label">
+                        <div className="col-4 col-md-3 col-lg-2 text-secondary fw-600">
                             <span>Danh mục</span>
                         </div>
                         <div className="col p-0">
@@ -17,7 +17,7 @@ const ProductDescription = ({ category, brand, weight, description }) => {
                         </div>
                     </div>
                     <div className="row mt-3">
-                        <div className="col-4 col-md-3 col-lg-2 text-secondary product-description-label">
+                        <div className="col-4 col-md-3 col-lg-2 text-secondary fw-600">
                             <span>Thương hiệu</span>
                         </div>
                         <div className="col p-0">
@@ -25,7 +25,7 @@ const ProductDescription = ({ category, brand, weight, description }) => {
                         </div>
                     </div>
                     <div className="row mt-3">
-                        <div className="col-4 col-md-3 col-lg-2 text-secondary product-description-label">
+                        <div className="col-4 col-md-3 col-lg-2 text-secondary fw-600">
                             <span>Khối lượng</span>
                         </div>
                         <div className="col p-0">
@@ -36,9 +36,11 @@ const ProductDescription = ({ category, brand, weight, description }) => {
             </div>
             <div className="container bg-white mt-3 p-3">
                 <div className="bg-label container rounded mb-3">
-                    <div className="product-description-label fs-4">Mô tả sản phẩm</div>
+                    <div className="fw-600 fsr-4">Mô tả sản phẩm</div>
                 </div>
-                <p className="container p-3">{description}</p>
+                <div className="container fsr-2 p-3">
+                    <p>{description}</p>
+                </div>
             </div>
         </>
     );

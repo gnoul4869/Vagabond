@@ -3,7 +3,7 @@ import { Link } from 'react-router-dom';
 
 const BreadCrumbs = (props) => {
     return (
-        <nav aria-label="breadcrumb">
+        <nav aria-label="breadcrumb" className="fsr-2">
             <ol className="breadcrumb flex-nowrap my-3">
                 <li className="breadcrumb-item">
                     <Link to="/" className="link-label">
