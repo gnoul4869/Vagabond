@@ -15,6 +15,7 @@ import ProductDescription from '../components/product/ProductDescription';
 import BreadCrumbs from '../components/BreadCrumbs';
 import { addToCart } from '../redux/actions/cartActions';
 import InfoModal from '../components/modals/InfoModal';
+import ProductReviews from '../components/product/ProductReviews';
 
 const ProductDetailsPage = () => {
     const dispatch = useDispatch();
@@ -59,7 +60,7 @@ const ProductDetailsPage = () => {
     }, [cart.error, cart.isDone, cart.modalError, isModalShown]);
 
     if (error || cartError) {
-        return <ErrorPage error={error || cartError} />;
+        return <ErrorPage error={error || cartError} backHome={true} />;
     }
 
     return (
@@ -174,6 +175,7 @@ const ProductDetailsPage = () => {
                                 weight={product.weight}
                                 description={product.description}
                             />
+                            <ProductReviews />
                         </section>
                         {isModalShown && (
                             <InfoModal

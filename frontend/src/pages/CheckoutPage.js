@@ -151,7 +151,7 @@ const CheckoutPage = () => {
     }, [history, location.pathname, userInfo]);
 
     if (error || localError) {
-        return <ErrorPage error={error || localError} />;
+        return <ErrorPage error={error || localError} backHome={true} />;
     }
 
     return (

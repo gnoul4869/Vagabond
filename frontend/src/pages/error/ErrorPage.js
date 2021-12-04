@@ -4,7 +4,7 @@ import { ImHome } from 'react-icons/im';
 import { useLocation } from 'react-router';
 import { Link } from 'react-router-dom';
 
-const ErrorPage = ({ error, hasButton }) => {
+const ErrorPage = ({ error, backHome }) => {
     const location = useLocation();
 
     return (
@@ -25,7 +25,7 @@ const ErrorPage = ({ error, hasButton }) => {
                     <span className="fs-3">{error}</span>
                 </div>
             </div>
-            {hasButton && (
+            {backHome && (
                 <div className="row">
                     <div className="col">
                         {location.pathname === '/' ? (

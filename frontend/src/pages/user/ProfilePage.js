@@ -175,7 +175,7 @@ const ProfilePage = () => {
     }, [history, location.pathname, userInfo]);
 
     if ((!userDetails && error) || componentError) {
-        return <ErrorPage error={error || componentError} />;
+        return <ErrorPage error={error || componentError} backHome={true} />;
     }
 
     return (

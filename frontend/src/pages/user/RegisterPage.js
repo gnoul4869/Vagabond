@@ -273,7 +273,7 @@ const RegisterPage = () => {
     }, [history, oldLocation, userInfo]);
 
     if (componentError) {
-        return <ErrorPage error={componentError} />;
+        return <ErrorPage error={componentError} backHome={true} />;
     }
 
     return (

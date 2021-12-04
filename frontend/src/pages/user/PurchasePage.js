@@ -58,7 +58,7 @@ const PurchasePage = () => {
     }, [history, location.pathname, userInfo]);
 
     if (error && error !== 'Không có đơn hàng nào') {
-        return <ErrorPage error={error} />;
+        return <ErrorPage error={error} backHome={true} />;
     }
 
     return (

@@ -20,7 +20,7 @@ const CartPage = () => {
     }, [dispatch]);
 
     if (error && cartItems.length > 0) {
-        return <ErrorPage error={error} />;
+        return <ErrorPage error={error} backHome={true} />;
     }
 
     return (

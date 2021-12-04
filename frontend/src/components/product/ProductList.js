@@ -171,7 +171,7 @@ const ProductList = () => {
             />
 
             {error || cartError || localError ? (
-                <ErrorPage error={error || cartError || localError} hasButton={false} />
+                <ErrorPage error={error || cartError || localError} backHome={false} />
             ) : (
                 <>
                     <section className="container d-flex flex-wrap p-0 pt-1">

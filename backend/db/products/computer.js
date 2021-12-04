@@ -22,7 +22,7 @@ export const computer = [
         price: 6750000,
         countInStock: 110,
         brand: 'Asus',
-        weight: 1350,
+        weight: 850,
         description:
             'Đưa trải nghiệm chơi trò chơi của bạn lên một tầm cao mới với Mainboard ASUS ROG STRIX B550-E GAMING AM4 ATX. Được trang bị chipset AMD B550, bo mạch chủ này hỗ trợ bộ xử lý AMD Ryzen thế hệ thứ ba với ổ cắm AM4 cho các trò chơi video và tạo nội dung cao cấp. Chipset tận dụng tối đa băng thông dữ liệu PCIe 4.0 để xử lý các tác vụ đòi hỏi như phát trực tiếp 4K, chỉnh sửa video và chơi game ở cài đặt cao. Lên đến 128GB RAM ECC DDR4 kênh đôi, đạt 4400 MHz khi được ép xung, có thể được cài đặt trên bốn khe cắm bộ nhớ để cải thiện khả năng và tốc độ đa nhiệm của hệ thống.\n\nBo mạch chủ B550-E Gaming cũng có tính năng làm mát tiên tiến và hỗ trợ tối đa hai ổ SSD M.2 và sáu ổ lưu trữ SATA III, có thể được đưa vào cấu hình RAID 0, 1 hoặc 10. Hai khe cắm PCIe 4.0 x16 của nó có thể chứa cấu hình NVIDIA SLI 2 chiều hoặc AMD CrossFireX 3 chiều để tối đa hóa tốc độ khung hình của hệ thống của bạn ở độ phân giải cao. Một khe cắm PCIe 3.0 x16 bổ sung và hai khe cắm PCIe 3.0 x1 có sẵn cho các bản mở rộng tương thích như thẻ Thunderbolt 3. Bạn có thể tận dụng bộ xử lý AMD Ryzen với đồ họa tích hợp bằng cách kết nối màn hình với cổng DisplayPort 1.2 và HDMI 2.1 của bo mạch chủ.\n\nKhiên I/O được gắn sẵn: Một tính năng thiết kế hợp lý hóa quá trình cài đặt bo mạch chủ.\nBIOS FlashBack: Có thể cập nhật BIOS bằng cách sao chép tệp BIOS vào thanh USB có định dạng FAT32, cắm nó vào cổng được chỉ định và nhấn nút FlashBack.\nCập nhật có thể được thực hiện mà không cần cài đặt CPU hoặc bộ nhớ.\nSafeSlot: Các khe PCIe mạnh này làm tăng lực giữ và chống cắt khi cài đặt các thành phần như card màn hình to nặng.\nFlexKey: Với tính năng này, nút đặt lại bảng mặt trước có thể được tùy chỉnh để thực hiện các chức năng khác nhau. Chúng bao gồm truy cập các điều khiển ánh sáng Au\nkhởi động vào chế độ an toàn của Windows và hơn thế nữa.\nQ-LED: Đèn LED trên bo mạch cho biết trạng thái nguồn và các sự cố với CPU, bộ nhớ, card đồ họa hoặc thiết bị khởi động.\nQ-Slot: Khóa bên cho phép bạn nhanh chóng cài đặt và bảo mật card đồ họa.\nQ-DIMM: Khóa một phía để nhanh chóng bảo vệ hoặc loại bỏ các mô-đun bộ nhớ.\n\nKết nối các thiết bị ngoại vi như chuột và bàn phím với cổng USB 2.0 Loại A trong khi đặt cổng USB 3.2 Gen 2 Type-A và Type-C để truyền dữ liệu từ các thiết bị tương thích với tốc độ lên tới 10 Gb/s.',
         images: [
@@ -38,7 +38,7 @@ export const computer = [
         price: 22000000,
         countInStock: 85,
         brand: 'Asus',
-        weight: 3300,
+        weight: 2700,
         description:
             'Card đồ họa ASUS TUF RTX 3060 Ti 8GB GAMING có thiết kế nâng cấp với nhiệt đứng đầu biểu đồ, đem lại hiệu năng mạnh mẽ để xử lý các tác vụ phức tạp cho cả nhu cầu công việc thông thường và chơi game 2K AAA.\n\nCác quạt đã được điều chỉnh thông minh với khả năng quay ngược chiều cho quạt ở giữa, giúp giảm hỗn loạn khí và quạt sẽ dừng hoạt động khi nhiệt độ GPU xuống dưới 55 độ.\n\nBộ tản nhiệt hút nhiệt vào các ống dẫn nhiệt đưa nó qua một ngăn xếp dạng vây, lấp đầy hầu hết diện tích rộng 2,7 khe của card.\n\nMột lớp vỏ bọc hoàn toàn bằng nhôm giúp tăng cường khả năng bảo vệ chắc chắn cho các cạc đồ họa ASUS TUF RTX 3060 Ti 8G và thiết kế công nghiệp cùng cách phối màu thang độ xám phù hợp với mọi bản dựng một cách dễ dàng.\n\nMặt sau của TUF Gaming RTX 3060Ti 8G cho thấy một loạt các cải tiến. Thép không gỉ được sử dụng cho khung I/O để bảo vệ các cổng và cung cấp giá đỡ an toàn hơn. Công tắc Dual Bios được đặt thuận tiện cho phép tùy chỉnh cấu hình hiệu suất mặc định của card mà không cần phần mềm. Hầu hết phía sau được bọc trong một tấm kim loại bảo vệ nổi bật với một lỗ thông hơi rộng. Lỗ thông hơi cho phép không khí nóng thoát ra phía quạt thông gió của thùng máy thay vì bị dội ngược trở lại bộ làm mát GPU.\n\nPhần tử RGB phía trên có thể được tùy chỉnh bằng Armoury Crate và đồng bộ hóa với các thành phần ASUS khác để cho phép chiếu sáng đồng đều. Để đáp ứng nhu cầu điện năng của TUF RTX 3060 ti 8G, 1 đầu nối nguồn 8 chân được trang bị cùng với một mạch tích hợp giám sát điện áp. Mạch đủ nhanh để bắt bất kỳ sự bất ổn nào dẫn đến điện áp giảm quá thấp. Nếu điều đó xảy ra, đèn LED màu đỏ sẽ sáng lên để bạn biết rằng nguồn điện không thể theo kịp với mức tiêu thụ điện của GPU.\n\nCác thành phần được lựa chọn cho card đồ họa ASUS TUF RTX 3060 Ti 8GB GAMING dựa trên độ bền và hiệu suất. Ngoài cuộn cảm và MOSFET cao cấp nhất, các tụ điện đáp ứng chứng nhận cấp quân sự giúp TUF đứng cao nhất trong số các đối thủ cạnh tranh. Các thành phần được hàn vào PCB bằng quy trình sản xuất tự động Auto-Extreme tiên tiến. Các khớp nối trơn tru ở phía sau của PCB và việc loại bỏ lỗi do con người đảm bảo mỗi card đồ họa đáp ứng các thông số kỹ thuật khắt khe nhất. Cuối cùng, để đảm bảo hiệu suất hoàn hảo, các thẻ phải trải qua thử nghiệm xác thực 144 giờ.',
         images: [
@@ -56,7 +56,7 @@ export const computer = [
         price: 2400000,
         countInStock: 75,
         brand: 'Gigabyte',
-        weight: 3000,
+        weight: 2000,
         description:
             'Đặc trưng\n\n80 PLUS Gold certified\n\nThiết kế hoàn toàn mô-đun\n\nQuạt chịu lực thủy lực thông minh (HYB) 120mm\n\nTụ điện chính của Nhật Bản\n\nĐường ray đơn + 12V mạnh mẽ\n\nBảo vệ OVP / OPP / SCP / UVP / OCP / OTP\n\nKích thước nhỏ gọn',
         images: [
@@ -73,7 +73,7 @@ export const computer = [
         price: 360000,
         countInStock: 90,
         brand: 'Jonsbo',
-        weight: 1800,
+        weight: 900,
         description:
             'Thiết kế dạng tháp, tích hợp quạt 12cm RGB\nTản nhiệt khí CPU RGB Jonsbo CR-1000\n\nThiết kế tản dạng tháp. Tích hợp 4 ống đồng tản nhiệt đều cho bề mặt CPU. Tích hợp quạt Jonsbo thổi gió kích thước 12cm. Sản phẩm bao gồm 1 quạt. Thông số sản phẩm: Kích thước: 130mm x 75mm x 155mm Cổng kết nối: CPU Fan 4Pin PWM Kích thước quạt: 120mm x 120mm x 25mm Tốc độ quay quạt: 700-1800rpm Nguồn điện: 12v Trọng lượng: 610gr Đèn led: đảo màu nhiều chế độ. Socket hỗ trợ:\n\nIntel: 775/1150/1151/1155/1165 AMD: AM4/AM3+/AM3/AM2+/AM2/FM2+/FM2/FM1',
         images: [
