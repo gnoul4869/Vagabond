@@ -1,6 +1,7 @@
 import { StatusCodes } from 'http-status-codes';
 import Review from '../models/review.model.js';
 import { BadRequestError, NotFoundError } from '../errors/custom-api-error.js';
+import Product from '../models/product.model.js';
 
 export const getAllReviews = async (req, res) => {
     const { productID } = req.query;
@@ -48,6 +49,16 @@ export const createReview = async (req, res) => {
         createdIn: productID,
         createdBy: req.user.id,
     });
+
+    const product = await Product.findById({ _id: review.createdIn });
+
+    const productNumReviews = product.numReviews + 1;
+    const productRating = (product.rating + review.rating) / productNumReviews;
+
+    await Product.findByIdAndUpdate(
+        { _id: review.createdIn },
+        { rating: productRating, numReviews: productNumReviews }
+    );
 
     res.status(StatusCodes.OK).json({ review });
 };
