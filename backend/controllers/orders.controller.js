@@ -7,11 +7,11 @@ import { generateInfoEmail } from '../utils/generate-info-email.js';
 export const createOrder = async (req, res) => {
     const { products, shippingFee } = req.body;
 
-    const user = { ...req.body.user, id: req.user.id };
-
-    if (!user) {
+    if (!req.body.user) {
         throw new BadRequestError('Hãy cung cấp thông tin người đặt hàng');
     }
+
+    const user = { ...req.body.user, id: req.user.id };
 
     if (products.length === 0) {
         throw new BadRequestError('Giỏ hàng không được trống');
@@ -30,7 +30,7 @@ export const createOrder = async (req, res) => {
     res.status(StatusCodes.CREATED).json({ order });
 };
 
-export const getOrders = async (req, res) => {
+export const getAllOrders = async (req, res) => {
     const isAdmin = req.query.isAdmin;
     const status = req.query.status;
     const page = Number(req.query.page) || 1;
@@ -116,7 +116,6 @@ export const updateOrder = async (req, res) => {
                     runValidators: true,
                 }
             );
-            3;
         }
     }
 

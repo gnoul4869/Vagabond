@@ -1,5 +1,5 @@
 import express from 'express';
-import { getUserDetails, updateUserDetails } from '../controllers/user.controller.js';
+import { getUserDetails, updateUserDetails } from '../controllers/users.controller.js';
 import multer from 'multer';
 
 const upload = multer({

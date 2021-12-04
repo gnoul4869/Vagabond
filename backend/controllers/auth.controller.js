@@ -1,8 +1,9 @@
 import User from '../models/user.model.js';
 import { StatusCodes } from 'http-status-codes';
-import { BadRequestError, AuthenticationError } from '../errors/custom-api-error.js';
 import moment from 'moment';
 import Address from '../models/address.model.js';
+import Verification from '../models/verification.model.js';
+import { BadRequestError, AuthenticationError } from '../errors/custom-api-error.js';
 
 export const register = async (req, res) => {
     const {
@@ -23,6 +24,12 @@ export const register = async (req, res) => {
 
     if (!email) {
         throw new BadRequestError('Hãy nhập email của bạn');
+    }
+
+    const isEmailVerified = await Verification.findOne({ email });
+
+    if (!isEmailVerified) {
+        throw new BadRequestError('Email này chưa được xác nhận hoặc đã quá thời hạn xác nhận');
     }
 
     if (
@@ -136,6 +143,7 @@ export const register = async (req, res) => {
         addressDetails,
         createdBy: user.id,
     });
+
     const token = await user.createJWT();
     res.status(StatusCodes.CREATED).json({
         userInfo: {

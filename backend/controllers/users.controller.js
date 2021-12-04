@@ -8,9 +8,11 @@ import { BadRequestError, NotFoundError } from '../errors/custom-api-error.js';
 
 export const getUserDetails = async (req, res) => {
     const user = await User.findById({ _id: req.user.id });
+
     if (!user) {
         throw new NotFoundError('Tài khoản không tồn tại');
     }
+
     const hiddenEmail = hideEmail(user.email);
     const address = await Address.findOne({ createdBy: req.user.id });
     res.status(StatusCodes.OK).json({
