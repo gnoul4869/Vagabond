@@ -10,7 +10,7 @@ const PaginationDropdown = ({ dropdownTitle, dropdownOptions, sort, queryHandler
     const longestOption = dropdownOptions.reduce((a, b) => (a.name.length > b.name.length ? a : b));
 
     useLayoutEffect(() => {
-        setOptionWidth(optionRef.current.clientWidth);
+        setOptionWidth(optionRef.current.clientWidth >= 179 ? optionRef.current.clientWidth : 179);
     }, []);
 
     return (

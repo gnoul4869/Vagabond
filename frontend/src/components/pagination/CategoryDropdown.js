@@ -12,7 +12,7 @@ const CategoryDropdown = ({ dropdownTitle, dropdownOptions, category, queryHandl
         dropdownOptions.reduce((a, b) => (a.length > b.length ? a : b));
 
     useLayoutEffect(() => {
-        setOptionWidth(optionRef.current.clientWidth);
+        setOptionWidth(optionRef.current.clientWidth >= 191 ? optionRef.current.clientWidth : 191);
     }, []);
 
     return (
