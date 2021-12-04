@@ -80,6 +80,7 @@ const ProductDetailsPageLoading = () => {
                     </div>
                 </div>
             </div>
+
             <div className="container bg-white mt-3 p-3">
                 <div className="bg-label container rounded mb-3">
                     <div className="col-2 p-0 mb-5">
@@ -113,18 +114,55 @@ const ProductDetailsPageLoading = () => {
                     </div>
                 </div>
             </div>
+
             <div className="container bg-white mt-3 p-3">
                 <div className="bg-label container rounded mb-3">
                     <div className="col-2 p-0 mb-5">
                         <div className="bg-loading rounded-pill"></div>
                     </div>
                 </div>
-                <div className="row">
-                    <div className="col-5">
+                <div className="container mb-3">
+                    <div className="row">
+                        <div className="col-5">
+                            <div className="bg-loading rounded-pill"></div>
+                        </div>
+                        <div className="col-2">
+                            <div className="bg-loading rounded-pill"></div>
+                        </div>
+                    </div>
+                    <div className="row mt-4">
+                        <div className="col-4">
+                            <div className="bg-loading rounded-pill"></div>
+                        </div>
+                        <div className="col-5 mb-5">
+                            <div className="bg-loading rounded-pill"></div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <div className="container bg-white mt-3 p-3">
+                <div className="bg-label container rounded mb-3">
+                    <div className="col-2 p-0 mb-5">
                         <div className="bg-loading rounded-pill"></div>
                     </div>
-                    <div className="col-2 mb-5">
-                        <div className="bg-loading rounded-pill"></div>
+                </div>
+                <div className="container mb-3">
+                    <div className="row">
+                        <div className="col-1">
+                            <div className="bg-loading rounded-pill"></div>
+                        </div>
+                        <div className="col-2">
+                            <div className="bg-loading rounded-pill"></div>
+                        </div>
+                        <div className="row mt-4 ms-3">
+                            <div className="col-3">
+                                <div className="bg-loading rounded-pill"></div>
+                            </div>
+                            <div className="col-4 mb-5">
+                                <div className="bg-loading rounded-pill"></div>
+                            </div>
+                        </div>
                     </div>
                 </div>
             </div>

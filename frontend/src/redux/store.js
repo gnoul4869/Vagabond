@@ -5,6 +5,7 @@ import { user } from './reducers/userReducer';
 import { cart } from './reducers/cartReducer';
 import { verification } from './reducers/verificationReducer';
 import { productList, productDetails } from './reducers/productReducer';
+import { review } from './reducers/reviewReducer';
 import { order } from './reducers/orderReducer';
 
 const initialState = {
@@ -41,18 +42,24 @@ const initialState = {
         modalError: '',
     },
     productList: {
-        isLoading: false,
         total: 0,
         products: [],
+        isLoading: false,
         error: '',
     },
     productDetails: {
-        isLoading: false,
         product: null,
+        isLoading: false,
+        error: '',
+    },
+    review: {
+        total: 0,
+        reviews: [],
+        isLoading: false,
         error: '',
     },
     order: {
-        totalCount: 0,
+        total: 0,
         orderList: [],
         isLoading: false,
         error: '',
@@ -66,6 +73,7 @@ const reducer = combineReducers({
     cart,
     productList,
     productDetails,
+    review,
     order,
 });
 

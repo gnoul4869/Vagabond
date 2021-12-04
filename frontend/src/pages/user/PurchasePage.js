@@ -17,7 +17,7 @@ const PurchasePage = () => {
     const location = useLocation();
     const dispatch = useDispatch();
     const { userInfo } = useSelector((state) => state.auth);
-    const { orderList, totalCount, isDone, error } = useSelector((state) => state.order);
+    const { orderList, total, isDone, error } = useSelector((state) => state.order);
 
     const [isInitialLoad, setIsInitialLoad] = useState(true);
     const [activeID, setActiveID] = useState(0);
@@ -93,7 +93,7 @@ const PurchasePage = () => {
                 <InfiniteScroll
                     dataLength={orderList.length}
                     next={() => setPage(page + 1)}
-                    hasMore={orderList.length < totalCount}
+                    hasMore={orderList.length < total}
                     scrollThreshold={0.7}
                     loader={
                         <HashLoader

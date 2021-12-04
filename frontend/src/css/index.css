@@ -436,6 +436,17 @@ p {
     );
 }
 
+/** Image */
+.img-container-sm {
+    width: 10.625rem;
+}
+
+.img-sm {
+    width: 100%;
+    height: 100%;
+    object-fit: contain;
+}
+
 /** Sizing */
 .w-5 {
     width: 5% !important;
@@ -548,6 +559,10 @@ p {
             transparent 3.125rem 3.75rem
         );
     }
+    /** Image */
+    .img-container-sm {
+        width: 6.25rem;
+    }
 }
 
 /*? Small devices (landscape phones, less than 768px) */
@@ -570,6 +585,10 @@ p {
     }
     .fsr-6 {
         font-size: 1.5rem;
+    }
+    /** Image */
+    .img-container-sm {
+        width: 7.5rem;
     }
 }
 

@@ -9,7 +9,7 @@ import {
 } from '../constants/orderConstants';
 
 export const order = (
-    state = { totalCount: 0, orderList: [], isLoading: false, isDone: false, error: '' },
+    state = { total: 0, orderList: [], isLoading: false, isDone: false, error: '' },
     action
 ) => {
     switch (action.type) {
@@ -23,7 +23,7 @@ export const order = (
         case ORDER_LIST_SUCCESS:
             return {
                 ...state,
-                totalCount: action.payload.total,
+                total: action.payload.total,
                 orderList: state.orderList.concat(action.payload.orders),
                 isDone: true,
                 isLoading: false,
@@ -42,7 +42,6 @@ export const order = (
                 isDone: false,
                 isLoading: false,
             };
-
         case ORDER_UPDATE_REQUEST:
             return {
                 ...state,
