@@ -52,6 +52,10 @@ const userSchema = new mongoose.Schema(
             type: String,
             default: '/images/user_profile_picture.jpg',
         },
+        address: {
+            type: mongoose.Types.ObjectId,
+            ref: 'Address',
+        },
     },
     {
         timestamps: true,

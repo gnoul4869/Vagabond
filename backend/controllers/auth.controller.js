@@ -132,7 +132,6 @@ export const register = async (req, res) => {
         throw new BadRequestError('Hãy cung cấp địa chỉ cụ thể');
     }
 
-    const user = await User.create({ email, password, name, phoneNumber, gender, birthDate });
     const address = await Address.create({
         provinceID,
         provinceName,
@@ -141,7 +140,16 @@ export const register = async (req, res) => {
         wardID,
         wardName,
         addressDetails,
-        createdBy: user.id,
+    });
+
+    const user = await User.create({
+        email,
+        password,
+        name,
+        phoneNumber,
+        gender,
+        birthDate,
+        address: address._id,
     });
 
     const token = await user.createJWT();

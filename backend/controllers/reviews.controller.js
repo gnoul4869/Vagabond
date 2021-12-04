@@ -13,7 +13,7 @@ export const getAllReviews = async (req, res) => {
     const query = {};
     query.createdIn = productID;
 
-    const reviews = await Review.find(query);
+    const reviews = await Review.find(query).populate('createdBy');
 
     if (reviews.length === 0) {
         throw new NotFoundError('Không tìm thấy đánh giá nào');

@@ -15,7 +15,7 @@ import UserDetails from '../../components/register/UserDetails';
 import EmailVerification from '../../components/register/EmailVerification';
 import PersonalDetails from '../../components/register/PersonalDetails';
 import Confirmation from '../../components/register/Confirmation';
-import { register } from '../../redux/actions/authActions';
+import { register, refreshAuth } from '../../redux/actions/authActions';
 import ErrorPage from '../error/ErrorPage';
 
 const RegisterPage = () => {
@@ -255,15 +255,17 @@ const RegisterPage = () => {
     const backBtnHandler = () => {
         dispatch(refreshVerification('REFRESH_ERROR'));
         setValidationError('');
+        dispatch(refreshAuth('REFRESH_ERROR'));
         setStep(step - 1 >= 0 ? step - 1 : step);
     };
 
     useEffect(() => {
         dispatch(refreshVerification());
-    }, [dispatch, email]);
+    }, [dispatch, email, auth.error]);
 
     useEffect(() => {
         dispatch(refreshVerification('REFRESH_ERROR'));
+        dispatch(refreshAuth('REFRESH_ERROR'));
     }, [dispatch]);
 
     useEffect(() => {
@@ -298,10 +300,12 @@ const RegisterPage = () => {
                                 <MdArrowBack className="icon" />
                             </button>
                         )}
-                        {(error || validationError) && (
+                        {(error || validationError || auth.error) && (
                             <div className="auth-error-container mt-4 mt-md-0">
                                 <VscError className="icon text-ired" />
-                                <span className="ms-2">{error || validationError}</span>
+                                <span className="ms-2">
+                                    {error || validationError || auth.error}
+                                </span>
                             </div>
                         )}
                         {switchStep(step)}

@@ -30,11 +30,6 @@ const addressSchema = new mongoose.Schema(
             type: String,
             required: [true, 'Hãy cung cấp địa chỉ cụ thể'],
         },
-        createdBy: {
-            type: mongoose.Types.ObjectId,
-            ref: 'User',
-            required: [true, 'Hãy cung cấp mã thành viên'],
-        },
     },
     {
         timestamps: true,
