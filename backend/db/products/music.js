@@ -63,7 +63,7 @@ export const music = [
         images: ['https://i.ibb.co/3kJVTcW/classic-guitar-tuner.jpg'],
     },
     {
-        name: 'Dán chống xước đàn guitar',
+        name: 'Dán Chống Xước Đàn Guitar',
         category: 'Âm nhạc',
         price: 25000,
         countInStock: 80,

@@ -17,6 +17,10 @@ const CategoryDropdown = ({ dropdownTitle, dropdownOptions, category, queryHandl
 
     return (
         <>
+            <div className="d-none d-md-inline-flex align-items-center ms-md-auto">
+                <div className="text-secondary fw-600 me-4">Danh mục</div>
+            </div>
+
             {/* Only visible for a short time to get width */}
             <div className={`pagination-dropdown-index ${optionWidth && 'd-none'}`} ref={optionRef}>
                 <span className="me-2">{longestOption}</span>
@@ -28,6 +32,7 @@ const CategoryDropdown = ({ dropdownTitle, dropdownOptions, category, queryHandl
                 className="pagination-dropdown-index"
                 onMouseEnter={() => setIsDropdownShown(true)}
                 onMouseLeave={() => setIsDropdownShown(false)}
+                onClick={() => setIsDropdownShown(!isDropdownShown)}
                 style={{ width: `${optionWidth}px` }}
             >
                 {dropdownOptions.find((item) => item === category) ? (

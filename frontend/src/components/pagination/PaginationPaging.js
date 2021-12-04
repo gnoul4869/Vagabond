@@ -1,5 +1,5 @@
 import React from 'react';
-import SyncLoader from 'react-spinners/SyncLoader';
+import PulseLoader from 'react-spinners/PulseLoader';
 import { BsCaretLeftFill, BsCaretRightFill } from 'react-icons/bs';
 
 const PaginationPaging = ({ total, page, queryHandler, limit, isLoading }) => {
@@ -14,10 +14,11 @@ const PaginationPaging = ({ total, page, queryHandler, limit, isLoading }) => {
     return (
         <div className="container d-inline-flex align-items-center justify-content-center fsr-4 mt-3">
             {isLoading ? (
-                <SyncLoader
+                <PulseLoader
                     color="#c73434"
                     css="display: inherit; margin: 0 auto;"
                     width="3.125rem"
+                    speedMultiplier={0.9}
                 />
             ) : totalPages > 1 ? (
                 <>

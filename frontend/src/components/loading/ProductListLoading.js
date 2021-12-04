@@ -1,7 +1,7 @@
 import React from 'react';
 
 const ProductListLoading = () => {
-    return [...Array(10)].map((x, index) => {
+    return [...Array(20)].map((x, index) => {
         return (
             <div key={index} className="product-wrapper">
                 <div className="product-container">

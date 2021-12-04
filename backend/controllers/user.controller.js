@@ -1,10 +1,10 @@
 import { StatusCodes } from 'http-status-codes';
-import User from '../models/user.model.js';
-import { BadRequestError, NotFoundError } from '../errors/custom-api-error.js';
-import { hideEmail } from '../utils/hide-details.js';
 import moment from 'moment';
-import { uploadImageToStorage } from '../firebase/firebase.js';
+import User from '../models/user.model.js';
 import Address from '../models/address.model.js';
+import { hideEmail } from '../utils/hide-details.js';
+import { uploadImageToStorage } from '../firebase/firebase.js';
+import { BadRequestError, NotFoundError } from '../errors/custom-api-error.js';
 
 export const getUserDetails = async (req, res) => {
     const user = await User.findById({ _id: req.user.id });

@@ -32,7 +32,7 @@ const ProductList = () => {
     const [sort, setSort] = useState(searchQuery.sort ? searchQuery.sort : 'relevance');
     const [category, setCategory] = useState(searchQuery.category ? searchQuery.category : '');
     const [page, setPage] = useState(searchQuery.page ? searchQuery.page : 1);
-    const limit = 15;
+    const limit = 20;
 
     const [productCategories, setproductCategories] = useState([]);
 
@@ -91,6 +91,7 @@ const ProductList = () => {
 
     useEffect(() => {
         setSearch(searchQuery.search ? searchQuery.search : '');
+
         if (!searchQuery.sort) {
             setSort('relevance');
         }

@@ -37,6 +37,8 @@ const productSchema = new mongoose.Schema(
         rating: {
             type: Number,
             default: 0,
+            min: [0, 'Điểm đánh giá không được nhỏ hơn 0'],
+            max: [5, 'Điểm đánh giá không được lớn hơn 5'],
         },
         numReviews: {
             type: Number,
