@@ -40,11 +40,13 @@
     background-color: var(--fine-gray);
     box-shadow: rgba(0, 0, 0, 0.2) 0rem 1.25rem 1.875rem;
     opacity: 0;
+    visibility: hidden;
     transform: translateY(-0.625rem);
     transition: all 0.2s linear;
 }
 
 .pagination-dropdown.show {
+    visibility: visible;
     opacity: 1;
     transform: translateY(0);
 }

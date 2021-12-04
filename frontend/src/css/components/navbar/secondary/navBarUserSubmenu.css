@@ -15,7 +15,7 @@
 .navbar-user-submenu.show {
     visibility: visible;
     transform: translateY(0);
-    opacity: 100;
+    opacity: 1;
 }
 
 .navbar-user-submenu:before {
