@@ -38,12 +38,13 @@ const PurchasePage = () => {
     }, [activeID, dispatch]);
 
     useEffect(() => {
-        if (isInitialLoad && isDone && !error) {
+        if (isInitialLoad && isDone) {
             setIsInitialLoad(false);
         }
-    }, [isInitialLoad, isDone, error]);
+    }, [isInitialLoad, isDone]);
 
     useEffect(() => {
+        setIsInitialLoad(true);
         dispatch(listOrders(status, page, isAdmin));
     }, [dispatch, isAdmin, page, status]);
 
@@ -56,7 +57,7 @@ const PurchasePage = () => {
         }
     }, [history, location.pathname, userInfo]);
 
-    if (error) {
+    if (error && error !== 'Không có đơn hàng nào') {
         return <ErrorPage error={error} />;
     }
 
@@ -86,7 +87,7 @@ const PurchasePage = () => {
                     css="display: inherit; margin: 12rem auto 30rem;"
                     width="3.125rem"
                 />
-            ) : totalCount === 0 && orderList.length === 0 ? (
+            ) : orderList.length === 0 ? (
                 <EmptyPurchase />
             ) : (
                 <InfiniteScroll

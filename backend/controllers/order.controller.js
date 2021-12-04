@@ -55,8 +55,8 @@ export const getOrders = async (req, res) => {
         .limit(limit)
         .skip(skip);
 
-    if (!orders) {
-        throw new NotFoundError('Không tìm thấy đơn hàng nào');
+    if (orders.length === 0) {
+        throw new NotFoundError('Không có đơn hàng nào');
     }
 
     const total = await Order.countDocuments(query);
