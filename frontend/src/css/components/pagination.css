@@ -2,6 +2,7 @@
     cursor: pointer;
     padding: 0.5rem 1rem;
     font-weight: 600;
+    white-space: nowrap;
     color: var(--dark-slate-gray);
     background-color: var(--fine-gray);
     border: none;
@@ -101,12 +102,12 @@
     cursor: default;
 }
 
-/*? X-Small devices (portrait phones, less than 576px) */
-@media (max-width: 575.98px) {
+/*? Small devices (landscape phones, less than 768px) */
+@media (max-width: 767.98px) {
     .pagination-button {
         font-size: 10px;
         font-weight: 600;
-        padding: 0.6rem 0.9rem;
+        padding: 0.7rem 0.7rem;
         box-shadow: none;
         background-color: white;
         border-right: 1px solid var(--fine-gray);
@@ -114,7 +115,7 @@
 
     .pagination-dropdown-index {
         width: 100% !important;
-        font-size: 10px;
+        font-size: 0.625rem;
         padding: 0.5rem 0.5rem;
         background-color: white;
         border-right: 1px solid var(--fine-gray);
@@ -128,7 +129,7 @@
         background-color: white;
     }
     .pagination-dropdown-item {
-        font-size: 10px;
+        font-size: 0.625rem;
         padding: 0.5rem 0;
     }
     .pagination-paging-item {
@@ -136,10 +137,37 @@
     }
 }
 
-/*? Small devices (landscape phones, less than 768px) */
-@media (min-width: 576px) and (max-width: 767.98px) {
-}
-
 /*? Medium devices (tablets, less than 992px) */
 @media (min-width: 768px) and (max-width: 991.98px) {
+    .pagination-button {
+        font-size: 0.75rem;
+        font-weight: 600;
+        padding: 0.7rem 2rem;
+        box-shadow: none;
+        background-color: white;
+        border-right: 0.0625rem solid var(--fine-gray);
+    }
+
+    .pagination-dropdown-index {
+        width: 100% !important;
+        font-size: 0.75rem;
+        padding: 0.5rem 0.5rem;
+        background-color: white;
+        border-right: 1px solid var(--fine-gray);
+    }
+    .pagination-dropdown-index:last-child {
+        border: none;
+    }
+    .pagination-dropdown {
+        transform: translateY(0.625rem);
+        padding: 0.8rem 0.5rem;
+        background-color: white;
+    }
+    .pagination-dropdown-item {
+        font-size: 0.75rem;
+        padding: 0.5rem 0;
+    }
+    .pagination-paging-item {
+        padding: 0 0.35rem;
+    }
 }

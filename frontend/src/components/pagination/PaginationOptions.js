@@ -17,10 +17,10 @@ const PaginationOptions = ({
             {isLoading ? (
                 <PaginationLoading buttons={buttons} selection={selections} category={categories} />
             ) : (
-                <div className="container bg-white p-0 p-md-2">
-                    <div className="container d-flex px-0 px-md-2">
+                <div className="container bg-white p-0 p-lg-2">
+                    <div className="container d-flex px-0 px-lg-2">
                         <div className="d-flex align-items-center">
-                            <div className="d-none d-md-flex text-secondary fw-600 me-4">
+                            <div className="d-none d-lg-flex text-secondary fw-600 me-lg-4">
                                 Sắp xếp theo
                             </div>
                             {buttons.map((item, index) => {
@@ -28,7 +28,7 @@ const PaginationOptions = ({
                                     <div
                                         key={index}
                                         onClick={() => queryHandler(item.sort, '')}
-                                        className={`pagination-button me-md-3 ${
+                                        className={`pagination-button me-lg-3 ${
                                             sort === item.sort && 'active'
                                         }`}
                                     >

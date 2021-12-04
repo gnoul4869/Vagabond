@@ -26,7 +26,7 @@ const PaginationDropdown = ({ dropdownTitle, dropdownOptions, sort, queryHandler
                 className="pagination-dropdown-index"
                 onMouseEnter={() => setIsDropdownShown(true)}
                 onMouseLeave={() => setIsDropdownShown(false)}
-                onClick={() => setIsDropdownShown(!isDropdownShown)}
+                onTouchStart={() => setIsDropdownShown(!isDropdownShown)}
                 style={{ width: `${optionWidth}px` }}
             >
                 {dropdownOptions.find((item) => item.sort === sort) ? (

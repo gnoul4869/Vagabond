@@ -17,8 +17,8 @@ const CategoryDropdown = ({ dropdownTitle, dropdownOptions, category, queryHandl
 
     return (
         <>
-            <div className="d-none d-md-inline-flex align-items-center ms-md-auto">
-                <div className="text-secondary fw-600 me-4">Danh mục</div>
+            <div className="d-none d-lg-inline-flex align-items-center ms-lg-auto">
+                <div className="text-secondary fw-600 me-lg-4">Danh mục</div>
             </div>
 
             {/* Only visible for a short time to get width */}
@@ -32,7 +32,7 @@ const CategoryDropdown = ({ dropdownTitle, dropdownOptions, category, queryHandl
                 className="pagination-dropdown-index"
                 onMouseEnter={() => setIsDropdownShown(true)}
                 onMouseLeave={() => setIsDropdownShown(false)}
-                onClick={() => setIsDropdownShown(!isDropdownShown)}
+                onTouchStart={() => setIsDropdownShown(!isDropdownShown)}
                 style={{ width: `${optionWidth}px` }}
             >
                 {dropdownOptions.find((item) => item === category) ? (
