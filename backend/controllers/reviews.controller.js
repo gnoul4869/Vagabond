@@ -43,14 +43,18 @@ export const createReview = async (req, res) => {
         throw new BadRequestError('Hãy nhập nội dung đánh giá');
     }
 
+    const product = await Product.findById({ _id: productID });
+
+    if (!product) {
+        throw new BadRequestError('Sản phẩm không tồn tại');
+    }
+
     const review = await Review.create({
         rating,
         content,
         createdIn: productID,
         createdBy: req.user.id,
     });
-
-    const product = await Product.findById({ _id: review.createdIn });
 
     const productNumReviews = product.numReviews + 1;
     const productRating = (product.rating + review.rating) / productNumReviews;

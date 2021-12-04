@@ -20,7 +20,7 @@ const PaginationOptions = ({
                 <div className="container bg-white p-0 p-lg-2">
                     <div className="container d-flex px-0 px-lg-2">
                         <div className="d-flex align-items-center">
-                            <div className="d-none d-lg-flex text-secondary fw-600 me-lg-4">
+                            <div className="d-none d-lg-flex text-secondary fw-600 me-lg-2 me-xl-4">
                                 Sắp xếp theo
                             </div>
                             {buttons.map((item, index) => {

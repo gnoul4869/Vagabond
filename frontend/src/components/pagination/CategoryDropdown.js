@@ -18,7 +18,7 @@ const CategoryDropdown = ({ dropdownTitle, dropdownOptions, category, queryHandl
     return (
         <>
             <div className="d-none d-lg-inline-flex align-items-center ms-lg-auto">
-                <div className="text-secondary fw-600 me-lg-4">Danh mục</div>
+                <div className="text-secondary fw-600 me-lg-2 me-xl-4">Danh mục</div>
             </div>
 
             {/* Only visible for a short time to get width */}

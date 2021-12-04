@@ -1,7 +1,9 @@
 import {} from 'dotenv/config.js';
 import connectDB from './connect.js';
 import User from '../models/user.model.js';
+import Address from '../models/user.model.js';
 import Product from '../models/product.model.js';
+import Review from '../models/review.model.js';
 import data from './data.js';
 import { computer } from './products/computer.js';
 import { electronic } from './products/electronic.js';
@@ -12,7 +14,10 @@ import { music } from './products/music.js';
 const populateUsers = async () => {
     try {
         await connectDB(process.env.MONGODB_URI);
+
         await User.deleteMany({});
+        await Address.deleteMany({});
+
         await User.create(data.users);
         console.log('Users data added to the database...');
         process.exit(0);
@@ -25,7 +30,9 @@ const populateUsers = async () => {
 const populateProducts = async () => {
     try {
         await connectDB(process.env.MONGODB_URI);
+
         await Product.deleteMany({});
+        await Review.deleteMany({});
 
         await Product.create(computer);
         await Product.create(electronic);
