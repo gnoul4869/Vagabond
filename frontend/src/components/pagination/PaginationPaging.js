@@ -6,7 +6,7 @@ const PaginationPaging = ({ total, page, queryHandler, limit, isLoading }) => {
     const totalPages = Math.ceil(total / limit);
 
     const pageHandler = (value) => {
-        if (page !== value) {
+        if (Number(page) !== value) {
             queryHandler('', '', value);
         }
     };
@@ -23,7 +23,9 @@ const PaginationPaging = ({ total, page, queryHandler, limit, isLoading }) => {
             ) : totalPages > 1 ? (
                 <>
                     <button
-                        onClick={() => pageHandler(page - 1 > 0 ? page - 1 : page)}
+                        onClick={() =>
+                            pageHandler(Number(page) - 1 > 0 ? Number(page) - 1 : Number(page))
+                        }
                         className="pagination-paging-btn"
                     >
                         <BsCaretLeftFill />
@@ -34,7 +36,9 @@ const PaginationPaging = ({ total, page, queryHandler, limit, isLoading }) => {
                             <div
                                 key={index}
                                 onClick={() => pageHandler(pageNum)}
-                                className={`pagination-paging-item ${page === pageNum && 'active'}`}
+                                className={`pagination-paging-item ${
+                                    Number(page) === pageNum && 'active'
+                                }`}
                             >
                                 {pageNum}
                             </div>
@@ -42,7 +46,11 @@ const PaginationPaging = ({ total, page, queryHandler, limit, isLoading }) => {
                     })}
                     {/* <div className="pagination-paging-dots">...</div> */}
                     <button
-                        onClick={() => pageHandler(page + 1 > totalPages ? page : page + 1)}
+                        onClick={() =>
+                            pageHandler(
+                                Number(page) + 1 > totalPages ? Number(page) : Number(page) + 1
+                            )
+                        }
                         className="pagination-paging-btn"
                     >
                         <BsCaretRightFill />
