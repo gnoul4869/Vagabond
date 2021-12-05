@@ -15,6 +15,7 @@ export const review = (
         case REVIEW_LIST_REQUEST:
             return {
                 ...state,
+                reviews: [],
                 error: '',
                 isLoading: true,
             };

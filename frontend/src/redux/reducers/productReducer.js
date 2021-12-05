@@ -13,7 +13,7 @@ export const productList = (
 ) => {
     switch (action.type) {
         case PRODUCT_LIST_REQUEST:
-            return { ...state, error: '', isLoading: true };
+            return { ...state, products: [], error: '', isLoading: true };
         case PRODUCT_LIST_SUCCESS:
             return {
                 ...state,

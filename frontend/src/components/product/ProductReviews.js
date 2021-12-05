@@ -21,10 +21,7 @@ const ProductReviews = ({ productID, rating }) => {
     const { userInfo } = useSelector((state) => state.auth);
 
     const [sort, setSort] = useState('');
-
-    useEffect(() => {
-        dispatch(listReviews(productID));
-    }, [dispatch, productID]);
+    const [isInitialLoad, setIsInitialLoad] = useState(true);
 
     const likeHandler = (reviewID) => {
         if (!userInfo) {
@@ -38,11 +35,38 @@ const ProductReviews = ({ productID, rating }) => {
         }
     };
 
+    useEffect(() => {
+        dispatch(listReviews(productID, sort));
+    }, [dispatch, productID, sort]);
+
+    useEffect(() => {
+        if (reviews.length !== 0 && !isLoading) {
+            setIsInitialLoad(false);
+        }
+    }, [isLoading, reviews.length]);
+
     return (
         <div className="container bg-white mt-3 p-3">
             <div className="bg-label container rounded mb-3">
                 <div className="fw-600 fsr-4">Đánh giá sản phẩm</div>
             </div>
+
+            {!isInitialLoad && (
+                <div className="product-review-rating-container container mb-3">
+                    <div>
+                        <span className="fsr-5">{rating}</span>
+                        <span className="fsr-4 ms-1">trên 5</span>
+                    </div>
+
+                    <RatingStars rating={rating} css={'text-ired fsr-5 mt-2'} />
+
+                    <ReviewPaginationOptions
+                        buttons={reviewPaginationButtons}
+                        sort={sort}
+                        setSort={setSort}
+                    />
+                </div>
+            )}
 
             {isLoading ? (
                 <div className="d-flex justify-content-center align-items-center my-5">
@@ -62,21 +86,6 @@ const ProductReviews = ({ productID, rating }) => {
                     ) : (
                         reviews.length !== 0 && (
                             <>
-                                <div className="product-review-rating-container container mb-3">
-                                    <div>
-                                        <span className="fsr-5">{rating}</span>
-                                        <span className="fsr-4 ms-1">trên 5</span>
-                                    </div>
-
-                                    <RatingStars rating={rating} css={'text-ired fsr-5 mt-2'} />
-
-                                    <ReviewPaginationOptions
-                                        buttons={reviewPaginationButtons}
-                                        sort={sort}
-                                        setSort={setSort}
-                                    />
-                                </div>
-
                                 {reviews.map((item) => {
                                     const postDate = moment(item.createdAt).format(
                                         'DD-MM-YYYY HH:mm'
