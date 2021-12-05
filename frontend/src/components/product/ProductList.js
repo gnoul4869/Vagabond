@@ -204,10 +204,13 @@ const ProductList = () => {
                                                     <div className="product-price">
                                                         <PriceFormat price={item.price} />
                                                     </div>
-                                                    <div className="product-rating">
-                                                        <RatingStars rating={item.rating} />
-                                                        <span className="text-secondary">
-                                                            | {`${item.numReviews} lượt đánh giá`}
+                                                    <div className="product-rating d-flex flex-column d-md-inline fsr-1">
+                                                        <div className="d-inline-flex icon">
+                                                            <RatingStars rating={item.rating} />
+                                                        </div>
+                                                        <span className="separator d-none d-md-inline"></span>
+                                                        <span className="text-secondary mt-1 mt-md-0">
+                                                            {`${item.numReviews} lượt đánh giá`}
                                                         </span>
                                                     </div>
                                                 </div>

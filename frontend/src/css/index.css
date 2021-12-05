@@ -6,6 +6,7 @@
     --white-hover: #f8f8f8;
     --light-gray: #eaeaea;
     --fine-gray: #f0f0f0;
+    --yellow-star: #f0d121;
 }
 
 body {
@@ -83,6 +84,10 @@ p {
 
 .text-sdark {
     color: var(--dark-slate-gray);
+}
+
+.text-ystar {
+    color: var(--yellow-star);
 }
 
 .text-coral {
@@ -336,7 +341,7 @@ p {
 }
 
 .icon {
-    vertical-align: -0.12rem;
+    vertical-align: -0.1rem;
 }
 
 /** Form */
@@ -367,7 +372,7 @@ p {
 }
 
 .separator {
-    border-right: 0.0625rem solid hsla(0, 0%, 100%, 0.4);
+    border-right: 0.0625rem solid hsla(0, 0%, 51%, 0.4);
     height: 0.8125rem;
     margin: 0 0.3125rem;
 }

@@ -26,16 +26,6 @@
     }
 }
 
-.product-details-separator {
-    border-right: 0.0625rem solid hsla(0, 0%, 51%, 0.4);
-    height: 0.8125rem;
-    margin: 0 0.3125rem;
-}
-
-.product-details-reviews {
-    font-size: 1rem;
-}
-
 .product-details-label {
     font-weight: 600;
 }

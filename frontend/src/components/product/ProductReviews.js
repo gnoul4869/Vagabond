@@ -53,8 +53,14 @@ const ProductReviews = ({ productID }) => {
                                                     }}
                                                 ></div>
                                             </div>
-                                            <div className="ms-2">{item.createdBy.name}</div>
-                                            <RatingStars rating={5} />
+                                            <div className="d-flex flex-column bg-info ms-3">
+                                                <div className="bg-warning">
+                                                    {item.createdBy.name}
+                                                </div>
+                                                <div className="bg-info">
+                                                    <RatingStars rating={5} />
+                                                </div>
+                                            </div>
                                         </div>
                                     </div>
                                     <div className="container ms-2 my-2">

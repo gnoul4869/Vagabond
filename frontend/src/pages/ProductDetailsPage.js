@@ -88,23 +88,23 @@ const ProductDetailsPage = () => {
                                                 </div>
                                             </div>
                                             <div className="row my-4">
-                                                <div className="container">
-                                                    <span className="product-details-value me-1">
+                                                <div className="container d-flex align-items-center">
+                                                    <span className="product-details-value me-2">
                                                         {product.rating}
                                                     </span>
                                                     <RatingStars rating={product.rating} />
-                                                    <span className="product-details-separator"></span>
-                                                    <span className="product-details-reviews text-secondary">
-                                                        <span className="product-details-value">
+                                                    <span className="separator"></span>
+                                                    <div className="d-flex align-items-center text-secondary">
+                                                        <span className="product-details-value me-2">
                                                             {product.numReviews}
-                                                        </span>{' '}
+                                                        </span>
                                                         lượt đánh giá
-                                                    </span>
+                                                    </div>
                                                 </div>
                                             </div>
                                             <div className="row my-4">
                                                 <div className="bg-label container rounded">
-                                                    <span className="fs-3">Giá:</span>{' '}
+                                                    <span className="fs-3 me-2">Giá:</span>
                                                     <span className="text-ired fw-600 fs-2 ms-2">
                                                         <PriceFormat price={product.price} />
                                                     </span>
@@ -122,9 +122,9 @@ const ProductDetailsPage = () => {
                                                     />
                                                 </div>
                                                 <div className="col-auto my-auto text-secondary product-details-label">
-                                                    <span className="product-details-value">
+                                                    <span className="product-details-value me-2">
                                                         {product.countInStock}
-                                                    </span>{' '}
+                                                    </span>
                                                     sản phẩm có sẵn
                                                 </div>
                                             </div>

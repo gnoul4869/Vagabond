@@ -13,7 +13,6 @@ import './css/components/footer.css';
 import './css/components/sidebar.css';
 import './css/components/cartItems.css';
 import './css/components/dateInput.css';
-import './css/components/ratingStar.css';
 import './css/components/numberInput.css';
 import './css/components/pagination.css';
 import './css/components/breadCrumbs.css';
