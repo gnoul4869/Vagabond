@@ -3,7 +3,7 @@ import React from 'react';
 const ReviewPaginationOptions = ({ buttons, rating, setRating }) => {
     return (
         <>
-            <div className="d-flex align-items-center justify-content-center mt-4">
+            <div className="review-pagination-container">
                 {buttons.map((item, index) => {
                     return (
                         <div
