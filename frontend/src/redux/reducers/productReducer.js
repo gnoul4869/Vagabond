@@ -31,11 +31,11 @@ export const productList = (
 export const productDetails = (state = { isLoading: false, product: null, error: '' }, action) => {
     switch (action.type) {
         case PRODUCT_DETAILS_REQUEST:
-            return { isLoading: true };
+            return { ...state, product: null, error: '', isLoading: true };
         case PRODUCT_DETAILS_SUCCESS:
             return { isLoading: false, product: action.payload };
         case PRODUCT_DETAILS_FAIL:
-            return { isLoading: false, error: action.payload };
+            return { ...state, product: null, error: action.payload, isLoading: false };
         default:
             return state;
     }

@@ -21,6 +21,7 @@ const ProductDetailsPage = () => {
     const dispatch = useDispatch();
     const history = useHistory();
     const { id } = useParams();
+
     const { isLoading, product, error } = useSelector((state) => state.productDetails);
     const cart = useSelector((state) => state.cart);
 
@@ -175,7 +176,7 @@ const ProductDetailsPage = () => {
                                 weight={product.weight}
                                 description={product.description}
                             />
-                            <ProductReviews productID={product.id} rating={product.rating} />
+                            <ProductReviews productID={id} productRating={product.rating} />
                         </section>
                         {isModalShown && (
                             <InfoModal

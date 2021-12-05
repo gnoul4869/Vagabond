@@ -12,6 +12,7 @@ const errorMessage = 'Đã có lỗi xảy ra. Bạn vui lòng thử lại sau �
 
 export const listProducts = (search, sort, category, page, limit) => async (dispatch) => {
     dispatch({ type: PRODUCT_LIST_REQUEST });
+
     try {
         const { data } = await axios.get('/api/v1/products', {
             params: { search, sort, category, page, limit },
@@ -31,6 +32,7 @@ export const listProducts = (search, sort, category, page, limit) => async (disp
 
 export const detailProduct = (productID) => async (dispatch) => {
     dispatch({ type: PRODUCT_DETAILS_REQUEST });
+
     try {
         const { data } = await axios.get(`/api/v1/products/${productID}`);
         const { product } = data;

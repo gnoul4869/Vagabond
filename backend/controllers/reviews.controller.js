@@ -39,8 +39,6 @@ export const createReview = async (req, res) => {
     const estimatedRating = (product.rating + review.rating) / productNumReviews;
     const productRating = Math.round((estimatedRating + Number.EPSILON) * 100) / 100;
 
-    console.log(estimatedRating, productRating);
-
     await Product.findByIdAndUpdate(
         { _id: review.createdIn },
         { rating: productRating, numReviews: productNumReviews }
@@ -50,7 +48,7 @@ export const createReview = async (req, res) => {
 };
 
 export const getAllReviews = async (req, res) => {
-    const { productID, likedBy } = req.query;
+    const { productID, rating, likedBy } = req.query;
 
     if (!productID) {
         throw new BadRequestError('Hãy cung cấp mã sản phẩm');
@@ -58,14 +56,19 @@ export const getAllReviews = async (req, res) => {
 
     const query = {};
     query.createdIn = productID;
+    if (rating) {
+        query.rating = rating;
+    }
     if (likedBy) {
         query.likedBy = likedBy;
     }
 
-    const reviews = await Review.find(query).populate({
-        path: 'createdBy',
-        select: 'name image',
-    });
+    const reviews = await Review.find(query)
+        .populate({
+            path: 'createdBy',
+            select: 'name image',
+        })
+        .sort('createdAt');
 
     if (reviews.length === 0) {
         throw new NotFoundError('Không tìm thấy đánh giá nào');

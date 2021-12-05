@@ -12,7 +12,7 @@ import RatingStars from '../RatingStars';
 import ReviewPaginationOptions from '../pagination/reviewPagination/ReviewPaginationOptions';
 import { reviewPaginationButtons } from '../../data/reviewPaginationData';
 
-const ProductReviews = ({ productID, rating }) => {
+const ProductReviews = ({ productID, productRating }) => {
     const history = useHistory();
     const location = useLocation();
     const dispatch = useDispatch();
@@ -20,7 +20,7 @@ const ProductReviews = ({ productID, rating }) => {
     const { total, reviews, isLoading, isUpdating, error } = useSelector((state) => state.review);
     const { userInfo } = useSelector((state) => state.auth);
 
-    const [sort, setSort] = useState('');
+    const [rating, setRating] = useState('');
     const [isInitialLoad, setIsInitialLoad] = useState(true);
 
     const likeHandler = (reviewID) => {
@@ -36,14 +36,14 @@ const ProductReviews = ({ productID, rating }) => {
     };
 
     useEffect(() => {
-        dispatch(listReviews(productID, sort));
-    }, [dispatch, productID, sort]);
+        dispatch(listReviews(productID, rating));
+    }, [dispatch, productID, rating]);
 
     useEffect(() => {
-        if (reviews.length !== 0 && !isLoading) {
+        if (!isLoading && reviews.length !== 0 && isInitialLoad) {
             setIsInitialLoad(false);
         }
-    }, [isLoading, reviews.length]);
+    }, [isInitialLoad, isLoading, reviews]);
 
     return (
         <div className="container bg-white mt-3 p-3">
@@ -54,16 +54,16 @@ const ProductReviews = ({ productID, rating }) => {
             {!isInitialLoad && (
                 <div className="product-review-rating-container container mb-3">
                     <div>
-                        <span className="fsr-5">{rating}</span>
+                        <span className="fsr-5">{productRating}</span>
                         <span className="fsr-4 ms-1">trên 5</span>
                     </div>
 
-                    <RatingStars rating={rating} css={'text-ired fsr-5 mt-2'} />
+                    <RatingStars rating={productRating} css={'text-ired fsr-5 mt-2'} />
 
                     <ReviewPaginationOptions
                         buttons={reviewPaginationButtons}
-                        sort={sort}
-                        setSort={setSort}
+                        rating={rating}
+                        setRating={setRating}
                     />
                 </div>
             )}
@@ -90,7 +90,6 @@ const ProductReviews = ({ productID, rating }) => {
                                     const postDate = moment(item.createdAt).format(
                                         'DD-MM-YYYY HH:mm'
                                     );
-                                    console.log(item.likedBy.includes(userInfo.id));
                                     return (
                                         <div
                                             key={item.id}

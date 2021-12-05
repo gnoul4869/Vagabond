@@ -1,6 +1,6 @@
 import React from 'react';
 
-const ReviewPaginationOptions = ({ buttons, sort, setSort }) => {
+const ReviewPaginationOptions = ({ buttons, rating, setRating }) => {
     return (
         <>
             <div className="d-flex align-items-center justify-content-center mt-4">
@@ -8,9 +8,9 @@ const ReviewPaginationOptions = ({ buttons, sort, setSort }) => {
                     return (
                         <div
                             key={index}
-                            onClick={() => setSort(item.sort)}
+                            onClick={() => setRating(item.rating)}
                             className={`review-pagination-button me-lg-3 ${
-                                sort === item.sort && 'active'
+                                rating === item.rating && 'active'
                             }`}
                         >
                             {item.name}

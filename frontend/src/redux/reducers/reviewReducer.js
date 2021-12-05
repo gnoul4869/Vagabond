@@ -8,18 +8,21 @@ import {
 } from '../constants/reviewConstants';
 
 export const review = (
-    state = { totalCount: 0, reviews: [], isLoading: false, isUpdating: false, error: '' },
+    state = { total: 0, reviews: [], isLoading: false, isUpdating: false, error: '' },
     action
 ) => {
     switch (action.type) {
         case REVIEW_LIST_REQUEST:
+            console.log('request');
             return {
                 ...state,
+                total: 0,
                 reviews: [],
                 error: '',
                 isLoading: true,
             };
         case REVIEW_LIST_SUCCESS:
+            console.log('success');
             return {
                 ...state,
                 total: action.payload.total,
@@ -27,7 +30,7 @@ export const review = (
                 isLoading: false,
             };
         case REVIEW_LIST_FAIL:
-            return { ...state, reviews: [], error: action.payload, isLoading: false };
+            return { ...state, total: 0, reviews: [], error: action.payload, isLoading: false };
         case REVIEW_UPDATE_REQUEST:
             return {
                 ...state,
