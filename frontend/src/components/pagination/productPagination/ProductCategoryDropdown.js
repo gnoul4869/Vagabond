@@ -2,7 +2,7 @@ import React, { useLayoutEffect, useRef, useState } from 'react';
 import { FaCheckSquare } from 'react-icons/fa';
 import { FiChevronDown } from 'react-icons/fi';
 
-const CategoryDropdown = ({ dropdownTitle, dropdownOptions, category, queryHandler }) => {
+const ProductCategoryDropdown = ({ dropdownTitle, dropdownOptions, category, queryHandler }) => {
     const optionRef = useRef(null);
     const [isDropdownShown, setIsDropdownShown] = useState(false);
     const [optionWidth, setOptionWidth] = useState(0);
@@ -22,14 +22,17 @@ const CategoryDropdown = ({ dropdownTitle, dropdownOptions, category, queryHandl
             </div>
 
             {/* Only visible for a short time to get width */}
-            <div className={`pagination-dropdown-index ${optionWidth && 'd-none'}`} ref={optionRef}>
+            <div
+                className={`product-pagination-dropdown-index ${optionWidth && 'd-none'}`}
+                ref={optionRef}
+            >
                 <span className="me-2">{longestOption}</span>
                 <FiChevronDown className="ms-auto" />
             </div>
             {/* ------------------------------------------ */}
 
             <div
-                className="pagination-dropdown-index"
+                className="product-pagination-dropdown-index"
                 onMouseEnter={() => setIsDropdownShown(true)}
                 onMouseLeave={() => setIsDropdownShown(false)}
                 onTouchStart={() => setIsDropdownShown(!isDropdownShown)}
@@ -46,7 +49,7 @@ const CategoryDropdown = ({ dropdownTitle, dropdownOptions, category, queryHandl
                 <FiChevronDown className="ms-auto" />
 
                 {dropdownOptions && (
-                    <aside className={`pagination-dropdown ${isDropdownShown && 'show'}`}>
+                    <aside className={`product-pagination-dropdown ${isDropdownShown && 'show'}`}>
                         {dropdownOptions.map((item, index) => {
                             return (
                                 <div
@@ -54,7 +57,7 @@ const CategoryDropdown = ({ dropdownTitle, dropdownOptions, category, queryHandl
                                     onClick={() =>
                                         queryHandler('', item === category ? 'all' : item)
                                     }
-                                    className="pagination-dropdown-item d-flex align-items-center"
+                                    className="product-pagination-dropdown-item d-flex align-items-center"
                                 >
                                     <span className="me-2">{item}</span>
                                     {category === item && (
@@ -70,4 +73,4 @@ const CategoryDropdown = ({ dropdownTitle, dropdownOptions, category, queryHandl
     );
 };
 
-export default CategoryDropdown;
+export default ProductCategoryDropdown;

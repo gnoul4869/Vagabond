@@ -1,3 +1,12 @@
+.product-review-rating-container {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    font-weight: 600;
+    padding: 1.25rem 1.25rem;
+    color: var(--inspiring-red);
+}
+
 .product-review-user-image-container {
     width: 2.5rem;
     height: 2.5rem;

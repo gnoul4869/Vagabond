@@ -26,7 +26,7 @@ const PaginationPaging = ({ total, page, queryHandler, limit, isLoading }) => {
                         onClick={() =>
                             pageHandler(Number(page) - 1 > 0 ? Number(page) - 1 : Number(page))
                         }
-                        className="pagination-paging-btn"
+                        className="product-pagination-paging-btn"
                     >
                         <BsCaretLeftFill />
                     </button>
@@ -36,7 +36,7 @@ const PaginationPaging = ({ total, page, queryHandler, limit, isLoading }) => {
                             <div
                                 key={index}
                                 onClick={() => pageHandler(pageNum)}
-                                className={`pagination-paging-item ${
+                                className={`product-pagination-paging-item ${
                                     Number(page) === pageNum && 'active'
                                 }`}
                             >
@@ -44,14 +44,14 @@ const PaginationPaging = ({ total, page, queryHandler, limit, isLoading }) => {
                             </div>
                         );
                     })}
-                    {/* <div className="pagination-paging-dots">...</div> */}
+                    {/* <div className="product-pagination-paging-dots">...</div> */}
                     <button
                         onClick={() =>
                             pageHandler(
                                 Number(page) + 1 > totalPages ? Number(page) : Number(page) + 1
                             )
                         }
-                        className="pagination-paging-btn"
+                        className="product-pagination-paging-btn"
                     >
                         <BsCaretRightFill />
                     </button>

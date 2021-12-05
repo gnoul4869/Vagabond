@@ -1,9 +1,9 @@
 import React from 'react';
-import SortDropdown from './SortDropdown';
-import CategoryDropdown from './CategoryDropdown';
-import PaginationLoading from '../loading/PaginationLoading';
+import ProductSortDropdown from './ProductSortDropdown';
+import ProductCategoryDropdown from './ProductCategoryDropdown';
+import ProductPaginationLoading from '../../loading/PaginationLoading';
 
-const PaginationOptions = ({
+const ProductPaginationOptions = ({
     buttons,
     selections,
     categories,
@@ -15,7 +15,11 @@ const PaginationOptions = ({
     return (
         <>
             {isLoading ? (
-                <PaginationLoading buttons={buttons} selection={selections} category={categories} />
+                <ProductPaginationLoading
+                    buttons={buttons}
+                    selection={selections}
+                    category={categories}
+                />
             ) : (
                 <div className="container bg-white p-0 p-lg-2">
                     <div className="container d-flex px-0 px-lg-2">
@@ -28,7 +32,7 @@ const PaginationOptions = ({
                                     <div
                                         key={index}
                                         onClick={() => queryHandler(item.sort, '')}
-                                        className={`pagination-button me-lg-3 ${
+                                        className={`product-pagination-button me-lg-3 ${
                                             sort === item.sort && 'active'
                                         }`}
                                     >
@@ -38,14 +42,14 @@ const PaginationOptions = ({
                             })}
                         </div>
 
-                        <SortDropdown
+                        <ProductSortDropdown
                             dropdownTitle={selections.title}
                             dropdownOptions={selections.options}
                             sort={sort}
                             queryHandler={queryHandler}
                         />
 
-                        <CategoryDropdown
+                        <ProductCategoryDropdown
                             dropdownTitle={'Tất cả'}
                             dropdownOptions={categories}
                             category={category}
@@ -58,4 +62,4 @@ const PaginationOptions = ({
     );
 };
 
-export default PaginationOptions;
+export default ProductPaginationOptions;

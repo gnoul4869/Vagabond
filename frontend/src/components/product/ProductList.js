@@ -9,9 +9,12 @@ import PriceFormat from '../PriceFormat';
 import RatingStars from '../RatingStars';
 import { addToCart } from '../../redux/actions/cartActions';
 import InfoModal from '../modals/InfoModal';
-import PaginationOptions from '../pagination/PaginationOptions';
-import PaginationPaging from '../pagination/PaginationPaging';
-import { paginationButtons, paginationSelections } from '../../data/paginationData';
+import ProductPaginationOptions from '../pagination/productPagination/ProductPaginationOptions';
+import PaginationPaging from '../pagination/productPagination/ProductPaginationPaging';
+import {
+    productPaginationButtons,
+    productPaginationSelections,
+} from '../../data/productPaginationData';
 import ProductListLoading from '../loading/ProductListLoading';
 import ErrorPage from '../../pages/error/ErrorPage';
 
@@ -160,9 +163,9 @@ const ProductList = () => {
 
     return (
         <>
-            <PaginationOptions
-                buttons={paginationButtons}
-                selections={paginationSelections}
+            <ProductPaginationOptions
+                buttons={productPaginationButtons}
+                selections={productPaginationSelections}
                 categories={productCategories}
                 sort={sort}
                 category={category}

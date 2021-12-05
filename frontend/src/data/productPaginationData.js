@@ -1,4 +1,4 @@
-export const paginationButtons = [
+export const productPaginationButtons = [
     {
         id: 0,
         name: 'Liên quan',
@@ -16,7 +16,7 @@ export const paginationButtons = [
     },
 ];
 
-export const paginationSelections = {
+export const productPaginationSelections = {
     title: 'Giá',
     options: [
         {

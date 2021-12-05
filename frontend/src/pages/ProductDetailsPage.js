@@ -175,7 +175,7 @@ const ProductDetailsPage = () => {
                                 weight={product.weight}
                                 description={product.description}
                             />
-                            <ProductReviews productID={product.id} />
+                            <ProductReviews productID={product.id} rating={product.rating} />
                         </section>
                         {isModalShown && (
                             <InfoModal
