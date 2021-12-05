@@ -52,6 +52,8 @@ const ProductReviews = ({ productID, productRating }) => {
         }
     };
 
+    const formHandler = () => {};
+
     useEffect(() => {
         dispatch(listReviews(productID, rating, page, limit));
     }, [dispatch, productID, rating, page]);
@@ -84,6 +86,42 @@ const ProductReviews = ({ productID, productRating }) => {
                     />
                 </div>
             )}
+
+            <div className="container p-4 my-4">
+                <div className="row justify-content-center">
+                    <div className="col-auto">
+                        <div className="product-review-poster-image-container">
+                            <div
+                                className="product-review-user-image"
+                                style={{
+                                    backgroundImage: `url(${userInfo.image})`,
+                                }}
+                            ></div>
+                        </div>
+                    </div>
+                    <div className="col-6">
+                        <div className="fsr-3">Hãy viết đánh giá của bạn</div>
+                        <div className="mt-2 mb-3">
+                            <RatingStars rating={0} css={'text-ired fsr-3 icon'} />
+                        </div>
+                        <div className="form d-flex flex-column" onClick={formHandler}>
+                            <textarea
+                                name="review"
+                                cols="30"
+                                rows="5"
+                                placeholder={'Bạn nghĩ gì về sản phẩm này...'}
+                                className="product-review-post form-control"
+                            ></textarea>
+                            <button
+                                type="submit"
+                                className="button-main btn-post ms-auto me-2 mt-3"
+                            >
+                                Đánh giá
+                            </button>
+                        </div>
+                    </div>
+                </div>
+            </div>
 
             {isLoading ? (
                 <div className="d-flex justify-content-center align-items-center">

@@ -27,11 +27,17 @@ body {
     background-color: whitesmoke !important;
 }
 
+p {
+    white-space: pre-line;
+}
+
 input {
     box-shadow: none !important;
 }
 
-input:focus {
+input:focus,
+textarea:focus,
+select:focus {
     border-color: lightslategray !important;
 }
 
@@ -44,14 +50,6 @@ input[type='number']::-webkit-outer-spin-button {
 
 select {
     box-shadow: none !important;
-}
-
-select:focus {
-    border-color: lightslategray !important;
-}
-
-p {
-    white-space: pre-line;
 }
 
 /** Utils */
@@ -226,6 +224,21 @@ p {
     font-weight: 600;
     box-shadow: rgba(0, 0, 0, 0.05) 0rem 0rem 0rem 0.0625rem;
     transition: all 0.1s linear;
+}
+
+.btn-post {
+    padding: 0.45rem 0.6rem;
+    border-radius: 10px;
+    color: var(--not-pure-white);
+    background-color: var(--inspiring-red);
+}
+
+.btn-post:hover {
+    background-color: brown;
+}
+
+.btn-post:active {
+    background-color: darksalmon;
 }
 
 .btn-purchase {

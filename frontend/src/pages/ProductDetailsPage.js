@@ -170,12 +170,14 @@ const ProductDetailsPage = () => {
                                     </div>
                                 </div>
                             </div>
+
                             <ProductDescription
                                 category={product.category}
                                 brand={product.brand}
                                 weight={product.weight}
                                 description={product.description}
                             />
+
                             <ProductReviews productID={id} productRating={product.rating} />
                         </section>
                         {isModalShown && (
