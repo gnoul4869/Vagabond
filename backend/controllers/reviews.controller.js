@@ -63,12 +63,18 @@ export const getAllReviews = async (req, res) => {
         query.likedBy = likedBy;
     }
 
+    const page = Number(req.query.page) || 1;
+    const limit = Number(req.query.limit) || 5;
+    const skip = (page - 1) * limit;
+
     const reviews = await Review.find(query)
         .populate({
             path: 'createdBy',
             select: 'name image',
         })
-        .sort('createdAt');
+        .sort('createdAt')
+        .limit(limit)
+        .skip(skip);
 
     if (reviews.length === 0) {
         throw new NotFoundError('Không tìm thấy đánh giá nào');

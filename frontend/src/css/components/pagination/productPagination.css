@@ -132,7 +132,8 @@
         padding: 0.5rem 0;
     }
     .product-pagination-paging-item {
-        padding: 0 0.35rem;
+        padding: 0 0.7rem;
+        margin: 0 0.6rem;
     }
 }
 
@@ -166,6 +167,7 @@
         padding: 0.5rem 0;
     }
     .product-pagination-paging-item {
-        padding: 0 0.35rem;
+        padding: 0 0.7rem;
+        margin: 0 0.8rem;
     }
 }

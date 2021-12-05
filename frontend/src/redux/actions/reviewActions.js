@@ -10,11 +10,13 @@ import {
 
 const errorMessage = 'Đã có lỗi xảy ra. Bạn vui lòng thử lại sau ít phút nữa';
 
-export const listReviews = (productID, rating) => async (dispatch) => {
+export const listReviews = (productID, rating, page, limit) => async (dispatch) => {
     dispatch({ type: REVIEW_LIST_REQUEST });
 
     try {
-        const { data } = await axios.get('/api/v1/reviews', { params: { productID, rating } });
+        const { data } = await axios.get('/api/v1/reviews', {
+            params: { productID, rating, page, limit },
+        });
         const { total, reviews } = data;
         dispatch({ type: REVIEW_LIST_SUCCESS, payload: { total, reviews } });
     } catch (error) {

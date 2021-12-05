@@ -1,6 +1,6 @@
 import React from 'react';
 
-const ReviewPaginationOptions = ({ buttons, rating, setRating }) => {
+const ReviewPaginationOptions = ({ buttons, rating, queryHandler }) => {
     return (
         <>
             <div className="review-pagination-container">
@@ -8,7 +8,7 @@ const ReviewPaginationOptions = ({ buttons, rating, setRating }) => {
                     return (
                         <div
                             key={index}
-                            onClick={() => setRating(item.rating)}
+                            onClick={() => queryHandler(item.rating, null)}
                             className={`review-pagination-button me-lg-3 ${
                                 rating === item.rating && 'active'
                             }`}

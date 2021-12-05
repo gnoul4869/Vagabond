@@ -27,6 +27,48 @@
     background-color: var(--inspiring-red);
 }
 
+.review-pagination-paging-btn {
+    display: flex;
+    align-items: center;
+    border: none;
+    background: transparent;
+    color: var(--inspiring-red);
+    outline-style: none;
+}
+
+.review-pagination-paging-btn:hover {
+    color: #630606;
+}
+
+.review-pagination-paging-btn:active {
+    color: darksalmon;
+}
+
+.review-pagination-paging-item {
+    color: var(--dark-slate-gray);
+    padding: 0 0.8rem;
+    margin: 0 0.5rem;
+    transition: all 0.2s linear;
+    cursor: pointer;
+}
+
+.review-pagination-paging-item:hover {
+    color: var(--inspiring-red);
+}
+
+.review-pagination-paging-item.active {
+    color: var(--not-pure-white);
+    background-color: var(--inspiring-red);
+    border-radius: 7%;
+}
+
+.review-pagination-paging-dots {
+    color: var(--dark-slate-gray);
+    padding: 0 1rem;
+    margin: 0 1rem;
+    cursor: default;
+}
+
 @media (max-width: 767.98px) {
     .review-pagination-container {
         margin-top: 1.875rem;
@@ -34,5 +76,10 @@
 
     .review-pagination-button {
         font-size: 0.625rem;
+    }
+
+    .review-pagination-paging-item {
+        padding: 0 0.5rem;
+        margin: 0 0.4rem;
     }
 }

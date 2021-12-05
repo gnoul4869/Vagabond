@@ -13,7 +13,6 @@ export const review = (
 ) => {
     switch (action.type) {
         case REVIEW_LIST_REQUEST:
-            console.log('request');
             return {
                 ...state,
                 total: 0,
@@ -22,7 +21,6 @@ export const review = (
                 isLoading: true,
             };
         case REVIEW_LIST_SUCCESS:
-            console.log('success');
             return {
                 ...state,
                 total: action.payload.total,

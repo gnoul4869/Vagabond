@@ -11,6 +11,7 @@ import EmptyReview from '../EmptyReview';
 import RatingStars from '../RatingStars';
 import ReviewPaginationOptions from '../pagination/reviewPagination/ReviewPaginationOptions';
 import { reviewPaginationButtons } from '../../data/reviewPaginationData';
+import ReviewPaginationPaging from '../pagination/reviewPagination/ReviewPaginationPaging';
 
 const ProductReviews = ({ productID, productRating }) => {
     const history = useHistory();
@@ -20,8 +21,20 @@ const ProductReviews = ({ productID, productRating }) => {
     const { total, reviews, isLoading, isUpdating, error } = useSelector((state) => state.review);
     const { userInfo } = useSelector((state) => state.auth);
 
-    const [rating, setRating] = useState('');
     const [isInitialLoad, setIsInitialLoad] = useState(true);
+    const [rating, setRating] = useState('');
+    const [page, setPage] = useState(1);
+    const limit = 5;
+
+    const queryHandler = (ratingValue, pageValue) => {
+        if (ratingValue !== null && ratingValue !== rating) {
+            setPage(1);
+            setRating(ratingValue);
+        }
+        if (pageValue && pageValue !== page) {
+            setPage(pageValue);
+        }
+    };
 
     const likeHandler = (reviewID) => {
         if (!userInfo) {
@@ -36,8 +49,8 @@ const ProductReviews = ({ productID, productRating }) => {
     };
 
     useEffect(() => {
-        dispatch(listReviews(productID, rating));
-    }, [dispatch, productID, rating]);
+        dispatch(listReviews(productID, rating, page, limit));
+    }, [dispatch, productID, rating, page]);
 
     useEffect(() => {
         if (!isLoading && reviews.length !== 0 && isInitialLoad) {
@@ -63,7 +76,7 @@ const ProductReviews = ({ productID, productRating }) => {
                     <ReviewPaginationOptions
                         buttons={reviewPaginationButtons}
                         rating={rating}
-                        setRating={setRating}
+                        queryHandler={queryHandler}
                     />
                 </div>
             )}
@@ -143,6 +156,14 @@ const ProductReviews = ({ productID, productRating }) => {
                                         </div>
                                     );
                                 })}
+
+                                <ReviewPaginationPaging
+                                    total={total}
+                                    page={page}
+                                    queryHandler={queryHandler}
+                                    limit={limit}
+                                    isLoading={isLoading}
+                                />
                             </>
                         )
                     )}

@@ -2,14 +2,8 @@ import React from 'react';
 import PulseLoader from 'react-spinners/PulseLoader';
 import { BsCaretLeftFill, BsCaretRightFill } from 'react-icons/bs';
 
-const ProductPaginationPaging = ({ total, page, queryHandler, limit, isLoading }) => {
+const ReviewPaginationPaging = ({ total, page, queryHandler, limit, isLoading }) => {
     const totalPages = Math.ceil(total / limit);
-
-    const pageHandler = (value) => {
-        if (Number(page) !== value) {
-            queryHandler('', '', value);
-        }
-    };
 
     return (
         <div className="container d-inline-flex align-items-center justify-content-center fsr-4 mt-3">
@@ -24,9 +18,12 @@ const ProductPaginationPaging = ({ total, page, queryHandler, limit, isLoading }
                 <>
                     <button
                         onClick={() =>
-                            pageHandler(Number(page) - 1 > 0 ? Number(page) - 1 : Number(page))
+                            queryHandler(
+                                null,
+                                Number(page) - 1 > 0 ? Number(page) - 1 : Number(page)
+                            )
                         }
-                        className="product-pagination-paging-btn"
+                        className="review-pagination-paging-btn"
                     >
                         <BsCaretLeftFill />
                     </button>
@@ -35,8 +32,8 @@ const ProductPaginationPaging = ({ total, page, queryHandler, limit, isLoading }
                         return (
                             <div
                                 key={index}
-                                onClick={() => pageHandler(pageNum)}
-                                className={`product-pagination-paging-item ${
+                                onClick={() => queryHandler(null, pageNum)}
+                                className={`review-pagination-paging-item ${
                                     Number(page) === pageNum && 'active'
                                 }`}
                             >
@@ -44,14 +41,15 @@ const ProductPaginationPaging = ({ total, page, queryHandler, limit, isLoading }
                             </div>
                         );
                     })}
-                    {/* <div className="product-pagination-paging-dots">...</div> */}
+                    {/* <div className="review-pagination-paging-dots">...</div> */}
                     <button
                         onClick={() =>
-                            pageHandler(
+                            queryHandler(
+                                null,
                                 Number(page) + 1 > totalPages ? Number(page) : Number(page) + 1
                             )
                         }
-                        className="product-pagination-paging-btn"
+                        className="review-pagination-paging-btn"
                     >
                         <BsCaretRightFill />
                     </button>
@@ -63,4 +61,4 @@ const ProductPaginationPaging = ({ total, page, queryHandler, limit, isLoading }
     );
 };
 
-export default ProductPaginationPaging;
+export default ReviewPaginationPaging;
