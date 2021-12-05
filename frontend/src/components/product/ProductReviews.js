@@ -4,6 +4,7 @@ import PulseLoader from 'react-spinners/PulseLoader';
 import { listReviews } from '../../redux/actions/reviewActions';
 import ErrorPage from '../../pages/error/ErrorPage';
 import EmptyReview from '../EmptyReview';
+import RatingStars from '../RatingStars';
 
 const ProductReviews = ({ productID }) => {
     const dispatch = useDispatch();
@@ -40,7 +41,28 @@ const ProductReviews = ({ productID }) => {
                     ) : (
                         reviews.length !== 0 &&
                         reviews.map((item) => {
-                            return <div>{item.content}</div>;
+                            return (
+                                <div key={item.id} className="container">
+                                    <div className="row">
+                                        <div className="col-auto d-flex align-items-center">
+                                            <div className="product-review-user-image-container">
+                                                <div
+                                                    className="product-review-user-image"
+                                                    style={{
+                                                        backgroundImage: `url(${item.createdBy.image})`,
+                                                    }}
+                                                ></div>
+                                            </div>
+                                            <div className="ms-2">{item.createdBy.name}</div>
+                                            <RatingStars rating={5} />
+                                        </div>
+                                    </div>
+                                    <div className="container ms-2 my-2">
+                                        <p>{item.content}</p>
+                                    </div>
+                                    <div className="divider-bottom my-3"></div>
+                                </div>
+                            );
                         })
                     )}
                 </div>

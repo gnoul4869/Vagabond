@@ -25,6 +25,7 @@ import './css/components/navbar/secondary/secondaryBar.css';
 import './css/components/navbar/secondary/navBarDropdown.css';
 import './css/components/navbar/secondary/navBarUserSubmenu.css';
 import './css/components/product/productList.css';
+import './css/components/product/productReview.css';
 import './css/components/product/productCarousel.css';
 import './css/components/loading/profilePageLoading.css';
 import './css/components/loading/productDetailsPageLoading.css';

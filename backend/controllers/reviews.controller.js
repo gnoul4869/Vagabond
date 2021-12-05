@@ -13,7 +13,10 @@ export const getAllReviews = async (req, res) => {
     const query = {};
     query.createdIn = productID;
 
-    const reviews = await Review.find(query).populate('createdBy');
+    const reviews = await Review.find(query).populate({
+        path: 'createdBy',
+        select: 'name image',
+    });
 
     if (reviews.length === 0) {
         throw new NotFoundError('Không tìm thấy đánh giá nào');
@@ -21,7 +24,10 @@ export const getAllReviews = async (req, res) => {
 
     const total = await Review.countDocuments(query);
 
-    res.status(StatusCodes.OK).json({ total, reviews });
+    res.status(StatusCodes.OK).json({
+        total,
+        reviews,
+    });
 };
 
 export const createReview = async (req, res) => {
@@ -57,7 +63,10 @@ export const createReview = async (req, res) => {
     });
 
     const productNumReviews = product.numReviews + 1;
-    const productRating = (product.rating + review.rating) / productNumReviews;
+    const estimatedRating = (product.rating + review.rating) / productNumReviews;
+    const productRating = Math.round((estimatedRating + Number.EPSILON) * 100) / 100;
+
+    console.log(estimatedRating, productRating);
 
     await Product.findByIdAndUpdate(
         { _id: review.createdIn },

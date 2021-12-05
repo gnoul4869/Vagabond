@@ -1,6 +1,6 @@
 import { BsStar, BsStarFill, BsStarHalf } from 'react-icons/bs';
 
-const RatingStars = ({ rating, numReviews }) => {
+const RatingStars = ({ rating }) => {
     return (
         <span className="rating-star">
             {rating >= 1 ? <BsStarFill /> : rating >= 0.5 ? <BsStarHalf /> : <BsStar />}

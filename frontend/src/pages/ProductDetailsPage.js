@@ -92,10 +92,7 @@ const ProductDetailsPage = () => {
                                                     <span className="product-details-value me-1">
                                                         {product.rating}
                                                     </span>
-                                                    <RatingStars
-                                                        rating={product.rating}
-                                                        numReviews={product.numReviews}
-                                                    />
+                                                    <RatingStars rating={product.rating} />
                                                     <span className="product-details-separator"></span>
                                                     <span className="product-details-reviews text-secondary">
                                                         <span className="product-details-value">

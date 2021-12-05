@@ -1,9 +1,10 @@
 .navbar-user-container {
+    position: relative;
+    display: flex;
     color: var(--not-pure-white);
     font-weight: 500;
-    position: relative;
-    cursor: pointer;
     padding: 0.375rem;
+    cursor: pointer;
 }
 
 .navbar-avatar-container {

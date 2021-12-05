@@ -205,10 +205,7 @@ const ProductList = () => {
                                                         <PriceFormat price={item.price} />
                                                     </div>
                                                     <div className="product-rating">
-                                                        <RatingStars
-                                                            rating={item.rating}
-                                                            numReviews={item.numReviews}
-                                                        />
+                                                        <RatingStars rating={item.rating} />
                                                         <span className="text-secondary">
                                                             | {`${item.numReviews} lượt đánh giá`}
                                                         </span>
