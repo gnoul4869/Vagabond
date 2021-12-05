@@ -92,7 +92,10 @@ const ProductDetailsPage = () => {
                                                     <span className="product-details-value me-2">
                                                         {product.rating}
                                                     </span>
-                                                    <RatingStars rating={product.rating} />
+                                                    <RatingStars
+                                                        rating={product.rating}
+                                                        css={'text-ystar'}
+                                                    />
                                                     <span className="separator"></span>
                                                     <div className="d-flex align-items-center text-secondary">
                                                         <span className="product-details-value me-2">

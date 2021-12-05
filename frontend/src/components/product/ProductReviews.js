@@ -64,7 +64,7 @@ const ProductReviews = ({ productID }) => {
                                         <div className="col d-flex flex-column">
                                             <span>{item.createdBy.name}</span>
                                             <div className="mt-1">
-                                                <RatingStars rating={5} />
+                                                <RatingStars rating={5} css={'text-ired'} />
                                             </div>
                                             <div className="mt-2 ms-2">
                                                 <p>{item.content}</p>

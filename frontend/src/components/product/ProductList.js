@@ -206,7 +206,10 @@ const ProductList = () => {
                                                     </div>
                                                     <div className="product-rating d-flex flex-column d-md-inline fsr-1">
                                                         <div className="d-inline-flex icon">
-                                                            <RatingStars rating={item.rating} />
+                                                            <RatingStars
+                                                                rating={item.rating}
+                                                                css={'text-ystar'}
+                                                            />
                                                         </div>
                                                         <span className="separator d-none d-md-inline"></span>
                                                         <span className="text-secondary mt-1 mt-md-0">

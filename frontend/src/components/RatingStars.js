@@ -1,8 +1,8 @@
 import { BsStar, BsStarFill, BsStarHalf } from 'react-icons/bs';
 
-const RatingStars = ({ rating }) => {
+const RatingStars = ({ rating, css }) => {
     return (
-        <div className="d-flex align-items-center text-ystar">
+        <div className={`d-flex align-items-center ${css}`}>
             {rating >= 1 ? <BsStarFill /> : rating >= 0.5 ? <BsStarHalf /> : <BsStar />}
             {rating >= 2 ? <BsStarFill /> : rating >= 1.5 ? <BsStarHalf /> : <BsStar />}
             {rating >= 3 ? <BsStarFill /> : rating >= 2.5 ? <BsStarHalf /> : <BsStar />}

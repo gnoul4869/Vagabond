@@ -3,33 +3,6 @@ import Review from '../models/review.model.js';
 import { BadRequestError, NotFoundError } from '../errors/custom-api-error.js';
 import Product from '../models/product.model.js';
 
-export const getAllReviews = async (req, res) => {
-    const { productID } = req.query;
-
-    if (!productID) {
-        throw new BadRequestError('Hãy cung cấp mã sản phẩm');
-    }
-
-    const query = {};
-    query.createdIn = productID;
-
-    const reviews = await Review.find(query).populate({
-        path: 'createdBy',
-        select: 'name image',
-    });
-
-    if (reviews.length === 0) {
-        throw new NotFoundError('Không tìm thấy đánh giá nào');
-    }
-
-    const total = await Review.countDocuments(query);
-
-    res.status(StatusCodes.OK).json({
-        total,
-        reviews,
-    });
-};
-
 export const createReview = async (req, res) => {
     const { productID, rating, content } = req.body;
 
@@ -74,4 +47,31 @@ export const createReview = async (req, res) => {
     );
 
     res.status(StatusCodes.OK).json({ review });
+};
+
+export const getAllReviews = async (req, res) => {
+    const { productID } = req.query;
+
+    if (!productID) {
+        throw new BadRequestError('Hãy cung cấp mã sản phẩm');
+    }
+
+    const query = {};
+    query.createdIn = productID;
+
+    const reviews = await Review.find(query).populate({
+        path: 'createdBy',
+        select: 'name image',
+    });
+
+    if (reviews.length === 0) {
+        throw new NotFoundError('Không tìm thấy đánh giá nào');
+    }
+
+    const total = await Review.countDocuments(query);
+
+    res.status(StatusCodes.OK).json({
+        total,
+        reviews,
+    });
 };
