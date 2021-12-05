@@ -1,4 +1,4 @@
-import React, { useEffect, useState } from 'react';
+import React, { useEffect, useRef, useState } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
 import { useHistory, useLocation } from 'react-router';
 import { MdThumbUp } from 'react-icons/md';
@@ -26,6 +26,8 @@ const ProductReviews = ({ productID, productRating }) => {
     const [page, setPage] = useState(1);
     const limit = 5;
 
+    const reviewRef = useRef(null);
+
     const queryHandler = (ratingValue, pageValue) => {
         if (ratingValue !== null && ratingValue !== rating) {
             setPage(1);
@@ -34,6 +36,8 @@ const ProductReviews = ({ productID, productRating }) => {
         if (pageValue && pageValue !== page) {
             setPage(pageValue);
         }
+
+        reviewRef.current.scrollIntoView();
     };
 
     const likeHandler = (reviewID) => {
@@ -59,7 +63,7 @@ const ProductReviews = ({ productID, productRating }) => {
     }, [isInitialLoad, isLoading, reviews]);
 
     return (
-        <div className="container bg-white mt-3 p-3">
+        <div className="container bg-white mt-3 p-3" ref={reviewRef}>
             <div className="bg-label container rounded mb-3">
                 <div className="fw-600 fsr-4">Đánh giá sản phẩm</div>
             </div>
@@ -82,10 +86,10 @@ const ProductReviews = ({ productID, productRating }) => {
             )}
 
             {isLoading ? (
-                <div className="d-flex justify-content-center align-items-center my-5">
+                <div className="d-flex justify-content-center align-items-center">
                     <PulseLoader
                         color="#c73434"
-                        css="display: inherit;"
+                        css="display: inherit; margin: 7.5rem; 0"
                         size={12}
                         speedMultiplier={0.9}
                     />
