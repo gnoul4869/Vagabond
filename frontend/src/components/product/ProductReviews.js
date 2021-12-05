@@ -1,5 +1,8 @@
 import React, { useEffect } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
+import moment from 'moment';
+import 'moment/locale/vi';
+import { MdThumbUp } from 'react-icons/md';
 import PulseLoader from 'react-spinners/PulseLoader';
 import { listReviews } from '../../redux/actions/reviewActions';
 import ErrorPage from '../../pages/error/ErrorPage';
@@ -41,11 +44,15 @@ const ProductReviews = ({ productID }) => {
                     ) : (
                         reviews.length !== 0 &&
                         reviews.map((item) => {
+                            const postDate = moment(item.createdAt).format('DD-MM-YYYY HH:mm');
                             return (
-                                <div key={item.id} className="container">
+                                <div
+                                    key={item.id}
+                                    className="container text-sdark fsr-2 p-0 p-md-2"
+                                >
                                     <div className="row">
-                                        <div className="col-auto d-flex align-items-center">
-                                            <div className="product-review-user-image-container">
+                                        <div className="col-auto">
+                                            <div className="product-review-user-image-container mt-1">
                                                 <div
                                                     className="product-review-user-image"
                                                     style={{
@@ -53,18 +60,25 @@ const ProductReviews = ({ productID }) => {
                                                     }}
                                                 ></div>
                                             </div>
-                                            <div className="d-flex flex-column bg-info ms-3">
-                                                <div className="bg-warning">
-                                                    {item.createdBy.name}
-                                                </div>
-                                                <div className="bg-info">
-                                                    <RatingStars rating={5} />
+                                        </div>
+                                        <div className="col d-flex flex-column">
+                                            <span>{item.createdBy.name}</span>
+                                            <div className="mt-1">
+                                                <RatingStars rating={5} />
+                                            </div>
+                                            <div className="mt-2 ms-2">
+                                                <p>{item.content}</p>
+                                            </div>
+                                            <div className="fsr-1 text-secondary">{postDate}</div>
+                                            <div className="d-inline-flex align-items-center mt-3">
+                                                <MdThumbUp className="product-review-like-btn" />
+                                                <div className="product-review-like-count ms-2">
+                                                    {item.numLikes <= 0
+                                                        ? 'Hữu ích?'
+                                                        : item.numLikes}
                                                 </div>
                                             </div>
                                         </div>
-                                    </div>
-                                    <div className="container ms-2 my-2">
-                                        <p>{item.content}</p>
                                     </div>
                                     <div className="divider-bottom my-3"></div>
                                 </div>

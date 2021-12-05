@@ -11,3 +11,23 @@
     background-position: center;
     background-repeat: no-repeat;
 }
+
+.product-review-like-btn {
+    color: lightgray;
+    font-size: 1.1875rem;
+    cursor: pointer;
+    transition: all 0.2s linear;
+}
+
+.product-review-like-btn:hover {
+    color: var(--inspiring-red-hover);
+}
+
+.product-review-like-btn.active {
+    color: var(--inspiring-red);
+}
+
+.product-review-like-count {
+    color: var(--gray);
+    font-size: 1.125rem;
+}

@@ -1,12 +1,13 @@
 :root {
     --inspiring-red: #c73434;
     --inspiring-red-hover: #df4343;
+    --yellow-star: #f0d121;
     --dark-slate-gray: #2f2f2f;
     --not-pure-white: #fdfdfd;
     --white-hover: #f8f8f8;
     --light-gray: #eaeaea;
     --fine-gray: #f0f0f0;
-    --yellow-star: #f0d121;
+    --gray: #c0c0c0;
 }
 
 body {

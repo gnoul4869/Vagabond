@@ -22,6 +22,16 @@ const reviewSchema = new mongoose.Schema(
             ref: 'User',
             required: [true, 'Hãy cung cấp mã thành viên'],
         },
+        numLikes: {
+            type: Number,
+            default: 0,
+        },
+        likedBy: [
+            {
+                type: mongoose.Types.ObjectId,
+                ref: 'User',
+            },
+        ],
     },
     {
         timestamps: true,
