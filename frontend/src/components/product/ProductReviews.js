@@ -4,7 +4,7 @@ import moment from 'moment';
 import 'moment/locale/vi';
 import { MdThumbUp } from 'react-icons/md';
 import PulseLoader from 'react-spinners/PulseLoader';
-import { listReviews } from '../../redux/actions/reviewActions';
+import { listReviews, updateReview } from '../../redux/actions/reviewActions';
 import ErrorPage from '../../pages/error/ErrorPage';
 import EmptyReview from '../EmptyReview';
 import RatingStars from '../RatingStars';
@@ -12,13 +12,18 @@ import RatingStars from '../RatingStars';
 const ProductReviews = ({ productID }) => {
     const dispatch = useDispatch();
 
-    const { total, reviews, isLoading, error } = useSelector((state) => state.review);
+    const { total, reviews, isLoading, isUpdating, error } = useSelector((state) => state.review);
+    const { userInfo } = useSelector((state) => state.auth);
 
     useEffect(() => {
         dispatch(listReviews(productID));
     }, [dispatch, productID]);
 
-    console.log(error);
+    const likeHandler = (reviewID) => {
+        if (!isUpdating) {
+            dispatch(updateReview(reviewID, 'like'));
+        }
+    };
 
     return (
         <div className="container bg-white mt-3 p-3">
@@ -45,6 +50,7 @@ const ProductReviews = ({ productID }) => {
                         reviews.length !== 0 &&
                         reviews.map((item) => {
                             const postDate = moment(item.createdAt).format('DD-MM-YYYY HH:mm');
+                            console.log(item.likedBy.includes(userInfo.id));
                             return (
                                 <div
                                     key={item.id}
@@ -74,7 +80,14 @@ const ProductReviews = ({ productID }) => {
                                             </div>
                                             <div className="fsr-1 text-secondary">{postDate}</div>
                                             <div className="d-inline-flex align-items-center mt-3">
-                                                <MdThumbUp className="product-review-like-btn" />
+                                                <MdThumbUp
+                                                    className={`product-review-like-btn ${
+                                                        userInfo &&
+                                                        item.likedBy.includes(userInfo.id) &&
+                                                        'active'
+                                                    }`}
+                                                    onClick={() => likeHandler(item.id)}
+                                                />
                                                 <div className="product-review-like-count">
                                                     {item.numLikes <= 0
                                                         ? 'Hữu ích?'

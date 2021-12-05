@@ -156,6 +156,7 @@ export const register = async (req, res) => {
 
     res.status(StatusCodes.CREATED).json({
         userInfo: {
+            id: user.id,
             email: user.email,
             name: user.name,
             phoneNumber: user.phoneNumber,
@@ -186,7 +187,7 @@ export const login = async (req, res) => {
 
     const user = await User.findOne({ email: email }).populate({
         path: 'address',
-        select: '-createdAt -updatedAt -_id',
+        select: '-createdAt -updatedAt',
     });
     if (!user) {
         throw new AuthenticationError('Email hoặc mật khẩu của bạn không đúng');

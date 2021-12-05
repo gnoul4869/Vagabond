@@ -18,6 +18,7 @@ export const login = (email, password) => async (dispatch) => {
     try {
         const { data } = await axios.post('/api/v1/auth/login', { email, password });
         const userInfo = {
+            id: data.userInfo.id,
             name: data.userInfo.name,
             image: data.userInfo.image,
             role: data.userInfo.role,
@@ -71,6 +72,7 @@ export const register =
                 addressDetails,
             });
             const userInfo = {
+                id: data.userInfo.id,
                 name: data.userInfo.name,
                 image: data.userInfo.image,
                 role: data.userInfo.role,

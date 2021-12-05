@@ -83,7 +83,7 @@ export const updateReview = async (req, res) => {
     const { reviewID, action } = req.body;
 
     if (!reviewID) {
-        throw new BadRequestError('Hãy cung cấp mã sản phẩm');
+        throw new BadRequestError('Hãy cung cấp mã đánh giá');
     }
 
     if (!action) {

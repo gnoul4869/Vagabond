@@ -16,11 +16,6 @@
     color: lightgray;
     font-size: 1.1875rem;
     cursor: pointer;
-    transition: all 0.2s linear;
-}
-
-.product-review-like-btn:hover {
-    color: var(--inspiring-red-hover);
 }
 
 .product-review-like-btn.active {
