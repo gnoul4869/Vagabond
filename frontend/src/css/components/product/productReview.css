@@ -30,4 +30,5 @@
 .product-review-like-count {
     color: var(--gray);
     font-size: 1.0625rem;
+    margin-left: 0.75rem;
 }

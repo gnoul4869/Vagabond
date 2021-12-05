@@ -64,7 +64,10 @@ const ProductReviews = ({ productID }) => {
                                         <div className="col d-flex flex-column">
                                             <span>{item.createdBy.name}</span>
                                             <div className="mt-1">
-                                                <RatingStars rating={5} css={'text-ired'} />
+                                                <RatingStars
+                                                    rating={item.rating}
+                                                    css={'text-ired'}
+                                                />
                                             </div>
                                             <div className="mt-2 ms-2">
                                                 <p>{item.content}</p>
@@ -72,7 +75,7 @@ const ProductReviews = ({ productID }) => {
                                             <div className="fsr-1 text-secondary">{postDate}</div>
                                             <div className="d-inline-flex align-items-center mt-3">
                                                 <MdThumbUp className="product-review-like-btn" />
-                                                <div className="product-review-like-count ms-2">
+                                                <div className="product-review-like-count">
                                                     {item.numLikes <= 0
                                                         ? 'Hữu ích?'
                                                         : item.numLikes}

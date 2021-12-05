@@ -153,6 +153,7 @@ export const register = async (req, res) => {
     });
 
     const token = await user.createJWT();
+
     res.status(StatusCodes.CREATED).json({
         userInfo: {
             email: user.email,
@@ -183,7 +184,10 @@ export const login = async (req, res) => {
         throw new BadRequestError('Hãy nhập email và password');
     }
 
-    const user = await User.findOne({ email: email });
+    const user = await User.findOne({ email: email }).populate({
+        path: 'address',
+        select: '-createdAt -updatedAt -_id',
+    });
     if (!user) {
         throw new AuthenticationError('Email hoặc mật khẩu của bạn không đúng');
     }
@@ -193,29 +197,12 @@ export const login = async (req, res) => {
         throw new AuthenticationError('Email hoặc mật khẩu của bạn không đúng');
     }
 
-    const address = await Address.findOne({ createdBy: user.id });
-
     const token = user.createJWT();
 
     res.status(StatusCodes.OK).json({
         userInfo: {
-            email: user.email,
-            name: user.name,
-            phoneNumber: user.phoneNumber,
-            gender: user.gender,
-            birthDate: user.birthDate,
-            role: user.role,
-            image: user.image,
-            token: token,
-            address: {
-                provinceID: address.provinceID,
-                provinceName: address.provinceName,
-                districtID: address.districtID,
-                districtName: address.districtName,
-                wardID: address.wardID,
-                wardName: address.wardName,
-                addressDetails: address.addressDetails,
-            },
+            ...user.toJSON(),
+            token,
         },
     });
 };

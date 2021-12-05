@@ -50,7 +50,7 @@ export const createReview = async (req, res) => {
 };
 
 export const getAllReviews = async (req, res) => {
-    const { productID } = req.query;
+    const { productID, likedBy } = req.query;
 
     if (!productID) {
         throw new BadRequestError('Hãy cung cấp mã sản phẩm');
@@ -58,6 +58,9 @@ export const getAllReviews = async (req, res) => {
 
     const query = {};
     query.createdIn = productID;
+    if (likedBy) {
+        query.likedBy = likedBy;
+    }
 
     const reviews = await Review.find(query).populate({
         path: 'createdBy',
@@ -74,4 +77,44 @@ export const getAllReviews = async (req, res) => {
         total,
         reviews,
     });
+};
+
+export const updateReview = async (req, res) => {
+    const { reviewID, action } = req.body;
+
+    if (!reviewID) {
+        throw new BadRequestError('Hãy cung cấp mã sản phẩm');
+    }
+
+    if (!action) {
+        throw new BadRequestError('Hãy cung cấp hành động cập nhật');
+    }
+
+    const actions = ['like'];
+
+    if (!actions.includes(action)) {
+        throw new BadRequestError('Hành động cập nhật không hợp lệ');
+    }
+
+    const review = await Review.findById({ _id: reviewID });
+
+    if (!review) {
+        throw new NotFoundError('Đánh giá không tồn tại');
+    }
+
+    const query = {};
+    if (!review.likedBy.includes(req.user.id)) {
+        query.$inc = { numLikes: 1 };
+        query.$push = { likedBy: req.user.id };
+    } else {
+        query.$inc = { numLikes: -1 };
+        query.$pull = { likedBy: req.user.id };
+    }
+
+    const newReview = await Review.findByIdAndUpdate({ _id: reviewID }, query, {
+        new: true,
+        runValidators: true,
+    }).populate({ path: 'createdBy', select: 'name image' });
+
+    res.status(StatusCodes.OK).json({ review: newReview });
 };

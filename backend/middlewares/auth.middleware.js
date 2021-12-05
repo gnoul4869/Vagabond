@@ -14,7 +14,7 @@ const auth = async (req, res, next) => {
             throw new AuthenticationError('Xác thực thất bại');
         }
 
-        req.user = { id: payload.id, name: payload.name, role: payload.role };
+        req.user = { id: payload.id, email: payload.email, name: payload.name, role: payload.role };
         next();
     });
 };

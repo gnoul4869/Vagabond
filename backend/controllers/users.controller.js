@@ -7,7 +7,9 @@ import { uploadImageToStorage } from '../firebase/firebase.js';
 import { BadRequestError, NotFoundError } from '../errors/custom-api-error.js';
 
 export const getUserDetails = async (req, res) => {
-    const user = await User.findById({ _id: req.user.id }).populate('address');
+    const user = await User.findById({ _id: req.user.id })
+        .populate({ path: 'address', select: '-createdAt -updatedAt -_id' })
+        .select('-password');
 
     if (!user) {
         throw new NotFoundError('Tài khoản không tồn tại');
@@ -15,24 +17,7 @@ export const getUserDetails = async (req, res) => {
 
     const hiddenEmail = hideEmail(user.email);
     res.status(StatusCodes.OK).json({
-        userDetails: {
-            email: hiddenEmail,
-            name: user.name,
-            phoneNumber: user.phoneNumber,
-            gender: user.gender,
-            birthDate: user.birthDate,
-            role: user.role,
-            image: user.image,
-            address: {
-                provinceID: user.address.provinceID,
-                provinceName: user.address.provinceName,
-                districtID: user.address.districtID,
-                districtName: user.address.districtName,
-                wardID: user.address.wardID,
-                wardName: user.address.wardName,
-                addressDetails: user.address.addressDetails,
-            },
-        },
+        userDetails: { ...user.toJSON(), email: hiddenEmail },
     });
 };
 

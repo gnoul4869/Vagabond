@@ -66,8 +66,6 @@ export const getAllOrders = async (req, res) => {
 
 export const updateOrder = async (req, res) => {
     const { orderID, status } = req.body;
-    const priority =
-        status === 'pending' ? 0 : status === 'shipping' ? 1 : status === 'delivered' ? 2 : 3;
 
     if (!orderID) {
         throw new BadRequestError('Hay cung cấp mã đơn hàng');
@@ -75,6 +73,12 @@ export const updateOrder = async (req, res) => {
 
     if (!status) {
         throw new BadRequestError('Hãy cung cấp trạng thái đơn hàng');
+    }
+
+    const statuses = ['pending', 'cancelled', 'shipping', 'delivered'];
+
+    if (!statuses.includes(status)) {
+        throw new BadRequestError('Trạng thái đơn hàng không hợp lệ');
     }
 
     if (status !== 'cancelled' && req.user.role !== 'admin') {
@@ -88,6 +92,9 @@ export const updateOrder = async (req, res) => {
         query['user.id'] = req.user.id;
     }
 
+    const priority =
+        status === 'pending' ? 0 : status === 'shipping' ? 1 : status === 'delivered' ? 2 : 3;
+
     const order = await Order.findOneAndUpdate(
         query,
         { status, priority },
@@ -100,18 +107,18 @@ export const updateOrder = async (req, res) => {
         throw new NotFoundError('Không tìm thấy đơn hàng nào');
     }
 
-    const reduceCount =
+    const count =
         order.status === 'pending' && status === 'shipping'
             ? -1
             : order.status === 'shipping' && status === 'cancelled'
             ? 1
             : 0;
 
-    if (reduceCount !== 0) {
+    if (count !== 0) {
         for (const product of order.products) {
             await Product.findByIdAndUpdate(
                 { _id: product.id },
-                { $inc: { countInStock: product.qty * reduceCount } },
+                { $inc: { countInStock: product.qty * count } },
                 {
                     runValidators: true,
                 }
