@@ -95,13 +95,13 @@ const ProductReviews = ({ productID, productRating, productReviewers }) => {
             {!isInitialLoad && (
                 <div className="product-review-rating-container container mb-3">
                     <div>
-                        <span className="fsr-5">{totalRating || productRating}</span>
+                        <span className="fsr-6">{totalRating || productRating}</span>
                         <span className="fsr-4 ms-1">trên 5</span>
                     </div>
 
                     <RatingStars
                         rating={totalRating || productRating}
-                        css={'text-ired fsr-5 mt-2'}
+                        css={'text-ired fsr-6 mt-2'}
                     />
 
                     <ReviewPaginationOptions
@@ -198,7 +198,7 @@ const ProductReviews = ({ productID, productRating, productReviewers }) => {
                                             className={`container text-sdark fsr-2 p-0 px-md-2`}
                                         >
                                             <div
-                                                className={`row pb-3 ${
+                                                className={`row py-1 ${
                                                     item.isNew && 'product-review-new'
                                                 }`}
                                             >

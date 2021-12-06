@@ -28,6 +28,8 @@ export const review = (
                 ...state,
                 total: 0,
                 reviews: [],
+                totalRating: 0,
+                totalNumReviews: 0,
                 error: '',
                 isLoading: true,
             };
