@@ -73,8 +73,8 @@ export const register =
             });
             const userInfo = {
                 id: data.userInfo.id,
-                name: data.userInfo.name,
                 image: data.userInfo.image,
+                name: data.userInfo.name,
                 role: data.userInfo.role,
                 token: data.userInfo.token,
             };

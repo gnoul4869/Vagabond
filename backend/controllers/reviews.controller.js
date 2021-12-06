@@ -44,7 +44,12 @@ export const createReview = async (req, res) => {
         { rating: productRating, numReviews: productNumReviews }
     );
 
-    res.status(StatusCodes.OK).json({ review });
+    res.status(StatusCodes.OK).json({
+        review: {
+            ...review.toJSON(),
+            createdBy: { name: req.user.name, image: req.user.image, id: req.user.id },
+        },
+    });
 };
 
 export const getAllReviews = async (req, res) => {
@@ -72,7 +77,7 @@ export const getAllReviews = async (req, res) => {
             path: 'createdBy',
             select: 'name image',
         })
-        .sort('createdAt')
+        .sort('-createdAt')
         .limit(limit)
         .skip(skip);
 

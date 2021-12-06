@@ -1,4 +1,7 @@
 import {
+    REVIEW_CREATE_FAIL,
+    REVIEW_CREATE_REQUEST,
+    REVIEW_CREATE_SUCCESS,
     REVIEW_LIST_FAIL,
     REVIEW_LIST_REQUEST,
     REVIEW_LIST_SUCCESS,
@@ -36,15 +39,30 @@ export const review = (
                 isUpdating: true,
             };
         case REVIEW_UPDATE_SUCCESS:
-            const reviews = state.reviews.map((item) =>
+            const updatedReviews = state.reviews.map((item) =>
                 item.id === action.payload.id ? action.payload : item
             );
             return {
                 ...state,
-                reviews: reviews,
+                reviews: updatedReviews,
                 isUpdating: false,
             };
         case REVIEW_UPDATE_FAIL:
+            return { ...state, error: action.payload, isUpdating: false };
+        case REVIEW_CREATE_REQUEST:
+            return {
+                ...state,
+                error: '',
+                isUpdating: true,
+            };
+        case REVIEW_CREATE_SUCCESS:
+            const newReviews = [action.payload, ...state.reviews];
+            return {
+                ...state,
+                reviews: newReviews,
+                isUpdating: false,
+            };
+        case REVIEW_CREATE_FAIL:
             return { ...state, error: action.payload, isUpdating: false };
         default:
             return state;

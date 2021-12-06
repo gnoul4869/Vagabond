@@ -72,9 +72,13 @@ userSchema.methods.comparePassword = async function (password) {
 };
 
 userSchema.methods.createJWT = function () {
-    return jwt.sign({ id: this._id, email: this.email, role: this.role }, process.env.JWT_SECRET, {
-        expiresIn: process.env.JWT_LIFETIME,
-    });
+    return jwt.sign(
+        { id: this._id, email: this.email, image: this.image, name: this.name, role: this.role },
+        process.env.JWT_SECRET,
+        {
+            expiresIn: process.env.JWT_LIFETIME,
+        }
+    );
 };
 
 userSchema.options.toJSON = {

@@ -1,5 +1,8 @@
 import axios from 'axios';
 import {
+    REVIEW_CREATE_FAIL,
+    REVIEW_CREATE_REQUEST,
+    REVIEW_CREATE_SUCCESS,
     REVIEW_LIST_FAIL,
     REVIEW_LIST_REQUEST,
     REVIEW_LIST_SUCCESS,
@@ -49,6 +52,33 @@ export const updateReview = (reviewID, action) => async (dispatch, getState) => 
     } catch (error) {
         dispatch({
             type: REVIEW_UPDATE_FAIL,
+            payload:
+                error.response && error.response.data.message
+                    ? error.response.data.message
+                    : errorMessage,
+        });
+    }
+};
+
+export const createReview = (productID, rating, content) => async (dispatch, getState) => {
+    dispatch({ type: REVIEW_CREATE_REQUEST });
+
+    try {
+        const { token } = getState().auth.userInfo;
+        const { data } = await axios.post(
+            '/api/v1/reviews',
+            { productID, rating, content },
+            {
+                headers: {
+                    Authorization: `Bearer ${token}`,
+                },
+            }
+        );
+        const { review } = data;
+        dispatch({ type: REVIEW_CREATE_SUCCESS, payload: review });
+    } catch (error) {
+        dispatch({
+            type: REVIEW_CREATE_FAIL,
             payload:
                 error.response && error.response.data.message
                     ? error.response.data.message

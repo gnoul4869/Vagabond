@@ -5,7 +5,7 @@ import { MdThumbUp } from 'react-icons/md';
 import PulseLoader from 'react-spinners/PulseLoader';
 import moment from 'moment';
 import 'moment/locale/vi';
-import { listReviews, updateReview } from '../../redux/actions/reviewActions';
+import { createReview, listReviews, updateReview } from '../../redux/actions/reviewActions';
 import ErrorPage from '../../pages/error/ErrorPage';
 import EmptyReview from '../EmptyReview';
 import SelectStars from '../SelectStars';
@@ -70,6 +70,8 @@ const ProductReviews = ({ productID, productRating }) => {
             return setIsPostErrorShown(true);
         }
         setIsPostErrorShown(false);
+
+        dispatch(createReview(productID, stars, content));
     };
 
     useEffect(() => {
