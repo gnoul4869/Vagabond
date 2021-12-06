@@ -15,7 +15,7 @@ import ReviewPaginationPaging from '../pagination/reviewPagination/ReviewPaginat
 import RatingStars from '../RatingStars';
 import { VscError } from 'react-icons/vsc';
 
-const ProductReviews = ({ productID, productRating }) => {
+const ProductReviews = ({ productID, productRating, productReviewers }) => {
     const history = useHistory();
     const location = useLocation();
     const dispatch = useDispatch();
@@ -112,7 +112,7 @@ const ProductReviews = ({ productID, productRating }) => {
                 </div>
             )}
 
-            {userInfo && (
+            {userInfo && productReviewers.includes(userInfo.id) && !totalRating && (
                 <div className="container p-0 p-md-4 my-4">
                     <div className="row justify-content-center">
                         <div className="col-auto">

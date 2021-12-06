@@ -4,7 +4,6 @@ import User from '../models/user.model.js';
 import Address from '../models/user.model.js';
 import Product from '../models/product.model.js';
 import Review from '../models/review.model.js';
-import data from './data.js';
 import { computer } from './products/computer.js';
 import { electronic } from './products/electronic.js';
 import { fashion } from './products/fashion.js';
@@ -18,7 +17,7 @@ const populateUsers = async () => {
         await User.deleteMany({});
         await Address.deleteMany({});
 
-        await User.create(data.users);
+        // await User.create(data.users);
         console.log('Users data added to the database...');
         process.exit(0);
     } catch (error) {

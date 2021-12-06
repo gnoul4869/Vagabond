@@ -17,7 +17,6 @@ export const order = (
             return {
                 ...state,
                 error: '',
-                orderList: [],
                 isDone: false,
                 isLoading: true,
             };

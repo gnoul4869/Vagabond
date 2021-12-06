@@ -26,6 +26,12 @@ const PurchasePage = () => {
 
     const isAdmin = userInfo && userInfo.role === 'admin' && location.pathname === '/control';
 
+    const infiniteScroll = () => {
+        if (isDone) {
+            setPage(page + 1);
+        }
+    };
+
     const orderHandler = (id, status) => {
         dispatch(updateOrder(id, status));
     };
@@ -44,7 +50,6 @@ const PurchasePage = () => {
     }, [isInitialLoad, isDone]);
 
     useEffect(() => {
-        setIsInitialLoad(true);
         dispatch(listOrders(status, page, isAdmin));
     }, [dispatch, isAdmin, page, status]);
 
@@ -92,7 +97,7 @@ const PurchasePage = () => {
             ) : (
                 <InfiniteScroll
                     dataLength={orderList.length}
-                    next={() => setPage(page + 1)}
+                    next={infiniteScroll}
                     hasMore={orderList.length < total}
                     scrollThreshold={0.7}
                     loader={

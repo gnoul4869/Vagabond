@@ -28,6 +28,10 @@ export const createReview = async (req, res) => {
         throw new BadRequestError('Sản phẩm không tồn tại');
     }
 
+    if (!product.reviewers.includes(req.user.id)) {
+        throw new BadRequestError('Bạn chưa thể đánh giá sản phẩm này');
+    }
+
     const review = await Review.create({
         rating,
         content,
@@ -45,7 +49,7 @@ export const createReview = async (req, res) => {
 
     await Product.findByIdAndUpdate(
         { _id: review.createdIn },
-        { rating: productRating, numReviews: numReviews }
+        { rating: productRating, numReviews: numReviews, $pull: { reviewers: req.user.id } }
     );
 
     res.status(StatusCodes.OK).json({

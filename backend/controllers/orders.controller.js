@@ -118,7 +118,7 @@ export const updateOrder = async (req, res) => {
         for (const product of order.products) {
             await Product.findByIdAndUpdate(
                 { _id: product.id },
-                { $inc: { countInStock: product.qty * count } },
+                { $inc: { countInStock: product.qty * count }, $push: { reviewers: req.user.id } },
                 {
                     runValidators: true,
                 }
