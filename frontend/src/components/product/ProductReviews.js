@@ -8,10 +8,12 @@ import 'moment/locale/vi';
 import { listReviews, updateReview } from '../../redux/actions/reviewActions';
 import ErrorPage from '../../pages/error/ErrorPage';
 import EmptyReview from '../EmptyReview';
-import RatingStars from '../RatingStars';
+import SelectStars from '../SelectStars';
 import ReviewPaginationOptions from '../pagination/reviewPagination/ReviewPaginationOptions';
 import { reviewPaginationButtons } from '../../data/reviewPaginationData';
 import ReviewPaginationPaging from '../pagination/reviewPagination/ReviewPaginationPaging';
+import RatingStars from '../RatingStars';
+import { VscError } from 'react-icons/vsc';
 
 const ProductReviews = ({ productID, productRating }) => {
     const history = useHistory();
@@ -21,12 +23,18 @@ const ProductReviews = ({ productID, productRating }) => {
     const { total, reviews, isLoading, isUpdating, error } = useSelector((state) => state.review);
     const { userInfo } = useSelector((state) => state.auth);
 
-    const [isInitialLoad, setIsInitialLoad] = useState(true);
+    const reviewRef = useRef(null);
+
     const [rating, setRating] = useState('');
     const [page, setPage] = useState(1);
     const limit = 5;
 
-    const reviewRef = useRef(null);
+    const [stars, setStars] = useState(0);
+    const [content, setContent] = useState('');
+
+    const [isInitialLoad, setIsInitialLoad] = useState(true);
+    const [postError, setPostError] = useState('');
+    const [isPostErrorShown, setIsPostErrorShown] = useState(false);
 
     const queryHandler = (ratingValue, pageValue) => {
         if (ratingValue !== null && ratingValue !== rating) {
@@ -52,7 +60,17 @@ const ProductReviews = ({ productID, productRating }) => {
         }
     };
 
-    const formHandler = () => {};
+    const postHandler = () => {
+        if (stars === 0) {
+            setPostError('Hãy chọn mức đánh giá');
+            return setIsPostErrorShown(true);
+        }
+        if (!content) {
+            setPostError('Hãy nhập nội dung đánh giá');
+            return setIsPostErrorShown(true);
+        }
+        setIsPostErrorShown(false);
+    };
 
     useEffect(() => {
         dispatch(listReviews(productID, rating, page, limit));
@@ -87,41 +105,63 @@ const ProductReviews = ({ productID, productRating }) => {
                 </div>
             )}
 
-            <div className="container p-4 my-4">
-                <div className="row justify-content-center">
-                    <div className="col-auto">
-                        <div className="product-review-poster-image-container">
-                            <div
-                                className="product-review-user-image"
-                                style={{
-                                    backgroundImage: `url(${userInfo.image})`,
-                                }}
-                            ></div>
+            {userInfo && (
+                <div className="container p-0 p-md-4 my-4">
+                    <div className="row justify-content-center">
+                        <div className="col-auto">
+                            <div className="product-review-poster-image-container">
+                                <div
+                                    className="product-review-user-image mt-2"
+                                    style={{
+                                        backgroundImage: `url(${userInfo.image})`,
+                                    }}
+                                ></div>
+                            </div>
                         </div>
-                    </div>
-                    <div className="col-6">
-                        <div className="fsr-3">Hãy viết đánh giá của bạn</div>
-                        <div className="mt-2 mb-3">
-                            <RatingStars rating={0} css={'text-ired fsr-3 icon'} />
-                        </div>
-                        <div className="form d-flex flex-column" onClick={formHandler}>
-                            <textarea
-                                name="review"
-                                cols="30"
-                                rows="5"
-                                placeholder={'Bạn nghĩ gì về sản phẩm này...'}
-                                className="product-review-post form-control"
-                            ></textarea>
-                            <button
-                                type="submit"
-                                className="button-main btn-post ms-auto me-2 mt-3"
-                            >
-                                Đánh giá
-                            </button>
+
+                        <div className="col col-lg-6 position-relative">
+                            <div className="fsr-3">Hãy viết đánh giá của bạn</div>
+                            <div className="mt-1 mb-3">
+                                <div className="d-flex">
+                                    <SelectStars
+                                        stars={stars}
+                                        setStars={setStars}
+                                        css={'text-ired fsr-3'}
+                                    />
+
+                                    <div
+                                        className={`product-review-post-error-container ms-auto ${
+                                            isPostErrorShown && 'show'
+                                        }`}
+                                    >
+                                        <VscError className="text-ired me-1" />
+                                        <span>{postError}</span>
+                                    </div>
+                                </div>
+                            </div>
+
+                            <div className="d-flex flex-column">
+                                <textarea
+                                    name="review"
+                                    cols="30"
+                                    rows="5"
+                                    placeholder={'Bạn nghĩ gì về sản phẩm này...'}
+                                    value={content}
+                                    onChange={(e) => setContent(e.target.value)}
+                                    className="product-review-post form-control fsr-2"
+                                ></textarea>
+                                <button
+                                    type="button"
+                                    onClick={postHandler}
+                                    className="button-main btn-post fsr-2 ms-auto me-3 mt-3"
+                                >
+                                    Đánh giá
+                                </button>
+                            </div>
                         </div>
                     </div>
                 </div>
-            </div>
+            )}
 
             {isLoading ? (
                 <div className="d-flex justify-content-center align-items-center">
@@ -152,7 +192,7 @@ const ProductReviews = ({ productID, productRating }) => {
                                         >
                                             <div className="row">
                                                 <div className="col-auto">
-                                                    <div className="product-review-user-image-container mt-1">
+                                                    <div className="product-review-user-image-container mt-2">
                                                         <div
                                                             className="product-review-user-image"
                                                             style={{

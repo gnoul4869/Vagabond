@@ -359,6 +359,10 @@ select {
     vertical-align: -0.1rem;
 }
 
+.icon-2 {
+    vertical-align: -0.2rem;
+}
+
 /** Form */
 .form-check-input {
     box-shadow: none !important;
@@ -387,7 +391,7 @@ select {
 }
 
 .separator {
-    border-right: 0.0625rem solid hsla(0, 0%, 51%, 0.4);
+    border-right: 0.0625rem solid var(--not-pure-white);
     height: 0.8125rem;
     margin: 0 0.3125rem;
 }
