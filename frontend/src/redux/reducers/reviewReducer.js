@@ -11,7 +11,15 @@ import {
 } from '../constants/reviewConstants';
 
 export const review = (
-    state = { total: 0, reviews: [], isLoading: false, isUpdating: false, error: '' },
+    state = {
+        total: 0,
+        reviews: [],
+        totalRating: 0,
+        totalNumReviews: 0,
+        isLoading: false,
+        isUpdating: false,
+        error: '',
+    },
     action
 ) => {
     switch (action.type) {
@@ -56,10 +64,12 @@ export const review = (
                 isUpdating: true,
             };
         case REVIEW_CREATE_SUCCESS:
-            const newReviews = [action.payload, ...state.reviews];
+            const newReviews = [action.payload.review, ...state.reviews];
             return {
                 ...state,
                 reviews: newReviews,
+                totalRating: action.payload.product.rating,
+                totalNumReviews: action.payload.product.totalNumReviews,
                 isUpdating: false,
             };
         case REVIEW_CREATE_FAIL:

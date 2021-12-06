@@ -20,7 +20,9 @@ const ProductReviews = ({ productID, productRating }) => {
     const location = useLocation();
     const dispatch = useDispatch();
 
-    const { total, reviews, isLoading, isUpdating, error } = useSelector((state) => state.review);
+    const { total, reviews, totalRating, isLoading, isUpdating, error } = useSelector(
+        (state) => state.review
+    );
     const { userInfo } = useSelector((state) => state.auth);
 
     const reviewRef = useRef(null);
@@ -93,11 +95,14 @@ const ProductReviews = ({ productID, productRating }) => {
             {!isInitialLoad && (
                 <div className="product-review-rating-container container mb-3">
                     <div>
-                        <span className="fsr-5">{productRating}</span>
+                        <span className="fsr-5">{totalRating || productRating}</span>
                         <span className="fsr-4 ms-1">trên 5</span>
                     </div>
 
-                    <RatingStars rating={productRating} css={'text-ired fsr-5 mt-2'} />
+                    <RatingStars
+                        rating={totalRating || productRating}
+                        css={'text-ired fsr-5 mt-2'}
+                    />
 
                     <ReviewPaginationOptions
                         buttons={reviewPaginationButtons}

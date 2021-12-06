@@ -35,13 +35,17 @@ export const createReview = async (req, res) => {
         createdBy: req.user.id,
     });
 
-    const productNumReviews = product.numReviews + 1;
-    const estimatedRating = (product.rating + review.rating) / productNumReviews;
+    const reviews = await Review.find({ createdIn: productID }).select('rating -_id');
+
+    const ratingSum = reviews.reduce((a, b) => a + b.rating, 0);
+    const numReviews = reviews.length;
+
+    const estimatedRating = ratingSum / numReviews;
     const productRating = Math.round((estimatedRating + Number.EPSILON) * 100) / 100;
 
     await Product.findByIdAndUpdate(
         { _id: review.createdIn },
-        { rating: productRating, numReviews: productNumReviews }
+        { rating: productRating, numReviews: numReviews }
     );
 
     res.status(StatusCodes.OK).json({
@@ -49,6 +53,10 @@ export const createReview = async (req, res) => {
             ...review.toJSON(),
             createdBy: { name: req.user.name, image: req.user.image, id: req.user.id },
             isNew: true,
+        },
+        product: {
+            rating: productRating,
+            numReviews: numReviews,
         },
     });
 };

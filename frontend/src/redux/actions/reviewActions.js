@@ -74,8 +74,8 @@ export const createReview = (productID, rating, content) => async (dispatch, get
                 },
             }
         );
-        const { review } = data;
-        dispatch({ type: REVIEW_CREATE_SUCCESS, payload: review });
+        const { review, product } = data;
+        dispatch({ type: REVIEW_CREATE_SUCCESS, payload: { review, product } });
     } catch (error) {
         dispatch({
             type: REVIEW_CREATE_FAIL,
