@@ -40,6 +40,12 @@
         rgba(255, 255, 255, 0.1) 0px 0px 0px 1px inset;
 }
 
+.product-review-new {
+    border-radius: 12px;
+    background-color: snow;
+    box-shadow: rgba(0, 0, 0, 0.09) 0px 3px 12px;
+}
+
 .product-review-poster-image-container {
     width: 3.5rem;
     height: 3.5rem;

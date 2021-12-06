@@ -48,6 +48,7 @@ export const createReview = async (req, res) => {
         review: {
             ...review.toJSON(),
             createdBy: { name: req.user.name, image: req.user.image, id: req.user.id },
+            isNew: true,
         },
     });
 };

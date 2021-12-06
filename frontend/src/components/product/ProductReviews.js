@@ -190,9 +190,13 @@ const ProductReviews = ({ productID, productRating }) => {
                                     return (
                                         <div
                                             key={item.id}
-                                            className="container text-sdark fsr-2 p-0 p-md-2"
+                                            className={`container text-sdark fsr-2 p-0 px-md-2`}
                                         >
-                                            <div className="row">
+                                            <div
+                                                className={`row pb-3 ${
+                                                    item.isNew && 'product-review-new'
+                                                }`}
+                                            >
                                                 <div className="col-auto">
                                                     <div className="product-review-user-image-container mt-2">
                                                         <div
