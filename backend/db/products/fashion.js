@@ -102,13 +102,12 @@ export const fashion = [
         description:
             'Sơ mi vải đôi để biến hóa tủ quần áo của bạn - phong cách Melka. giới thiệu Karlskrona độc đáo, một chiếc áo sơ mi cotton nhẹ với sự khác biệt, với tay áo dài, túi ngực vá và cài cúc xuống, cổ áo cổ điển lấy cảm hứng từ kiểu dáng Oxford truyền thống của chúng tôi. \n\nVới chất liệu vải nhẹ, hai mặt, chiếc cúc áo màu xanh nước biển này có lớp vải trơn màu xanh nước biển được xếp trên một lớp vải bên trong đã được kiểm tra theo gam màu Melka tự nhiên - tạo ra một bộ quần áo có họa tiết độc đáo với nhiều kích thước và chi tiết hơn. \n\nMột biến thể cho bất kỳ tủ quần áo nào - áo sơ mi cotton sang trọng của nam giới, với vải cotton thương mại công bằng và nhãn hiệu Melka tab. Karlskrona là chiếc áo thể hiện hoàn hảo đặc tính Melka. consectetur adipisicing elit. Sed quis impedit corrupti sequi culpa illum iste dolor tempore alias ipsa atque dolorem, suscipit voluptatibus magnam voluptates aliquam nobis. Non, harum?',
         images: [
-            'https://i.ibb.co/XDmp854/melka-karlskrona-double-face-shirt-01.jpg',
-            'https://i.ibb.co/F3LWB1J/melka-karlskrona-double-face-shirt-02.jpg',
-            'https://i.ibb.co/QmDBp1b/melka-karlskrona-double-face-shirt-03.jpg',
-            'https://i.ibb.co/f42j32W/melka-karlskrona-double-face-shirt-04.jpg',
-            'https://i.ibb.co/7SNQV7H/melka-karlskrona-double-face-shirt-05.jpg',
-            'https://i.ibb.co/BPXmcx9/melka-karlskrona-double-face-shirt-06.jpg',
-            'https://i.ibb.co/Gc8g60t/melka-karlskrona-double-face-shirt-07.jpg',
+            'https://i.ibb.co/QfCt4Rh/melka-karlskrona-double-face-shirt-01.jpg',
+            'https://i.ibb.co/0yLp8bK/melka-karlskrona-double-face-shirt-02.jpg',
+            'https://i.ibb.co/Xz7srrh/melka-karlskrona-double-face-shirt-03.jpg',
+            'https://i.ibb.co/HKZm3F8/melka-karlskrona-double-face-shirt-04.jpg',
+            'https://i.ibb.co/fxyx3gx/melka-karlskrona-double-face-shirt-05.jpg',
+            'https://i.ibb.co/gW2X2FK/melka-karlskrona-double-face-shirt-06.jpg',
         ],
     },
     {

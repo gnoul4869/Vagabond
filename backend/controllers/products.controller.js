@@ -30,7 +30,7 @@ export const getAllProducts = async (req, res) => {
             : sort === 'newest'
             ? '-createdAt'
             : sort === 'sales'
-            ? '-numReviews'
+            ? '-numSales'
             : sort === 'price-asc'
             ? 'price'
             : sort === 'price-desc'

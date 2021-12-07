@@ -97,7 +97,7 @@ const ProductDetailsPage = () => {
                                                         rating={product.rating}
                                                         css={'text-ystar'}
                                                     />
-                                                    <span className="separator"></span>
+                                                    <span className="separator-gray mx-2"></span>
                                                     <div className="d-flex align-items-center text-secondary">
                                                         <span className="product-details-value me-2">
                                                             {product.numReviews}

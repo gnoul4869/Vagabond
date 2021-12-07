@@ -40,6 +40,10 @@ const productSchema = new mongoose.Schema(
             max: [5, 'Điểm đánh giá không được lớn hơn 5'],
             default: 0,
         },
+        numSales: {
+            type: Number,
+            default: 0,
+        },
         numReviews: {
             type: Number,
             default: 0,

@@ -213,13 +213,14 @@ const PurchasePage = () => {
 
                                 {order.products.map((product, index) => {
                                     return (
-                                        <React.Fragment key={product.current.id}>
+                                        <React.Fragment key={product._id}>
                                             <Link
-                                                to={`/product/${product.current.id}`}
+                                                to={`/product/${product._id}`}
                                                 className="link-inherit"
                                             >
                                                 <div className="container fsr-2 px-3 py-4 position-relative">
                                                     {order.status === 'delivered' &&
+                                                        product.current &&
                                                         product.current.reviewers.includes(
                                                             userInfo.id
                                                         ) && (

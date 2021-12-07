@@ -2,18 +2,20 @@ import React, { useEffect, useState } from 'react';
 import { HiOutlineChevronLeft, HiOutlineChevronRight } from 'react-icons/hi';
 
 const ProductCarousel = ({ images, name }) => {
-    const [imageArray, setImageArray] = useState(5);
+    const [arrayPoint, setArrayPoint] = useState(5);
     const [imageNo, setImageNo] = useState(0);
-    const newImages = images.slice(imageArray - 5, imageArray);
+    const newImages = images.slice(arrayPoint - 5, arrayPoint);
     const [image, setImage] = useState(newImages[imageNo]);
 
     const imageButtonHandler = (value) => {
-        if (value >= 5 && value <= images.length) {
-            setImageArray(value + 1);
-        } else if (value < 0 && imageArray > 5) {
-            setImageArray(imageArray - 1);
+        if (value >= 5 && arrayPoint + 1 <= images.length) {
+            setArrayPoint(arrayPoint + 1);
+        } else if (value < 0 && arrayPoint > 5) {
+            setArrayPoint(arrayPoint - 1);
         } else {
-            setImageNo(value > 0 ? value : 0);
+            if (value < 5) {
+                setImageNo(value > 0 ? value : 0);
+            }
         }
     };
 
