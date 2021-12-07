@@ -118,7 +118,7 @@ export const updateOrder = async (req, res) => {
     if (count !== 0) {
         for (const product of order.products) {
             await Product.findByIdAndUpdate(
-                { _id: product.id },
+                { _id: product.current.id },
                 { $inc: { countInStock: product.qty * count }, $push: { reviewers: req.user.id } },
                 {
                     runValidators: true,
@@ -130,17 +130,4 @@ export const updateOrder = async (req, res) => {
     res.status(StatusCodes.OK).json({
         order: { ...order.toJSON(), status: status, priority: priority },
     });
-
-    // res.status(StatusCodes.OK).json({
-    //     order: {
-    //         user: order.user,
-    //         id: order.id,
-    //         status: status,
-    //         products: order.products,
-    //         shippingFee: order.shippingFee,
-    //         priority: priority,
-    //         createdAt: order.createdAt,
-    //         updatedAt: order.updatedAt,
-    //     },
-    // });
 };

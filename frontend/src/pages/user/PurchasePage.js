@@ -27,9 +27,7 @@ const PurchasePage = () => {
     const isAdmin = userInfo && userInfo.role === 'admin' && location.pathname === '/control';
 
     const infiniteScroll = () => {
-        if (isDone) {
-            setPage(page + 1);
-        }
+        setPage(page + 1);
     };
 
     const orderHandler = (id, status) => {
@@ -57,7 +55,7 @@ const PurchasePage = () => {
         if (isDone) {
             dispatch(refreshOrders('REFRESH_IS_DONE'));
         }
-    });
+    }, [dispatch, isDone]);
 
     useEffect(() => {
         if (!userInfo) {
