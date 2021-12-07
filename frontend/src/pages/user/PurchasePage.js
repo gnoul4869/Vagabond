@@ -214,18 +214,29 @@ const PurchasePage = () => {
                                         <React.Fragment key={product.current.id}>
                                             <Link
                                                 to={`/product/${product.current.id}`}
-                                                className="link-inherit"
+                                                className="link-inherit position-relative"
                                             >
-                                                <div className="container fsr-2 p-3">
-                                                    <div className="row align-items-center position-relative">
+                                                {order.status === 'delivered' &&
+                                                    product.current.reviewers.includes(
+                                                        userInfo.id
+                                                    ) && (
+                                                        <div className="purchase-product-review-status">
+                                                            Có thể đánh giá
+                                                        </div>
+                                                    )}
+
+                                                <div className="container fsr-2 px-3 py-4">
+                                                    <div className="row align-items-center">
                                                         <div className="col-12 col-md-8 ms-0 ms-md-3">
                                                             <div className="d-flex">
-                                                                <img
-                                                                    src={product.image}
-                                                                    alt={product.name}
-                                                                    className="cart-item-img"
-                                                                />
-                                                                <div className="cart-item-name ms-2">
+                                                                <div className="cart-item-image-container">
+                                                                    <img
+                                                                        src={product.image}
+                                                                        alt={product.name}
+                                                                        className="cart-item-image"
+                                                                    />
+                                                                </div>
+                                                                <div className="cart-item-name ms-2 ms-md-4">
                                                                     {product.name}
                                                                 </div>
                                                             </div>
@@ -253,17 +264,12 @@ const PurchasePage = () => {
                                                                 />
                                                             </div>
                                                         </div>
-                                                        <div className="purchase-product-review-status">
-                                                            {product.current.reviewers.includes(
-                                                                userInfo.id
-                                                            ) && 'test'}
-                                                        </div>
                                                     </div>
                                                 </div>
                                             </Link>
 
                                             {index + 1 < order.products.length && (
-                                                <div className="divider-bottom my-3"></div>
+                                                <div className="divider-bottom"></div>
                                             )}
                                         </React.Fragment>
                                     );

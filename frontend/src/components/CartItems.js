@@ -25,12 +25,16 @@ const CartItems = ({ cartItems, loadingItems, options }) => {
                                 <div className="col-12 col-md-4">
                                     <Link to={`/product/${item.id}`} className="link-inherit">
                                         <div className="d-flex">
-                                            <img
-                                                src={item.images[0]}
-                                                alt={item.name}
-                                                className="cart-item-img"
-                                            />
-                                            <div className="cart-item-name ms-2">{item.name}</div>
+                                            <div className="cart-item-image-container">
+                                                <img
+                                                    src={item.images[0]}
+                                                    alt={item.name}
+                                                    className="cart-item-image"
+                                                />
+                                            </div>
+                                            <div className="cart-item-name ms-2 ms-md-4">
+                                                {item.name}
+                                            </div>
                                         </div>
                                     </Link>
                                 </div>

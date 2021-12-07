@@ -16,3 +16,10 @@
     color: var(--inspiring-red);
     border-bottom: 0.125rem solid var(--inspiring-red);
 }
+
+.purchase-product-review-status {
+    position: absolute;
+    z-index: 1;
+
+    right: calc(10% + 3rem);
+}
