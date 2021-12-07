@@ -214,7 +214,7 @@ const ProductList = () => {
                                                                 css={'text-ystar'}
                                                             />
                                                         </div>
-                                                        <span className="separator d-none d-md-inline"></span>
+                                                        <span className="separator-gray d-none d-md-inline"></span>
                                                         <span className="text-secondary mt-1 mt-md-0">
                                                             {`${item.numReviews} lượt đánh giá`}
                                                         </span>

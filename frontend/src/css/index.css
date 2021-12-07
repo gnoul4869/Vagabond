@@ -396,6 +396,12 @@ select {
     margin: 0 0.3125rem;
 }
 
+.separator-gray {
+    border-right: 0.0625rem solid var(--gray);
+    height: 0.8125rem;
+    margin: 0 0.3125rem;
+}
+
 .divider {
     border-top: 0.0625rem solid #efefef;
     border-bottom: 0.0625rem solid #efefef;

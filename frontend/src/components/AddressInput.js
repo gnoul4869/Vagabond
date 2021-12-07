@@ -67,11 +67,10 @@ const AddressInput = ({
                     }
                 );
 
-                const sortedDistricts = data.data.sort((a, b) =>
-                    a.DistrictName.localeCompare(b.DistricteName)
-                );
-
                 if (mounted.current) {
+                    const sortedDistricts = data.data.sort((a, b) =>
+                        a.DistrictName.localeCompare(b.DistricteName)
+                    );
                     setDistricts(sortedDistricts);
                     setIsLoadingAddress(false);
                 }
@@ -99,9 +98,10 @@ const AddressInput = ({
                     }
                 );
 
-                const sortedWards = data.data.sort((a, b) => a.WardName.localeCompare(b.WardName));
-
                 if (mounted.current) {
+                    const sortedWards = data.data.sort((a, b) =>
+                        a.WardName.localeCompare(b.WardName)
+                    );
                     setWards(sortedWards);
                     setIsLoadingAddress(false);
                 }
