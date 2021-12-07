@@ -86,6 +86,13 @@ export const updateOrder = async (req, res) => {
         throw new AuthenticationError('Không đủ quyền thực hiện');
     }
 
+    if (status === 'cancelled' && req.user.role !== 'admin') {
+        const order = Order.findById({ _id: orderID });
+        if (order.status !== 'pending') {
+            throw new BadRequestError('Bạn không thể hủy đơn hàng đã được xác nhận');
+        }
+    }
+
     const query = {};
     query._id = orderID;
 
@@ -96,7 +103,7 @@ export const updateOrder = async (req, res) => {
     const priority =
         status === 'pending' ? 0 : status === 'shipping' ? 1 : status === 'delivered' ? 2 : 3;
 
-    const order = await Order.findOneAndUpdate(
+    const newOrder = await Order.findOneAndUpdate(
         query,
         { status, priority },
         {
@@ -104,19 +111,19 @@ export const updateOrder = async (req, res) => {
         }
     ).populate({ path: 'products.current', select: 'reviewers' });
 
-    if (!order) {
+    if (!newOrder) {
         throw new NotFoundError('Không tìm thấy đơn hàng nào');
     }
 
     const count =
-        order.status === 'pending' && status === 'shipping'
+        newOrder.status === 'pending' && status === 'shipping'
             ? -1
-            : order.status === 'shipping' && status === 'cancelled'
+            : newOrder.status === 'shipping' && status === 'cancelled'
             ? 1
             : 0;
 
     if (count !== 0) {
-        for (const product of order.products) {
+        for (const product of newOrder.products) {
             await Product.findByIdAndUpdate(
                 { _id: product.current.id },
                 { $inc: { countInStock: product.qty * count }, $push: { reviewers: req.user.id } },
@@ -128,6 +135,6 @@ export const updateOrder = async (req, res) => {
     }
 
     res.status(StatusCodes.OK).json({
-        order: { ...order.toJSON(), status: status, priority: priority },
+        order: { ...newOrder.toJSON(), status: status, priority: priority },
     });
 };

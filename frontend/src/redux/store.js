@@ -55,8 +55,8 @@ const initialState = {
     review: {
         total: 0,
         reviews: [],
-        totalRating: 0,
-        totalNumReviews: 0,
+        newRating: 0,
+        newNumReviews: 0,
         isLoading: false,
         isUpdating: false,
         error: '',

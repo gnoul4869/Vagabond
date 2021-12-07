@@ -20,6 +20,17 @@
 .purchase-product-review-status {
     position: absolute;
     z-index: 1;
+    top: 0;
+    right: 0;
+    font-size: 1rem;
+    border-radius: 0 0 0 20px;
+    padding: 0.2rem 0.5rem 0.2rem 0.8rem;
+    color: var(--not-pure-white);
+    background-color: var(--inspiring-red);
+}
 
-    right: calc(10% + 3rem);
+@media (max-width: 767.98px) {
+    .purchase-product-review-status {
+        font-size: 0.75em;
+    }
 }

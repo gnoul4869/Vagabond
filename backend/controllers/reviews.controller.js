@@ -28,9 +28,9 @@ export const createReview = async (req, res) => {
         throw new BadRequestError('Sản phẩm không tồn tại');
     }
 
-    if (!product.reviewers.includes(req.user.id)) {
-        throw new BadRequestError('Bạn chưa thể đánh giá sản phẩm này');
-    }
+    // if (!product.reviewers.includes(req.user.id)) {
+    //     throw new BadRequestError('Bạn chưa thể đánh giá sản phẩm này');
+    // }
 
     const review = await Review.create({
         rating,
@@ -47,9 +47,13 @@ export const createReview = async (req, res) => {
     const estimatedRating = ratingSum / numReviews;
     const productRating = Math.round((estimatedRating + Number.EPSILON) * 100) / 100;
 
-    await Product.findByIdAndUpdate(
+    const newProduct = await Product.findByIdAndUpdate(
         { _id: review.createdIn },
-        { rating: productRating, numReviews: numReviews, $pull: { reviewers: req.user.id } }
+        { rating: productRating, numReviews: numReviews, $pull: { reviewers: req.user.id } },
+        {
+            new: true,
+            runValidators: true,
+        }
     );
 
     res.status(StatusCodes.OK).json({
@@ -59,8 +63,8 @@ export const createReview = async (req, res) => {
             isNew: true,
         },
         product: {
-            rating: productRating,
-            numReviews: numReviews,
+            rating: newProduct.rating,
+            numReviews: newProduct.numReviews,
         },
     });
 };

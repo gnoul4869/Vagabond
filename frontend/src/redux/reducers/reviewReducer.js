@@ -14,8 +14,8 @@ export const review = (
     state = {
         total: 0,
         reviews: [],
-        totalRating: 0,
-        totalNumReviews: 0,
+        newRating: 0,
+        newNumReviews: 0,
         isLoading: false,
         isUpdating: false,
         error: '',
@@ -28,8 +28,8 @@ export const review = (
                 ...state,
                 total: 0,
                 reviews: [],
-                totalRating: 0,
-                totalNumReviews: 0,
+                newRating: 0,
+                newNumReviews: 0,
                 error: '',
                 isLoading: true,
             };
@@ -67,11 +67,12 @@ export const review = (
             };
         case REVIEW_CREATE_SUCCESS:
             const newReviews = [action.payload.review, ...state.reviews];
+            console.log(action.payload.product.reviewers);
             return {
                 ...state,
                 reviews: newReviews,
-                totalRating: action.payload.product.rating,
-                totalNumReviews: action.payload.product.totalNumReviews,
+                newRating: action.payload.product.rating,
+                newNumReviews: action.payload.product.totalNumReviews,
                 isUpdating: false,
             };
         case REVIEW_CREATE_FAIL:

@@ -20,7 +20,7 @@ const ProductReviews = ({ productID, productRating, productReviewers }) => {
     const location = useLocation();
     const dispatch = useDispatch();
 
-    const { total, reviews, totalRating, isLoading, isUpdating, error } = useSelector(
+    const { total, reviews, newRating, isLoading, isUpdating, error } = useSelector(
         (state) => state.review
     );
     const { userInfo } = useSelector((state) => state.auth);
@@ -37,6 +37,8 @@ const ProductReviews = ({ productID, productRating, productReviewers }) => {
     const [isInitialLoad, setIsInitialLoad] = useState(true);
     const [postError, setPostError] = useState('');
     const [isPostErrorShown, setIsPostErrorShown] = useState(false);
+
+    const [isPosted, setIsPosted] = useState(false);
 
     const queryHandler = (ratingValue, pageValue) => {
         if (ratingValue !== null && ratingValue !== rating) {
@@ -74,6 +76,8 @@ const ProductReviews = ({ productID, productRating, productReviewers }) => {
         setIsPostErrorShown(false);
 
         dispatch(createReview(productID, stars, content));
+
+        setIsPosted(true);
     };
 
     useEffect(() => {
@@ -87,7 +91,7 @@ const ProductReviews = ({ productID, productRating, productReviewers }) => {
     }, [isInitialLoad, isLoading, reviews]);
 
     return (
-        <div className="container bg-white mt-3 p-3" ref={reviewRef}>
+        <div className="product-review-container container bg-white mt-3 p-3" ref={reviewRef}>
             <div className="bg-label container rounded mb-3">
                 <div className="fw-600 fsr-4">Đánh giá sản phẩm</div>
             </div>
@@ -95,14 +99,11 @@ const ProductReviews = ({ productID, productRating, productReviewers }) => {
             {!isInitialLoad && (
                 <div className="product-review-rating-container container mb-3">
                     <div>
-                        <span className="fsr-6">{totalRating || productRating}</span>
+                        <span className="fsr-6">{newRating || productRating}</span>
                         <span className="fsr-4 ms-1">trên 5</span>
                     </div>
 
-                    <RatingStars
-                        rating={totalRating || productRating}
-                        css={'text-ired fsr-6 mt-2'}
-                    />
+                    <RatingStars rating={newRating || productRating} css={'text-ired fsr-6 mt-2'} />
 
                     <ReviewPaginationOptions
                         buttons={reviewPaginationButtons}
@@ -112,7 +113,7 @@ const ProductReviews = ({ productID, productRating, productReviewers }) => {
                 </div>
             )}
 
-            {userInfo && productReviewers.includes(userInfo.id) && !totalRating && (
+            {userInfo && !isPosted && productReviewers.includes(userInfo.id) && (
                 <div className="container p-0 p-md-4 my-4">
                     <div className="row justify-content-center">
                         <div className="col-auto">

@@ -17,7 +17,7 @@ const PurchasePage = () => {
     const location = useLocation();
     const dispatch = useDispatch();
     const { userInfo } = useSelector((state) => state.auth);
-    const { orderList, total, isDone, error } = useSelector((state) => state.order);
+    const { orderList, total, isDone, isLoading, error } = useSelector((state) => state.order);
 
     const [isInitialLoad, setIsInitialLoad] = useState(true);
     const [activeID, setActiveID] = useState(0);
@@ -31,7 +31,9 @@ const PurchasePage = () => {
     };
 
     const orderHandler = (id, status) => {
-        dispatch(updateOrder(id, status));
+        if (!isLoading) {
+            dispatch(updateOrder(id, status));
+        }
     };
 
     useEffect(() => {
@@ -214,18 +216,17 @@ const PurchasePage = () => {
                                         <React.Fragment key={product.current.id}>
                                             <Link
                                                 to={`/product/${product.current.id}`}
-                                                className="link-inherit position-relative"
+                                                className="link-inherit"
                                             >
-                                                {order.status === 'delivered' &&
-                                                    product.current.reviewers.includes(
-                                                        userInfo.id
-                                                    ) && (
-                                                        <div className="purchase-product-review-status">
-                                                            Có thể đánh giá
-                                                        </div>
-                                                    )}
-
-                                                <div className="container fsr-2 px-3 py-4">
+                                                <div className="container fsr-2 px-3 py-4 position-relative">
+                                                    {order.status === 'delivered' &&
+                                                        product.current.reviewers.includes(
+                                                            userInfo.id
+                                                        ) && (
+                                                            <div className="purchase-product-review-status">
+                                                                Có thể đánh giá
+                                                            </div>
+                                                        )}
                                                     <div className="row align-items-center">
                                                         <div className="col-12 col-md-8 ms-0 ms-md-3">
                                                             <div className="d-flex">
