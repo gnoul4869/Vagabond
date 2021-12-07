@@ -1,4 +1,4 @@
-export const infoEmailTemplate = (title, message) => {
+export const infoEmailTemplate = (title, greet, message) => {
     return `
         <body>
             <center>
@@ -176,7 +176,7 @@ export const infoEmailTemplate = (title, message) => {
                                                         letter-spacing: 0.5px;
                                                     "
                                                 >
-                                                    Thông báo,
+                                                    ${greet},
                                                     <br /><br />
                                                 </td>
                                                 <td width="50">&nbsp;</td>

@@ -1,8 +1,8 @@
 import {} from 'dotenv/config.js';
 import nodemailer from 'nodemailer';
-import { infoEmailTemplate } from './info-email-template.js';
+import { infoEmailTemplate } from '../templates/info-email-template.js';
 
-export const generateInfoEmail = async (email, title, message) => {
+export const generateInfoEmail = async (email, title, greet, message) => {
     let transporter = nodemailer.createTransport({
         host: 'smtp.gmail.com',
         port: 465,
@@ -17,7 +17,7 @@ export const generateInfoEmail = async (email, title, message) => {
         },
     });
 
-    const template = infoEmailTemplate(title, message);
+    const template = infoEmailTemplate(title, greet, message);
 
     let info = await transporter
         .sendMail({

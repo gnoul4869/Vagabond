@@ -1,7 +1,7 @@
 import {} from 'dotenv/config.js';
 import nodemailer from 'nodemailer';
 import otpGenerator from 'otp-generator';
-import { OTPEmailTemplate } from './otp-email-template.js';
+import { OTPEmailTemplate } from '../templates/otp-email-template.js';
 
 export const generateOTPEmail = async (name, email) => {
     let transporter = nodemailer.createTransport({

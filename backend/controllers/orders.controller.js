@@ -1,4 +1,5 @@
 import { StatusCodes } from 'http-status-codes';
+import User from '../models/user.model.js';
 import Order from '../models/order.model.js';
 import Product from '../models/product.model.js';
 import { AuthenticationError, BadRequestError, NotFoundError } from '../errors/custom-api-error.js';
@@ -24,8 +25,9 @@ export const createOrder = async (req, res) => {
     const order = await Order.create({ user, products, shippingFee });
 
     const title = 'Thông báo có đơn hàng mới';
+    const greet = 'Thông báo';
     const message = `Có đơn hàng mới (Mã ĐH: ${order.id.toUpperCase()}) đang chờ xác nhận. Hãy vào trang quản lý để cập nhật trạng thái đơn hàng.`;
-    await generateInfoEmail(process.env.OWNER_MAIL, title, message);
+    generateInfoEmail(process.env.OWNER_MAIL, title, greet, message);
 
     res.status(StatusCodes.CREATED).json({ order });
 };
@@ -86,8 +88,9 @@ export const updateOrder = async (req, res) => {
         throw new AuthenticationError('Không đủ quyền thực hiện');
     }
 
+    const order = await Order.findById({ _id: orderID });
+
     if (status === 'cancelled' && req.user.role !== 'admin') {
-        const order = Order.findById({ _id: orderID });
         if (order.status !== 'pending') {
             throw new BadRequestError('Bạn không thể hủy đơn hàng đã được xác nhận');
         }
@@ -134,6 +137,32 @@ export const updateOrder = async (req, res) => {
                     runValidators: true,
                 }
             );
+        }
+    }
+
+    const user = await User.findById({ _id: newOrder.user.id });
+
+    if (user) {
+        let title;
+        let greet;
+        let message;
+
+        if (order.status === 'pending' && status === 'shipping') {
+            title = 'Đơn hàng xác nhận thành công';
+            greet = `Xin chào ${user.name}`;
+            message = `Đơn hàng của bạn đã được nhân viên xác nhận. Bạn có thể theo dõi trạng thái đơn hàng tại trang đơn mua.`;
+        } else if (order.status === 'shipping' && status === 'delivered') {
+            title = 'Cảm ơn bạn đã mua hàng tại Vagabond';
+            greet = `Xin chào ${user.name}`;
+            message = `Cảm ơn bạn đã mua hàng tại Vagabond. Nếu bạn cảm thấy hài lòng với sản phẩm của mình, hãy để lại đánh giá trên website nhé.`;
+        } else if (order.user.id !== newOrder.user.id && status === 'cancelled') {
+            title = 'Đơn hàng của bạn đã bị hủy';
+            greet = `Xin chào ${user.name}`;
+            message = `Đơn hàng của bạn đã bị hủy bởi nhân viên. Nếu bạn cảm thấy đây không phải là lỗi của bạn, hãy thử đặt hàng lại nhé.`;
+        }
+
+        if (title && greet && message) {
+            generateInfoEmail(user.email, title, greet, message);
         }
     }
 
