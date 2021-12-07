@@ -43,7 +43,7 @@ export const auth = (state = { userInfo: null, isLoading: false, error: '' }, ac
         case LOGOUT:
             return {};
         case AUTH_STATE_REFRESH:
-            if (action.payload === 'ERROR_REFRESH') {
+            if (action.payload === 'REFRESH_ERROR') {
                 return {
                     ...state,
                     error: '',

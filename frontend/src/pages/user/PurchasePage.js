@@ -37,6 +37,10 @@ const PurchasePage = () => {
     };
 
     useEffect(() => {
+        dispatch(listOrders(status, page, isAdmin));
+    }, [dispatch, isAdmin, page, status]);
+
+    useEffect(() => {
         dispatch(refreshOrders());
         setPage(1);
         setStatus(purchaseLabels.find((label) => label.id === activeID).status);
@@ -44,15 +48,16 @@ const PurchasePage = () => {
     }, [activeID, dispatch]);
 
     useEffect(() => {
-        console.log(isInitialLoad, isDone);
         if (isInitialLoad && isDone) {
             setIsInitialLoad(false);
         }
     }, [isInitialLoad, isDone]);
 
     useEffect(() => {
-        dispatch(listOrders(status, page, isAdmin));
-    }, [dispatch, isAdmin, page, status]);
+        if (isDone) {
+            dispatch(refreshOrders('REFRESH_IS_DONE'));
+        }
+    });
 
     useEffect(() => {
         if (!userInfo) {

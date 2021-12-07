@@ -39,8 +39,8 @@ export const listOrders = (status, page, isAdmin) => async (dispatch, getState) 
     }
 };
 
-export const refreshOrders = () => (dispatch) => {
-    dispatch({ type: ORDER_LIST_REFRESH });
+export const refreshOrders = (target) => (dispatch) => {
+    dispatch({ type: ORDER_LIST_REFRESH, payload: target });
 };
 
 export const updateOrder = (orderID, status) => async (dispatch, getState) => {

@@ -36,6 +36,12 @@ export const order = (
                 isLoading: false,
             };
         case ORDER_LIST_REFRESH:
+            if (action.payload === 'REFRESH_IS_DONE') {
+                return {
+                    ...state,
+                    isDone: false,
+                };
+            }
             return {
                 ...state,
                 orderList: [],
