@@ -64,6 +64,7 @@ const initialState = {
     order: {
         total: 0,
         orderList: [],
+        isDone: false,
         isLoading: false,
         error: '',
     },

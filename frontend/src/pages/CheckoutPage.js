@@ -48,7 +48,7 @@ const CheckoutPage = () => {
 
             const products = cart.cartItems.map((product) => {
                 return {
-                    id: product.id,
+                    current: product.id,
                     name: product.name,
                     price: product.price,
                     image: product.images[0],

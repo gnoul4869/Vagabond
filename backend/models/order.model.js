@@ -47,7 +47,7 @@ const orderSchema = new mongoose.Schema(
         },
         products: [
             {
-                id: {
+                current: {
                     type: mongoose.Types.ObjectId,
                     ref: 'Product',
                     required: [true, 'Hãy cung cấp mã sản phẩm'],

@@ -1,6 +1,6 @@
 import {} from 'dotenv/config';
 import axios from 'axios';
-import React, { useCallback, useEffect, useState } from 'react';
+import React, { useCallback, useEffect, useRef, useState } from 'react';
 
 const AddressInput = ({
     isUpdating,
@@ -21,6 +21,8 @@ const AddressInput = ({
     const [provinces, setProvinces] = useState([]);
     const [districts, setDistricts] = useState([]);
     const [wards, setWards] = useState([]);
+
+    const mounted = useRef(false);
 
     const provinceHandler = (id, name) => {
         if (id !== 'DEFAULT') {
@@ -53,7 +55,9 @@ const AddressInput = ({
 
     const getDistricts = useCallback(
         async (provinceID) => {
+            mounted.current = true;
             setIsLoadingAddress(true);
+
             try {
                 const { data } = await axios.get(
                     'https://online-gateway.ghn.vn/shiip/public-api/master-data/district',
@@ -67,12 +71,15 @@ const AddressInput = ({
                     a.DistrictName.localeCompare(b.DistricteName)
                 );
 
-                setDistricts(sortedDistricts);
-
-                setIsLoadingAddress(false);
+                if (mounted.current) {
+                    setDistricts(sortedDistricts);
+                    setIsLoadingAddress(false);
+                }
             } catch (error) {
-                setIsLoadingAddress(false);
-                setComponentError('Đã có lỗi xảy ra, hãy thử lại sau');
+                if (mounted.current) {
+                    setIsLoadingAddress(false);
+                    setComponentError('Đã có lỗi xảy ra, hãy thử lại sau');
+                }
             }
         },
         [setComponentError]
@@ -80,7 +87,9 @@ const AddressInput = ({
 
     const getWards = useCallback(
         async (districtID) => {
+            mounted.current = true;
             setIsLoadingAddress(true);
+
             try {
                 const { data } = await axios.get(
                     'https://online-gateway.ghn.vn/shiip/public-api/master-data/ward',
@@ -92,22 +101,23 @@ const AddressInput = ({
 
                 const sortedWards = data.data.sort((a, b) => a.WardName.localeCompare(b.WardName));
 
-                setWards(sortedWards);
-
-                setIsLoadingAddress(false);
+                if (mounted.current) {
+                    setWards(sortedWards);
+                    setIsLoadingAddress(false);
+                }
             } catch (error) {
-                setIsLoadingAddress(false);
-                setComponentError('Đã có lỗi xảy ra, hãy thử lại sau');
+                if (mounted.current) {
+                    setIsLoadingAddress(false);
+                    setComponentError('Đã có lỗi xảy ra, hãy thử lại sau');
+                }
             }
         },
         [setComponentError]
     );
 
     useEffect(() => {
-        let mounted = true;
-
         const getProvinces = async () => {
-            if (mounted) {
+            if (mounted.current) {
                 setIsLoadingAddress(true);
             }
             try {
@@ -118,7 +128,7 @@ const AddressInput = ({
                     }
                 );
 
-                if (mounted) {
+                if (mounted.current) {
                     const sortedProvinces = data.data.sort((a, b) =>
                         a.ProvinceName.localeCompare(b.ProvinceName)
                     );
@@ -126,7 +136,7 @@ const AddressInput = ({
                     setIsLoadingAddress(false);
                 }
             } catch (error) {
-                if (mounted) {
+                if (mounted.current) {
                     setIsLoadingAddress(false);
                     setComponentError('Đã có lỗi xảy ra, hãy thử lại sau');
                 }
@@ -134,10 +144,6 @@ const AddressInput = ({
         };
 
         getProvinces();
-
-        return () => {
-            mounted = false;
-        };
     }, [setComponentError]);
 
     useEffect(() => {
@@ -148,6 +154,13 @@ const AddressInput = ({
             getWards(districtID);
         }
     }, [districtID, getDistricts, getWards, provinceID]);
+
+    useEffect(() => {
+        mounted.current = true;
+        return () => {
+            mounted.current = false;
+        };
+    }, []);
 
     return (
         <>

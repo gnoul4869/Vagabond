@@ -49,7 +49,7 @@ const NavigationBar = () => {
                                 onMouseEnter={() => setIsSubmenuShown(true)}
                                 onMouseLeave={() => setIsSubmenuShown(false)}
                             >
-                                <div className="navbar-user-container d-flex">
+                                <div className="navbar-user-container">
                                     <div className="navbar-avatar-container">
                                         <div
                                             className="navbar-avatar"

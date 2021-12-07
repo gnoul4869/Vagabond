@@ -44,6 +44,7 @@ const PurchasePage = () => {
     }, [activeID, dispatch]);
 
     useEffect(() => {
+        console.log(isInitialLoad, isDone);
         if (isInitialLoad && isDone) {
             setIsInitialLoad(false);
         }
@@ -207,13 +208,13 @@ const PurchasePage = () => {
 
                                 {order.products.map((product, index) => {
                                     return (
-                                        <React.Fragment key={product.id}>
+                                        <React.Fragment key={product.current.id}>
                                             <Link
-                                                to={`/product/${product.id}`}
+                                                to={`/product/${product.current.id}`}
                                                 className="link-inherit"
                                             >
                                                 <div className="container fsr-2 p-3">
-                                                    <div className="row align-items-center">
+                                                    <div className="row align-items-center position-relative">
                                                         <div className="col-12 col-md-8 ms-0 ms-md-3">
                                                             <div className="d-flex">
                                                                 <img
@@ -248,6 +249,11 @@ const PurchasePage = () => {
                                                                     price={product.price}
                                                                 />
                                                             </div>
+                                                        </div>
+                                                        <div className="purchase-product-review-status">
+                                                            {product.current.reviewers.includes(
+                                                                userInfo.id
+                                                            ) && 'test'}
                                                         </div>
                                                     </div>
                                                 </div>

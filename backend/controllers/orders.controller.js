@@ -53,7 +53,8 @@ export const getAllOrders = async (req, res) => {
     const orders = await Order.find(query)
         .sort({ priority: 1, updatedAt: -1 })
         .limit(limit)
-        .skip(skip);
+        .skip(skip)
+        .populate({ path: 'products.current', select: 'reviewers' });
 
     if (orders.length === 0) {
         throw new NotFoundError('Không có đơn hàng nào');
@@ -101,7 +102,7 @@ export const updateOrder = async (req, res) => {
         {
             runValidators: true,
         }
-    );
+    ).populate({ path: 'products.current', select: 'reviewers' });
 
     if (!order) {
         throw new NotFoundError('Không tìm thấy đơn hàng nào');
@@ -127,15 +128,19 @@ export const updateOrder = async (req, res) => {
     }
 
     res.status(StatusCodes.OK).json({
-        order: {
-            user: order.user,
-            id: order.id,
-            status: status,
-            products: order.products,
-            shippingFee: order.shippingFee,
-            priority: priority,
-            createdAt: order.createdAt,
-            updatedAt: order.updatedAt,
-        },
+        order: { ...order.toJSON(), status: status, priority: priority },
     });
+
+    // res.status(StatusCodes.OK).json({
+    //     order: {
+    //         user: order.user,
+    //         id: order.id,
+    //         status: status,
+    //         products: order.products,
+    //         shippingFee: order.shippingFee,
+    //         priority: priority,
+    //         createdAt: order.createdAt,
+    //         updatedAt: order.updatedAt,
+    //     },
+    // });
 };
