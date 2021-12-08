@@ -89,4 +89,8 @@
     .product-review-post-error-container {
         font-size: 0.65rem;
     }
+
+    .product-review-container {
+        min-height: 225px;
+    }
 }
