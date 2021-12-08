@@ -2,6 +2,7 @@ import {} from 'dotenv/config.js';
 import connectDB from './connect.js';
 import User from '../models/user.model.js';
 import Address from '../models/user.model.js';
+import Order from '../models/order.model.js';
 import Product from '../models/product.model.js';
 import Review from '../models/review.model.js';
 import { computer } from './products/computer.js';
@@ -32,6 +33,7 @@ const populateProducts = async () => {
 
         await Product.deleteMany({});
         await Review.deleteMany({});
+        await Order.deleteMany({});
 
         await Product.create(computer);
         await Product.create(electronic);
