@@ -155,7 +155,7 @@ export const updateOrder = async (req, res) => {
             title = 'Cảm ơn bạn đã mua hàng tại Vagabond';
             greet = `Xin chào ${user.name}`;
             message = `Cảm ơn bạn đã mua hàng tại Vagabond. Nếu bạn cảm thấy hài lòng với sản phẩm của mình, hãy để lại đánh giá trên website nhé.`;
-        } else if (order.user.id !== newOrder.user.id && status === 'cancelled') {
+        } else if (order.user.id.toString() !== req.user.id && status === 'cancelled') {
             title = 'Đơn hàng của bạn đã bị hủy';
             greet = `Xin chào ${user.name}`;
             message = `Đơn hàng của bạn đã bị hủy bởi nhân viên. Nếu bạn cảm thấy đây không phải là lỗi của bạn, hãy thử đặt hàng lại nhé.`;
