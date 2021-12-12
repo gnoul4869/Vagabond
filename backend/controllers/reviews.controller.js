@@ -28,9 +28,9 @@ export const createReview = async (req, res) => {
         throw new BadRequestError('Sản phẩm không tồn tại');
     }
 
-    // if (!product.reviewers.includes(req.user.id)) {
-    //     throw new BadRequestError('Bạn chưa thể đánh giá sản phẩm này');
-    // }
+    if (!product.reviewers.includes(req.user.id)) {
+        throw new BadRequestError('Bạn chưa thể đánh giá sản phẩm này');
+    }
 
     const review = await Review.create({
         rating,

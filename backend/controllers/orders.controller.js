@@ -56,7 +56,7 @@ export const getAllOrders = async (req, res) => {
         .sort({ priority: 1, updatedAt: -1 })
         .limit(limit)
         .skip(skip)
-        .populate({ path: 'products.current', select: 'reviewers' });
+        .populate({ path: 'products.product', select: 'reviewers' });
 
     if (orders.length === 0) {
         throw new NotFoundError('Không có đơn hàng nào');
@@ -112,7 +112,7 @@ export const updateOrder = async (req, res) => {
         {
             runValidators: true,
         }
-    ).populate({ path: 'products.current', select: 'reviewers' });
+    ).populate({ path: 'products.product', select: 'reviewers' });
 
     if (!newOrder) {
         throw new NotFoundError('Không tìm thấy đơn hàng nào');
@@ -128,10 +128,10 @@ export const updateOrder = async (req, res) => {
     if (count !== 0) {
         for (const product of newOrder.products) {
             await Product.findByIdAndUpdate(
-                { _id: product.current.id },
+                { _id: product.productID },
                 {
                     $inc: { countInStock: product.qty * count, numSales: product.qty },
-                    $push: { reviewers: req.user.id },
+                    $push: { reviewers: newOrder.user.id },
                 },
                 {
                     runValidators: true,

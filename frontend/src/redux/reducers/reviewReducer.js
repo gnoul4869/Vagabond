@@ -67,7 +67,6 @@ export const review = (
             };
         case REVIEW_CREATE_SUCCESS:
             const newReviews = [action.payload.review, ...state.reviews];
-            console.log(action.payload.product.reviewers);
             return {
                 ...state,
                 reviews: newReviews,
