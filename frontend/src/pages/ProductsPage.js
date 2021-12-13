@@ -4,21 +4,21 @@ import { useHistory, useLocation, Link } from 'react-router-dom';
 import queryString from 'query-string';
 import axios from 'axios';
 import { FaCartPlus } from 'react-icons/fa';
-import { listProducts } from '../../redux/actions/productActions';
-import PriceFormat from '../PriceFormat';
-import RatingStars from '../RatingStars';
-import { addToCart } from '../../redux/actions/cartActions';
-import InfoModal from '../modals/InfoModal';
-import ProductPaginationOptions from '../pagination/productPagination/ProductPaginationOptions';
-import PaginationPaging from '../pagination/productPagination/ProductPaginationPaging';
+import { listProducts } from '../redux/actions/productActions';
+import PriceFormat from '../components/PriceFormat';
+import RatingStars from '../components/RatingStars';
+import { addToCart } from '../redux/actions/cartActions';
+import InfoModal from '../components/modals/InfoModal';
+import ProductPaginationOptions from '../components/pagination/productPagination/ProductPaginationOptions';
+import PaginationPaging from '../components/pagination/productPagination/ProductPaginationPaging';
 import {
     productPaginationButtons,
     productPaginationSelections,
-} from '../../data/productPaginationData';
-import ProductListLoading from '../loading/ProductListLoading';
-import ErrorPage from '../../pages/error/ErrorPage';
+} from '../data/productPaginationData';
+import ProductsPageLoading from '../components/loading/ProductPageLoading';
+import ErrorPage from './error/ErrorPage';
 
-const ProductList = () => {
+const ProductsPage = () => {
     const dispatch = useDispatch();
     const location = useLocation();
     const history = useHistory();
@@ -81,7 +81,7 @@ const ProductList = () => {
         }
 
         history.push({
-            pathname: '/',
+            pathname: '/products',
             search: queryString.stringify(query),
         });
     };
@@ -179,7 +179,7 @@ const ProductList = () => {
                 <>
                     <section className="container d-flex flex-wrap p-0 pt-1">
                         {isLoading || !products ? (
-                            <ProductListLoading />
+                            <ProductsPageLoading />
                         ) : (
                             products &&
                             products.map((item) => {
@@ -187,7 +187,7 @@ const ProductList = () => {
                                     <div key={item.id} className="product-wrapper">
                                         <div className="product-container">
                                             <Link
-                                                to={`/product/${item.id}`}
+                                                to={`/products/${item.id}`}
                                                 className="link-inherit"
                                             >
                                                 <div className="product-image-container">
@@ -255,4 +255,4 @@ const ProductList = () => {
     );
 };
 
-export default ProductList;
+export default ProductsPage;

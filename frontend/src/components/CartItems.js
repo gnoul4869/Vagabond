@@ -23,7 +23,7 @@ const CartItems = ({ cartItems, loadingItems, options }) => {
                                             <input type="checkbox" className="form-check-input" />
                                         </div> */}
                                 <div className="col-12 col-md-4">
-                                    <Link to={`/product/${item.id}`} className="link-inherit">
+                                    <Link to={`/products/${item.id}`} className="link-inherit">
                                         <div className="d-flex">
                                             <div className="cart-item-image-container">
                                                 <img

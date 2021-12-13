@@ -22,7 +22,6 @@ import './css/components/navbar/cartBadge.css';
 import './css/components/navbar/secondary/secondaryBar.css';
 import './css/components/navbar/secondary/navBarDropdown.css';
 import './css/components/navbar/secondary/navBarUserSubmenu.css';
-import './css/components/product/productList.css';
 import './css/components/product/productReview.css';
 import './css/components/product/productCarousel.css';
 import './css/components/pagination/reviewPagination.css';
@@ -36,6 +35,7 @@ import './css/pages/errorPage.css';
 import './css/pages/profilePage.css';
 import './css/pages/purchasePage.css';
 import './css/pages/checkoutPage.css';
+import './css/pages/productsPage.css';
 import './css/pages/productDetailsPage.css';
 import './css/pages/controlPage.css';
 

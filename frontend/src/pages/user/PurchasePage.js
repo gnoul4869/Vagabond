@@ -215,7 +215,7 @@ const PurchasePage = () => {
                                     return (
                                         <React.Fragment key={product.productID}>
                                             <Link
-                                                to={`/product/${product.productID}`}
+                                                to={`/products/${product.productID}`}
                                                 className="link-inherit"
                                             >
                                                 <div className="container fsr-2 px-3 py-4 position-relative">

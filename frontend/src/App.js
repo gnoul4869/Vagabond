@@ -1,18 +1,19 @@
 import React from 'react';
 import { BrowserRouter as Router, Switch, Route, Redirect } from 'react-router-dom';
-import NavBar from './components/navbar/NavBar.js';
+import NavBar from './components/navbar/NavBar';
 import HomePage from './pages/HomePage';
 import RegisterPage from './pages/user/RegisterPage';
 import LoginPage from './pages/user/LoginPage';
 import ProfilePage from './pages/user/ProfilePage';
-import NotFoundPage from './pages/error/NotFoundPage';
+import PurchasePage from './pages/user/PurchasePage';
+import ControlPage from './pages/ControlPage';
+import ProductsPage from './pages/ProductsPage';
 import ProductDetailsPage from './pages/ProductDetailsPage';
 import CartPage from './pages/CartPage';
-import CheckoutPage from './pages/CheckoutPage.js';
-import Footer from './components/Footer.js';
-import PurchasePage from './pages/user/PurchasePage.js';
-import ControlPage from './pages/ControlPage.js';
-import ScrollToTop from './utils/ScrollToTop.js';
+import CheckoutPage from './pages/CheckoutPage';
+import Footer from './components/Footer';
+import NotFoundPage from './pages/error/NotFoundPage';
+import ScrollToTop from './utils/ScrollToTop';
 
 const App = () => {
     return (
@@ -39,7 +40,10 @@ const App = () => {
                     <Route path="/control">
                         <ControlPage />
                     </Route>
-                    <Route path="/product/:id">
+                    <Route exact path="/products">
+                        <ProductsPage />
+                    </Route>
+                    <Route path="/products/:id">
                         <ProductDetailsPage />
                     </Route>
                     <Route path="/cart">
