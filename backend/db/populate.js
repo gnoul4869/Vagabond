@@ -35,11 +35,11 @@ const populateProducts = async () => {
         await Review.deleteMany({});
         await Order.deleteMany({});
 
-        await Product.create(computer);
-        await Product.create(electronic);
-        await Product.create(fashion);
-        await Product.create(mobile);
         await Product.create(music);
+        await Product.create(mobile);
+        await Product.create(electronic);
+        await Product.create(computer);
+        await Product.create(fashion);
 
         console.log('Products data added to the database...');
         process.exit(0);

@@ -1,6 +1,8 @@
 import React, { useCallback, useEffect, useRef } from 'react';
+import { Link } from 'react-router-dom';
 import { banners } from '../data/banners';
 import textureGrid from '../images/texture_grid.png';
+import { categories } from '../data/categories';
 
 const HomePage = () => {
     const bannerRef = useRef(null);
@@ -38,15 +40,31 @@ const HomePage = () => {
             </div>
 
             <section className="container bg-white mt-3 p-3">
-                <div className="bg-label container rounded mb-3">
-                    <div className="fw-600 fsr-4">Danh mục</div>
-                </div>
-                <div className="container fsr-2 p-3">
-                    <p>
-                        Lorem ipsum dolor sit amet consectetur adipisicing elit. Molestiae eaque
-                        quam soluta maiores cumque modi sequi odit quae adipisci placeat consequatur
-                        voluptatem esse rerum quis molestias obcaecati voluptatum, reiciendis ipsum.
-                    </p>
+                <div className="fw-600 fsr-4">Danh mục</div>
+
+                <div className="d-flex flex-wrap mt-3">
+                    {categories.map((item) => {
+                        return (
+                            <div key={item.id} className="category-wrapper">
+                                <div className="category-container">
+                                    <Link to={item.url} className="link-inherit">
+                                        <div className="category">
+                                            <div className="category-image-container">
+                                                <img
+                                                    src={item.icon}
+                                                    alt={item.name}
+                                                    className="category-image"
+                                                />
+                                            </div>
+                                            <div className="category-name line-clamp-2 text-center fsr-2">
+                                                {item.name}
+                                            </div>
+                                        </div>
+                                    </Link>
+                                </div>
+                            </div>
+                        );
+                    })}
                 </div>
             </section>
         </main>
