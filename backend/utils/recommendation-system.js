@@ -76,6 +76,7 @@ const getUserSimilarityValue = (userIndex, matrix, aRMatrix) => {
             pearson(matrix[i], matrix[userIndex], aRMatrix[i], aRMatrix[userIndex])
         );
     }
+
     return similarityValues;
 };
 
@@ -139,16 +140,16 @@ const predictUserRating = (userIndex, matrix, aRMatrix, itemIndex, k) => {
         sumXSimX +=
             aRMatrix[kSimilarityItemRatedUsers[i]][itemIndex] *
             userSimilarityValues[kSimilarityItemRatedUsers[i]];
-        sumSimX += userSimilarityValues[kSimilarityItemRatedUsers[i]];
+        sumSimX += Math.abs(userSimilarityValues[kSimilarityItemRatedUsers[i]]);
     }
 
     const userPredictedRating = userBar + sumXSimX / sumSimX;
-
     return userPredictedRating;
 };
 
 const predictUserItemRatings = (userIndex, matrix, aRMatrix, k) => {
     const items = [];
+
     for (let i = 0; i < matrix[userIndex].length; i++) {
         if (matrix[userIndex][i] === null) {
             const rating = predictUserRating(userIndex, matrix, aRMatrix, i, k);
@@ -157,12 +158,13 @@ const predictUserItemRatings = (userIndex, matrix, aRMatrix, k) => {
             }
         }
     }
+
     return items;
 };
 
 const recommend = (userIndex, kUsers) => {
     if (global.recommendationMatrix.length === 0 || global.recommendationARMatrix.length === 0) {
-        return getData();
+        return initializeMatrix();
     }
 
     // userIndex, matrix, aRMatrix, k Users
@@ -172,11 +174,15 @@ const recommend = (userIndex, kUsers) => {
         global.recommendationARMatrix,
         kUsers
     );
+
     return predictedItems;
 };
 
-const createMatrix = async (users, products) => {
+const initializeMatrix = async () => {
     try {
+        const users = await User.find({}).sort('createdAt').lean();
+        const products = await Product.find({}).sort('createdAt').lean();
+
         const rows = users.length;
         const columns = products.length;
 
@@ -190,7 +196,9 @@ const createMatrix = async (users, products) => {
                 const review = await Review.findOne({
                     createdBy: users[u]._id,
                     createdIn: products[p]._id,
-                }).lean();
+                })
+                    .sort('createdAt')
+                    .lean();
                 matrix[u][p] = review ? review.rating : null;
             }
         }
@@ -212,16 +220,4 @@ const createMatrix = async (users, products) => {
     }
 };
 
-const getData = async () => {
-    try {
-        // Get data from database
-        const users = await User.find({}).sort('createdAt').lean();
-        const products = await Product.find({}).sort('createdAt').lean();
-
-        createMatrix(users, products);
-    } catch (error) {
-        console.log(error);
-    }
-};
-
-export { getData, recommend };
+export { initializeMatrix, recommend };

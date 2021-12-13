@@ -21,7 +21,7 @@ import errorHandler from './middlewares/error-handler.middleware.js';
 
 //* Recommendation System
 
-import { getData } from './utils/recommendation-system.js';
+import { initializeMatrix } from './utils/recommendation-system.js';
 
 const app = express();
 const port = process.env.PORT || 5000;
@@ -56,8 +56,8 @@ const start = async () => {
         await connectDB(process.env.MONGODB_URI);
         app.listen(port, console.log(`Server is listening on port ${port}...`));
 
-        //? Get data for recommendation system
-        await getData();
+        //? Initialize matrix for recommendation system
+        await initializeMatrix();
     } catch (error) {
         console.log(error);
     }

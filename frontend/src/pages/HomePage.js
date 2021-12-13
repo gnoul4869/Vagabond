@@ -1,9 +1,10 @@
 import React from 'react';
+import Banner from '../images/vagabond_banner.png';
 
 const HomePage = () => {
     return (
         <main>
-            <p>home</p>
+            <div className="banner-container"></div>
         </main>
     );
 };
