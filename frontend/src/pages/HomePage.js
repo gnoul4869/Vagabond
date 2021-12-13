@@ -4,21 +4,28 @@ import textureGrid from '../images/texture_grid.png';
 
 const HomePage = () => {
     const bannerRef = useRef(null);
+    const indexRef = useRef(null);
 
     const updateBannerIndex = useCallback(() => {
-        const index = Math.floor(Math.random() * banners.length);
+        let index = Math.floor(Math.random() * banners.length);
+
+        while (index === indexRef.current) {
+            index = Math.floor(Math.random() * banners.length);
+        }
 
         const image = new Image();
         image.onload = () => {
             bannerRef.current.style.backgroundImage = `url(${textureGrid}), url(${banners[index].banner})`;
         };
         image.src = banners[index].banner;
+
+        indexRef.current = index;
     }, []);
 
     useEffect(() => {
-        const bgInterval = setInterval(() => updateBannerIndex(), 5000);
+        const bannerInterval = setInterval(() => updateBannerIndex(), 5000);
         return () => {
-            clearInterval(bgInterval);
+            clearInterval(bannerInterval);
         };
     }, [updateBannerIndex]);
 
