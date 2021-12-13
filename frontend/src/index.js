@@ -30,6 +30,7 @@ import './css/components/loading/profilePageLoading.css';
 import './css/components/loading/productDetailsPageLoading.css';
 
 //* Pages
+import './css/pages/homePage.css';
 import './css/pages/authPage.css';
 import './css/pages/errorPage.css';
 import './css/pages/profilePage.css';

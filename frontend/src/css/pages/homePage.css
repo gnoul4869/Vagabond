@@ -1,0 +1,20 @@
+.banner {
+    background-image: url('../../images/texture_grid.png'),
+        url('../../images/banners/vagabond_banner.png');
+    background-repeat: repeat, no-repeat;
+    background-size: 0.18%, cover;
+    background-attachment: fixed, scroll;
+    background-position: center;
+    transition: 2s ease-in-out;
+}
+
+.banner img {
+    opacity: 0;
+}
+
+/*? X-Small devices (portrait phones, less than 576px) */
+@media (max-width: 575.98px) {
+    .banner {
+        background-size: 0.4%, cover;
+    }
+}
