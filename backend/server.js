@@ -19,6 +19,10 @@ import auth from './middlewares/auth.middleware.js';
 import notFound from './middlewares/not-found.middleware.js';
 import errorHandler from './middlewares/error-handler.middleware.js';
 
+//* Recommendation System
+
+import { getData } from './utils/recommendation-system.js';
+
 const app = express();
 const port = process.env.PORT || 5000;
 
@@ -51,6 +55,9 @@ const start = async () => {
     try {
         await connectDB(process.env.MONGODB_URI);
         app.listen(port, console.log(`Server is listening on port ${port}...`));
+
+        //? Get data for recommendation system
+        await getData();
     } catch (error) {
         console.log(error);
     }

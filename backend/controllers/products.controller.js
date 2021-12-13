@@ -1,6 +1,8 @@
 import Product from '../models/product.model.js';
-import { NotFoundError } from '../errors/custom-api-error.js';
+import { BadRequestError, NotFoundError } from '../errors/custom-api-error.js';
 import { StatusCodes } from 'http-status-codes';
+import { recommend } from '../utils/recommendation-system.js';
+import User from '../models/user.model.js';
 
 export const getAllProducts = async (req, res) => {
     const { productIDs, search, sort, category } = req.query;
@@ -66,4 +68,27 @@ export const getProductCategories = async (req, res) => {
         throw new NotFoundError('Không có danh mục nào');
     }
     res.status(StatusCodes.OK).json({ categories });
+};
+
+export const getRecommendedProducts = async (req, res) => {
+    if (global.recommendationMatrix.length === 0 || global.recommendationARMatrix.length === 0) {
+        throw new BadRequestError('Matrix chưa được khởi tạo');
+    }
+
+    const users = await User.find({}).select('_id').sort('createdAt').lean();
+
+    if (!users) {
+        throw new NotFoundError('Không có users nào trong database');
+    }
+
+    const userIndex = users.findIndex((i) => i._id.toString() === req.user.id);
+
+    if (userIndex === -1) {
+        throw new NotFoundError('User không tồn tại');
+    }
+
+    const kUsers = 2;
+    const recommendedProducts = recommend(userIndex, kUsers);
+
+    res.status(StatusCodes.OK).json({ recommendedProducts });
 };
