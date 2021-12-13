@@ -4,7 +4,7 @@ import textureGrid from '../images/texture_grid.png';
 
 const HomePage = () => {
     const bannerRef = useRef(null);
-    const indexRef = useRef(null);
+    const indexRef = useRef(0);
 
     const updateBannerIndex = useCallback(() => {
         let index = Math.floor(Math.random() * banners.length);
