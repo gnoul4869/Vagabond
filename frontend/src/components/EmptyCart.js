@@ -20,7 +20,7 @@ const EmptyCart = () => {
             </div>
             <div className="row">
                 <div className="col">
-                    <Link to="/" className="btn btn-ired mt-5 px-2 pt-2 fs-5">
+                    <Link to="/products" className="btn btn-ired mt-5 px-2 pt-2 fs-5">
                         <RiShoppingBag3Fill className="icon" /> Mua ngay
                     </Link>
                 </div>

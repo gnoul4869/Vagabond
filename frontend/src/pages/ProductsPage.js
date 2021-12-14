@@ -1,33 +1,29 @@
 import React, { useEffect, useState } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
-import { useHistory, useLocation, Link } from 'react-router-dom';
-import queryString from 'query-string';
+import { useHistory, useLocation } from 'react-router-dom';
 import axios from 'axios';
-import { FaCartPlus } from 'react-icons/fa';
+import queryString from 'query-string';
 import { listProducts } from '../redux/actions/productActions';
-import PriceFormat from '../components/PriceFormat';
-import RatingStars from '../components/RatingStars';
-import { addToCart } from '../redux/actions/cartActions';
-import InfoModal from '../components/modals/InfoModal';
-import ProductPaginationOptions from '../components/pagination/productPagination/ProductPaginationOptions';
-import ProductPaginationPaging from '../components/pagination/productPagination/ProductPaginationPaging';
 import {
     productPaginationButtons,
     productPaginationSelections,
 } from '../data/productPaginationData';
-import ProductsPageLoading from '../components/loading/ProductPageLoading';
+import ProductPaginationOptions from '../components/pagination/productPagination/ProductPaginationOptions';
+import ProductPaginationPaging from '../components/pagination/productPagination/ProductPaginationPaging';
+import ProductsPageLoading from '../components/loading/ProductsPageLoading';
+import ProductCard from '../components/product/ProductCard';
+import InfoModal from '../components/modals/InfoModal';
 import ErrorPage from './error/ErrorPage';
+import { addToCart } from '../redux/actions/cartActions';
 
 const ProductsPage = () => {
     const dispatch = useDispatch();
     const location = useLocation();
     const history = useHistory();
-    const { isLoading, total, products, error } = useSelector((state) => state.productList);
-    const cart = useSelector((state) => state.cart);
 
-    const [isModalShown, setIsModalShown] = useState(false);
-    const [cartError, setCartError] = useState('');
-    const [modalError, setModalError] = useState('');
+    const cart = useSelector((state) => state.cart);
+    const { isLoading, total, products, error } = useSelector((state) => state.productList);
+
     const [localError, setLocalError] = useState('');
 
     const searchQuery = queryString.parse(location.search);
@@ -40,6 +36,9 @@ const ProductsPage = () => {
     const [productCategories, setproductCategories] = useState([]);
 
     const [isInitialLoad, setIsInitialLoad] = useState(true);
+
+    const [isModalShown, setIsModalShown] = useState(false);
+    const [modalError, setModalError] = useState('');
 
     const queryHandler = (sortValue, categoryValue, pageValue) => {
         if (sortValue) {
@@ -107,6 +106,19 @@ const ProductsPage = () => {
     }, [searchQuery]);
 
     useEffect(() => {
+        if (cart.isDone === true) {
+            setIsModalShown(true);
+            setModalError(cart.modalError);
+        }
+        if (isModalShown === true) {
+            const modalTimeout = setTimeout(() => setIsModalShown(false), 2000);
+            return () => {
+                clearTimeout(modalTimeout);
+            };
+        }
+    }, [cart.error, cart.isDone, cart.modalError, isModalShown]);
+
+    useEffect(() => {
         let isMounted = true;
 
         if (isInitialLoad) {
@@ -144,20 +156,6 @@ const ProductsPage = () => {
     }, [isLoading, productCategories.length, products]);
 
     useEffect(() => {
-        if (cart.isDone === true) {
-            setCartError(cart.error);
-            setIsModalShown(true);
-            setModalError(cart.modalError);
-        }
-        if (isModalShown === true) {
-            const modalTimeout = setTimeout(() => setIsModalShown(false), 2000);
-            return () => {
-                clearTimeout(modalTimeout);
-            };
-        }
-    }, [cart.error, cart.isDone, cart.modalError, isModalShown]);
-
-    useEffect(() => {
         dispatch(listProducts(search, sort, category, page, limit));
     }, [dispatch, search, sort, category, page]);
 
@@ -173,8 +171,8 @@ const ProductsPage = () => {
                 isLoading={isInitialLoad}
             />
 
-            {error || cartError || localError ? (
-                <ErrorPage error={error || cartError || localError} backHome={false} />
+            {error || localError ? (
+                <ErrorPage error={error || localError} backHome={false} />
             ) : (
                 <>
                     <section className="container d-flex flex-wrap p-0 pt-1">
@@ -184,52 +182,12 @@ const ProductsPage = () => {
                             products &&
                             products.map((item) => {
                                 return (
-                                    <div key={item.id} className="product-wrapper">
-                                        <div className="product-container">
-                                            <Link
-                                                to={`/products/${item.id}`}
-                                                className="link-inherit"
-                                            >
-                                                <div className="product-image-container">
-                                                    <img
-                                                        src={item.images[0]}
-                                                        alt={item.name}
-                                                        className="product-image"
-                                                    />
-                                                </div>
-                                                <div className="product-name line-clamp-2">
-                                                    {item.name}
-                                                </div>
-                                            </Link>
-
-                                            <div className="product-bottom">
-                                                <div className="product-info-container">
-                                                    <div className="product-price">
-                                                        <PriceFormat price={item.price} />
-                                                    </div>
-                                                    <div className="product-rating d-flex flex-column d-md-inline fsr-1">
-                                                        <div className="d-inline-flex icon">
-                                                            <RatingStars
-                                                                rating={item.rating}
-                                                                css={'text-ystar'}
-                                                            />
-                                                        </div>
-                                                        <span className="separator-gray d-none d-md-inline"></span>
-                                                        <span className="text-secondary mt-1 mt-md-0">
-                                                            {`${item.numReviews} lượt đánh giá`}
-                                                        </span>
-                                                    </div>
-                                                </div>
-                                                <button
-                                                    type="button"
-                                                    className="product-cart-btn"
-                                                    onClick={() => cartBtnHandler(item.id)}
-                                                >
-                                                    <FaCartPlus className="icon" />
-                                                </button>
-                                            </div>
-                                        </div>
-                                    </div>
+                                    <ProductCard
+                                        product={item}
+                                        showRatings={true}
+                                        showSales={false}
+                                        cartBtnHandler={cartBtnHandler}
+                                    />
                                 );
                             })
                         )}
@@ -242,14 +200,14 @@ const ProductsPage = () => {
                         limit={limit}
                         isLoading={isLoading}
                     />
-
-                    {isModalShown && (
-                        <InfoModal
-                            message={modalError ? modalError : 'Sản phẩm đã được thêm vào giỏ hàng'}
-                            isError={modalError}
-                        />
-                    )}
                 </>
+            )}
+
+            {isModalShown && (
+                <InfoModal
+                    message={modalError ? modalError : 'Sản phẩm đã được thêm vào giỏ hàng'}
+                    isError={modalError}
+                />
             )}
         </>
     );

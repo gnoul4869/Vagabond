@@ -1,6 +1,6 @@
 import React from 'react';
 
-const ProductPageLoading = () => {
+const ProductsPageLoading = () => {
     return [...Array(20)].map((x, index) => {
         return (
             <div key={index} className="product-wrapper">
@@ -27,4 +27,4 @@ const ProductPageLoading = () => {
     });
 };
 
-export default ProductPageLoading;
+export default ProductsPageLoading;

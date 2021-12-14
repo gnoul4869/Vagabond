@@ -1,8 +1,7 @@
 import React, { useState, useEffect } from 'react';
-import { Link } from 'react-router-dom';
 import axios from 'axios';
 import PulseLoader from 'react-spinners/PulseLoader';
-import PriceFormat from '../PriceFormat';
+import ProductCard from '../product/ProductCard';
 
 const HomeHotProducts = () => {
     const [hotProducts, setHotProducts] = useState([]);
@@ -66,32 +65,12 @@ const HomeHotProducts = () => {
                     hotProducts.length !== 0 &&
                     hotProducts.map((item) => {
                         return (
-                            <div key={item.id} className="product-wrapper">
-                                <div className="product-container">
-                                    <Link to={`/products/${item.id}`} className="link-inherit">
-                                        <div className="product-image-container">
-                                            <img
-                                                src={item.images[0]}
-                                                alt={item.name}
-                                                className="product-image"
-                                            />
-                                        </div>
-                                        <div className="product-name line-clamp-2">{item.name}</div>
-                                    </Link>
-
-                                    <div className="product-bottom">
-                                        <div className="product-info-container">
-                                            <div className="product-price">
-                                                <PriceFormat price={item.price} />
-                                            </div>
-                                        </div>
-                                    </div>
-                                    <div className="d-inline text-center bg-ired text-white fw-600 fsr-1 mt-1">
-                                        <span className="me-2">Đã bán</span>
-                                        <span>{item.numSales}</span>
-                                    </div>
-                                </div>
-                            </div>
+                            <ProductCard
+                                product={item}
+                                showRatings={false}
+                                showSales={true}
+                                cartBtnHandler={false}
+                            />
                         );
                     })
                 )}
