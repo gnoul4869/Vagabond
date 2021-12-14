@@ -20,6 +20,13 @@ const ProductCarousel = ({ images, name }) => {
     };
 
     useEffect(() => {
+        images.forEach((element) => {
+            const image = new Image();
+            image.src = element;
+        });
+    }, [images]);
+
+    useEffect(() => {
         setImage(newImages[imageNo]);
     }, [newImages, imageNo]);
 
