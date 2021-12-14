@@ -355,6 +355,19 @@ select {
     color: darksalmon;
 }
 
+.link-normal {
+    text-decoration: none;
+    color: var(--dark-slate-gray);
+}
+
+.link-normal:hover {
+    color: var(--inspiring-red);
+}
+
+.link-normal:active {
+    color: darksalmon;
+}
+
 .icon {
     vertical-align: -0.1rem;
 }

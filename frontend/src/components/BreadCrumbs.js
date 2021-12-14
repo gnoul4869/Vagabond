@@ -24,7 +24,12 @@ const BreadCrumbs = (props) => {
                     } else {
                         return (
                             <li key={index} className="breadcrumb-item text-truncate">
-                                <span>{itemValue}</span>
+                                <Link
+                                    to={`/products?category=${itemValue}`}
+                                    className="link-normal"
+                                >
+                                    <span>{itemValue}</span>
+                                </Link>
                             </li>
                         );
                     }
