@@ -15,7 +15,7 @@ const HomeRecommendedProducts = () => {
             setIsLoading(true);
         }
 
-        const getHotProducts = async () => {
+        const getRecommendedProducts = async () => {
             try {
                 const { data } = await axios.get('/api/v1/products', {
                     params: { search: '', sort: 'rating', category: '', page: 1, limit: 5 },
@@ -40,7 +40,7 @@ const HomeRecommendedProducts = () => {
             }
         };
 
-        getHotProducts();
+        getRecommendedProducts();
 
         return () => {
             isMounted = false;

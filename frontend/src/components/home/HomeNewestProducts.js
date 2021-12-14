@@ -4,7 +4,7 @@ import PulseLoader from 'react-spinners/PulseLoader';
 import ProductCards from '../product/ProductCards';
 
 const HomeNewestProducts = () => {
-    const [hotProducts, setHotProducts] = useState([]);
+    const [newestProducts, setNewestProducts] = useState([]);
     const [isLoading, setIsLoading] = useState(false);
     const [error, setError] = useState('');
 
@@ -15,7 +15,7 @@ const HomeNewestProducts = () => {
             setIsLoading(true);
         }
 
-        const getHotProducts = async () => {
+        const getNewestProducts = async () => {
             try {
                 const { data } = await axios.get('/api/v1/products', {
                     params: { search: '', sort: 'newest', category: '', page: 1, limit: 5 },
@@ -24,7 +24,7 @@ const HomeNewestProducts = () => {
                 const { products } = data;
 
                 if (isMounted) {
-                    setHotProducts(products);
+                    setNewestProducts(products);
                     setError('');
                     setIsLoading(false);
                 }
@@ -40,7 +40,7 @@ const HomeNewestProducts = () => {
             }
         };
 
-        getHotProducts();
+        getNewestProducts();
 
         return () => {
             isMounted = false;
@@ -62,8 +62,8 @@ const HomeNewestProducts = () => {
                 ) : error ? (
                     <div className="text-pinker fsr-5 mx-auto py-5">{error}</div>
                 ) : (
-                    hotProducts.length !== 0 &&
-                    hotProducts.map((item) => {
+                    newestProducts.length !== 0 &&
+                    newestProducts.map((item) => {
                         return (
                             <ProductCards
                                 key={item.id}
