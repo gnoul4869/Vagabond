@@ -28,7 +28,7 @@ export const categories = [
         id: 3,
         name: 'Link kiện máy tính',
         icon: ComputerIcon,
-        url: '/products?category=Link kiện máy tính',
+        url: '/products?category=Linh kiện máy tính',
     },
     {
         id: 4,

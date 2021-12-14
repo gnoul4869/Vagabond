@@ -1,7 +1,7 @@
 export const computer = [
     {
         name: 'Màn Hình AOC 24G2 24"/FHD/IPS/HDR/144Hz/1ms/FreeSync',
-        category: 'Linh Kiện máy tính',
+        category: 'Linh kiện máy tính',
         price: 4890000,
         countInStock: 90,
         brand: 'AOC',
@@ -18,7 +18,7 @@ export const computer = [
     },
     {
         name: 'Mainboard ASUS ROG STRIX B550-E GAMING',
-        category: 'Linh Kiện máy tính',
+        category: 'Linh kiện máy tính',
         price: 6750000,
         countInStock: 110,
         brand: 'Asus',
@@ -34,7 +34,7 @@ export const computer = [
     },
     {
         name: 'Card đồ họa ASUS TUF RTX 3060 Ti 8GB GAMING',
-        category: 'Linh Kiện máy tính',
+        category: 'Linh kiện máy tính',
         price: 22000000,
         countInStock: 85,
         brand: 'Asus',
@@ -52,7 +52,7 @@ export const computer = [
     },
     {
         name: 'Nguồn máy tính GIGABYTE GP-P750GM 750W 80 PLUS',
-        category: 'Linh Kiện máy tính',
+        category: 'Linh kiện máy tính',
         price: 2400000,
         countInStock: 75,
         brand: 'Gigabyte',
@@ -69,7 +69,7 @@ export const computer = [
     },
     {
         name: 'Tản nhiệt khí CPU RGB Jonsbo CR-1000',
-        category: 'Linh Kiện máy tính',
+        category: 'Linh kiện máy tính',
         price: 360000,
         countInStock: 90,
         brand: 'Jonsbo',
@@ -86,7 +86,7 @@ export const computer = [
     },
     {
         name: 'Ram Desktop Kingston Fury Beast (KF426C16BB/8) 8GB (1x8GB) DDR4 2666Mhz',
-        category: 'Linh Kiện máy tính',
+        category: 'Linh kiện máy tính',
         price: 1200000,
         countInStock: 100,
         brand: 'Kingston',
@@ -101,7 +101,7 @@ export const computer = [
     },
     {
         name: 'Card đồ họa VGA Leadtek Quadro P400',
-        category: 'Linh Kiện máy tính',
+        category: 'Linh kiện máy tính',
         price: 2650000,
         countInStock: 45,
         brand: 'LEADTEK',
@@ -116,7 +116,7 @@ export const computer = [
     },
     {
         name: 'Card đồ họa VGA MSI GeForce GTX 1650 D6 VENTUS XS OCV2',
-        category: 'Linh Kiện máy tính',
+        category: 'Linh kiện máy tính',
         price: 7500000,
         countInStock: 65,
         brand: 'MSI',
@@ -132,7 +132,7 @@ export const computer = [
     },
     {
         name: 'CPU AMD Ryzen 5 5600X (3.7GHz Boost 4.6GHz | 6 Nhân / 12 Luồng | 32MB Cache | PCIe 4.0)',
-        category: 'Linh Kiện máy tính',
+        category: 'Linh kiện máy tính',
         price: 6990000,
         countInStock: 150,
         brand: 'AMD',
@@ -147,7 +147,7 @@ export const computer = [
     },
     {
         name: 'Ổ cứng SSD Samsung 980 PRO 1TB PCIe 4.0 M.2 NVMe',
-        category: 'Linh Kiện máy tính',
+        category: 'Linh kiện máy tính',
         price: 5950000,
         countInStock: 45,
         brand: 'Samsung',
