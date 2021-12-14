@@ -22,7 +22,7 @@ const AddressInput = ({
     const [districts, setDistricts] = useState([]);
     const [wards, setWards] = useState([]);
 
-    const mounted = useRef(false);
+    const isMounted = useRef(false);
 
     const provinceHandler = (id, name) => {
         if (id !== 'DEFAULT') {
@@ -55,7 +55,7 @@ const AddressInput = ({
 
     const getDistricts = useCallback(
         async (provinceID) => {
-            mounted.current = true;
+            isMounted.current = true;
             setIsLoadingAddress(true);
 
             try {
@@ -67,7 +67,7 @@ const AddressInput = ({
                     }
                 );
 
-                if (mounted.current) {
+                if (isMounted.current) {
                     const sortedDistricts = data.data.sort((a, b) =>
                         a.DistrictName.localeCompare(b.DistricteName)
                     );
@@ -75,7 +75,7 @@ const AddressInput = ({
                     setIsLoadingAddress(false);
                 }
             } catch (error) {
-                if (mounted.current) {
+                if (isMounted.current) {
                     setIsLoadingAddress(false);
                     setComponentError('Đã có lỗi xảy ra, hãy thử lại sau');
                 }
@@ -86,7 +86,7 @@ const AddressInput = ({
 
     const getWards = useCallback(
         async (districtID) => {
-            mounted.current = true;
+            isMounted.current = true;
             setIsLoadingAddress(true);
 
             try {
@@ -98,7 +98,7 @@ const AddressInput = ({
                     }
                 );
 
-                if (mounted.current) {
+                if (isMounted.current) {
                     const sortedWards = data.data.sort((a, b) =>
                         a.WardName.localeCompare(b.WardName)
                     );
@@ -106,7 +106,7 @@ const AddressInput = ({
                     setIsLoadingAddress(false);
                 }
             } catch (error) {
-                if (mounted.current) {
+                if (isMounted.current) {
                     setIsLoadingAddress(false);
                     setComponentError('Đã có lỗi xảy ra, hãy thử lại sau');
                 }
@@ -117,7 +117,7 @@ const AddressInput = ({
 
     useEffect(() => {
         const getProvinces = async () => {
-            if (mounted.current) {
+            if (isMounted.current) {
                 setIsLoadingAddress(true);
             }
             try {
@@ -128,7 +128,7 @@ const AddressInput = ({
                     }
                 );
 
-                if (mounted.current) {
+                if (isMounted.current) {
                     const sortedProvinces = data.data.sort((a, b) =>
                         a.ProvinceName.localeCompare(b.ProvinceName)
                     );
@@ -136,7 +136,7 @@ const AddressInput = ({
                     setIsLoadingAddress(false);
                 }
             } catch (error) {
-                if (mounted.current) {
+                if (isMounted.current) {
                     setIsLoadingAddress(false);
                     setComponentError('Đã có lỗi xảy ra, hãy thử lại sau');
                 }
@@ -156,9 +156,9 @@ const AddressInput = ({
     }, [districtID, getDistricts, getWards, provinceID]);
 
     useEffect(() => {
-        mounted.current = true;
+        isMounted.current = true;
         return () => {
-            mounted.current = false;
+            isMounted.current = false;
         };
     }, []);
 

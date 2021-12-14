@@ -2,7 +2,7 @@ import React from 'react';
 import { Link } from 'react-router-dom';
 import { categories } from '../../data/categories';
 
-const homeCategories = () => {
+const HomeCategories = () => {
     return (
         <section className="container bg-white p-3">
             <div className="fw-600 fsr-4 text-secondary">Danh mục</div>
@@ -35,4 +35,4 @@ const homeCategories = () => {
     );
 };
 
-export default homeCategories;
+export default HomeCategories;

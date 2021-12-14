@@ -10,7 +10,7 @@ import RatingStars from '../components/RatingStars';
 import { addToCart } from '../redux/actions/cartActions';
 import InfoModal from '../components/modals/InfoModal';
 import ProductPaginationOptions from '../components/pagination/productPagination/ProductPaginationOptions';
-import PaginationPaging from '../components/pagination/productPagination/ProductPaginationPaging';
+import ProductPaginationPaging from '../components/pagination/productPagination/ProductPaginationPaging';
 import {
     productPaginationButtons,
     productPaginationSelections,
@@ -107,7 +107,7 @@ const ProductsPage = () => {
     }, [searchQuery]);
 
     useEffect(() => {
-        let mounted = true;
+        let isMounted = true;
 
         if (isInitialLoad) {
             const getProductCategories = async () => {
@@ -115,11 +115,11 @@ const ProductsPage = () => {
                     const { data } = await axios.get('/api/v1/products/categories');
                     const { categories } = data;
 
-                    if (mounted) {
+                    if (isMounted) {
                         setproductCategories(categories.sort((a, b) => a.localeCompare(b)));
                     }
                 } catch (error) {
-                    if (mounted) {
+                    if (isMounted) {
                         setLocalError(
                             error.response && error.response.data.message
                                 ? error.response.data.message
@@ -133,7 +133,7 @@ const ProductsPage = () => {
         }
 
         return () => {
-            mounted = false;
+            isMounted = false;
         };
     }, [isInitialLoad]);
 
@@ -235,7 +235,7 @@ const ProductsPage = () => {
                         )}
                     </section>
 
-                    <PaginationPaging
+                    <ProductPaginationPaging
                         total={total}
                         page={page}
                         queryHandler={queryHandler}

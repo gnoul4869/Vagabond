@@ -82,11 +82,11 @@ const CheckoutPage = () => {
             return setShippingFee(0);
         }
 
-        let mounted = true;
+        let isMounted = true;
 
         if (userDetails) {
             const getShippingFee = async () => {
-                if (mounted) {
+                if (isMounted) {
                     setIsGettingShippingFee(true);
                 }
                 try {
@@ -112,7 +112,7 @@ const CheckoutPage = () => {
                         }
                     );
 
-                    if (mounted) {
+                    if (isMounted) {
                         const roundedNumber = Math.ceil(data.data.service_fee / 1000) * 1000;
                         setShippingFee(roundedNumber);
                         setIsGettingShippingFee(false);
@@ -123,7 +123,7 @@ const CheckoutPage = () => {
                             ? error.response.data.message
                             : 'Đã có lỗi xảy ra. Bạn vui lòng thử lại sau ít phút nữa'
                     );
-                    if (mounted) {
+                    if (isMounted) {
                         setIsGettingShippingFee(false);
                     }
                 }
@@ -132,7 +132,7 @@ const CheckoutPage = () => {
             getShippingFee();
 
             return () => {
-                mounted = false;
+                isMounted = false;
             };
         }
     }, [totalItemsHeight, totalItemsPrice, totalItemsWeight, userDetails]);

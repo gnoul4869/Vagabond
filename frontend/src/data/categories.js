@@ -18,7 +18,6 @@ export const categories = [
         icon: MobileIcon,
         url: '/products?category=Điện thoại',
     },
-
     {
         id: 2,
         name: 'Điện tử',
