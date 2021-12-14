@@ -1,21 +1,7 @@
-.banner {
-    background-image: url('../../images/texture_grid.png'),
-        url('../../images/banners/vagabond_banner.png');
-    background-repeat: repeat, no-repeat;
-    background-size: 0.18%, cover;
-    background-attachment: fixed, scroll;
-    background-position: center;
-    transition: 2s ease-in-out;
-}
-
-.banner img {
-    opacity: 0;
-}
-
 .category-wrapper {
     flex: 1 0 16.66666666666667%;
     max-width: 16.66666666666667%;
-    padding: 0.0625rem;
+    padding: 0.09375rem;
 }
 
 .category-container {
@@ -75,10 +61,6 @@
 
 /*? X-Small devices (portrait phones, less than 576px) */
 @media (max-width: 575.98px) {
-    .banner {
-        background-size: 0.4%, cover;
-    }
-
     .category-wrapper {
         flex-basis: 33.333333333333336%; /** 3 items */
         max-width: 33.333333333333336%;

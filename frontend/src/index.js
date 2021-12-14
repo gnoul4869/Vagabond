@@ -8,6 +8,8 @@ import store from './redux/store.js';
 import 'bootstrap/dist/css/bootstrap.min.css';
 
 //* Components
+import './css/components/home/homeBanner.css';
+import './css/components/home/homeCategories.css';
 import './css/components/modal.css';
 import './css/components/footer.css';
 import './css/components/sidebar.css';
@@ -30,7 +32,6 @@ import './css/components/loading/profilePageLoading.css';
 import './css/components/loading/productDetailsPageLoading.css';
 
 //* Pages
-import './css/pages/homePage.css';
 import './css/pages/authPage.css';
 import './css/pages/errorPage.css';
 import './css/pages/profilePage.css';

@@ -5,7 +5,7 @@ import { categories } from '../../data/categories';
 const homeCategories = () => {
     return (
         <section className="container bg-white p-3">
-            <div className="fw-600 fsr-4">Danh mục</div>
+            <div className="fw-600 fsr-4 text-secondary">Danh mục</div>
 
             <div className="d-flex flex-wrap mt-3">
                 {categories.map((item) => {
