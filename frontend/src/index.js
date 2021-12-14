@@ -24,7 +24,7 @@ import './css/components/navbar/cartBadge.css';
 import './css/components/navbar/secondary/secondaryBar.css';
 import './css/components/navbar/secondary/navBarDropdown.css';
 import './css/components/navbar/secondary/navBarUserSubmenu.css';
-import './css/components/product/productCard.css';
+import './css/components/product/productCards.css';
 import './css/components/product/productReview.css';
 import './css/components/product/productCarousel.css';
 import './css/components/pagination/reviewPagination.css';

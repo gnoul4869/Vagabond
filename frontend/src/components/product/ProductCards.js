@@ -4,7 +4,7 @@ import { FaCartPlus } from 'react-icons/fa';
 import PriceFormat from '../PriceFormat';
 import RatingStars from '../RatingStars';
 
-const ProductCard = ({ product, showRatings, showSales, cartBtnHandler }) => {
+const ProductCards = ({ product, showRatings, showSales, cartBtnHandler }) => {
     return (
         <>
             <div key={product.id} className="product-wrapper">
@@ -61,4 +61,4 @@ const ProductCard = ({ product, showRatings, showSales, cartBtnHandler }) => {
     );
 };
 
-export default ProductCard;
+export default ProductCards;

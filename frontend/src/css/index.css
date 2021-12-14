@@ -376,6 +376,10 @@ select {
     vertical-align: -0.2rem;
 }
 
+.icon-3 {
+    vertical-align: -0.25rem;
+}
+
 /** Form */
 .form-check-input {
     box-shadow: none !important;

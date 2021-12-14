@@ -11,7 +11,7 @@ import {
 import ProductPaginationOptions from '../components/pagination/productPagination/ProductPaginationOptions';
 import ProductPaginationPaging from '../components/pagination/productPagination/ProductPaginationPaging';
 import ProductsPageLoading from '../components/loading/ProductsPageLoading';
-import ProductCard from '../components/product/ProductCard';
+import ProductCards from '../components/product/ProductCards';
 import InfoModal from '../components/modals/InfoModal';
 import ErrorPage from './error/ErrorPage';
 import { addToCart } from '../redux/actions/cartActions';
@@ -182,7 +182,7 @@ const ProductsPage = () => {
                             products &&
                             products.map((item) => {
                                 return (
-                                    <ProductCard
+                                    <ProductCards
                                         product={item}
                                         showRatings={true}
                                         showSales={false}

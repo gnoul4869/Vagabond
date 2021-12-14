@@ -1,7 +1,7 @@
 import React, { useState, useEffect } from 'react';
 import axios from 'axios';
 import PulseLoader from 'react-spinners/PulseLoader';
-import ProductCard from '../product/ProductCard';
+import ProductCards from '../product/ProductCards';
 
 const HomeRecommendedProducts = () => {
     const [hotProducts, setHotProducts] = useState([]);
@@ -65,7 +65,7 @@ const HomeRecommendedProducts = () => {
                     hotProducts.length !== 0 &&
                     hotProducts.map((item) => {
                         return (
-                            <ProductCard
+                            <ProductCards
                                 product={item}
                                 showRatings={true}
                                 showSales={false}
