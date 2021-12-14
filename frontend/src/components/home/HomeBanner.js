@@ -32,7 +32,12 @@ const HomeBanner = () => {
     return (
         <div className="container p-0 m-0">
             <div className="banner" ref={bannerRef}>
-                <img src={banners[0].banner} alt="vagabond_banner" className="img-fluid" />
+                <img
+                    src={banners[0].banner}
+                    alt="vagabond_banner"
+                    className="img-fluid"
+                    draggable={false}
+                />
             </div>
         </div>
     );
