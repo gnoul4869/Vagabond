@@ -69,6 +69,7 @@ const HomeRecommendedProducts = () => {
                                 product={item}
                                 showRatings={true}
                                 showSales={false}
+                                showDate={false}
                                 cartBtnHandler={false}
                             />
                         );

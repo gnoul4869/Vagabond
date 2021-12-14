@@ -1,10 +1,11 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
 import { FaCartPlus } from 'react-icons/fa';
+import moment from 'moment';
 import PriceFormat from '../PriceFormat';
 import RatingStars from '../RatingStars';
 
-const ProductCards = ({ product, showRatings, showSales, cartBtnHandler }) => {
+const ProductCards = ({ product, showRatings, showSales, showDate, cartBtnHandler }) => {
     return (
         <>
             <div key={product.id} className="product-wrapper">
@@ -53,6 +54,13 @@ const ProductCards = ({ product, showRatings, showSales, cartBtnHandler }) => {
                         <div className="d-inline text-center bg-ired text-white fw-600 fsr-1 mt-1">
                             <span className="me-2">Đã bán</span>
                             <span>{product.numSales}</span>
+                        </div>
+                    )}
+
+                    {showDate && (
+                        <div className="d-inline text-center bg-teal text-white fw-600 fsr-1 mt-1">
+                            <span className="me-2">Ngày cập nhật</span>
+                            <span>{moment(product.createdAt).format('DD/MM/YYYY')}</span>
                         </div>
                     )}
                 </div>

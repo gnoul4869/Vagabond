@@ -70,6 +70,42 @@ select {
     background-color: #fffeef;
 }
 
+.bg-coral {
+    background-color: coral;
+}
+
+.bg-maroon {
+    background-color: maroon;
+}
+
+.bg-pinker {
+    background-color: #db0477;
+}
+
+.bg-teal {
+    background-color: teal;
+}
+
+.bg-dodgerblue {
+    background-color: dodgerblue;
+}
+
+.bg-steelblue {
+    background-color: steelblue;
+}
+
+.bg-turquoise {
+    background-color: turquoise;
+}
+
+.bg-mediumaqua {
+    background-color: mediumaquamarine;
+}
+
+.bg-lightseagreen {
+    background-color: lightseagreen;
+}
+
 .bg-loading {
     height: 1.25rem;
     background: linear-gradient(-45deg, #ee7752, #e73c7e, #e79696, #f16363);

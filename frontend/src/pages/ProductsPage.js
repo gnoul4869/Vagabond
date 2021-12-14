@@ -186,6 +186,7 @@ const ProductsPage = () => {
                                         product={item}
                                         showRatings={true}
                                         showSales={false}
+                                        showDate={false}
                                         cartBtnHandler={cartBtnHandler}
                                     />
                                 );

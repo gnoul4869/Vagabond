@@ -3,7 +3,7 @@ import axios from 'axios';
 import PulseLoader from 'react-spinners/PulseLoader';
 import ProductCards from '../product/ProductCards';
 
-const HomeHotProducts = () => {
+const HomeNewestProducts = () => {
     const [hotProducts, setHotProducts] = useState([]);
     const [isLoading, setIsLoading] = useState(false);
     const [error, setError] = useState('');
@@ -18,7 +18,7 @@ const HomeHotProducts = () => {
         const getHotProducts = async () => {
             try {
                 const { data } = await axios.get('/api/v1/products', {
-                    params: { search: '', sort: 'sales', category: '', page: 1, limit: 5 },
+                    params: { search: '', sort: 'newest', category: '', page: 1, limit: 5 },
                 });
 
                 const { products } = data;
@@ -49,7 +49,7 @@ const HomeHotProducts = () => {
 
     return (
         <section className="container bg-white p-3">
-            <div className="fw-600 fsr-4 text-secondary">Sản phẩm bán chạy</div>
+            <div className="fw-600 fsr-4 text-secondary">Sản phẩm mới</div>
 
             <div className="d-flex flex-wrap mt-3">
                 {isLoading ? (
@@ -68,8 +68,8 @@ const HomeHotProducts = () => {
                             <ProductCards
                                 product={item}
                                 showRatings={false}
-                                showSales={true}
-                                showDate={false}
+                                showSales={false}
+                                showDate={true}
                                 cartBtnHandler={false}
                             />
                         );
@@ -80,4 +80,4 @@ const HomeHotProducts = () => {
     );
 };
 
-export default HomeHotProducts;
+export default HomeNewestProducts;
