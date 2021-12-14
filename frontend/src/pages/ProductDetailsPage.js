@@ -16,6 +16,7 @@ import BreadCrumbs from '../components/BreadCrumbs';
 import { addToCart } from '../redux/actions/cartActions';
 import InfoModal from '../components/modals/InfoModal';
 import ProductReviews from '../components/product/ProductReviews';
+import ProductSimilars from '../components/product/ProductSimilars';
 
 const ProductDetailsPage = () => {
     const dispatch = useDispatch();
@@ -184,6 +185,11 @@ const ProductDetailsPage = () => {
                                 productReviewers={product.reviewers}
                             />
                         </section>
+
+                        <div className="mt-5">
+                            <ProductSimilars product={product} showEmpty={false} />
+                        </div>
+
                         {isModalShown && (
                             <InfoModal
                                 message={

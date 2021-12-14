@@ -51,7 +51,7 @@ const HomeHotProducts = () => {
         <section className="container bg-white p-3">
             <div className="fw-600 fsr-4 text-secondary">Sản phẩm bán chạy</div>
 
-            <div className="d-flex flex-wrap mt-3">
+            <div className="d-flex flex-wrap mt-2 mt-md-3">
                 {isLoading ? (
                     <PulseLoader
                         color="#c73434"
@@ -66,6 +66,7 @@ const HomeHotProducts = () => {
                     hotProducts.map((item) => {
                         return (
                             <ProductCards
+                                key={item.id}
                                 product={item}
                                 showRatings={false}
                                 showSales={true}

@@ -5,12 +5,17 @@ import { recommend } from '../utils/recommendation-system.js';
 import User from '../models/user.model.js';
 
 export const getAllProducts = async (req, res) => {
-    const { productIDs, search, sort, category } = req.query;
+    const { productIDs, excludeIDs, search, sort, category, maxPrice, minPrice } = req.query;
 
     const query = {};
 
-    if (productIDs) {
-        query._id = { $in: productIDs };
+    if (productIDs || excludeIDs) {
+        query._id =
+            productIDs && excludeIDs
+                ? { $in: productIDs, $nin: excludeIDs }
+                : productIDs
+                ? { $in: productIDs }
+                : { $nin: excludeIDs };
     }
 
     if (search) {
@@ -26,6 +31,10 @@ export const getAllProducts = async (req, res) => {
         query.category = category;
     }
 
+    if (maxPrice || minPrice) {
+        query.price = { $lte: maxPrice, $gte: minPrice };
+    }
+
     const sortValue =
         sort === 'relevance'
             ? 'name'
@@ -37,6 +46,8 @@ export const getAllProducts = async (req, res) => {
             ? 'price'
             : sort === 'price-desc'
             ? '-price'
+            : sort === 'rating'
+            ? '-rating'
             : '';
 
     const page = Number(req.query.page) || 1;

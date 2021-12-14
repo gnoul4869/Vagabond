@@ -7,7 +7,7 @@ const HomeCategories = () => {
         <section className="container bg-white p-3">
             <div className="fw-600 fsr-4 text-secondary">Danh mục</div>
 
-            <div className="d-flex flex-wrap mt-3">
+            <div className="d-flex flex-wrap mt-2 mt-md-3">
                 {categories.map((item) => {
                     return (
                         <div key={item.id} className="category-wrapper">
