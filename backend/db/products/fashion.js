@@ -120,10 +120,10 @@ export const fashion = [
         description:
             'Trông thông minh và phong cách trong dòng sản phẩm Pierre Cardin cổ điển. Tất cả các bộ quần áo đều được may vừa vặn để tạo sự thoải mái và có áo khoác 2 cúc với ve áo có khía. Chúng tôi cũng cung cấp nhiều loại cà vạt và áo sơ mi để bổ sung cho bộ đồ mới của bạn.',
         images: [
+            'https://i.ibb.co/G5sTrKP/pierre-cardin-navy-twill-regular-fit-suit-jacket-01.jpg',
             'https://i.ibb.co/WPRfsqR/pierre-cardin-navy-twill-regular-fit-suit-jacket-02.jpg',
             'https://i.ibb.co/gjHFhW8/pierre-cardin-navy-twill-regular-fit-suit-jacket-03.jpg',
             'https://i.ibb.co/PQSLpg6/pierre-cardin-navy-twill-regular-fit-suit-jacket-04.jpg',
-            'https://i.ibb.co/G5sTrKP/pierre-cardin-navy-twill-regular-fit-suit-jacket-01.jpg',
         ],
     },
     {

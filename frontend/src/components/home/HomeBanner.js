@@ -7,19 +7,21 @@ const HomeBanner = () => {
     const indexRef = useRef(0);
 
     const updateBannerIndex = useCallback(() => {
-        let index = Math.floor(Math.random() * banners.length);
+        if (bannerRef.current !== null) {
+            let index = Math.floor(Math.random() * banners.length);
 
-        while (index === indexRef.current) {
-            index = Math.floor(Math.random() * banners.length);
+            while (index === indexRef.current) {
+                index = Math.floor(Math.random() * banners.length);
+            }
+
+            const image = new Image();
+            image.onload = () => {
+                bannerRef.current.style.backgroundImage = `url(${textureGrid}), url(${banners[index].banner})`;
+            };
+            image.src = banners[index].banner;
+
+            indexRef.current = index;
         }
-
-        const image = new Image();
-        image.onload = () => {
-            bannerRef.current.style.backgroundImage = `url(${textureGrid}), url(${banners[index].banner})`;
-        };
-        image.src = banners[index].banner;
-
-        indexRef.current = index;
     }, []);
 
     useEffect(() => {

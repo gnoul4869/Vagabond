@@ -30,8 +30,8 @@ const port = process.env.PORT || 5000;
 app.set('trust proxy', 1); //! Enable if you're behind a reverse proxy (Heroku, Bluemix, AWS ELB, Nginx, etc)
 app.use(
     expressLimiter({
-        windowMs: 10 * 60 * 1000, //? 10 minutes
-        max: 200, //? limit each IP to 200 requests per windowMs
+        windowMs: 5 * 60 * 1000, //? 5 minutes
+        max: 100, //? limit each IP to 200 requests per windowMs
     })
 );
 app.use(express.json()); //? Allows server to accept JSON in the body of a request

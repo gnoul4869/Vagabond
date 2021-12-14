@@ -96,18 +96,11 @@ export const updateOrder = async (req, res) => {
         }
     }
 
-    const query = {};
-    query._id = orderID;
-
-    if (req.user.role !== 'admin') {
-        query['user.id'] = req.user.id;
-    }
-
     const priority =
         status === 'pending' ? 0 : status === 'shipping' ? 1 : status === 'delivered' ? 2 : 3;
 
-    const newOrder = await Order.findOneAndUpdate(
-        query,
+    const newOrder = await Order.findByIdAndUpdate(
+        { _id: orderID },
         { status, priority },
         {
             runValidators: true,
