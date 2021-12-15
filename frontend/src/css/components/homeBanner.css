@@ -1,6 +1,6 @@
 .banner {
-    background-image: url('../../../images/texture_grid.png'),
-        url('../../../images/banners/vagabond_banner.png');
+    background-image: url('../../images/texture_grid.png'),
+        url('../../images/banners/vagabond_banner.png');
     background-repeat: repeat, no-repeat;
     background-size: 0.18%, cover;
     background-attachment: fixed, scroll;

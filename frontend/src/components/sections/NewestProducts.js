@@ -18,7 +18,7 @@ const NewestProducts = () => {
         const getNewestProducts = async () => {
             try {
                 const { data } = await axios.get('/api/v1/products', {
-                    params: { search: '', sort: 'newest', category: '', page: 1, limit: 5 },
+                    params: { search: '', sort: 'newest', category: '', page: 1, limit: 6 },
                 });
 
                 const { products } = data;
@@ -68,6 +68,7 @@ const NewestProducts = () => {
                             <ProductCards
                                 key={item.id}
                                 product={item}
+                                isAlt={true}
                                 showRatings={false}
                                 showSales={false}
                                 showDate={true}

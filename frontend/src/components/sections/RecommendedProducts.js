@@ -71,6 +71,7 @@ const RecommendedProducts = () => {
                             <ProductCards
                                 key={item.id}
                                 product={item}
+                                isAlt={true}
                                 showRatings={true}
                                 showSales={false}
                                 showDate={false}

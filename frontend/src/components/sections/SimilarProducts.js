@@ -42,7 +42,7 @@ const ProductSimilars = ({ product, showEmpty }) => {
                         maxPrice: product.price * multiplier,
                         minPrice: product.price / multiplier,
                         page: 1,
-                        limit: 5,
+                        limit: 6,
                     },
                 });
 
@@ -96,6 +96,7 @@ const ProductSimilars = ({ product, showEmpty }) => {
                                     <ProductCards
                                         key={item.id}
                                         product={item}
+                                        isAlt={true}
                                         showRatings={true}
                                         showSales={false}
                                         showDate={false}

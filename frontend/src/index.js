@@ -8,8 +8,8 @@ import store from './redux/store.js';
 import 'bootstrap/dist/css/bootstrap.min.css';
 
 //* Components
-import './css/components/home/homeBanner.css';
-import './css/components/home/homeCategories.css';
+import './css/components/homeBanner.css';
+import './css/components/productCategories.css';
 import './css/components/modal.css';
 import './css/components/footer.css';
 import './css/components/sidebar.css';

@@ -18,7 +18,7 @@ const HotProducts = () => {
         const getHotProducts = async () => {
             try {
                 const { data } = await axios.get('/api/v1/products', {
-                    params: { search: '', sort: 'sales', category: '', page: 1, limit: 5 },
+                    params: { search: '', sort: 'sales', category: '', page: 1, limit: 6 },
                 });
 
                 const { products } = data;
@@ -68,6 +68,7 @@ const HotProducts = () => {
                             <ProductCards
                                 key={item.id}
                                 product={item}
+                                isAlt={true}
                                 showRatings={false}
                                 showSales={true}
                                 showDate={false}

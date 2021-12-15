@@ -4,6 +4,12 @@
     padding: 0.125rem;
 }
 
+.product-wrapper-alt {
+    flex: 1 0 16.66666666666667%;
+    max-width: 16.66666666666667%;
+    padding: 0.125rem;
+}
+
 .product-container {
     display: flex;
     flex-direction: column;

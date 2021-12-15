@@ -95,7 +95,7 @@ export const getRecommendedProducts = async (req, res) => {
             global.recommendationMatrix.length === 0 ||
             global.recommendationARMatrix.length === 0
         ) {
-            throw new BadRequestError('Matrix chưa được khởi tạo');
+            throw new BadRequestError('Ma trận chưa được khởi tạo');
         }
 
         const users = await User.find({}).select('_id').sort('createdAt').lean();

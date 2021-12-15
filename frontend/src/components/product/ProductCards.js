@@ -5,10 +5,10 @@ import moment from 'moment';
 import PriceFormat from '../PriceFormat';
 import RatingStars from '../RatingStars';
 
-const ProductCards = ({ product, showRatings, showSales, showDate, cartBtnHandler }) => {
+const ProductCards = ({ product, isAlt, showRatings, showSales, showDate, cartBtnHandler }) => {
     return (
         <>
-            <div key={product.id} className="product-wrapper">
+            <div key={product.id} className={`product-wrapper${isAlt ? '-alt' : ''}`}>
                 <div className="product-container">
                     <Link to={`/products/${product.id}`} className="link-inherit">
                         <div className="product-image-container">
