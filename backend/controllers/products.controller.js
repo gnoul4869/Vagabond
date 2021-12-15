@@ -7,8 +7,8 @@ import { StatusCodes } from 'http-status-codes';
 import {
     recommend,
     preloadedProducts,
-    recommendationARMatrix,
     recommendationMatrix,
+    recommendationARMatrix,
 } from '../utils/recommendation-system.js';
 
 export const getAllProducts = async (req, res) => {
@@ -98,9 +98,10 @@ export const getRecommendedProducts = async (req, res) => {
 
     let recommendedProducts = [];
 
-    const products = preloadedProducts
-        ? preloadedProducts
-        : await Product.find({}).sort('createdAt').lean();
+    const products =
+        preloadedProducts.length !== 0
+            ? preloadedProducts
+            : await Product.find({}).sort('createdAt').lean();
 
     if (userID && recommendationMatrix.length !== 0 && recommendationARMatrix.length !== 0) {
         const users = await User.find({}).select('_id').sort('createdAt').lean();
@@ -109,7 +110,7 @@ export const getRecommendedProducts = async (req, res) => {
             throw new NotFoundError('Không có users nào trong database');
         }
 
-        const userIndex = users.findIndex((i) => i._id.toString() === userID);
+        const userIndex = users.findIndex((i) => i._id.equals(userID));
 
         if (userIndex === -1) {
             throw new NotFoundError('User không tồn tại');
@@ -129,14 +130,11 @@ export const getRecommendedProducts = async (req, res) => {
     if (recommendedProducts.length < 6) {
         if (userID) {
             const interest = await Interest.findOne({ user: userID }).select('products').lean();
-
             if (interest && interest.products.length !== 0) {
                 const recommendedProductsSet =
                     recommendedProducts.length !== 0
                         ? new Set(recommendedProducts.map((item) => item._id.toString()))
                         : null;
-
-                console.log(recommendedProductsSet);
                 const interestedProducts = recommendedProductsSet
                     ? interest.products
                           .filter((item) => !recommendedProductsSet.has(item.product.toString()))
@@ -145,12 +143,8 @@ export const getRecommendedProducts = async (req, res) => {
                     : interest.products
                           .sort((a, b) => b.point - a.point)
                           .slice(0, 6 - recommendedProducts.length);
-
-                console.log(interestedProducts);
-
                 interestedProducts.forEach((element) => {
                     const iProduct = products.find((item) => item._id.equals(element.product));
-
                     if (iProduct) {
                         recommendedProducts.push(iProduct);
                     }

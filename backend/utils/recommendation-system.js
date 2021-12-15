@@ -167,7 +167,7 @@ const predictUserItemRatings = (userIndex, matrix, aRMatrix, k) => {
 };
 
 const recommend = (userIndex, kUsers) => {
-    if (global.recommendationMatrix.length === 0 || global.recommendationARMatrix.length === 0) {
+    if (recommendationMatrix.length === 0 || recommendationARMatrix.length === 0) {
         return initializeMatrix();
     }
 
