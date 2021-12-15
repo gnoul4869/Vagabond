@@ -4,7 +4,12 @@ import User from '../models/user.model.js';
 import Interest from '../models/interest.model.js';
 import { NotFoundError } from '../errors/custom-api-error.js';
 import { StatusCodes } from 'http-status-codes';
-import { recommend } from '../utils/recommendation-system.js';
+import {
+    recommend,
+    preloadedProducts,
+    recommendationARMatrix,
+    recommendationMatrix,
+} from '../utils/recommendation-system.js';
 
 export const getAllProducts = async (req, res) => {
     const { productIDs, excludeIDs, search, sort, category, maxPrice, minPrice } = req.query;
@@ -93,15 +98,11 @@ export const getRecommendedProducts = async (req, res) => {
 
     let recommendedProducts = [];
 
-    const products = global.preloadedProducts
-        ? global.preloadedProducts
+    const products = preloadedProducts
+        ? preloadedProducts
         : await Product.find({}).sort('createdAt').lean();
 
-    if (
-        userID &&
-        global.recommendationMatrix.length !== 0 &&
-        global.recommendationARMatrix.length !== 0
-    ) {
+    if (userID && recommendationMatrix.length !== 0 && recommendationARMatrix.length !== 0) {
         const users = await User.find({}).select('_id').sort('createdAt').lean();
 
         if (!users) {

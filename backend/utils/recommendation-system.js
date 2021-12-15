@@ -2,8 +2,9 @@ import Review from '../models/review.model.js';
 import Product from '../models/product.model.js';
 import User from '../models/user.model.js';
 
-global.recommendationMatrix = [];
-global.recommendationARMatrix = [];
+let preloadedProducts = [];
+let recommendationMatrix = [];
+let recommendationARMatrix = [];
 
 const getUserAverageRating = (u) => {
     // Calculate user avarage rating
@@ -173,8 +174,8 @@ const recommend = (userIndex, kUsers) => {
     // userIndex, matrix, aRMatrix, k Users
     const predictedItems = predictUserItemRatings(
         userIndex,
-        global.recommendationMatrix,
-        global.recommendationARMatrix,
+        recommendationMatrix,
+        recommendationARMatrix,
         kUsers
     );
 
@@ -226,9 +227,9 @@ const initializeMatrix = async () => {
         // console.log('User Similarity Matrix---------------------');
         // console.log(userSimilarityMatrix);
 
-        global.recommendationMatrix = matrix;
-        global.recommendationARMatrix = averageRatingMatrix;
-        global.preloadedProducts = products;
+        preloadedProducts = products;
+        recommendationMatrix = matrix;
+        recommendationARMatrix = averageRatingMatrix;
 
         console.log(
             `Recommendation matrix initialized... [${valueCount} values] [${
@@ -240,4 +241,10 @@ const initializeMatrix = async () => {
     }
 };
 
-export { initializeMatrix, recommend };
+export {
+    initializeMatrix,
+    recommend,
+    preloadedProducts,
+    recommendationMatrix,
+    recommendationARMatrix,
+};
