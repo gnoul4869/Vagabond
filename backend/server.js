@@ -53,26 +53,29 @@ app.use('/api/v1/interests', auth, interestsRouter);
 app.use(notFound);
 app.use(errorHandler);
 
+//? Initialize recommendation system every 6 hours
+const initializeRecommendation = async () => {
+    try {
+        await initializeMatrix();
+
+        setTimeout(() => {
+            initializeRecommendation();
+        }, 1000 * 60 * 60 * 6); //? Loop every 6 hours
+    } catch (error) {
+        console.log(error);
+    }
+};
+
 const start = async () => {
     try {
         await connectDB(process.env.MONGODB_URI);
         app.listen(port, console.log(`Server is listening on port ${port}...`));
 
-        //? Initialize matrix for recommendation system
-        await initializeMatrix();
+        //? Initialize recommendation system
+        initializeRecommendation();
     } catch (error) {
         console.log(error);
     }
-
-    //? Initialize interval for recommendation system
-    const recommendationInterval = setInterval(async () => {
-        try {
-            await initializeMatrix();
-        } catch (error) {
-            console.log(error);
-            clearInterval(recommendationInterval);
-        }
-    }, 1000 * 60 * 60 * 6); //? Loop every 6 hours
 };
 
 start();
