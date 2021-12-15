@@ -111,7 +111,8 @@
 
 /*? X-Small devices (portrait phones, less than 576px) */
 @media (max-width: 575.98px) {
-    .product-wrapper {
+    .product-wrapper,
+    .product-wrapper-alt {
         flex-basis: 50%; /** 2 items */
         max-width: 50%;
     }
@@ -119,7 +120,8 @@
 
 /*? Small devices (landscape phones, less than 768px) */
 @media (min-width: 576px) and (max-width: 767.98px) {
-    .product-wrapper {
+    .product-wrapper,
+    .product-wrapper-alt {
         flex-basis: 33.333333333333336%; /** 3 items */
         max-width: 33.333333333333336%;
     }
@@ -127,7 +129,8 @@
 
 /*? Medium devices (tablets, less than 992px) */
 @media (min-width: 768px) and (max-width: 991.98px) {
-    .product-wrapper {
+    .product-wrapper,
+    .product-wrapper-alt {
         flex-basis: 25%; /** 4 items */
         max-width: 25%;
     }
