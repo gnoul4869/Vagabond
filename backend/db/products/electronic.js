@@ -43,7 +43,6 @@ export const electronic = [
             'https://i.ibb.co/MSwb4Gp/mi-band-6-02.jpg',
             'https://i.ibb.co/Qc8gWny/mi-band-6-03.jpg',
             'https://i.ibb.co/pvbyJ7M/mi-band-6-04.jpg',
-            'https://i.ibb.co/QJG77Pf/mi-band-6-05.jpg',
         ],
     },
     {
