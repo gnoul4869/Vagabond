@@ -162,7 +162,7 @@ const predictUserItemRatings = (userIndex, matrix, aRMatrix, k) => {
         }
     }
 
-    return items.sort((a, b) => b.itemRating - a.itemRating);
+    return items.length !== 0 ? items.sort((a, b) => b.itemRating - a.itemRating) : items;
 };
 
 const recommend = (userIndex, kUsers) => {

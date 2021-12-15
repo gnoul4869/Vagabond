@@ -97,8 +97,8 @@ export const getRecommendedProducts = async (req, res) => {
 
     if (
         userID &&
-        global.recommendationMatrix.length === 0 &&
-        global.recommendationARMatrix.length === 0
+        global.recommendationMatrix.length !== 0 &&
+        global.recommendationARMatrix.length !== 0
     ) {
         const users = await User.find({}).select('_id').sort('createdAt').lean();
 
@@ -112,7 +112,8 @@ export const getRecommendedProducts = async (req, res) => {
             throw new NotFoundError('User không tồn tại');
         }
 
-        const kUsers = process.env.K_USERS || 10;
+        const kUsers = Number(process.env.K_USERS) || 10;
+
         const recommendation = recommend(userIndex, kUsers);
 
         if (recommendation.length !== 0) {
