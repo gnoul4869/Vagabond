@@ -198,6 +198,8 @@ const initializeMatrix = async () => {
 
         // Create matrix:
         // userID/productID: rating
+
+        let valueCount = 0;
         for (let u = 0; u < users.length; u++) {
             matrix[u] = new Array(columns);
             for (let p = 0; p < products.length; p++) {
@@ -209,6 +211,8 @@ const initializeMatrix = async () => {
                     .sort('createdAt')
                     .lean();
                 matrix[u][p] = review ? review.rating : null;
+
+                valueCount++;
             }
         }
 
@@ -226,7 +230,9 @@ const initializeMatrix = async () => {
         global.recommendationARMatrix = averageRatingMatrix;
 
         console.log(
-            `Recommendation matrix initialized...[${performance.now() - initializeTime}ms]`
+            `Recommendation matrix initialized... [${valueCount} values] [${
+                performance.now() - initializeTime
+            }ms]`
         );
     } catch (error) {
         console.log(error);

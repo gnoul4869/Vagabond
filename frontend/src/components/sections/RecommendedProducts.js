@@ -6,6 +6,7 @@ import ProductCards from '../product/ProductCards';
 
 const RecommendedProducts = ({ title }) => {
     const { userInfo } = useSelector((state) => state.auth);
+    const { userInterests } = useSelector((state) => state.interest);
 
     const [recommendedProducts, setRecommendedProducts] = useState([]);
     const [isLoading, setIsLoading] = useState(false);
@@ -20,9 +21,14 @@ const RecommendedProducts = ({ title }) => {
 
         const getRecommendedProducts = async () => {
             try {
-                const { data } = await axios.get('/api/v1/products/recommend', {
-                    params: { userID: userInfo?.id },
-                });
+                const params = {};
+                if (userInfo?.id) {
+                    params.userID = userInfo.id;
+                } else if (userInterests) {
+                    params.userInterests = JSON.stringify(userInterests);
+                }
+
+                const { data } = await axios.get('/api/v1/products/recommend', { params });
 
                 const products = data.products;
 
@@ -48,7 +54,7 @@ const RecommendedProducts = ({ title }) => {
         return () => {
             isMounted = false;
         };
-    }, [userInfo?.id]);
+    }, [userInfo?.id, userInterests]);
 
     return (
         <section>

@@ -87,15 +87,13 @@ export const getProductCategories = async (req, res) => {
 };
 
 export const getRecommendedProducts = async (req, res) => {
-    const startTime = performance.now();
-
     const { userID } = req.query;
+
+    const userInterests = req.query.userInterests ? JSON.parse(req.query.userInterests) : null;
 
     let recommendedProducts = [];
 
     const products = await Product.find({}).sort('createdAt').lean();
-
-    console.log(`1st ${performance.now() - startTime}`);
 
     if (
         userID &&
@@ -117,8 +115,6 @@ export const getRecommendedProducts = async (req, res) => {
         const kUsers = process.env.K_USERS || 10;
         const recommendation = recommend(userIndex, kUsers);
 
-        console.log(recommendation);
-
         if (recommendation.length !== 0) {
             recommendation.forEach((element) => {
                 recommendedProducts.push(products[element.itemIndex]);
@@ -138,7 +134,7 @@ export const getRecommendedProducts = async (req, res) => {
 
                 const interestedProducts = recommendedProductsSet
                     ? interest.products
-                          .filter((item) => !recommendedProductsSet.has(item._id))
+                          .filter((item) => !recommendedProductsSet.has(item.product))
                           .sort((a, b) => b.point - a.point)
                           .slice(0, 6 - recommendedProducts.length)
                     : interest.products
@@ -148,9 +144,33 @@ export const getRecommendedProducts = async (req, res) => {
                 interestedProducts.forEach((element) => {
                     const iProduct = products.find((item) => item._id.equals(element.product));
 
-                    recommendedProducts.push(iProduct);
+                    if (iProduct) {
+                        recommendedProducts.push(iProduct);
+                    }
                 });
             }
+        } else if (userInterests) {
+            const recommendedProductsSet =
+                recommendedProducts.length !== 0
+                    ? new Set(recommendedProducts.map((item) => item._id))
+                    : null;
+
+            const interestedProducts = recommendedProductsSet
+                ? userInterests
+                      .filter((item) => !recommendedProductsSet.has(item.product))
+                      .sort((a, b) => b.point - a.point)
+                      .slice(0, 6 - recommendedProducts.length)
+                : userInterests
+                      .sort((a, b) => b.point - a.point)
+                      .slice(0, 6 - recommendedProducts.length);
+
+            interestedProducts.forEach((element) => {
+                const iProduct = products.find((item) => item._id.toString() === element.product);
+
+                if (iProduct) {
+                    recommendedProducts.push(iProduct);
+                }
+            });
         }
     }
 
