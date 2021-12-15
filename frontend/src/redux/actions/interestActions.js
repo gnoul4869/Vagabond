@@ -31,7 +31,8 @@ export const addInterest = (productID) => async (dispatch, getState) => {
         }
     }
 
-    const existInterest = userInterests.find((item) => item.product === productID);
+    const existInterest =
+        userInterests.length !== 0 && userInterests.find((item) => item.product === productID);
 
     if (existInterest) {
         existInterest.point++;
@@ -49,6 +50,15 @@ export const addInterest = (productID) => async (dispatch, getState) => {
             item === existInterest ? existInterest : item
         );
     } else {
+        if (userInterests.length !== 0) {
+            userInterests.forEach((element) => {
+                element.point--;
+                if (element.point === 0) {
+                    userInterests = userInterests.filter((item) => item !== element);
+                }
+            });
+        }
+
         const newInterest = {
             product: productID,
             point: process.env.REACT_APP_DEFAULT_INTEREST_POINT,

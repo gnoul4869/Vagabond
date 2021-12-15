@@ -2,7 +2,7 @@ import {} from 'dotenv/config';
 import Product from '../models/product.model.js';
 import User from '../models/user.model.js';
 import Interest from '../models/interest.model.js';
-import { BadRequestError, NotFoundError } from '../errors/custom-api-error.js';
+import { NotFoundError } from '../errors/custom-api-error.js';
 import { StatusCodes } from 'http-status-codes';
 import { recommend } from '../utils/recommendation-system.js';
 
@@ -97,14 +97,11 @@ export const getRecommendedProducts = async (req, res) => {
 
     console.log(`1st ${performance.now() - startTime}`);
 
-    if (userID) {
-        if (
-            global.recommendationMatrix.length === 0 ||
-            global.recommendationARMatrix.length === 0
-        ) {
-            throw new BadRequestError('Ma trận chưa được khởi tạo');
-        }
-
+    if (
+        userID &&
+        global.recommendationMatrix.length === 0 &&
+        global.recommendationARMatrix.length === 0
+    ) {
         const users = await User.find({}).select('_id').sort('createdAt').lean();
 
         if (!users) {

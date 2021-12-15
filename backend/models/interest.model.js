@@ -1,25 +1,30 @@
 import mongoose from 'mongoose';
 
-const interestSchema = new mongoose.Schema({
-    user: {
-        type: mongoose.Types.ObjectId,
-        ref: 'User',
-        required: [true, 'Hãy cung cấp mã thành viên'],
-    },
-    products: [
-        {
-            product: {
-                type: mongoose.Types.ObjectId,
-                ref: 'Product',
-                required: [true, 'Hãy cung cấp mã sản phẩm'],
-            },
-            point: {
-                type: Number,
-                default: 5,
-            },
+const interestSchema = new mongoose.Schema(
+    {
+        user: {
+            type: mongoose.Types.ObjectId,
+            ref: 'User',
+            required: [true, 'Hãy cung cấp mã thành viên'],
         },
-    ],
-});
+        products: [
+            {
+                product: {
+                    type: mongoose.Types.ObjectId,
+                    ref: 'Product',
+                    required: [true, 'Hãy cung cấp mã sản phẩm'],
+                },
+                point: {
+                    type: Number,
+                    default: 5,
+                },
+            },
+        ],
+    },
+    {
+        timestamps: true,
+    }
+);
 
 interestSchema.options.toJSON = {
     // eslint-disable-next-line no-unused-vars
