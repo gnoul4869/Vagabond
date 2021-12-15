@@ -113,10 +113,8 @@ export const getRecommendedProducts = async (req, res) => {
         const kUsers = process.env.K_USERS || 10;
         const recommendation = recommend(userIndex, kUsers);
 
-        console.log(recommendation);
-
         if (recommendation.length !== 0) {
-            const products = await Product.find({}).sort('createdAt').lean();
+            const products = await Product.find({}).sort('createdAt');
 
             recommendation.forEach((element) => {
                 recommendedProducts.push(products[element.itemIndex]);

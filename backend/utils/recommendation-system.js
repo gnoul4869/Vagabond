@@ -184,9 +184,12 @@ const recommend = (userIndex, kUsers) => {
 const initializeMatrix = async () => {
     try {
         console.log('Initializing matrix...');
+        const initializeTime = performance.now();
 
-        const users = await User.find({}).sort('createdAt').lean();
-        const products = await Product.find({}).sort('createdAt').lean();
+        const [users, products] = await Promise.all([
+            User.find({}).select('_id').sort('createdAt').lean(),
+            Product.find({}).select('_id').sort('createdAt').lean(),
+        ]);
 
         const rows = users.length;
         const columns = products.length;
@@ -202,6 +205,7 @@ const initializeMatrix = async () => {
                     createdBy: users[u]._id,
                     createdIn: products[p]._id,
                 })
+                    .select('rating')
                     .sort('createdAt')
                     .lean();
                 matrix[u][p] = review ? review.rating : null;
@@ -221,7 +225,7 @@ const initializeMatrix = async () => {
         global.recommendationMatrix = matrix;
         global.recommendationARMatrix = averageRatingMatrix;
 
-        console.log('Matrix initialized...');
+        console.log(`Matrix initialized...[${performance.now() - initializeTime}ms]`);
     } catch (error) {
         console.log(error);
     }

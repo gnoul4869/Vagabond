@@ -1,9 +1,9 @@
 import React from 'react';
-import HomeBanner from '../components/home/HomeBanner';
-import HomeCategories from '../components/home/HomeCategories';
-import HomeHotProducts from '../components/home/HomeHotProducts';
-import HomeNewestProducts from '../components/home/HomeNewestProducts';
-import HomeRecommendedProducts from '../components/home/HomeRecommendedProducts';
+import HomeBanner from '../components/HomeBanner';
+import ProductCategories from '../components/sections/ProductCategories';
+import HotProducts from '../components/sections/HotProducts';
+import NewestProducts from '../components/sections/NewestProducts';
+import RecommendedProducts from '../components/sections/RecommendedProducts';
 
 const HomePage = () => {
     return (
@@ -11,19 +11,19 @@ const HomePage = () => {
             <HomeBanner />
 
             <div className="mt-3">
-                <HomeCategories />
+                <ProductCategories />
             </div>
 
             <div className="mt-3">
-                <HomeHotProducts />
+                <HotProducts />
             </div>
 
             <div className="mt-3">
-                <HomeRecommendedProducts />
+                <RecommendedProducts />
             </div>
 
             <div className="mt-3">
-                <HomeNewestProducts />
+                <NewestProducts />
             </div>
         </main>
     );
