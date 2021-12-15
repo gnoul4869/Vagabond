@@ -1,10 +1,13 @@
 import React, { useState, useEffect } from 'react';
+import { useSelector } from 'react-redux';
 import axios from 'axios';
 import PulseLoader from 'react-spinners/PulseLoader';
 import ProductCards from '../product/ProductCards';
 
 const HomeRecommendedProducts = () => {
-    const [hotProducts, setHotProducts] = useState([]);
+    const { userInfo } = useSelector((state) => state.auth);
+
+    const [recommendedProducts, setRecommendedProducts] = useState([]);
     const [isLoading, setIsLoading] = useState(false);
     const [error, setError] = useState('');
 
@@ -17,14 +20,14 @@ const HomeRecommendedProducts = () => {
 
         const getRecommendedProducts = async () => {
             try {
-                const { data } = await axios.get('/api/v1/products', {
-                    params: { search: '', sort: 'rating', category: '', page: 1, limit: 5 },
+                const { data } = await axios.get('/api/v1/products/recommend', {
+                    params: { userID: userInfo?.id },
                 });
 
                 const products = data.products;
 
                 if (isMounted) {
-                    setHotProducts(products);
+                    setRecommendedProducts(products);
                     setError('');
                     setIsLoading(false);
                 }
@@ -45,7 +48,7 @@ const HomeRecommendedProducts = () => {
         return () => {
             isMounted = false;
         };
-    }, []);
+    }, [userInfo?.id]);
 
     return (
         <section className="container bg-white p-3">
@@ -62,8 +65,8 @@ const HomeRecommendedProducts = () => {
                 ) : error ? (
                     <div className="text-pinker fsr-5 mx-auto py-5">{error}</div>
                 ) : (
-                    hotProducts.length !== 0 &&
-                    hotProducts.map((item) => {
+                    recommendedProducts.length !== 0 &&
+                    recommendedProducts.map((item) => {
                         return (
                             <ProductCards
                                 key={item.id}

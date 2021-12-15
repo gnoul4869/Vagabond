@@ -154,7 +154,7 @@ const predictUserItemRatings = (userIndex, matrix, aRMatrix, k) => {
         if (matrix[userIndex][i] === null) {
             const rating = predictUserRating(userIndex, matrix, aRMatrix, i, k);
             if (!Number.isNaN(rating)) {
-                items.push({ itemNo: i + 1, itemRating: rating });
+                items.push({ itemIndex: i, itemRating: rating });
             }
         }
     }

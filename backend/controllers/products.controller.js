@@ -86,24 +86,50 @@ export const getProductCategories = async (req, res) => {
 };
 
 export const getRecommendedProducts = async (req, res) => {
-    if (global.recommendationMatrix.length === 0 || global.recommendationARMatrix.length === 0) {
-        throw new BadRequestError('Matrix chưa được khởi tạo');
+    const { userID } = req.query;
+
+    let recommendedProducts = [];
+
+    if (userID) {
+        if (
+            global.recommendationMatrix.length === 0 ||
+            global.recommendationARMatrix.length === 0
+        ) {
+            throw new BadRequestError('Matrix chưa được khởi tạo');
+        }
+
+        const users = await User.find({}).select('_id').sort('createdAt').lean();
+
+        if (!users) {
+            throw new NotFoundError('Không có users nào trong database');
+        }
+
+        const userIndex = users.findIndex((i) => i._id.toString() === userID);
+
+        if (userIndex === -1) {
+            throw new NotFoundError('User không tồn tại');
+        }
+
+        const kUsers = process.env.K_USERS || 10;
+        const recommendation = recommend(userIndex, kUsers);
+
+        console.log(recommendation);
+
+        if (recommendation.length !== 0) {
+            const products = await Product.find({}).sort('createdAt').lean();
+
+            const filteredProducts = products
+                .map((item, index) =>
+                    recommendation.find((x) => x.itemIndex === index) ? item : null
+                )
+                .filter((y) => y !== null);
+
+            recommendedProducts = recommendedProducts.concat(filteredProducts);
+        }
     }
 
-    const users = await User.find({}).select('_id').sort('createdAt').lean();
-
-    if (!users) {
-        throw new NotFoundError('Không có users nào trong database');
-    }
-
-    const userIndex = users.findIndex((i) => i._id.toString() === req.user.id);
-
-    if (userIndex === -1) {
-        throw new NotFoundError('User không tồn tại');
-    }
-
-    const kUsers = process.env.K_USERS || 10;
-    const recommendedProducts = recommend(userIndex, kUsers);
-
-    res.status(StatusCodes.OK).json({ recommendedProducts });
+    res.status(StatusCodes.OK).json({
+        total: recommendedProducts.length,
+        products: recommendedProducts,
+    });
 };
