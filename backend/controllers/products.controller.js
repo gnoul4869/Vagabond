@@ -118,13 +118,9 @@ export const getRecommendedProducts = async (req, res) => {
         if (recommendation.length !== 0) {
             const products = await Product.find({}).sort('createdAt').lean();
 
-            const filteredProducts = products
-                .map((item, index) =>
-                    recommendation.find((x) => x.itemIndex === index) ? item : null
-                )
-                .filter((y) => y !== null);
-
-            recommendedProducts = recommendedProducts.concat(filteredProducts);
+            recommendation.forEach((element) => {
+                recommendedProducts.push(products[element.itemIndex]);
+            });
         }
     }
 

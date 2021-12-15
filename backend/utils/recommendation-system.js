@@ -127,9 +127,12 @@ const predictUserRating = (userIndex, matrix, aRMatrix, itemIndex, k) => {
         }
     }
 
-    const kSimilarityItemRatedUsers = similarityItemRatedUsers
-        .map((item, index) => index < k && item)
-        .filter((item) => item != false);
+    const kSimilarityItemRatedUsers = [];
+    similarityItemRatedUsers.forEach((element, index) => {
+        if (index < k) {
+            kSimilarityItemRatedUsers.push(element);
+        }
+    });
 
     // userBar + sum( x * simX ) / sum( simX )
     const userBar = getUserAverageRating(getSpecifiedArray(matrix[userIndex]));
@@ -180,6 +183,8 @@ const recommend = (userIndex, kUsers) => {
 
 const initializeMatrix = async () => {
     try {
+        console.log('Initializing matrix...');
+
         const users = await User.find({}).sort('createdAt').lean();
         const products = await Product.find({}).sort('createdAt').lean();
 
@@ -215,6 +220,8 @@ const initializeMatrix = async () => {
 
         global.recommendationMatrix = matrix;
         global.recommendationARMatrix = averageRatingMatrix;
+
+        console.log('Matrix initialized...');
     } catch (error) {
         console.log(error);
     }
