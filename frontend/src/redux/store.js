@@ -7,6 +7,7 @@ import { verification } from './reducers/verificationReducer';
 import { productList, productDetails } from './reducers/productReducer';
 import { review } from './reducers/reviewReducer';
 import { order } from './reducers/orderReducer';
+import { interest } from './reducers/interestReducer';
 
 const initialState = {
     auth: {
@@ -68,6 +69,12 @@ const initialState = {
         isLoading: false,
         error: '',
     },
+    interest: {
+        userInterests: localStorage.getItem('userInterests')
+            ? JSON.parse(localStorage.getItem('userInterests'))
+            : [],
+        error: '',
+    },
 };
 
 const reducer = combineReducers({
@@ -79,6 +86,7 @@ const reducer = combineReducers({
     productDetails,
     review,
     order,
+    interest,
 });
 
 const composeEnhancer = window.__REDUX_DEVTOOLS_EXTENSION_COMPOSE__ || compose;

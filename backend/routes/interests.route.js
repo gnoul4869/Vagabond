@@ -1,7 +1,7 @@
 import express from 'express';
-import { createInterest } from '../controllers/interests.controller.js';
+import { getUserInterests, addInterest } from '../controllers/interests.controller.js';
 const router = express.Router();
 
-router.route('/').post(createInterest);
+router.route('/').get(getUserInterests).post(addInterest);
 
 export default router;

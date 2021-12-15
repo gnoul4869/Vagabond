@@ -17,6 +17,7 @@ import { addToCart } from '../redux/actions/cartActions';
 import InfoModal from '../components/modals/InfoModal';
 import ProductReviews from '../components/product/ProductReviews';
 import ProductSimilars from '../components/product/ProductSimilars';
+import { addInterest } from '../redux/actions/interestActions';
 
 const ProductDetailsPage = () => {
     const dispatch = useDispatch();
@@ -45,6 +46,7 @@ const ProductDetailsPage = () => {
 
     useEffect(() => {
         dispatch(detailProduct(id));
+        dispatch(addInterest(id));
     }, [dispatch, id]);
 
     useEffect(() => {

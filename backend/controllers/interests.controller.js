@@ -1,30 +1,28 @@
 import Interest from '../models/interest.model.js';
-import { BadRequestError, NotFoundError } from '../errors/custom-api-error.js';
+import { BadRequestError } from '../errors/custom-api-error.js';
 import { StatusCodes } from 'http-status-codes';
 
-export const createInterest = async (req, res) => {
-    const { products } = req.body;
+export const getUserInterests = async (req, res) => {
+    let interest = await Interest.findOne({ user: req.user.id });
 
-    if (products.length === 0) {
-        throw new BadRequestError('Hãy cung cấp danh sách sản phẩm');
+    if (!interest) {
+        interest = await Interest.create({ user: req.user.id, products: [] });
     }
-
-    const interest = await Interest.create({ user: req.user.id, products });
 
     res.status(StatusCodes.OK).json({ interest });
 };
 
-export const updateInterest = async (req, res) => {
+export const addInterest = async (req, res) => {
     const { products } = req.body;
 
     if (products.length === 0) {
         throw new BadRequestError('Hãy cung cấp danh sách sản phẩm');
     }
 
-    const interest = await Interest.findOneAndUpdate({ user: req.user.id, products });
+    let interest = await Interest.findOneAndUpdate({ user: req.user.id, products });
 
     if (!interest) {
-        throw new NotFoundError('Không tìm thấy interest nào');
+        interest = await Interest.create({ user: req.user.id, products });
     }
 
     res.status(StatusCodes.OK).json({ interest });

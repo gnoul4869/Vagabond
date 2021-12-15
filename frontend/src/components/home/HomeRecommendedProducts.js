@@ -21,7 +21,7 @@ const HomeRecommendedProducts = () => {
                     params: { search: '', sort: 'rating', category: '', page: 1, limit: 5 },
                 });
 
-                const { products } = data;
+                const products = data.products;
 
                 if (isMounted) {
                     setHotProducts(products);

@@ -1,3 +1,4 @@
+import {} from 'dotenv/config';
 import Product from '../models/product.model.js';
 import { BadRequestError, NotFoundError } from '../errors/custom-api-error.js';
 import { StatusCodes } from 'http-status-codes';
@@ -101,7 +102,7 @@ export const getRecommendedProducts = async (req, res) => {
         throw new NotFoundError('User không tồn tại');
     }
 
-    const kUsers = 2;
+    const kUsers = process.env.K_USERS || 10;
     const recommendedProducts = recommend(userIndex, kUsers);
 
     res.status(StatusCodes.OK).json({ recommendedProducts });
