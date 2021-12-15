@@ -14,7 +14,7 @@ const errorMessage = 'Đã có lỗi xảy ra. Bạn vui lòng thử lại sau �
 export const verifyEmail = (name, email, setStep) => async (dispatch) => {
     dispatch({ type: VERIFICATION_SEND_REQUEST });
     try {
-        const { data } = await axios.post('/api/v1/verification/verifyemail', {
+        const { data } = await axios.post('/api/v1/verifications/verifyemail', {
             name,
             email,
         });
@@ -38,7 +38,7 @@ export const verifyEmail = (name, email, setStep) => async (dispatch) => {
 export const confirmEmail = (email, otp, setStep) => async (dispatch) => {
     dispatch({ type: VERIFICATION_CONFIRM_REQUEST });
     try {
-        const { data } = await axios.post('/api/v1/verification/confirmemail', { email, otp });
+        const { data } = await axios.post('/api/v1/verifications/confirmemail', { email, otp });
         dispatch({ type: VERIFICATION_CONFIRM_SUCCESS, payload: data.message });
     } catch (error) {
         dispatch({

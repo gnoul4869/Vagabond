@@ -9,11 +9,12 @@ import helmet from 'helmet'; //? Helps secure Express apps by setting various HT
 import connectDB from './db/connect.js';
 
 import authRouter from './routes/auth.route.js';
-import userRouter from './routes/users.route.js';
-import orderRouter from './routes/orders.route.js';
+import usersRouter from './routes/users.route.js';
+import ordersRouter from './routes/orders.route.js';
 import reviewsRouter from './routes/reviews.route.js';
 import productsRouter from './routes/products.route.js';
-import verficationRouter from './routes/verifications.route.js';
+import verficationsRouter from './routes/verifications.route.js';
+import interestsRouter from './routes/interests.route.js';
 
 import auth from './middlewares/auth.middleware.js';
 import notFound from './middlewares/not-found.middleware.js';
@@ -41,11 +42,12 @@ app.use(helmet());
 
 //* Routes
 app.use('/api/v1/auth', authRouter);
-app.use('/api/v1/user', auth, userRouter);
-app.use('/api/v1/orders', auth, orderRouter);
+app.use('/api/v1/users', auth, usersRouter);
+app.use('/api/v1/orders', auth, ordersRouter);
 app.use('/api/v1/reviews', reviewsRouter);
 app.use('/api/v1/products', productsRouter);
-app.use('/api/v1/verification', verficationRouter);
+app.use('/api/v1/verifications', verficationsRouter);
+app.use('/api/v1/interests', auth, interestsRouter);
 
 //* Error middlewares (Must be placed in the bottom)
 app.use(notFound);

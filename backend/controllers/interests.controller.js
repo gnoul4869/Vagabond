@@ -2,7 +2,7 @@ import Interest from '../models/interest.model.js';
 import { BadRequestError, NotFoundError } from '../errors/custom-api-error.js';
 import { StatusCodes } from 'http-status-codes';
 
-export const addInterest = async (req, res) => {
+export const createInterest = async (req, res) => {
     const { products } = req.body;
 
     if (products.length === 0) {
