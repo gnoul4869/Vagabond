@@ -47,7 +47,10 @@ export const getAllProducts = async (req, res) => {
             : sort === 'price-desc'
             ? '-price'
             : sort === 'rating'
-            ? '-rating, -numReviews'
+            ? {
+                  rating: -1,
+                  numReviews: -1,
+              }
             : '';
 
     const page = Number(req.query.page) || 1;
