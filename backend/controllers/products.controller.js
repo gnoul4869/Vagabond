@@ -93,7 +93,9 @@ export const getRecommendedProducts = async (req, res) => {
 
     let recommendedProducts = [];
 
-    const products = await Product.find({}).sort('createdAt').lean();
+    const products = global.preloadedProducts
+        ? global.preloadedProducts
+        : await Product.find({}).sort('createdAt').lean();
 
     if (
         userID &&

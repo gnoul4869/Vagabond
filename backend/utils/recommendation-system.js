@@ -188,7 +188,7 @@ const initializeMatrix = async () => {
 
         const [users, products] = await Promise.all([
             User.find({}).select('_id').sort('createdAt').lean(),
-            Product.find({}).select('_id').sort('createdAt').lean(),
+            Product.find({}).sort('createdAt').lean(),
         ]);
 
         const rows = users.length;
@@ -228,6 +228,7 @@ const initializeMatrix = async () => {
 
         global.recommendationMatrix = matrix;
         global.recommendationARMatrix = averageRatingMatrix;
+        global.preloadedProducts = products;
 
         console.log(
             `Recommendation matrix initialized... [${valueCount} values] [${
