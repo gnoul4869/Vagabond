@@ -19,7 +19,7 @@ const HomePage = () => {
             </div>
 
             <div className="container bg-white p-3 mt-3">
-                <RecommendedProducts />
+                <RecommendedProducts title={'Gợi ý dành cho bạn'} />
             </div>
 
             <div className="container bg-white p-3 mt-3">

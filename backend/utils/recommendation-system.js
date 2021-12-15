@@ -183,7 +183,7 @@ const recommend = (userIndex, kUsers) => {
 
 const initializeMatrix = async () => {
     try {
-        console.log('Initializing matrix...');
+        console.log('Initializing recommendation matrix...');
         const initializeTime = performance.now();
 
         const [users, products] = await Promise.all([
@@ -225,7 +225,9 @@ const initializeMatrix = async () => {
         global.recommendationMatrix = matrix;
         global.recommendationARMatrix = averageRatingMatrix;
 
-        console.log(`Matrix initialized...[${performance.now() - initializeTime}ms]`);
+        console.log(
+            `Recommendation matrix initialized...[${performance.now() - initializeTime}ms]`
+        );
     } catch (error) {
         console.log(error);
     }

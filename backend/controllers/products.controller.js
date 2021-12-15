@@ -1,9 +1,10 @@
 import {} from 'dotenv/config';
 import Product from '../models/product.model.js';
+import User from '../models/user.model.js';
+import Interest from '../models/interest.model.js';
 import { BadRequestError, NotFoundError } from '../errors/custom-api-error.js';
 import { StatusCodes } from 'http-status-codes';
 import { recommend } from '../utils/recommendation-system.js';
-import User from '../models/user.model.js';
 
 export const getAllProducts = async (req, res) => {
     const { productIDs, excludeIDs, search, sort, category, maxPrice, minPrice } = req.query;
@@ -86,9 +87,15 @@ export const getProductCategories = async (req, res) => {
 };
 
 export const getRecommendedProducts = async (req, res) => {
+    const startTime = performance.now();
+
     const { userID } = req.query;
 
     let recommendedProducts = [];
+
+    const products = await Product.find({}).sort('createdAt').lean();
+
+    console.log(`1st ${performance.now() - startTime}`);
 
     if (userID) {
         if (
@@ -113,13 +120,63 @@ export const getRecommendedProducts = async (req, res) => {
         const kUsers = process.env.K_USERS || 10;
         const recommendation = recommend(userIndex, kUsers);
 
-        if (recommendation.length !== 0) {
-            const products = await Product.find({}).sort('createdAt');
+        console.log(recommendation);
 
+        if (recommendation.length !== 0) {
             recommendation.forEach((element) => {
                 recommendedProducts.push(products[element.itemIndex]);
             });
         }
+    }
+
+    if (recommendedProducts.length < 6) {
+        if (userID) {
+            const interest = await Interest.findOne({ user: userID }).select('products').lean();
+
+            if (interest && interest.products.length !== 0) {
+                const recommendedProductsSet =
+                    recommendedProducts.length !== 0
+                        ? new Set(recommendedProducts.map((item) => item._id))
+                        : null;
+
+                const interestedProducts = recommendedProductsSet
+                    ? interest.products
+                          .filter((item) => !recommendedProductsSet.has(item._id))
+                          .sort((a, b) => b.point - a.point)
+                          .slice(0, 6 - recommendedProducts.length)
+                    : interest.products
+                          .sort((a, b) => b.point - a.point)
+                          .slice(0, 6 - recommendedProducts.length);
+
+                interestedProducts.forEach((element) => {
+                    const iProduct = products.find((item) => item._id.equals(element.product));
+
+                    recommendedProducts.push(iProduct);
+                });
+            }
+        }
+    }
+
+    if (recommendedProducts.length < 6) {
+        const recommendedProductsSet =
+            recommendedProducts.length !== 0
+                ? new Set(recommendedProducts.map((item) => item._id))
+                : null;
+
+        const topProducts = recommendedProductsSet
+            ? products
+                  .filter((item) => !recommendedProductsSet.has(item._id))
+                  .sort((a, b) => b.rating - a.rating)
+                  .slice(0, 6 - recommendedProducts.length)
+            : products.sort((a, b) => b.rating - a.rating).slice(0, 6 - recommendedProducts.length);
+
+        recommendedProducts = recommendedProducts.concat(topProducts);
+    }
+
+    if (recommendedProducts.length !== 0) {
+        recommendedProducts = recommendedProducts.map((item) => {
+            return { ...item, id: item._id };
+        });
     }
 
     res.status(StatusCodes.OK).json({

@@ -5,6 +5,7 @@ import Address from '../models/user.model.js';
 import Order from '../models/order.model.js';
 import Product from '../models/product.model.js';
 import Review from '../models/review.model.js';
+import Interest from '../models/interest.model.js';
 import { computer } from './products/computer.js';
 import { electronic } from './products/electronic.js';
 import { fashion } from './products/fashion.js';
@@ -15,11 +16,10 @@ const populateUsers = async () => {
     try {
         await connectDB(process.env.MONGODB_URI);
 
-        await User.deleteMany({});
-        await Address.deleteMany({});
+        await Promise.all([await User.deleteMany({}), await Address.deleteMany({})]);
 
         // await User.create(data.users);
-        console.log('Users data added to the database...');
+        console.log('Users added to the database...');
         process.exit(0);
     } catch (error) {
         console.log(error);
@@ -31,17 +31,22 @@ const populateProducts = async () => {
     try {
         await connectDB(process.env.MONGODB_URI);
 
-        await Product.deleteMany({});
-        await Review.deleteMany({});
-        await Order.deleteMany({});
+        await Promise.all([
+            Product.deleteMany({}),
+            Review.deleteMany({}),
+            Order.deleteMany({}),
+            Interest.deleteMany({}),
+        ]);
 
-        await Product.create(music);
-        await Product.create(mobile);
-        await Product.create(electronic);
-        await Product.create(computer);
-        await Product.create(fashion);
+        await Promise.all([
+            Product.create(music),
+            Product.create(mobile),
+            Product.create(electronic),
+            Product.create(computer),
+            Product.create(fashion),
+        ]);
 
-        console.log('Products data added to the database...');
+        console.log('Products added to the database...');
         process.exit(0);
     } catch (error) {
         console.log(error);

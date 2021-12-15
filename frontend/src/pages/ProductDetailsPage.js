@@ -194,7 +194,7 @@ const ProductDetailsPage = () => {
                         </div>
 
                         <div className="mt-5">
-                            <RecommendedProducts />
+                            <RecommendedProducts title={'Có thể bạn cũng thích'} />
                         </div>
 
                         {isModalShown && (

@@ -4,7 +4,7 @@ import axios from 'axios';
 import PulseLoader from 'react-spinners/PulseLoader';
 import ProductCards from '../product/ProductCards';
 
-const RecommendedProducts = () => {
+const RecommendedProducts = ({ title }) => {
     const { userInfo } = useSelector((state) => state.auth);
 
     const [recommendedProducts, setRecommendedProducts] = useState([]);
@@ -52,7 +52,7 @@ const RecommendedProducts = () => {
 
     return (
         <section>
-            <div className="fw-600 fsr-4 text-secondary">Gợi ý dành cho bạn</div>
+            <div className="fw-600 fsr-4 text-secondary">{title}</div>
 
             <div className="d-flex flex-wrap mt-2 mt-md-3">
                 {isLoading ? (
