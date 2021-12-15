@@ -10,6 +10,7 @@
 
 .banner img {
     opacity: 0;
+    min-height: calc(40vw / 1.77777);
 }
 
 /*? X-Small devices (portrait phones, less than 576px) */

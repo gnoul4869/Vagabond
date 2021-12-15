@@ -22,7 +22,7 @@ export const createReview = async (req, res) => {
         throw new BadRequestError('Hãy nhập nội dung đánh giá');
     }
 
-    const product = await Product.findById({ _id: productID });
+    const product = await Product.findById(productID);
 
     if (!product) {
         throw new BadRequestError('Sản phẩm không tồn tại');
@@ -48,7 +48,7 @@ export const createReview = async (req, res) => {
     const productRating = Math.round((estimatedRating + Number.EPSILON) * 100) / 100;
 
     const newProduct = await Product.findByIdAndUpdate(
-        { _id: review.createdIn },
+        review.createdIn,
         { rating: productRating, numReviews: numReviews, $pull: { reviewers: req.user.id } },
         {
             new: true,
@@ -127,7 +127,7 @@ export const updateReview = async (req, res) => {
         throw new BadRequestError('Hành động cập nhật không hợp lệ');
     }
 
-    const review = await Review.findById({ _id: reviewID });
+    const review = await Review.findById(reviewID);
 
     if (!review) {
         throw new NotFoundError('Đánh giá không tồn tại');
@@ -142,7 +142,7 @@ export const updateReview = async (req, res) => {
         query.$pull = { likedBy: req.user.id };
     }
 
-    const newReview = await Review.findByIdAndUpdate({ _id: reviewID }, query, {
+    const newReview = await Review.findByIdAndUpdate(reviewID, query, {
         new: true,
         runValidators: true,
     }).populate({ path: 'createdBy', select: 'name image' });

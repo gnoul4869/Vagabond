@@ -7,7 +7,7 @@ import { uploadImageToStorage } from '../firebase/firebase.js';
 import { BadRequestError, NotFoundError } from '../errors/custom-api-error.js';
 
 export const getUserDetails = async (req, res) => {
-    const user = await User.findById({ _id: req.user.id })
+    const user = await User.findById(req.user.id)
         .populate({ path: 'address', select: '-createdAt -updatedAt -_id' })
         .select('-password');
 
@@ -123,7 +123,7 @@ export const updateUserDetails = async (req, res) => {
         newUserData = { ...newUserData, image };
     }
 
-    const user = await User.findByIdAndUpdate({ _id: req.user.id }, newUserData, {
+    const user = await User.findByIdAndUpdate(req.user.id, newUserData, {
         new: true,
         runValidators: true,
     });

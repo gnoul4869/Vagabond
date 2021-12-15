@@ -88,7 +88,7 @@ export const updateOrder = async (req, res) => {
         throw new AuthenticationError('Không đủ quyền thực hiện');
     }
 
-    const order = await Order.findById({ _id: orderID });
+    const order = await Order.findById(orderID);
 
     if (status === 'cancelled' && req.user.role !== 'admin') {
         if (order.status !== 'pending') {
@@ -100,7 +100,7 @@ export const updateOrder = async (req, res) => {
         status === 'pending' ? 0 : status === 'shipping' ? 1 : status === 'delivered' ? 2 : 3;
 
     const newOrder = await Order.findByIdAndUpdate(
-        { _id: orderID },
+        orderID,
         { status, priority },
         {
             runValidators: true,
@@ -121,7 +121,7 @@ export const updateOrder = async (req, res) => {
     if (count !== 0) {
         for (const product of newOrder.products) {
             await Product.findByIdAndUpdate(
-                { _id: product.productID },
+                product.productID,
                 {
                     $inc: { countInStock: product.qty * count, numSales: product.qty },
                     $push: { reviewers: newOrder.user.id },
@@ -133,7 +133,7 @@ export const updateOrder = async (req, res) => {
         }
     }
 
-    const user = await User.findById({ _id: newOrder.user.id });
+    const user = await User.findById(newOrder.user.id);
 
     if (user) {
         let title;

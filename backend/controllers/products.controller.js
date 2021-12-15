@@ -66,7 +66,7 @@ export const getAllProducts = async (req, res) => {
 };
 
 export const getSingleProduct = async (req, res) => {
-    const product = await Product.findById({ _id: req.params.id });
+    const product = await Product.findById(req.params.id);
     if (!product) {
         throw new NotFoundError('Sản phẩm này không tồn tại');
     }
