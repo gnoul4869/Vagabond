@@ -40,7 +40,7 @@ export const addInterest = (productID) => async (dispatch, getState) => {
         userInterests.forEach((element) => {
             if (element !== existInterest) {
                 element.point--;
-                if (element.point === 0) {
+                if (element.point <= 0) {
                     userInterests = userInterests.filter((item) => item !== element);
                 }
             }
@@ -53,7 +53,7 @@ export const addInterest = (productID) => async (dispatch, getState) => {
         if (userInterests.length !== 0) {
             userInterests.forEach((element) => {
                 element.point--;
-                if (element.point === 0) {
+                if (element.point <= 0) {
                     userInterests = userInterests.filter((item) => item !== element);
                 }
             });

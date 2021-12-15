@@ -130,17 +130,20 @@ export const getRecommendedProducts = async (req, res) => {
             if (interest && interest.products.length !== 0) {
                 const recommendedProductsSet =
                     recommendedProducts.length !== 0
-                        ? new Set(recommendedProducts.map((item) => item._id))
+                        ? new Set(recommendedProducts.map((item) => item._id.toString()))
                         : null;
 
+                console.log(recommendedProductsSet);
                 const interestedProducts = recommendedProductsSet
                     ? interest.products
-                          .filter((item) => !recommendedProductsSet.has(item.product))
+                          .filter((item) => !recommendedProductsSet.has(item.product.toString()))
                           .sort((a, b) => b.point - a.point)
                           .slice(0, 6 - recommendedProducts.length)
                     : interest.products
                           .sort((a, b) => b.point - a.point)
                           .slice(0, 6 - recommendedProducts.length);
+
+                console.log(interestedProducts);
 
                 interestedProducts.forEach((element) => {
                     const iProduct = products.find((item) => item._id.equals(element.product));
@@ -153,12 +156,12 @@ export const getRecommendedProducts = async (req, res) => {
         } else if (userInterests) {
             const recommendedProductsSet =
                 recommendedProducts.length !== 0
-                    ? new Set(recommendedProducts.map((item) => item._id))
+                    ? new Set(recommendedProducts.map((item) => item._id.toString()))
                     : null;
 
             const interestedProducts = recommendedProductsSet
                 ? userInterests
-                      .filter((item) => !recommendedProductsSet.has(item.product))
+                      .filter((item) => !recommendedProductsSet.has(item.product.toString()))
                       .sort((a, b) => b.point - a.point)
                       .slice(0, 6 - recommendedProducts.length)
                 : userInterests
