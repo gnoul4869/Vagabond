@@ -63,6 +63,16 @@ const start = async () => {
     } catch (error) {
         console.log(error);
     }
+
+    //? Initialize interval for recommendation system
+    const recommendationInterval = setInterval(async () => {
+        try {
+            await initializeMatrix();
+        } catch (error) {
+            console.log(error);
+            clearInterval(recommendationInterval);
+        }
+    }, 1000 * 60 * 60 * 6); //? Loop every 6 hours
 };
 
 start();
