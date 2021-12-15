@@ -4,7 +4,7 @@ import { categories } from '../../data/categories';
 
 const ProductCategories = () => {
     return (
-        <section className="container bg-white p-3">
+        <section>
             <div className="fw-600 fsr-4 text-secondary">Danh mục</div>
 
             <div className="d-flex flex-wrap mt-2 mt-md-3">

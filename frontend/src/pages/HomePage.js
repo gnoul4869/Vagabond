@@ -10,19 +10,19 @@ const HomePage = () => {
         <main>
             <HomeBanner />
 
-            <div className="mt-3">
+            <div className="container bg-white p-3 mt-3">
                 <ProductCategories />
             </div>
 
-            <div className="mt-3">
+            <div className="container bg-white p-3 mt-3">
                 <HotProducts />
             </div>
 
-            <div className="mt-3">
+            <div className="container bg-white p-3 mt-3">
                 <RecommendedProducts />
             </div>
 
-            <div className="mt-3">
+            <div className="container bg-white p-3 mt-3">
                 <NewestProducts />
             </div>
         </main>

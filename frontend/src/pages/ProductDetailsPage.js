@@ -6,6 +6,8 @@ import { FaCartPlus } from 'react-icons/fa';
 import { RiShoppingBag3Fill } from 'react-icons/ri';
 import { IoIosWarning } from 'react-icons/io';
 import ErrorPage from './error/ErrorPage';
+import { addToCart } from '../redux/actions/cartActions';
+import { addInterest } from '../redux/actions/interestActions';
 import NumberInput from '../components/NumberInput';
 import RatingStars from '../components/RatingStars';
 import PriceFormat from '../components/PriceFormat';
@@ -13,11 +15,10 @@ import ProductCarousel from '../components/product/ProductCarousel';
 import ProductDetailsPageLoading from '../components/loading/ProductDetailsPageLoading';
 import ProductDescription from '../components/product/ProductDescription';
 import BreadCrumbs from '../components/BreadCrumbs';
-import { addToCart } from '../redux/actions/cartActions';
 import InfoModal from '../components/modals/InfoModal';
 import ProductReviews from '../components/product/ProductReviews';
-import ProductSimilars from '../components/product/ProductSimilars';
-import { addInterest } from '../redux/actions/interestActions';
+import SimilarProducts from '../components/sections/SimilarProducts';
+import RecommendedProducts from '../components/sections/RecommendedProducts';
 
 const ProductDetailsPage = () => {
     const dispatch = useDispatch();
@@ -189,7 +190,11 @@ const ProductDetailsPage = () => {
                         </section>
 
                         <div className="mt-5">
-                            <ProductSimilars product={product} showEmpty={false} />
+                            <SimilarProducts product={product} showEmpty={false} />
+                        </div>
+
+                        <div className="mt-5">
+                            <RecommendedProducts />
                         </div>
 
                         {isModalShown && (

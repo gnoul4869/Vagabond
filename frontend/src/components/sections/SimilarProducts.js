@@ -1,7 +1,7 @@
 import React, { useState, useEffect } from 'react';
 import axios from 'axios';
 import PulseLoader from 'react-spinners/PulseLoader';
-import ProductCards from './ProductCards';
+import ProductCards from '../product/ProductCards';
 
 const ProductSimilars = ({ product, showEmpty }) => {
     const [similarProducts, setSimilarProducts] = useState([]);
@@ -76,7 +76,7 @@ const ProductSimilars = ({ product, showEmpty }) => {
     return (
         <>
             {isShown && (
-                <section className="container p-0">
+                <section>
                     <div className="fw-600 fsr-4 text-secondary">Sản phẩm tương tự</div>
 
                     <div className="d-flex flex-wrap mt-1 mt-md-3">

@@ -48,7 +48,7 @@ const NewestProducts = () => {
     }, []);
 
     return (
-        <section className="container bg-white p-3">
+        <section>
             <div className="fw-600 fsr-4 text-secondary">Sản phẩm mới</div>
 
             <div className="d-flex flex-wrap mt-2 mt-md-3">
