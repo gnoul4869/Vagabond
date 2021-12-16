@@ -49,7 +49,7 @@ const ProductReviews = ({ productID, productRating, productReviewers }) => {
             setPage(pageValue);
         }
 
-        reviewRef.current.scrollIntoView();
+        reviewRef.current.scrollIntoView({ behavior: 'smooth' });
     };
 
     const likeHandler = (reviewID) => {
