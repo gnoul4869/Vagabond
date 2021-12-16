@@ -3,8 +3,11 @@ import { VscChromeClose } from 'react-icons/vsc';
 import { IoSendSharp } from 'react-icons/io5';
 import VagabotIcon from '../images/vagabot.png';
 import VagabotAvatar from '../images/vagabot_avatar.png';
+import { useSelector } from 'react-redux';
 
 const Chatbot = () => {
+    const { messages, isLoading, error } = useSelector((state) => state.chatbot);
+
     const [isActivated, setIsActivated] = useState(false);
 
     return (
@@ -53,7 +56,7 @@ const Chatbot = () => {
 
                 <div className="chat-form">
                     <textarea name="message" placeholder="Nhập tin nhắn..."></textarea>
-                    <button type="submit">
+                    <button type="button">
                         <IoSendSharp className="icon-2" />
                     </button>
                 </div>

@@ -138,10 +138,10 @@ export const getRecommendedProducts = async (req, res) => {
                 const interestedProducts = recommendedProductsSet
                     ? interest.products
                           .filter((item) => !recommendedProductsSet.has(item.product.toString()))
-                          .sort((a, b) => b.point - a.point)
+                          .sort((a, b) => b.points - a.points)
                           .slice(0, 6 - recommendedProducts.length)
                     : interest.products
-                          .sort((a, b) => b.point - a.point)
+                          .sort((a, b) => b.points - a.points)
                           .slice(0, 6 - recommendedProducts.length);
                 interestedProducts.forEach((element) => {
                     const iProduct = products.find((item) => item._id.equals(element.product));
@@ -159,10 +159,10 @@ export const getRecommendedProducts = async (req, res) => {
             const interestedProducts = recommendedProductsSet
                 ? userInterests
                       .filter((item) => !recommendedProductsSet.has(item.product.toString()))
-                      .sort((a, b) => b.point - a.point)
+                      .sort((a, b) => b.points - a.points)
                       .slice(0, 6 - recommendedProducts.length)
                 : userInterests
-                      .sort((a, b) => b.point - a.point)
+                      .sort((a, b) => b.points - a.points)
                       .slice(0, 6 - recommendedProducts.length);
 
             interestedProducts.forEach((element) => {

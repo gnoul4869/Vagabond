@@ -35,12 +35,12 @@ export const addInterest = (productID) => async (dispatch, getState) => {
         userInterests.length !== 0 && userInterests.find((item) => item.product === productID);
 
     if (existInterest) {
-        existInterest.point++;
+        existInterest.points++;
 
         userInterests.forEach((element) => {
             if (element !== existInterest) {
-                element.point--;
-                if (element.point <= 0) {
+                element.points--;
+                if (element.points <= 0) {
                     userInterests = userInterests.filter((item) => item !== element);
                 }
             }
@@ -52,8 +52,8 @@ export const addInterest = (productID) => async (dispatch, getState) => {
     } else {
         if (userInterests.length !== 0) {
             userInterests.forEach((element) => {
-                element.point--;
-                if (element.point <= 0) {
+                element.points--;
+                if (element.points <= 0) {
                     userInterests = userInterests.filter((item) => item !== element);
                 }
             });
@@ -61,7 +61,7 @@ export const addInterest = (productID) => async (dispatch, getState) => {
 
         const newInterest = {
             product: productID,
-            point: Number(process.env.REACT_APP_DEFAULT_INTEREST_POINT),
+            points: Number(process.env.REACT_APP_DEFAULT_INTEREST_POINT),
         };
         userInterests = [...userInterests, newInterest];
     }

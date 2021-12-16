@@ -8,6 +8,7 @@ import { productList, productDetails } from './reducers/productReducer';
 import { review } from './reducers/reviewReducer';
 import { order } from './reducers/orderReducer';
 import { interest } from './reducers/interestReducer';
+import { chatbot } from './reducers/chatbotReducer';
 
 const initialState = {
     auth: {
@@ -75,6 +76,11 @@ const initialState = {
             : [],
         error: '',
     },
+    chatbot: {
+        messages: [],
+        isLoading: false,
+        error: '',
+    },
 };
 
 const reducer = combineReducers({
@@ -87,6 +93,7 @@ const reducer = combineReducers({
     review,
     order,
     interest,
+    chatbot,
 });
 
 const composeEnhancer = window.__REDUX_DEVTOOLS_EXTENSION_COMPOSE__ || compose;

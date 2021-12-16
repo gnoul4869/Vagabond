@@ -14,7 +14,7 @@ const interestSchema = new mongoose.Schema(
                     ref: 'Product',
                     required: [true, 'Hãy cung cấp mã sản phẩm'],
                 },
-                point: {
+                points: {
                     type: Number,
                     default: 5,
                 },
