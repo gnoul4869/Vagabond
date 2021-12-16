@@ -14,6 +14,7 @@ const Chatbot = () => {
     const { userInfo } = useSelector((state) => state.auth);
 
     const messageRef = useRef(null);
+    const initialTimeRef = useRef(moment().format('HH:mm'));
 
     const [isActivated, setIsActivated] = useState(false);
     const [message, setMessage] = useState('');
@@ -58,7 +59,7 @@ const Chatbot = () => {
                                 style={{ backgroundImage: `url(${VagabotAvatar})` }}
                             ></div>
 
-                            <div className="chat-timestamp">{moment().format('HH:mm')}</div>
+                            <div className="chat-timestamp">{initialTimeRef.current}</div>
                         </div>
 
                         <div className="chat-message">
