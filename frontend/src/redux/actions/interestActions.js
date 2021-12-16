@@ -61,7 +61,7 @@ export const addInterest = (productID) => async (dispatch, getState) => {
 
         const newInterest = {
             product: productID,
-            points: Number(process.env.REACT_APP_DEFAULT_INTEREST_POINT),
+            points: Number(process.env.REACT_APP_DEFAULT_INTEREST_POINTS),
         };
         userInterests = [...userInterests, newInterest];
     }

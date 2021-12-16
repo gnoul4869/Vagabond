@@ -3,12 +3,22 @@ import { VscChromeClose } from 'react-icons/vsc';
 import { IoSendSharp } from 'react-icons/io5';
 import VagabotIcon from '../images/vagabot.png';
 import VagabotAvatar from '../images/vagabot_avatar.png';
-import { useSelector } from 'react-redux';
+import { useDispatch, useSelector } from 'react-redux';
+import { getChatbotResponse } from '../redux/actions/chatbotActions';
 
 const Chatbot = () => {
+    const dispatch = useDispatch();
     const { messages, isLoading, error } = useSelector((state) => state.chatbot);
+    const { userInfo } = useSelector((state) => state.auth);
 
     const [isActivated, setIsActivated] = useState(false);
+    const [message, setMessage] = useState('');
+
+    const messageHandler = () => {
+        if (message) {
+            dispatch(getChatbotResponse(message));
+        }
+    };
 
     return (
         <>
@@ -45,7 +55,13 @@ const Chatbot = () => {
                         <div className="chat-avatar-container">
                             <div
                                 className="chat-avatar"
-                                style={{ backgroundImage: `url(${VagabotAvatar})` }}
+                                style={{
+                                    backgroundImage: `url(${
+                                        userInfo
+                                            ? userInfo.image
+                                            : '/images/user_profile_picture.jpg'
+                                    })`,
+                                }}
                             ></div>
                         </div>
                         <div className="chat-message">
@@ -55,8 +71,13 @@ const Chatbot = () => {
                 </div>
 
                 <div className="chat-form">
-                    <textarea name="message" placeholder="Nhập tin nhắn..."></textarea>
-                    <button type="button">
+                    <textarea
+                        name="message"
+                        placeholder="Nhập tin nhắn..."
+                        value={message}
+                        onChange={(e) => setMessage(e.target.value)}
+                    ></textarea>
+                    <button type="button" onClick={messageHandler}>
                         <IoSendSharp className="icon-2" />
                     </button>
                 </div>
