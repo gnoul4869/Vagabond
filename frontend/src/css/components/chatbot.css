@@ -7,6 +7,7 @@
     border-radius: 25%;
     background-color: var(--inspiring-red);
     box-shadow: rgba(0, 0, 0, 0.05) 0rem 0rem 0rem 0.0625rem;
+    cursor: pointer;
     transition: all 0.1s linear;
     transform: translateZ(0);
 }
@@ -144,6 +145,7 @@
 .chat-form textarea {
     width: 75%;
     height: 3.125rem;
+    padding: 0.1875rem 0.3125rem;
     border: none;
     border-radius: 0.1875rem;
     resize: none;

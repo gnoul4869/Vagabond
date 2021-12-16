@@ -52,7 +52,7 @@ const Chatbot = () => {
                 </div>
 
                 <div className="chat-form">
-                    <textarea name="message"></textarea>
+                    <textarea name="message" placeholder="Nhập tin nhắn..."></textarea>
                     <button type="submit">
                         <IoSendSharp className="icon-2" />
                     </button>
