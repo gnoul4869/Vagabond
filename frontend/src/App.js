@@ -14,10 +14,12 @@ import CheckoutPage from './pages/CheckoutPage';
 import Footer from './components/Footer';
 import NotFoundPage from './pages/error/NotFoundPage';
 import ScrollToTop from './utils/ScrollToTop';
+import Chatbot from './components/Chatbot';
 
 const App = () => {
     return (
         <Router>
+            <Chatbot />
             <ScrollToTop />
             <NavBar />
             <div className="container px-2">
