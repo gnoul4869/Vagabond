@@ -4,6 +4,7 @@
     --relaxing-pink: #e02778;
     --yellow-star: #f0d121;
     --dark-slate-gray: #2f2f2f;
+    --fa-white: #fafafa;
     --not-pure-white: #fdfdfd;
     --white-hover: #f8f8f8;
     --light-gray: #eaeaea;
@@ -11,6 +12,7 @@
     --gray: #c0c0c0;
     --warm: #fffeef;
     --smoke: #f1f2f9;
+    --sea-greener: #189b94;
 }
 
 body {
@@ -31,6 +33,10 @@ body {
 
 p {
     white-space: pre-line;
+}
+
+button {
+    outline: none;
 }
 
 input {

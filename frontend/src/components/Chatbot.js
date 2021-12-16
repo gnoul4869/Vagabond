@@ -1,6 +1,8 @@
 import React, { useState } from 'react';
 import { VscChromeClose } from 'react-icons/vsc';
+import { IoSendSharp } from 'react-icons/io5';
 import VagabotIcon from '../images/vagabot.png';
+import VagabotAvatar from '../images/vagabot_avatar.png';
 
 const Chatbot = () => {
     const [isActivated, setIsActivated] = useState(false);
@@ -16,14 +18,43 @@ const Chatbot = () => {
                 </div>
             </div>
 
-            <div className={`chat-container ${isActivated && 'active'}`}>
-                <div className="chat-header">
+            <div className={`chatbox ${isActivated && 'active'}`}>
+                <div className="chatbox-header">
                     <div className="fsr-4 text-ired fw-600">Vagabot</div>
-                    <div className="chat-exit-btn" onClick={() => setIsActivated(false)}>
+                    <div className="chatbox-exit-btn" onClick={() => setIsActivated(false)}>
                         <VscChromeClose />
                     </div>
                 </div>
-                <div className="chat-message-container"></div>
+
+                <div className="chatlogs">
+                    <div className="chat left">
+                        <div className="chat-avatar-container">
+                            <div
+                                className="chat-avatar"
+                                style={{ backgroundImage: `url(${VagabotAvatar})` }}
+                            ></div>
+                        </div>
+                        <div className="chat-message">Lorem ipsum dolor sit amet</div>
+                    </div>
+                    <div className="chat right">
+                        <div className="chat-avatar-container">
+                            <div
+                                className="chat-avatar"
+                                style={{ backgroundImage: `url(${VagabotAvatar})` }}
+                            ></div>
+                        </div>
+                        <div className="chat-message">
+                            Lorem ipsum dolor sit amet consectetur adipisicing elit. Eum optio est
+                        </div>
+                    </div>
+                </div>
+
+                <div className="chat-form">
+                    <textarea name="message"></textarea>
+                    <button type="submit">
+                        <IoSendSharp className="icon-2" />
+                    </button>
+                </div>
             </div>
         </>
     );
