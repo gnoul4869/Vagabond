@@ -34,7 +34,9 @@ const Chatbot = () => {
                                 style={{ backgroundImage: `url(${VagabotAvatar})` }}
                             ></div>
                         </div>
-                        <div className="chat-message">Lorem ipsum dolor sit amet</div>
+                        <div className="chat-message">
+                            Cảm ơn quý khách đã đến với website Vagabond
+                        </div>
                     </div>
                     <div className="chat right">
                         <div className="chat-avatar-container">
