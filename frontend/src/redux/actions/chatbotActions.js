@@ -12,7 +12,7 @@ export const getChatbotResponse = (message) => async (dispatch) => {
     dispatch({ type: CHATBOT_GET_RESPONSE_REQUEST, payload: message });
 
     try {
-        const { data } = await axios.post(`${process.env.REACT_APP_VAGABOT_URL}/api/v1`, {
+        const { data } = await axios.post(`${process.env.REACT_APP_VAGABOT_URL}/vagabot`, {
             message,
         });
 

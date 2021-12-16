@@ -79,7 +79,6 @@ const initialState = {
     chatbot: {
         messages: [],
         isLoading: false,
-        error: '',
     },
 };
 
