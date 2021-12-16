@@ -39,7 +39,6 @@
     right: 1.25rem;
     width: 26.5625rem;
     min-width: 21.875rem;
-    height: 39.0625rem;
     background-color: var(--smoke);
     border-radius: 0.625rem;
     box-shadow: rgba(14, 30, 37, 0.12) 0rem 0.125rem 0.25rem 0rem,
@@ -139,7 +138,7 @@
     display: flex;
     align-items: center;
     justify-content: center;
-    margin-top: 1.25rem;
+    margin: 0.9375rem 0 1.25rem;
 }
 
 .chat-form textarea {
