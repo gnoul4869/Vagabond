@@ -20,7 +20,8 @@ const Chatbot = () => {
     const [isActivated, setIsActivated] = useState(false);
     const [message, setMessage] = useState('');
 
-    const messageHandler = () => {
+    const messageHandler = (e) => {
+        e.preventDefault();
         if (message) {
             dispatch(getChatbotResponse(message));
             setMessage('');
@@ -142,17 +143,16 @@ const Chatbot = () => {
                     })}
                 </div>
 
-                <div className="chat-form">
-                    <textarea
-                        name="message"
+                <form className="chat-form" onSubmit={(e) => messageHandler(e)}>
+                    <input
                         placeholder="Nhập tin nhắn..."
                         value={message}
                         onChange={(e) => setMessage(e.target.value)}
-                    ></textarea>
-                    <button type="button" onClick={messageHandler}>
+                    ></input>
+                    <button type="submit">
                         <IoSend />
                     </button>
-                </div>
+                </form>
             </div>
         </>
     );
