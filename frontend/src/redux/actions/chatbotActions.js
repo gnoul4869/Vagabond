@@ -6,8 +6,6 @@ import {
     CHATBOT_GET_RESPONSE_SUCCESS,
 } from '../constants/chatbotConstants';
 
-const errorMessage = 'Đã có lỗi xảy ra. Bạn vui lòng thử lại sau ít phút nữa';
-
 export const getChatbotResponse = (message) => async (dispatch) => {
     dispatch({ type: CHATBOT_GET_RESPONSE_REQUEST, payload: message });
 
@@ -25,7 +23,7 @@ export const getChatbotResponse = (message) => async (dispatch) => {
             payload:
                 error.response && error.response.data.message
                     ? error.response.data.message
-                    : errorMessage,
+                    : 'Tôi hiện tại đang gặp sự cố. Mong quý khách quay lại sao :(',
         });
     }
 };

@@ -32,7 +32,7 @@ export const chatbot = (state = { messages: [], isLoading: false }, action) => {
         case CHATBOT_GET_RESPONSE_FAIL:
             return {
                 ...state,
-                message: state.messages.map((item) =>
+                messages: state.messages.map((item) =>
                     item.response === ''
                         ? { ...item, response: action.payload, responseTimestamp: moment() }
                         : item
