@@ -45,7 +45,7 @@ const Chatbot = () => {
 
             <div className={`chatbox ${isActivated && 'active'}`}>
                 <div className="chatbox-header">
-                    <div className="fsr-4 text-ired fw-600">Vagabot</div>
+                    <div className="fs-4 text-ired fw-600">Vagabot</div>
                     <div className="chatbox-exit-btn" onClick={() => setIsActivated(false)}>
                         <VscChromeClose />
                     </div>
@@ -63,7 +63,7 @@ const Chatbot = () => {
                         </div>
 
                         <div className="chat-message">
-                            Cảm ơn quý khách đã đến với website Vagabond
+                            Cảm ơn quý khách đã đến với website thương mại điện tử Vagabond
                         </div>
                     </div>
 
@@ -108,10 +108,7 @@ const Chatbot = () => {
                                                 )}
                                             </div>
 
-                                            <div
-                                                className="chat-message"
-                                                ref={index === 1 ? messageRef : null}
-                                            >
+                                            <div className="chat-message" ref={messageRef}>
                                                 {isLoading &&
                                                 index === 1 &&
                                                 qA['response'] === '' ? (
