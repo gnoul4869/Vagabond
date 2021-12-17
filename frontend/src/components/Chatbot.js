@@ -109,19 +109,25 @@ const Chatbot = () => {
                                             </div>
 
                                             <div className="chat-message" ref={messageRef}>
-                                                {isLoading &&
-                                                index === 1 &&
-                                                qA['response'] === '' ? (
-                                                    <PulseLoader
-                                                        color="lightseagreen"
-                                                        css="display: inherit; margin: 0 auto;"
-                                                        size={10}
-                                                        margin={1}
-                                                        speedMultiplier={0.7}
-                                                    />
-                                                ) : (
-                                                    qA[`${index === 0 ? 'message' : 'response'}`]
-                                                )}
+                                                <p>
+                                                    {isLoading &&
+                                                    index === 1 &&
+                                                    qA['response'] === '' ? (
+                                                        <PulseLoader
+                                                            color="lightseagreen"
+                                                            css="display: inherit; margin: 0 auto;"
+                                                            size={10}
+                                                            margin={1}
+                                                            speedMultiplier={0.7}
+                                                        />
+                                                    ) : (
+                                                        qA[
+                                                            `${
+                                                                index === 0 ? 'message' : 'response'
+                                                            }`
+                                                        ]
+                                                    )}
+                                                </p>
                                             </div>
                                         </div>
                                     );

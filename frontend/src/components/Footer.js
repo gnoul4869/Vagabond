@@ -24,8 +24,9 @@ const Footer = () => {
                         vagabond-shop.cf là một sự lựa chọn tuyệt vời dành cho bạn. Bản chất của
                         Vagabond là một E-commerce platform - nền tảng trang web thương mại điện tử
                         . Điều này cho phép người mua hàng dễ dàng tương tác, theo dõi thông tin về
-                        sản phẩm và chương trình khuyến mãi của shop. Nhờ nền tảng đó, việc mua hàng
-                        trên Vagabond trở nên nhanh chóng và đơn giản hơn.
+                        sản phẩm và từ đó lựa chọn được những sản phẩm phù hợp với nhu cầu mua sắm
+                        của bản thân. Nhờ nền tảng đó, việc mua hàng trên Vagabond trở nên nhanh
+                        chóng và đơn giản hơn bao giờ hết.
                     </p>
                 </div>
                 <div>
