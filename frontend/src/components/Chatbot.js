@@ -4,6 +4,7 @@ import { getChatbotResponse } from '../redux/actions/chatbotActions';
 import { VscChromeClose } from 'react-icons/vsc';
 import { IoSend } from 'react-icons/io5';
 import PulseLoader from 'react-spinners/PulseLoader';
+import Linkify from 'react-linkify';
 import moment from 'moment';
 import VagabotIcon from '../images/vagabot.png';
 import VagabotAvatar from '../images/vagabot_avatar.png';
@@ -109,25 +110,29 @@ const Chatbot = () => {
                                             </div>
 
                                             <div className="chat-message" ref={messageRef}>
-                                                <p>
-                                                    {isLoading &&
-                                                    index === 1 &&
-                                                    qA['response'] === '' ? (
-                                                        <PulseLoader
-                                                            color="lightseagreen"
-                                                            css="display: inherit; margin: 0 auto;"
-                                                            size={10}
-                                                            margin={1}
-                                                            speedMultiplier={0.7}
-                                                        />
-                                                    ) : (
-                                                        qA[
-                                                            `${
-                                                                index === 0 ? 'message' : 'response'
-                                                            }`
-                                                        ]
-                                                    )}
-                                                </p>
+                                                <Linkify>
+                                                    <p>
+                                                        {isLoading &&
+                                                        index === 1 &&
+                                                        qA['response'] === '' ? (
+                                                            <PulseLoader
+                                                                color="lightseagreen"
+                                                                css="display: inherit; margin: 0 auto;"
+                                                                size={10}
+                                                                margin={1}
+                                                                speedMultiplier={0.7}
+                                                            />
+                                                        ) : (
+                                                            qA[
+                                                                `${
+                                                                    index === 0
+                                                                        ? 'message'
+                                                                        : 'response'
+                                                                }`
+                                                            ]
+                                                        )}
+                                                    </p>
+                                                </Linkify>
                                             </div>
                                         </div>
                                     );
