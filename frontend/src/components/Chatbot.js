@@ -150,7 +150,7 @@ const Chatbot = () => {
                         onChange={(e) => setMessage(e.target.value)}
                     ></textarea>
                     <button type="button" onClick={messageHandler}>
-                        <IoSend className="icon-2" />
+                        <IoSend />
                     </button>
                 </div>
             </div>
