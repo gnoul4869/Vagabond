@@ -189,7 +189,7 @@ const initializeMatrix = async () => {
 
         const [users, products] = await Promise.all([
             User.find({}).select('_id').sort('createdAt').lean(),
-            Product.find({}).sort('createdAt').lean(),
+            Product.find({}).select('name price rating numReviews images').sort('createdAt').lean(),
         ]);
 
         const rows = users.length;
