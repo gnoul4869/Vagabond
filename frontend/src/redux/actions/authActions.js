@@ -20,11 +20,11 @@ export const login = (email, password) => async (dispatch, getState) => {
         const { data } = await axios.post('/api/v1/auth/login', { email, password });
 
         const userInfo = {
-            id: data.userInfo.id,
-            image: data.userInfo.image,
-            name: data.userInfo.name,
-            role: data.userInfo.role,
-            token: data.userInfo.token,
+            id: data.userInfo?.id,
+            image: data.userInfo?.image,
+            name: data.userInfo?.name,
+            role: data.userInfo?.role,
+            token: data.userInfo?.token,
         };
 
         dispatch({ type: LOGIN_SUCCESS, payload: userInfo });
@@ -84,11 +84,11 @@ export const register =
                 addressDetails,
             });
             const userInfo = {
-                id: data.userInfo.id,
-                image: data.userInfo.image,
-                name: data.userInfo.name,
-                role: data.userInfo.role,
-                token: data.userInfo.token,
+                id: data.userInfo?.id,
+                image: data.userInfo?.image,
+                name: data.userInfo?.name,
+                role: data.userInfo?.role,
+                token: data.userInfo?.token,
             };
 
             dispatch({ type: REGISTER_SUCCESS, payload: userInfo });

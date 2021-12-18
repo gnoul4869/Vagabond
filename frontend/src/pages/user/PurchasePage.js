@@ -201,12 +201,12 @@ const PurchasePage = () => {
                                 </div>
 
                                 <ShippingDetails
-                                    name={order.user.name}
-                                    phoneNumber={order.user.phoneNumber}
-                                    provinceName={order.user.address.provinceName}
-                                    districtName={order.user.address.districtName}
-                                    wardName={order.user.address.wardName}
-                                    addressDetails={order.user.address.addressDetails}
+                                    name={order.user?.name}
+                                    phoneNumber={order.user?.phoneNumber}
+                                    provinceName={order.user?.address?.provinceName}
+                                    districtName={order.user?.address?.districtName}
+                                    wardName={order.user?.address?.wardName}
+                                    addressDetails={order.user?.address?.addressDetails}
                                 />
 
                                 <div className="divider-strong-bottom"></div>
@@ -222,7 +222,7 @@ const PurchasePage = () => {
                                                     {order.status === 'delivered' &&
                                                         product.product &&
                                                         product.product.reviewers.includes(
-                                                            userInfo.id
+                                                            userInfo?.id
                                                         ) && (
                                                             <div className="purchase-product-review-status">
                                                                 Có thể đánh giá

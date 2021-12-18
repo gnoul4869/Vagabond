@@ -230,11 +230,9 @@ const ProductReviews = ({ productID, productRating, productReviewers }) => {
                                                     <div className="d-inline-flex align-items-center mt-3">
                                                         <MdThumbUp
                                                             className={`product-review-like-btn ${
-                                                                userInfo &&
                                                                 item.likedBy.includes(
-                                                                    userInfo.id
-                                                                ) &&
-                                                                'active'
+                                                                    userInfo?.id
+                                                                ) && 'active'
                                                             }`}
                                                             onClick={() => likeHandler(item.id)}
                                                         />

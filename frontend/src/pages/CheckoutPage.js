@@ -39,10 +39,10 @@ const CheckoutPage = () => {
                 name: userDetails.name,
                 phoneNumber: userDetails.phoneNumber,
                 address: {
-                    provinceName: userDetails.address.provinceName,
-                    districtName: userDetails.address.districtName,
-                    wardName: userDetails.address.wardName,
-                    addressDetails: userDetails.address.addressDetails,
+                    provinceName: userDetails.address?.provinceName,
+                    districtName: userDetails.address?.districtName,
+                    wardName: userDetails.address?.wardName,
+                    addressDetails: userDetails.address?.addressDetails,
                 },
             };
 
@@ -84,7 +84,7 @@ const CheckoutPage = () => {
 
         let isMounted = true;
 
-        if (userDetails) {
+        if (userDetails?.address) {
             const getShippingFee = async () => {
                 if (isMounted) {
                     setIsGettingShippingFee(true);
@@ -102,8 +102,8 @@ const CheckoutPage = () => {
                                 insurance_value: totalItemsPrice,
                                 coupon: null,
                                 from_district_id: process.env.REACT_APP_GHN_SHOP_DISTRICT_ID,
-                                to_district_id: userDetails.address.districtID,
-                                to_ward_code: userDetails.address.wardID,
+                                to_district_id: userDetails.address?.districtID,
+                                to_ward_code: userDetails.address?.wardID,
                                 weight: totalItemsWeight,
                                 height: totalItemsHeight,
                                 length: 15,
@@ -165,10 +165,10 @@ const CheckoutPage = () => {
                         <ShippingDetails
                             name={userDetails.name}
                             phoneNumber={userDetails.phoneNumber}
-                            provinceName={userDetails.address.provinceName}
-                            districtName={userDetails.address.districtName}
-                            wardName={userDetails.address.wardName}
-                            addressDetails={userDetails.address.addressDetails}
+                            provinceName={userDetails.address?.provinceName}
+                            districtName={userDetails.address?.districtName}
+                            wardName={userDetails.address?.wardName}
+                            addressDetails={userDetails.address?.addressDetails}
                         />
 
                         <div className="container bg-white mt-2 p-4">

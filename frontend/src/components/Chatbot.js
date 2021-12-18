@@ -85,9 +85,8 @@ const Chatbot = () => {
                                                     style={{
                                                         backgroundImage: `url(${
                                                             index === 0
-                                                                ? userInfo
-                                                                    ? userInfo.image
-                                                                    : '/images/user_profile_picture.jpg'
+                                                                ? userInfo?.image ||
+                                                                  '/images/user_profile_picture.jpg'
                                                                 : VagabotAvatar
                                                         })`,
                                                     }}
