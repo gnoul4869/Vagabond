@@ -1,4 +1,5 @@
 import User from '../models/user.model.js';
+import Interest from '../models/interest.model.js';
 import { StatusCodes } from 'http-status-codes';
 import moment from 'moment';
 import Address from '../models/address.model.js';
@@ -189,6 +190,7 @@ export const login = async (req, res) => {
         path: 'address',
         select: '-createdAt -updatedAt',
     });
+
     if (!user) {
         throw new AuthenticationError('Email hoặc mật khẩu của bạn không đúng');
     }
@@ -200,10 +202,14 @@ export const login = async (req, res) => {
 
     const token = user.createJWT();
 
+    const interest = await Interest.findOne({ user: user.id }).select('products').lean();
+    const userInterests = interest?.products;
+
     res.status(StatusCodes.OK).json({
         userInfo: {
             ...user.toJSON(),
             token,
         },
+        userInterests,
     });
 };

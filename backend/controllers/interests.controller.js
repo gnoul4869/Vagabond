@@ -3,13 +3,15 @@ import { BadRequestError } from '../errors/custom-api-error.js';
 import { StatusCodes } from 'http-status-codes';
 
 export const getUserInterests = async (req, res) => {
-    let interest = await Interest.findOne({ user: req.user.id });
+    let interest = await Interest.findOne({ user: req.user.id })
+        .select('products.product products.points')
+        .lean();
 
     if (!interest) {
         interest = await Interest.create({ user: req.user.id, products: [] });
     }
 
-    res.status(StatusCodes.OK).json({ interest });
+    res.status(StatusCodes.OK).json({ userInterests: interest.products });
 };
 
 export const addInterest = async (req, res) => {
@@ -25,5 +27,5 @@ export const addInterest = async (req, res) => {
         interest = await Interest.create({ user: req.user.id, products });
     }
 
-    res.status(StatusCodes.OK).json({ interest });
+    res.status(StatusCodes.OK).json({ userInterests: interest.products });
 };

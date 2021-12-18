@@ -121,15 +121,17 @@ export const getRecommendedProducts = async (req, res) => {
         const recommendation = recommend(userIndex, kUsers);
 
         if (recommendation.length !== 0) {
-            recommendation.forEach((element) => {
-                recommendedProducts.push(products[element.itemIndex]);
-            });
+            for (let i = 0; i < recommendation.length && i < 6; i++) {
+                recommendedProducts.push(products[recommendation[i].itemIndex]);
+            }
         }
     }
 
     if (recommendedProducts.length < 6) {
         if (userID) {
-            const interest = await Interest.findOne({ user: userID }).select('products').lean();
+            const interest = await Interest.findOne({ user: userID })
+                .select('products.product products.points')
+                .lean();
             if (interest && interest.products.length !== 0) {
                 const recommendedProductsSet =
                     recommendedProducts.length !== 0

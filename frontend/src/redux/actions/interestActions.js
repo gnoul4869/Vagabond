@@ -17,8 +17,8 @@ export const addInterest = (productID) => async (dispatch, getState) => {
                 },
             });
 
-            if (data && data.interest && data.interest.products.length !== 0) {
-                userInterests = data.interest.products;
+            if (data?.userInterests.length !== 0) {
+                userInterests = data.userInterests;
             }
         } catch (error) {
             dispatch({
