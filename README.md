@@ -1,2 +1,3 @@
 # Vagabond
- Vagabond E-Commerce Website
+
+Vagabond E-Commerce MERN Stack Application
