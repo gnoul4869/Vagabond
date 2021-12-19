@@ -32,7 +32,7 @@ app.set('trust proxy', 1); //! Enable if you're behind a reverse proxy (Heroku, 
 app.use(
     expressLimiter({
         windowMs: 5 * 60 * 1000, //? 5 minutes
-        max: 100, //? limit each IP to 100 requests per windowMs
+        max: 200, //? limit each IP to 200 requests per windowMs
     })
 );
 app.use(express.json()); //? Allows server to accept JSON in the body of a request
