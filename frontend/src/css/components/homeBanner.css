@@ -8,9 +8,10 @@
     transition: 2s ease-in-out;
 }
 
-.banner img {
+.banner-img-wrapper {
+    padding-top: 30%; /*? height / width x 100 */
+    height: 0;
     opacity: 0;
-    min-height: calc(40vw / 1.77777);
 }
 
 /*? X-Small devices (portrait phones, less than 576px) */
