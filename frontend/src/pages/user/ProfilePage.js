@@ -155,13 +155,15 @@ const ProfilePage = () => {
             setPhoneNumber(userDetails.phoneNumber);
             setGender(userDetails.gender);
             setBirthDate(moment(userDetails.birthDate).toDate());
-            setProvinceID(userDetails.address?.provinceID);
-            setProvinceName(userDetails.address?.provinceName);
-            setDistrictID(userDetails.address?.districtID);
-            setDistrictName(userDetails.address?.districtName);
-            setWardID(userDetails.address?.wardID);
-            setWardName(userDetails.address?.wardName);
-            setAddressDetails(userDetails.address?.addressDetails);
+            if (userDetails.address) {
+                setProvinceID(userDetails.address?.provinceID);
+                setProvinceName(userDetails.address?.provinceName);
+                setDistrictID(userDetails.address?.districtID);
+                setDistrictName(userDetails.address?.districtName);
+                setWardID(userDetails.address?.wardID);
+                setWardName(userDetails.address?.wardName);
+                setAddressDetails(userDetails.address?.addressDetails);
+            }
         }
     }, [userDetails]);
 

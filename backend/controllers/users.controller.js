@@ -133,14 +133,35 @@ export const updateUserDetails = async (req, res) => {
 
     const hiddenEmail = hideEmail(user.email);
 
-    const address = await Address.findOneAndUpdate(
-        { createdBy: req.user.id },
+    let address = await Address.findByIdAndUpdate(
+        user.address,
         { provinceID, provinceName, districtID, districtName, wardID, wardName, addressDetails },
         {
             new: true,
             runValidators: true,
         }
     );
+
+    if (!address) {
+        address = await Address.create({
+            provinceID,
+            provinceName,
+            districtID,
+            districtName,
+            wardID,
+            wardName,
+            addressDetails,
+        });
+
+        await User.findByIdAndUpdate(
+            user._id,
+            { address: address._id },
+            {
+                new: true,
+                runValidators: true,
+            }
+        );
+    }
 
     res.status(StatusCodes.OK).json({
         userDetails: {
