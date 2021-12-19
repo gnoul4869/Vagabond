@@ -60,7 +60,7 @@ const initializeRecommendation = async () => {
 
         setTimeout(() => {
             initializeRecommendation();
-        }, 1000 * 60 * 60 * 3); //? Loop every 3 hours
+        }, 1000 * 60 * 60 * 1); //? Loop every 1 hours
     } catch (error) {
         console.log(error);
     }
