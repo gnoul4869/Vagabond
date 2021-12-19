@@ -16,7 +16,7 @@ export const getUserDetails = () => async (dispatch, getState) => {
     dispatch({ type: USER_GET_DETAILS_REQUEST });
     try {
         const { token } = getState().auth.userInfo;
-        const { data } = await axios.get('/api/v1/users', {
+        const { data } = await axios.get(`${process.env.REACT_APP_MAIN_SERVER}/api/v1/users`, {
             headers: { Authorization: `Bearer ${token}` },
         });
         const { userDetails } = data;
@@ -68,11 +68,15 @@ export const updateUserDetails =
                 formData.append('imageFile', imageFile);
             }
 
-            const { data } = await axios.patch('/api/v1/users', formData, {
-                headers: {
-                    Authorization: `Bearer ${userInfo.token}`,
-                },
-            });
+            const { data } = await axios.patch(
+                `${process.env.REACT_APP_MAIN_SERVER}/api/v1/users`,
+                formData,
+                {
+                    headers: {
+                        Authorization: `Bearer ${userInfo.token}`,
+                    },
+                }
+            );
             const { userDetails } = data;
             dispatch({ type: USER_UPDATE_DETAILS_SUCCESS, payload: userDetails });
             dispatch({

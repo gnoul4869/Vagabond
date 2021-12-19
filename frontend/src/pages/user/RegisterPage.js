@@ -93,7 +93,7 @@ const RegisterPage = () => {
                 }
             case 1:
                 if (!isVerified) {
-                    return dispatch(confirmEmail(email, otp, setStep));
+                    return dispatch(confirmEmail(email, otp));
                 } else {
                     return setStep(step + 1);
                 }

@@ -185,7 +185,7 @@ const recommend = (userIndex, kUsers) => {
 const initializeMatrix = async () => {
     try {
         console.log('Initializing recommendation matrix...');
-        const initializeTime = performance.now();
+        const initializeTime = Date.now();
 
         const [users, products] = await Promise.all([
             User.find({}).select('_id').sort('createdAt').lean(),
@@ -231,10 +231,10 @@ const initializeMatrix = async () => {
         recommendationMatrix = matrix;
         recommendationARMatrix = averageRatingMatrix;
 
+        const timeElapsed = (Date.now() - initializeTime) / 1000;
+
         console.log(
-            `Recommendation matrix initialized... [${valueCount} values] [${
-                performance.now() - initializeTime
-            }ms]`
+            `Recommendation matrix initialized... [${valueCount} values] [${timeElapsed}s]`
         );
     } catch (error) {
         console.log(error);

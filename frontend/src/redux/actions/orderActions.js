@@ -16,7 +16,7 @@ export const listOrders = (status, page, isAdmin) => async (dispatch, getState) 
 
     try {
         const { token } = getState().auth.userInfo;
-        const { data } = await axios.get('/api/v1/orders', {
+        const { data } = await axios.get(`${process.env.REACT_APP_MAIN_SERVER}/api/v1/orders`, {
             headers: {
                 Authorization: `Bearer ${token}`,
             },
@@ -49,7 +49,7 @@ export const updateOrder = (orderID, status) => async (dispatch, getState) => {
     try {
         const { token } = getState().auth.userInfo;
         const { data } = await axios.patch(
-            '/api/v1/orders',
+            `${process.env.REACT_APP_MAIN_SERVER}/api/v1/orders`,
             { orderID, status },
             {
                 headers: {

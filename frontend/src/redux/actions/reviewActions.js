@@ -17,7 +17,7 @@ export const listReviews = (productID, rating, page, limit) => async (dispatch) 
     dispatch({ type: REVIEW_LIST_REQUEST });
 
     try {
-        const { data } = await axios.get('/api/v1/reviews', {
+        const { data } = await axios.get(`${process.env.REACT_APP_MAIN_SERVER}/api/v1/reviews`, {
             params: { productID, rating, page, limit },
         });
         const { total, reviews } = data;
@@ -39,7 +39,7 @@ export const updateReview = (reviewID, action) => async (dispatch, getState) => 
     try {
         const { token } = getState().auth.userInfo;
         const { data } = await axios.patch(
-            '/api/v1/reviews',
+            `${process.env.REACT_APP_MAIN_SERVER}/api/v1/reviews`,
             { reviewID, action },
             {
                 headers: {
@@ -66,7 +66,7 @@ export const createReview = (productID, rating, content) => async (dispatch, get
     try {
         const { token } = getState().auth.userInfo;
         const { data } = await axios.post(
-            '/api/v1/reviews',
+            `${process.env.REACT_APP_MAIN_SERVER}/api/v1/reviews`,
             { productID, rating, content },
             {
                 headers: {

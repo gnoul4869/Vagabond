@@ -11,11 +11,14 @@ export const addInterest = (productID) => async (dispatch, getState) => {
 
     if (userInfo) {
         try {
-            const { data } = await axios.get('/api/v1/interests', {
-                headers: {
-                    Authorization: `Bearer ${userInfo.token}`,
-                },
-            });
+            const { data } = await axios.get(
+                `${process.env.REACT_APP_MAIN_SERVER}/api/v1/interests`,
+                {
+                    headers: {
+                        Authorization: `Bearer ${userInfo.token}`,
+                    },
+                }
+            );
 
             if (data?.userInterests.length !== 0) {
                 userInterests = data.userInterests;
@@ -69,7 +72,7 @@ export const addInterest = (productID) => async (dispatch, getState) => {
     if (userInfo) {
         try {
             await axios.post(
-                '/api/v1/interests',
+                `${process.env.REACT_APP_MAIN_SERVER}/api/v1/interests`,
                 { products: userInterests },
                 {
                     headers: {

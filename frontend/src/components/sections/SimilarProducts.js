@@ -33,18 +33,21 @@ const ProductSimilars = ({ product, showEmpty }) => {
                     : 10;
 
             try {
-                const { data } = await axios.get('/api/v1/products', {
-                    params: {
-                        excludeIDs: product.id,
-                        search: '',
-                        sort: 'sales',
-                        category: product.category,
-                        maxPrice: product.price * multiplier,
-                        minPrice: product.price / multiplier,
-                        page: 1,
-                        limit: 6,
-                    },
-                });
+                const { data } = await axios.get(
+                    `${process.env.REACT_APP_MAIN_SERVER}/api/v1/products`,
+                    {
+                        params: {
+                            excludeIDs: product.id,
+                            search: '',
+                            sort: 'sales',
+                            category: product.category,
+                            maxPrice: product.price * multiplier,
+                            minPrice: product.price / multiplier,
+                            page: 1,
+                            limit: 6,
+                        },
+                    }
+                );
 
                 const { products } = data;
 

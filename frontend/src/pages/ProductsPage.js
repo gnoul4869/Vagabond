@@ -124,7 +124,9 @@ const ProductsPage = () => {
         if (isInitialLoad) {
             const getProductCategories = async () => {
                 try {
-                    const { data } = await axios.get('/api/v1/products/categories');
+                    const { data } = await axios.get(
+                        `${process.env.REACT_APP_MAIN_SERVER}/api/v1/products/categories`
+                    );
                     const { categories } = data;
 
                     if (isMounted) {
@@ -183,6 +185,7 @@ const ProductsPage = () => {
                             products.map((item) => {
                                 return (
                                     <ProductCards
+                                        key={item.id}
                                         product={item}
                                         showRatings={true}
                                         showSales={false}

@@ -57,7 +57,7 @@ const CheckoutPage = () => {
                 };
             });
             await axios.post(
-                '/api/v1/orders',
+                `${process.env.REACT_APP_MAIN_SERVER}/api/v1/orders`,
                 { user, products, shippingFee },
                 {
                     headers: {

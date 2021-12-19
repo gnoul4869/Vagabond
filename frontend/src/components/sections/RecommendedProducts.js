@@ -28,7 +28,10 @@ const RecommendedProducts = ({ title }) => {
                     params.userInterests = JSON.stringify(userInterests);
                 }
 
-                const { data } = await axios.get('/api/v1/products/recommend', { params });
+                const { data } = await axios.get(
+                    `${process.env.REACT_APP_MAIN_SERVER}/api/v1/products/recommend`,
+                    { params }
+                );
 
                 const products = data.products;
 

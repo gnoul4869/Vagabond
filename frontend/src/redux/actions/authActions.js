@@ -17,7 +17,10 @@ export const login = (email, password) => async (dispatch, getState) => {
     dispatch({ type: LOGIN_REQUEST });
 
     try {
-        const { data } = await axios.post('/api/v1/auth/login', { email, password });
+        const { data } = await axios.post(
+            `${process.env.REACT_APP_MAIN_SERVER}/api/v1/auth/login`,
+            { email, password }
+        );
 
         const userInfo = {
             id: data.userInfo?.id,
@@ -68,21 +71,24 @@ export const register =
     async (dispatch) => {
         dispatch({ type: REGISTER_REQUEST });
         try {
-            const { data } = await axios.post('/api/v1/auth/register', {
-                email,
-                password,
-                name,
-                phoneNumber,
-                gender,
-                birthDate,
-                provinceID,
-                provinceName,
-                districtID,
-                districtName,
-                wardID,
-                wardName,
-                addressDetails,
-            });
+            const { data } = await axios.post(
+                `${process.env.REACT_APP_MAIN_SERVER}/api/v1/auth/register`,
+                {
+                    email,
+                    password,
+                    name,
+                    phoneNumber,
+                    gender,
+                    birthDate,
+                    provinceID,
+                    provinceName,
+                    districtID,
+                    districtName,
+                    wardID,
+                    wardName,
+                    addressDetails,
+                }
+            );
             const userInfo = {
                 id: data.userInfo?.id,
                 image: data.userInfo?.image,

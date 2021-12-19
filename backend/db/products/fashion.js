@@ -153,8 +153,8 @@ export const fashion = [
         description:
             'Một chiếc áo khoác len nam pha trộn màu xanh hải quân đầy phong cách của Scott by the Label, với kiểu dáng cổ điển, linh hoạt. \n\nTự hào với ve áo, lỗ thông hơi bên hông và hai cúc cài, chiếc áo khoác màu xanh đậm này là một món đồ cổ điển ngay lập tức cho bất kỳ tủ quần áo trang trọng nào. \n\nMột tác phẩm kinh điển của Scott by the Label.',
         images: [
+            'https://i.ibb.co/ygr4yGQ/scott-by-the-label-navy-blazer-01.jpg',
             'https://i.ibb.co/0GXJ2SC/scott-by-the-label-navy-blazer-02.jpg',
-            ' https://i.ibb.co/ygr4yGQ/scott-by-the-label-navy-blazer-01.jpg',
         ],
     },
     {

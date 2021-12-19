@@ -19,7 +19,9 @@ export const addToCart = (productID, qty, history) => async (dispatch, getState)
     const loadingItems = getState().cart.loadingItems;
     if (loadingItems.includes(productID)) {
         try {
-            const { data } = await axios.get(`/api/v1/products/${productID}`);
+            const { data } = await axios.get(
+                `${process.env.REACT_APP_MAIN_SERVER}/api/v1/products/${productID}`
+            );
             const { product } = data;
 
             if (product.countInStock === 0) {
@@ -74,7 +76,10 @@ export const updateCart = () => async (dispatch, getState) => {
         const cartItems = getState().cart.cartItems;
         const productIDs = cartItems.map((item) => item.id);
         if (productIDs.length !== 0) {
-            const { data } = await axios.get('/api/v1/products', { params: { productIDs } });
+            const { data } = await axios.get(
+                `${process.env.REACT_APP_MAIN_SERVER}/api/v1/products`,
+                { params: { productIDs } }
+            );
             const { products } = data;
 
             dispatch({ type: CART_UPDATE_SUCCESS, payload: products });

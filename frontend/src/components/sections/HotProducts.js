@@ -17,9 +17,12 @@ const HotProducts = () => {
 
         const getHotProducts = async () => {
             try {
-                const { data } = await axios.get('/api/v1/products', {
-                    params: { search: '', sort: 'sales', category: '', page: 1, limit: 6 },
-                });
+                const { data } = await axios.get(
+                    `${process.env.REACT_APP_MAIN_SERVER}/api/v1/products`,
+                    {
+                        params: { search: '', sort: 'sales', category: '', page: 1, limit: 6 },
+                    }
+                );
 
                 const { products } = data;
 

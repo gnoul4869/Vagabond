@@ -14,7 +14,7 @@ export const listProducts = (search, sort, category, page, limit) => async (disp
     dispatch({ type: PRODUCT_LIST_REQUEST });
 
     try {
-        const { data } = await axios.get('/api/v1/products', {
+        const { data } = await axios.get(`${process.env.REACT_APP_MAIN_SERVER}/api/v1/products`, {
             params: { search, sort, category, page, limit },
         });
         const { total, products } = data;
@@ -34,7 +34,9 @@ export const detailProduct = (productID) => async (dispatch) => {
     dispatch({ type: PRODUCT_DETAILS_REQUEST });
 
     try {
-        const { data } = await axios.get(`/api/v1/products/${productID}`);
+        const { data } = await axios.get(
+            `${process.env.REACT_APP_MAIN_SERVER}/api/v1/products/${productID}`
+        );
         const { product } = data;
         dispatch({ type: PRODUCT_DETAILS_SUCCESS, payload: product });
     } catch (error) {
