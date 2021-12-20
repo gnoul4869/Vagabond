@@ -53,14 +53,14 @@ app.use('/api/v1/interests', auth, interestsRouter);
 app.use(notFound);
 app.use(errorHandler);
 
-//? Initialize recommendation system every 6 hours
+//? Initialize recommendation system's looper
 const initializeRecommendation = async () => {
     try {
         await initializeMatrix();
 
         setTimeout(() => {
             initializeRecommendation();
-        }, 1000 * 60 * 60 * 1); //? Loop every 1 hours
+        }, 1000 * 60 * 30); //? Loop every 30 mins
     } catch (error) {
         console.log(error);
     }

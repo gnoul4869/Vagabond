@@ -187,9 +187,10 @@ const initializeMatrix = async () => {
         console.log('Initializing recommendation matrix...');
         const initializeTime = Date.now();
 
-        const [users, products] = await Promise.all([
+        const [users, products, reviews] = await Promise.all([
             User.find({}).select('_id').sort('createdAt').lean(),
             Product.find({}).select('name price rating numReviews images').sort('createdAt').lean(),
+            Review.find({}).sort('-createdAt').lean(),
         ]);
 
         const rows = users.length;
@@ -201,16 +202,15 @@ const initializeMatrix = async () => {
         // userID/productID: rating
 
         let valueCount = 0;
-        for (let u = 0; u < users.length; u++) {
+        for (let u = 0; u < rows; u++) {
             matrix[u] = new Array(columns);
-            for (let p = 0; p < products.length; p++) {
-                const review = await Review.findOne({
-                    createdBy: users[u]._id,
-                    createdIn: products[p]._id,
-                })
-                    .select('rating')
-                    .sort('createdAt')
-                    .lean();
+            for (let p = 0; p < columns; p++) {
+                const review = reviews.find(
+                    (item) =>
+                        item.createdBy.equals(users[u]._id) &&
+                        item.createdIn.equals(products[p]._id)
+                );
+
                 matrix[u][p] = review ? review.rating : null;
 
                 valueCount++;
@@ -233,9 +233,13 @@ const initializeMatrix = async () => {
 
         const timeElapsed = (Date.now() - initializeTime) / 1000;
 
-        console.log(
-            `Recommendation matrix initialized... [${valueCount} values] [${timeElapsed}s]`
-        );
+        console.log('=====================================');
+        console.log(`Recommendation matrix initialized...`);
+        console.log(`Total users: ${rows}`);
+        console.log(`Total products: ${columns}`);
+        console.log(`Total matrix values: ${valueCount}`);
+        console.log(`Time elapsed: ${timeElapsed} seconds`);
+        console.log('=====================================');
     } catch (error) {
         console.log(error);
     }
