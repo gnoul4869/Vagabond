@@ -4,13 +4,16 @@ import { FaCartPlus } from 'react-icons/fa';
 import moment from 'moment';
 import PriceFormat from '../PriceFormat';
 import RatingStars from '../RatingStars';
+import { normalizeViet } from '../../utils/normalizeViet';
 
 const ProductCards = ({ product, isAlt, showRatings, showSales, showDate, cartBtnHandler }) => {
+    const productName = normalizeViet(product.name.replace(/ |\//g, '-'), false);
+
     return (
         <>
             <div key={product.id} className={`product-wrapper${isAlt ? '-alt' : ''}`}>
                 <div className="product-container">
-                    <Link to={`/products/${product.id}`} className="link-inherit">
+                    <Link to={`/products/${productName}.${product.id}`} className="link-inherit">
                         <div className="product-image-container">
                             <img
                                 src={product.images[0]}

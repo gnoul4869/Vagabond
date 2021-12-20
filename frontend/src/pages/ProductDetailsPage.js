@@ -23,7 +23,9 @@ import RecommendedProducts from '../components/sections/RecommendedProducts';
 const ProductDetailsPage = () => {
     const dispatch = useDispatch();
     const history = useHistory();
-    const { id } = useParams();
+    const params = useParams();
+
+    const id = params.product.split('.')[1] || params.product.split('.')[0];
 
     const { isLoading, product, error } = useSelector((state) => state.productDetails);
     const cart = useSelector((state) => state.cart);
@@ -70,7 +72,7 @@ const ProductDetailsPage = () => {
 
     return (
         <>
-            {isLoading ? (
+            {isLoading || !product ? (
                 <ProductDetailsPageLoading />
             ) : (
                 product && (
