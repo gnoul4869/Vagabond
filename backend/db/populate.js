@@ -16,7 +16,7 @@ const populateUsers = async () => {
     try {
         await connectDB(process.env.MONGODB_URI);
 
-        await Promise.all([await User.deleteMany({}), await Address.deleteMany({})]);
+        await Promise.all([User.deleteMany({}), Address.deleteMany({})]);
 
         // await User.create(data.users);
         console.log('Users added to the database...');
