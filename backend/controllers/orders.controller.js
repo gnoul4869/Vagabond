@@ -96,8 +96,7 @@ export const updateOrder = async (req, res) => {
         }
     }
 
-    const priority =
-        status === 'pending' ? 0 : status === 'shipping' ? 1 : status === 'delivered' ? 2 : 3;
+    const priority = status === 'pending' ? 0 : status === 'shipping' ? 1 : 2;
 
     const newOrder = await Order.findByIdAndUpdate(
         orderID,
