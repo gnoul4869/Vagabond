@@ -522,10 +522,14 @@ select {
     width: 100%;
     background-image: repeating-linear-gradient(
         45deg,
-        steelblue 0 1.875rem,
-        transparent 1.875rem 2.8125rem,
-        coral 2.8125rem 4.6875rem,
-        transparent 4.6875rem 5.625rem
+        steelblue 0,
+        steelblue 1.875rem,
+        transparent 0,
+        transparent 2.8125rem,
+        coral 0,
+        coral 4.6875rem,
+        transparent 0,
+        transparent 5.625rem
     );
 }
 
@@ -646,10 +650,14 @@ select {
         width: 100%;
         background-image: repeating-linear-gradient(
             45deg,
-            steelblue 0 1.25rem,
-            transparent 1.25rem 1.875rem,
-            coral 1.875rem 3.125rem,
-            transparent 3.125rem 3.75rem
+            steelblue 0,
+            steelblue 1.25rem,
+            transparent 0,
+            transparent 1.875rem,
+            coral 0,
+            coral 3.125rem,
+            transparent 0,
+            transparent 3.75rem
         );
     }
     /** Image */
