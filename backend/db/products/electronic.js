@@ -108,7 +108,7 @@ export const electronic = [
         ],
     },
     {
-        name: 'Tay nghe Redmi AirDots 3 Pro',
+        name: 'Tai nghe Redmi AirDots 3 Pro',
         category: 'Điện tử',
         price: 1250000,
         countInStock: 70,
