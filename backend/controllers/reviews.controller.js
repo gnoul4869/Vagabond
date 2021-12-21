@@ -127,14 +127,18 @@ export const updateReview = async (req, res) => {
         throw new BadRequestError('Hành động cập nhật không hợp lệ');
     }
 
-    const review = await Review.findById(reviewID);
+    const startTime = Date.now();
+
+    const review = await Review.findById(reviewID).select('likedBy').lean();
 
     if (!review) {
         throw new NotFoundError('Đánh giá không tồn tại');
     }
 
     const query = {};
-    if (!review.likedBy.includes(req.user.id)) {
+
+    const isLiked = review.likedBy.some((user) => user.equals(req.user.id));
+    if (!isLiked) {
         query.$inc = { numLikes: 1 };
         query.$push = { likedBy: req.user.id };
     } else {
@@ -146,6 +150,8 @@ export const updateReview = async (req, res) => {
         new: true,
         runValidators: true,
     }).populate({ path: 'createdBy', select: 'name image' });
+
+    console.log(Date.now() - startTime);
 
     res.status(StatusCodes.OK).json({ review: newReview });
 };
