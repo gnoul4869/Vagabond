@@ -6,7 +6,6 @@ import { NotFoundError } from '../errors/custom-api-error.js';
 import { StatusCodes } from 'http-status-codes';
 import {
     recommend,
-    preloadedProducts,
     recommendationMatrix,
     recommendationARMatrix,
 } from '../utils/recommendation-system.js';
@@ -64,7 +63,11 @@ export const getAllProducts = async (req, res) => {
     const limit = Number(req.query.limit) || 15;
     const skip = (page - 1) * limit;
 
-    const products = await Product.find(query).sort(sortValue).limit(limit).skip(skip);
+    const products = await Product.find(query)
+        .select('name price rating numReviews images numSales createdAt')
+        .sort(sortValue)
+        .limit(limit)
+        .skip(skip);
 
     if (products.length === 0) {
         throw new NotFoundError('Không tìm thấy sản phẩm nào');
@@ -98,10 +101,10 @@ export const getRecommendedProducts = async (req, res) => {
 
     let recommendedProducts = [];
 
-    const products =
-        preloadedProducts.length !== 0
-            ? preloadedProducts
-            : await Product.find({}).sort('createdAt').lean();
+    const products = await Product.find({})
+        .select('name price rating numReviews images')
+        .sort('createdAt')
+        .lean();
 
     if (userID && recommendationMatrix.length !== 0 && recommendationARMatrix.length !== 0) {
         const users = await User.find({}).select('_id').sort('createdAt').lean();
