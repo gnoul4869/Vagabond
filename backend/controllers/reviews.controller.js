@@ -127,8 +127,6 @@ export const updateReview = async (req, res) => {
         throw new BadRequestError('Hành động cập nhật không hợp lệ');
     }
 
-    const startTime = Date.now();
-
     const review = await Review.findById(reviewID).select('likedBy').lean();
 
     if (!review) {
@@ -150,8 +148,6 @@ export const updateReview = async (req, res) => {
         new: true,
         runValidators: true,
     }).populate({ path: 'createdBy', select: 'name image' });
-
-    console.log(Date.now() - startTime);
 
     res.status(StatusCodes.OK).json({ review: newReview });
 };
