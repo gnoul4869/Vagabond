@@ -2,7 +2,6 @@ import Review from '../models/review.model.js';
 import Product from '../models/product.model.js';
 import User from '../models/user.model.js';
 
-let preloadedProducts = [];
 let recommendationMatrix = [];
 let recommendationARMatrix = [];
 
@@ -227,7 +226,6 @@ const initializeMatrix = async () => {
         // console.log('User Similarity Matrix---------------------');
         // console.log(userSimilarityMatrix);
 
-        preloadedProducts = products;
         recommendationMatrix = matrix;
         recommendationARMatrix = averageRatingMatrix;
 
@@ -245,10 +243,4 @@ const initializeMatrix = async () => {
     }
 };
 
-export {
-    initializeMatrix,
-    recommend,
-    preloadedProducts,
-    recommendationMatrix,
-    recommendationARMatrix,
-};
+export { initializeMatrix, recommend, recommendationMatrix, recommendationARMatrix };
