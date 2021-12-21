@@ -1,13 +1,23 @@
 import React, { useEffect, useState } from 'react';
-import { useLocation, Link } from 'react-router-dom';
+import { useLocation, useHistory } from 'react-router-dom';
 import queryString from 'query-string';
 import { FiSearch } from 'react-icons/fi';
 
 const SearchBox = () => {
+    const history = useHistory();
     const location = useLocation();
     const [search, setSearch] = useState('');
 
     const searchQuery = queryString.parse(location.search);
+
+    const searchHandler = (e) => {
+        e.preventDefault();
+
+        history.push({
+            pathname: '/products',
+            search: `?search=${search}`,
+        });
+    };
 
     useEffect(() => {
         if (!searchQuery.search) {
@@ -16,7 +26,7 @@ const SearchBox = () => {
     }, [searchQuery.search]);
 
     return (
-        <div className="d-flex navbar-form-inputs">
+        <form className="d-flex navbar-form-inputs" onSubmit={(e) => searchHandler(e)}>
             <input
                 type="text"
                 id="searchbox"
@@ -25,17 +35,11 @@ const SearchBox = () => {
                 value={search}
                 onChange={(e) => setSearch(e.target.value)}
             />
-            <Link
-                to={{
-                    pathname: '/',
-                    search: `?search=${search}`,
-                }}
-            >
-                <div className="btn-search">
-                    <FiSearch className="search-icon" />
-                </div>
-            </Link>
-        </div>
+
+            <button type="submit" className="btn-search">
+                <FiSearch className="search-icon" />
+            </button>
+        </form>
     );
 };
 
