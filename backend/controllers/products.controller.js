@@ -64,7 +64,7 @@ export const getAllProducts = async (req, res) => {
     const skip = (page - 1) * limit;
 
     const products = await Product.find(query)
-        .select('name price rating numReviews images numSales createdAt')
+        .select('name price countInStock weight rating numReviews images numSales createdAt')
         .sort(sortValue)
         .limit(limit)
         .skip(skip);
