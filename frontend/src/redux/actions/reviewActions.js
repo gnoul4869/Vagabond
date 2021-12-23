@@ -20,6 +20,7 @@ export const listReviews = (productID, rating, page, limit) => async (dispatch) 
         const { data } = await axios.get(`${process.env.REACT_APP_MAIN_SERVER}/api/v1/reviews`, {
             params: { productID, rating, page, limit },
         });
+
         const { total, reviews } = data;
         dispatch({ type: REVIEW_LIST_SUCCESS, payload: { total, reviews } });
     } catch (error) {

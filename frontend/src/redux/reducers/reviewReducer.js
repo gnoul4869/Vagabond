@@ -38,6 +38,7 @@ export const review = (
                 ...state,
                 total: action.payload.total,
                 reviews: action.payload.reviews,
+                error: '',
                 isLoading: false,
             };
         case REVIEW_LIST_FAIL:
@@ -55,6 +56,7 @@ export const review = (
             return {
                 ...state,
                 reviews: updatedReviews,
+                error: '',
                 isUpdating: false,
             };
         case REVIEW_UPDATE_FAIL:
@@ -72,6 +74,7 @@ export const review = (
                 reviews: newReviews,
                 newRating: action.payload.product.rating,
                 newNumReviews: action.payload.product.totalNumReviews,
+                error: '',
                 isUpdating: false,
             };
         case REVIEW_CREATE_FAIL:
