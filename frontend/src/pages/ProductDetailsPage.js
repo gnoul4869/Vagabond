@@ -25,7 +25,7 @@ const ProductDetailsPage = () => {
     const history = useHistory();
     const params = useParams();
 
-    const id = params.product.split('.')[1] || params.product.split('.')[0];
+    const id = params.product.split('.').pop();
 
     const { isLoading, product, error } = useSelector((state) => state.productDetails);
     const cart = useSelector((state) => state.cart);
