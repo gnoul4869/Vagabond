@@ -4,6 +4,7 @@
     "description": "Vagabond E-Commerce MERN Stack Application",
     "main": "index.js",
     "dependencies": {
+        "moment": "^2.29.1",
         "uuid": "^8.3.2"
     },
     "devDependencies": {
